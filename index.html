@@ -341,6 +341,11 @@
       padding: 0 40px 24px;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+      cursor: grab;
+      user-select: none;
+    }
+    .showcase-track:active {
+      cursor: grabbing;
     }
     .showcase-track::-webkit-scrollbar { display: none; }
     .showcase-card {
@@ -1119,14 +1124,45 @@
       observer.observe(el);
     });
 
-    // HORIZONTAL SCROLL with mouse wheel
+    // HORIZONTAL SCROLL with mouse wheel (trackpad friendly)
     const showcaseTrack = document.querySelector('.showcase-track');
     if (showcaseTrack) {
       showcaseTrack.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+          // Horizontal native scroll — let browser handle
+          return;
+        }
         if (e.deltaY !== 0) {
           e.preventDefault();
           showcaseTrack.scrollLeft += e.deltaY;
         }
+      }, { passive: false });
+
+      // Drag to scroll (mouse + trackpad friendly)
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+      showcaseTrack.addEventListener('mousedown', (e) => {
+        isDown = true;
+        showcaseTrack.classList.add('active');
+        startX = e.pageX - showcaseTrack.offsetLeft;
+        scrollLeft = showcaseTrack.scrollLeft;
+      });
+      showcaseTrack.addEventListener('mouseleave', () => { isDown = false; showcaseTrack.classList.remove('active'); });
+      showcaseTrack.addEventListener('mouseup', () => { isDown = false; showcaseTrack.classList.remove('active'); });
+      showcaseTrack.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - showcaseTrack.offsetLeft;
+        const walk = (x - startX) * 2;
+        showcaseTrack.scrollLeft = scrollLeft - walk;
+      });
+
+      // Arrow key navigation
+      showcaseTrack.setAttribute('tabindex', '0');
+      showcaseTrack.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') showcaseTrack.scrollLeft += 200;
+        if (e.key === 'ArrowLeft') showcaseTrack.scrollLeft -= 200;
       });
     }
 
