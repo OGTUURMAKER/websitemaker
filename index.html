@@ -120,104 +120,14 @@
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
     .hamburger span { display: block; width: 22px; height: 2px; background: #fff; transition: all 0.3s; }
 
-    /* ===== HERO ===== */
-    .hero {
-      min-height: 100vh; display: flex; align-items: center;
-      position: relative; padding: 140px 48px 100px;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; inset: 0; pointer-events: none;
-    }
-    .hero-orb {
-      position: absolute; border-radius: 50%;
-      filter: blur(120px); opacity: 0.12;
-      animation: orbFloat 20s ease-in-out infinite;
-    }
-    .orb-1 {
-      width: 600px; height: 600px; background: #7850ff;
-      top: -200px; right: -100px;
-      animation-delay: 0s;
-    }
-    .orb-2 {
-      width: 500px; height: 500px; background: #ff6496;
-      bottom: -200px; left: -100px;
-      animation-delay: -7s;
-    }
-    .orb-3 {
-      width: 400px; height: 400px; background: #7850ff;
-      top: 40%; left: 50%;
-      animation-delay: -14s;
-    }
-    @keyframes orbFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      25% { transform: translate(50px, -30px) scale(1.1); }
-      50% { transform: translate(-30px, 50px) scale(0.9); }
-      75% { transform: translate(40px, 20px) scale(1.05); }
-    }
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-    }
-    .hero-content { display: none; }
-    .hero-pill {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 24px; border-radius: 100px;
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      font-size: 0.78rem; font-weight: 600; color: var(--accent);
-      margin-bottom: 40px; letter-spacing: 2px; text-transform: uppercase;
-    }
-    .hero-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: #7850ff; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-    .hero-title {\n      font-family: var(--font-heading);\n      font-size: clamp(2.4rem, 5.5vw, 4.5rem); font-weight: 700; line-height: 1.1;\n      letter-spacing: -2px; margin-bottom: 32px;\n      color: #fff;\n    }
-    .hero-title .line { display: block; overflow: hidden; }
-    .hero-title .line span {
-      display: inline-block;
-      animation: slideUp 1s ease forwards;
-      opacity: 0; transform: translateY(100%);
-    }
-    .line-1 span { animation-delay: 0.5s; }
-    .line-2 span { animation-delay: 0.7s; }
-    .line-3 span { animation-delay: 0.9s; }
-    @keyframes slideUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .hero-title .gradient {
-      background: linear-gradient(135deg, #7850ff 0%, #ff6496 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-desc {
-      font-size: 1.125rem; color: var(--text-muted); max-width: 520px;
-      margin-bottom: 56px;
-      opacity: 0; animation: fadeIn 1s ease 1.2s forwards;
-    }
-    @keyframes fadeIn { to { opacity: 1; } }
-    .hero-actions {
-      display: flex; gap: 16px; justify-content: center;
-      opacity: 0; animation: fadeIn 1s ease 1.5s forwards;
-    }
+    /* ===== BUTTONS ===== */
     .btn {
       display: inline-flex; align-items: center; gap: 10px;
-      padding: 16px 36px; border-radius: 100px;
-      font-weight: 600; font-size: 0.9rem;
+      padding: 14px 32px; border-radius: 100px;
+      font-weight: 600; font-size: 0.88rem;
       cursor: pointer; transition: all 0.4s var(--ease-out); border: none;
-      position: relative; overflow: hidden;
+      position: relative; overflow: hidden; text-decoration: none;
     }
-    .btn::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1));
-      opacity: 0; transition: opacity 0.4s;
-    }
-    .btn:hover::before { opacity: 1; }
     .btn-primary {
       background: linear-gradient(135deg, var(--accent), #5a3fd4);
       color: #fff; box-shadow: 0 4px 30px rgba(120,80,255,0.3);
@@ -228,21 +138,334 @@
       backdrop-filter: blur(10px);
     }
     .btn-ghost:hover { border-color: rgba(255,255,255,0.2); color: #fff; background: rgba(255,255,255,0.06); transform: translateY(-3px); }
+
+    /* ===== HERO — LAPTOP FIRST ===== */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      position: relative; padding: 120px 48px 80px; overflow: hidden;
+    }
+    .hero-bg { position: absolute; inset: 0; pointer-events: none; }
+    .hero-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(120px); opacity: 0.10;
+      animation: orbFloat 20s ease-in-out infinite;
+    }
+    .orb-1 { width: 600px; height: 600px; background: #7850ff; top: -200px; right: -100px; animation-delay: 0s; }
+    .orb-2 { width: 500px; height: 500px; background: #ff6496; bottom: -200px; left: -100px; animation-delay: -7s; }
+    .orb-3 { width: 400px; height: 400px; background: #7850ff; top: 40%; left: 50%; animation-delay: -14s; }
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(50px, -30px) scale(1.1); }
+      50% { transform: translate(-30px, 50px) scale(0.9); }
+      75% { transform: translate(40px, 20px) scale(1.05); }
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    }
+
+    /* Hero layout */
+    .hero-inner {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; gap: 60px;
+      max-width: 1400px; width: 100%; margin: 0 auto;
+    }
+    .hero-text {
+      flex: 0 0 380px; max-width: 380px;
+      display: flex; flex-direction: column; align-items: flex-start;
+    }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 20px; border-radius: 100px;
+      background: var(--glass); backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      font-size: 0.72rem; font-weight: 600; color: var(--accent);
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: #7850ff; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; line-height: 1.2;
+      letter-spacing: -1px; margin-bottom: 16px; color: #fff;
+    }
+    .hero-title .gradient {
+      background: linear-gradient(135deg, #7850ff 0%, #ff6496 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-desc {
+      font-size: 0.95rem; color: var(--text-muted); max-width: 340px;
+      margin-bottom: 32px; line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 12px; }
+
+    /* ===== LAPTOP MOCKUP ===== */
+    .laptop-wrapper {
+      flex: 1; display: flex; justify-content: center; align-items: center;
+      position: relative; perspective: 1200px;
+    }
+    .laptop {
+      position: relative; width: 100%; max-width: 780px;
+      transform: rotateY(-8deg) rotateX(4deg);
+      transform-style: preserve-3d;
+      animation: laptopFloat 6s ease-in-out infinite;
+    }
+    @keyframes laptopFloat {
+      0%, 100% { transform: rotateY(-8deg) rotateX(4deg) translateY(0); }
+      50% { transform: rotateY(-8deg) rotateX(4deg) translateY(-12px); }
+    }
+
+    /* Laptop screen */
+    .laptop-screen {
+      position: relative;
+      background: #1a1a2e;
+      border-radius: 16px 16px 0 0;
+      border: 3px solid #2a2a3e;
+      border-bottom: none;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .laptop-screen::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 8px; height: 8px; border-radius: 50%; background: #333;
+      z-index: 10; margin-top: 6px;
+    }
+    .laptop-screen::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 40%);
+      pointer-events: none; z-index: 5;
+    }
+
+    /* Screen content — the website preview */
+    .laptop-display {
+      width: 100%; height: 0; padding-bottom: 62%;
+      position: relative; overflow: hidden;
+      background: #0a0a12;
+    }
+    .laptop-display-inner {
+      position: absolute; inset: 0;
+      overflow: hidden;
+    }
+
+    /* Mini website inside laptop */
+    .mini-site { width: 100%; height: 100%; background: #0a0a12; font-size: 0; }
+    .mini-nav {
+      height: 8%; background: rgba(10,10,18,0.9);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 3%;
+    }
+    .mini-nav-logo {
+      font-family: var(--font-heading); font-size: clamp(8px, 1.2vw, 14px);
+      font-weight: 700; background: linear-gradient(135deg, #7850ff, #ff6496);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      letter-spacing: 2px;
+    }
+    .mini-nav-links { display: flex; gap: 3%; }
+    .mini-nav-links span {
+      display: block; height: 2px; width: clamp(20px, 3vw, 40px);
+      background: rgba(255,255,255,0.2); border-radius: 1px;
+    }
+    .mini-nav-cta {
+      height: 4%; padding: 0 2%; border-radius: 3px;
+      background: linear-gradient(135deg, #7850ff, #5a3fd4);
+      display: flex; align-items: center;
+    }
+    .mini-nav-cta span { display: block; height: 1px; width: 100%; background: rgba(255,255,255,0.7); }
+
+    .mini-hero {
+      padding: 5% 3%; display: flex; align-items: center; gap: 3%;
+    }
+    .mini-hero-text { flex: 1; }
+    .mini-hero-title-1 {
+      font-family: var(--font-heading);
+      font-size: clamp(10px, 1.8vw, 22px);
+      font-weight: 700; color: #fff; line-height: 1.15;
+      margin-bottom: 4px;
+    }
+    .mini-hero-title-2 {
+      font-family: var(--font-heading);
+      font-size: clamp(10px, 1.8vw, 22px);
+      font-weight: 700; line-height: 1.15;
+      background: linear-gradient(135deg, #7850ff, #ff6496);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 6px;
+    }
+    .mini-hero-desc {
+      font-size: clamp(5px, 0.7vw, 9px); color: #666;
+      line-height: 1.5; margin-bottom: 8px; max-width: 80%;
+    }
+    .mini-hero-btns { display: flex; gap: 2%; }
+    .mini-btn-primary {
+      padding: 2% 4%; border-radius: 4px;
+      background: linear-gradient(135deg, #7850ff, #5a3fd4);
+      font-size: clamp(5px, 0.6vw, 8px); color: #fff; font-weight: 600;
+    }
+    .mini-btn-ghost {
+      padding: 2% 4%; border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: clamp(5px, 0.6vw, 8px); color: #888; font-weight: 600;
+    }
+    .mini-hero-visual {
+      flex: 0 0 35%; height: clamp(60px, 10vw, 120px);
+      border-radius: 6px; overflow: hidden; position: relative;
+      background: linear-gradient(135deg, rgba(120,80,255,0.15), rgba(255,100,150,0.1));
+      border: 1px solid rgba(120,80,255,0.2);
+    }
+    .mini-hero-visual::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, transparent 60%, rgba(120,80,255,0.08));
+    }
+    .mini-cards-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 4%;
+      padding: 2% 3% 0;
+    }
+    .mini-card {
+      background: rgba(13,13,20,0.6);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 4px; padding: 8% 6%;
+    }
+    .mini-card-icon {
+      width: clamp(12px, 1.5vw, 20px); height: clamp(12px, 1.5vw, 20px);
+      border-radius: 3px; margin-bottom: 4px;
+    }
+    .mini-card-icon.purple { background: rgba(120,80,255,0.2); }
+    .mini-card-icon.pink { background: rgba(255,100,150,0.2); }
+    .mini-card-icon.blue { background: rgba(80,200,255,0.2); }
+    .mini-card-title {
+      font-size: clamp(5px, 0.65vw, 9px); font-weight: 700; color: #fff;
+      margin-bottom: 2px;
+    }
+    .mini-card-desc {
+      font-size: clamp(4px, 0.5vw, 7px); color: #555; line-height: 1.4;
+    }
+
+    /* Stats row */
+    .mini-stats {
+      display: flex; gap: 2%; padding: 2% 3% 3%;
+    }
+    .mini-stat {
+      flex: 1; text-align: center; padding: 2% 1%;
+      background: rgba(255,255,255,0.02); border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .mini-stat-num {
+      font-family: var(--font-heading);
+      font-size: clamp(8px, 1.1vw, 16px); font-weight: 800;
+      margin-bottom: 1px;
+    }
+    .mini-stat-num.purple { color: #7850ff; }
+    .mini-stat-num.pink { color: #ff6496; }
+    .mini-stat-num.cyan { color: #50c8ff; }
+    .mini-stat-label {
+      font-size: clamp(4px, 0.5vw, 7px); color: #555;
+    }
+
+    /* Laptop base / keyboard */
+    .laptop-base {
+      position: relative;
+      background: linear-gradient(180deg, #2a2a3e 0%, #1e1e2e 100%);
+      border-radius: 0 0 12px 12px;
+      padding: 1.5% 3% 3%;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+    .laptop-keyboard {
+      display: grid; grid-template-rows: repeat(5, 1fr); gap: 2%;
+      margin-bottom: 2%;
+    }
+    .keyboard-row { display: flex; gap: 1%; }
+    .key {
+      flex: 1; height: clamp(4px, 0.5vw, 8px);
+      background: rgba(255,255,255,0.06); border-radius: 1px;
+    }
+    .key.space { flex: 4; }
+    .laptop-trackpad {
+      width: 25%; height: clamp(10px, 1.2vw, 20px);
+      background: rgba(255,255,255,0.04); border-radius: 3px;
+      margin: 0 auto;
+    }
+
+    /* Laptop reflection */
+    .laptop-reflection {
+      position: absolute; bottom: -30%; left: 10%; right: 10%; height: 30%;
+      background: linear-gradient(180deg, rgba(120,80,255,0.04), transparent);
+      transform: scaleY(-1) rotateX(60deg);
+      filter: blur(8px); pointer-events: none; opacity: 0.5;
+    }
+
+    /* ===== FLOATING CARDS ===== */
+    .float-card {
+      position: absolute;
+      background: rgba(13,13,20,0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px; padding: 14px 18px;
+      display: flex; align-items: center; gap: 10px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      animation: floatCard 5s ease-in-out infinite;
+      z-index: 3;
+    }
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .float-card-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; flex-shrink: 0;
+    }
+    .float-card-icon.purple { background: rgba(120,80,255,0.15); color: #7850ff; }
+    .float-card-icon.pink { background: rgba(255,100,150,0.15); color: #ff6496; }
+    .float-card-icon.cyan { background: rgba(80,200,255,0.15); color: #50c8ff; }
+    .float-card-icon.yellow { background: rgba(255,216,80,0.15); color: #ffd850; }
+    .float-card-label { font-size: 0.65rem; color: #665; margin-bottom: 2px; }
+    .float-card-value { font-size: 0.85rem; font-weight: 700; color: #fff; }
+
+    .float-card.top-left { top: 8%; left: -5%; animation-delay: 0s; }
+    .float-card.top-right { top: 12%; right: -5%; animation-delay: -1.5s; }
+    .float-card.bottom-left { bottom: 15%; left: -3%; animation-delay: -3s; }
+    .float-card.bottom-right { bottom: 10%; right: -3%; animation-delay: -2s; }
+
+    /* Scroll indicator */
     .scroll-indicator {
-      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 8px;
-      opacity: 0; animation: fadeIn 1s ease 2s forwards;
+      opacity: 0.4;
     }
-    .scroll-indicator span { font-size: 0.65rem; color: #444; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; }
-    @media (max-height: 700px) {
-      .scroll-indicator { display: none; }
-    }
+    .scroll-indicator span { font-size: 0.6rem; color: #444; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; }
     .scroll-line {
-      width: 1px; height: 40px;
+      width: 1px; height: 36px;
       background: linear-gradient(to bottom, #7850ff, transparent);
       animation: scrollLine 2s ease-in-out infinite;
     }
     @keyframes scrollLine {
+      0%, 100% { transform: scaleY(0.3); opacity: 0.3; }
+      50% { transform: scaleY(1); opacity: 1; }
+    }
+
+    /* ===== HERO RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero-inner { flex-direction: column; gap: 40px; text-align: center; }
+      .hero-text { flex: none; max-width: 100%; align-items: center; }
+      .hero-desc { max-width: 100%; }
+      .hero-actions { justify-content: center; }
+      .laptop { max-width: 600px; transform: rotateY(0) rotateX(2deg); }
+      .float-card { display: none; }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 100px 24px 60px; }
+      .hero-title { font-size: 1.5rem; }
+      .laptop { max-width: 100%; }
+      .laptop-screen { border-radius: 10px 10px 0 0; }
+      .laptop-base { border-radius: 0 0 8px 8px; }
+    }
+
+    /* ===== MARQUEE ===== */
       0%, 100% { transform: scaleY(0.3); opacity: 0.3; }
       50% { transform: scaleY(1); opacity: 1; }
     }
@@ -906,23 +1129,138 @@
       <div class="hero-orb orb-3"></div>
       <div class="hero-grid"></div>
     </div>
+
     <div class="hero-inner">
 
-      <!-- LEFT: Text -->
+      <!-- LEFT: Minimal text -->
       <div class="hero-text">
         <div class="hero-pill"><span class="dot"></span> <span data-mn="heroPill">Website + Video Studio</span></div>
         <h1 class="hero-title">
-          <span class="line"><span data-mn="heroLine1">Вэбсайт ба видео.</span></span>
-          <span class="line"><span class="gradient" data-mn="heroLine2">Бизнес өсөлтийн эхлэл.</span></span>
+          <span data-mn="heroLine1">Бизнесээ онлайнаар өсгө.</span>
+          <span class="gradient" data-mn="heroLine2">Вэбсайт болон видео контент.</span>
         </h1>
-        <p class="hero-desc" data-mn="heroDesc">Жижиг бизнес, брэнд, үйлчилгээний байгууллагад зориулсан вэбсайт болон видео контент бүтэнэ.</p>
+        <p class="hero-desc" data-mn="heroDesc">Мэргэжлийн вэбсайт болон видео контент бүтээдэг. Эхний ярилцлага үнэгүй.</p>
         <div class="hero-actions">
           <a href="#pricing" class="btn btn-primary"><i class="fas fa-rocket"></i> <span data-mn="heroBtn1">Үнийн санал авах</span></a>
           <a href="#work" class="btn btn-ghost"><i class="fas fa-play-circle"></i> <span data-mn="heroBtn2">Ажлууд харах</span></a>
         </div>
       </div>
 
+      <!-- RIGHT: Laptop mockup -->
+      <div class="laptop-wrapper">
+
+        <!-- Floating cards -->
+        <div class="float-card top-left">
+          <div class="float-card-icon purple"><i class="fas fa-code"></i></div>
+          <div>
+            <div class="float-card-label">Үйлчилгээ</div>
+            <div class="float-card-value">Website</div>
+          </div>
+        </div>
+        <div class="float-card top-right">
+          <div class="float-card-icon pink"><i class="fas fa-video"></i></div>
+          <div>
+            <div class="float-card-label">Үйлчилгээ</div>
+            <div class="float-card-value">Video</div>
+          </div>
+        </div>
+        <div class="float-card bottom-left">
+          <div class="float-card-icon cyan"><i class="fas fa-tag"></i></div>
+          <div>
+            <div class="float-card-label">Үнэ</div>
+            <div class="float-card-value">450,000₮ эхэлнэ</div>
+          </div>
+        </div>
+        <div class="float-card bottom-right">
+          <div class="float-card-icon yellow"><i class="fas fa-clock"></i></div>
+          <div>
+            <div class="float-card-label">Хугацаа</div>
+            <div class="float-card-value">5 хоногт бэлэн</div>
+          </div>
+        </div>
+
+        <!-- Laptop -->
+        <div class="laptop">
+          <div class="laptop-screen">
+            <div class="laptop-display">
+              <div class="laptop-display-inner">
+                <div class="mini-site">
+                  <!-- Mini nav -->
+                  <div class="mini-nav">
+                    <div class="mini-nav-logo">OGT UUR</div>
+                    <div class="mini-nav-links">
+                      <span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="mini-nav-cta"><span></span></div>
+                  </div>
+                  <!-- Mini hero inside laptop -->
+                  <div class="mini-hero">
+                    <div class="mini-hero-text">
+                      <div class="mini-hero-title-1">Вэбсайт ба видео.</div>
+                      <div class="mini-hero-title-2">Бизнес өсөлтийн эхлэл.</div>
+                      <div class="mini-hero-desc">Жижиг бизнес, брэнд, үйлчилгээний байгууллагад зориулсан вэбсайт болон видео контент.</div>
+                      <div class="mini-hero-btns">
+                        <div class="mini-btn-primary">Үнийн санал авах</div>
+                        <div class="mini-btn-ghost">Ажлууд харах</div>
+                      </div>
+                    </div>
+                    <div class="mini-hero-visual"></div>
+                  </div>
+                  <!-- Mini cards -->
+                  <div class="mini-cards-grid">
+                    <div class="mini-card">
+                      <div class="mini-card-icon purple"></div>
+                      <div class="mini-card-title">Вэбсайт</div>
+                      <div class="mini-card-desc">Мэргэжлийн вэбсайт</div>
+                    </div>
+                    <div class="mini-card">
+                      <div class="mini-card-icon pink"></div>
+                      <div class="mini-card-title">Видео</div>
+                      <div class="mini-card-desc">Промо видео бүтээх</div>
+                    </div>
+                    <div class="mini-card">
+                      <div class="mini-card-icon blue"></div>
+                      <div class="mini-card-title">Дизайн</div>
+                      <div class="mini-card-desc">Брэндийн дизайн</div>
+                    </div>
+                  </div>
+                  <!-- Mini stats -->
+                  <div class="mini-stats">
+                    <div class="mini-stat">
+                      <div class="mini-stat-num purple">30+</div>
+                      <div class="mini-stat-label">Вэбсайт</div>
+                    </div>
+                    <div class="mini-stat">
+                      <div class="mini-stat-num pink">50+</div>
+                      <div class="mini-stat-label">Видео</div>
+                    </div>
+                    <div class="mini-stat">
+                      <div class="mini-stat-num cyan">100%</div>
+                      <div class="mini-stat-label">Сэтгэл ханамж</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Reflection -->
+          <div class="laptop-reflection"></div>
+          <!-- Keyboard base -->
+          <div class="laptop-base">
+            <div class="laptop-keyboard">
+              <div class="keyboard-row"><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div></div>
+              <div class="keyboard-row"><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div></div>
+              <div class="keyboard-row"><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div></div>
+              <div class="keyboard-row"><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div></div>
+              <div class="keyboard-row"><div class="key"></div><div class="key space"></div><div class="key"></div></div>
+            </div>
+            <div class="laptop-trackpad"></div>
+          </div>
+        </div>
+
+      </div>
     </div>
+
     <div class="scroll-indicator">
       <span data-mn="scrollText">Гүйлгэж харах</span>
       <div class="scroll-line"></div>
