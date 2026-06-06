@@ -64,34 +64,7 @@
       66% { transform: translate(-40px, 60px) scale(0.9); opacity: 0.06; }
     }
 
-    /* ===== PRELOADER ===== */
-    #preloader {
-      position: fixed; inset: 0;
-      background: #030308;
-      z-index: 10000;
-      display: flex; align-items: center; justify-content: center;
-      transition: opacity 0.8s ease, visibility 0.8s;
-    }
-    #preloader.hidden { opacity: 0; visibility: hidden; }
-    .loader {
-      display: flex; flex-direction: column; align-items: center; gap: 24px;
-    }
-    .loader-dots { display: flex; gap: 8px; }
-    .loader-dots span {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      animation: loaderBounce 1.4s ease-in-out infinite;
-    }
-    .loader-dots span:nth-child(1) { background: var(--accent); animation-delay: 0s; }
-    .loader-dots span:nth-child(2) { background: var(--accent-2); animation-delay: 0.2s; }
-    .loader-dots span:nth-child(3) { background: var(--accent-3); animation-delay: 0.4s; }
-    .loader-bar { width: 120px; height: 2px; background: var(--glass); border-radius: 1px; overflow: hidden; }
-    .loader-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); animation: loaderFill 1.2s ease forwards; }
-    @keyframes loaderBounce {
-      0%, 80%, 100% { transform: scale(0.4); opacity: 0.3; }
-      40% { transform: scale(1); opacity: 1; }
-    }
-    @keyframes loaderFill { to { width: 100%; } }
+    /* ===== PRELOADER removed — was causing loading stuck ===== */
 
     /* ===== NAV ===== */
     nav {
@@ -784,13 +757,7 @@
   <!-- NOISE -->
   <div class="noise"></div>
 
-  <!-- PRELOADER -->
-  <div id="preloader">
-    <div class="loader">
-      <div class="loader-dots"><span></span><span></span><span></span></div>
-      <div class="loader-bar"><div class="loader-bar-fill"></div></div>
-    </div>
-  </div>
+  <!-- PRELOADER removed — was causing loading stuck -->
 
   <!-- NAV -->
   <nav id="navbar">
@@ -1298,32 +1265,7 @@
   </div>
 
   <script>
-    // PRELOADER — robust hide with multiple fallbacks
-    (function() {
-      var hidden = false;
-      function hidePreloader() {
-        if (hidden) return;
-        hidden = true;
-        var p = document.getElementById('preloader');
-        if (!p) return;
-        p.style.transition = 'opacity 0.5s ease';
-        p.style.opacity = '0';
-        p.style.pointerEvents = 'none';
-        setTimeout(function() {
-          p.style.display = 'none';
-        }, 600);
-      }
-      // Hide 1.5s after DOM ready (don't wait for all images/fonts)
-      document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(hidePreloader, 1500);
-      });
-      // Also hide on load event (whichever comes first after 1.5s)
-      window.addEventListener('load', function() {
-        setTimeout(hidePreloader, 500);
-      });
-      // Hard fallback: always gone after 4s
-      setTimeout(hidePreloader, 4000);
-    })();
+    // PRELOADER removed — was causing loading stuck
 
     // CUSTOM CURSOR
     const cursor = document.getElementById('cursor');
