@@ -912,4 +912,1748 @@
     @media (max-width: 768px) {
       .lang-switcher { display: none; }
     }
+    /* ===== HERO — CONVERSION 2026 ===== */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; padding: 120px 48px 80px; overflow: hidden;
+    }
+    .hero-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+    .hero-orb {
+      position: absolute; border-radius: 50%; filter: blur(140px);
+      animation: orbFloat 20s ease-in-out infinite; will-change: transform;
+    }
+    .orb-1 { width: 700px; height: 700px; background: #7850ff; top: -250px; right: -150px; opacity: 0.08; animation-delay: 0s; }
+    .orb-2 { width: 550px; height: 550px; background: #ff6496; bottom: -250px; left: -150px; opacity: 0.06; animation-delay: -7s; }
+    .orb-3 { width: 450px; height: 450px; background: #50c8ff; top: 35%; left: 45%; opacity: 0.04; animation-delay: -14s; }
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(60px, -40px) scale(1.08); }
+      50% { transform: translate(-40px, 60px) scale(0.92); }
+      75% { transform: translate(50px, 30px) scale(1.04); }
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    }
+    .hero-glow {
+      position: absolute; top: 40%; left: 60%; transform: translate(-50%, -50%);
+      width: 800px; height: 800px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(120,80,255,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    /* Hero layout — 40/60 split */
+    .hero-inner {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; gap: 40px;
+      max-width: 1400px; width: 100%; margin: 0 auto;
+    }
+    /* LEFT: 40% text */
+    .hero-text {
+      flex: 0 0 40%; max-width: 440px;
+      display: flex; flex-direction: column; align-items: flex-start;
+    }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 9px 24px; border-radius: 100px;
+      background: rgba(120,80,255,0.06); backdrop-filter: blur(12px);
+      border: 1px solid rgba(120,80,255,0.12);
+      font-size: 0.72rem; font-weight: 600; color: var(--accent);
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 32px;
+      opacity: 0; animation: fadeInUp 0.8s ease 0.2s forwards;
+      transition: all 0.3s ease;
+    }
+    .hero-pill:hover { background: rgba(120,80,255,0.1); border-color: rgba(120,80,255,0.2); }
+    .hero-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: #7850ff; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 700; line-height: 1.1;
+      letter-spacing: -2px; margin-bottom: 20px; color: #fff;
+      opacity: 0; animation: fadeInUp 0.8s ease 0.4s forwards;
+    }
+    .hero-title .gradient {
+      background: linear-gradient(135deg, #7850ff 0%, #ff6496 50%, #50c8ff 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-desc {
+      font-size: 1rem; color: #888; max-width: 400px;
+      margin-bottom: 36px; line-height: 1.7;
+      opacity: 0; animation: fadeInUp 0.8s ease 0.6s forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      opacity: 0; animation: fadeInUp 0.8s ease 0.8s forwards;
+    }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ===== LAPTOP — 60% ===== */
+    .laptop-wrapper {
+      flex: 0 0 58%; display: flex; justify-content: center; align-items: center;
+      position: relative; perspective: 1400px; min-width: 0;
+    }
+    .laptop {
+      position: relative; width: 100%; max-width: 800px;
+      transform: rotateY(-8deg) rotateX(4deg);
+      transform-style: preserve-3d;
+      animation: laptopFloat 6s ease-in-out infinite;
+      will-change: transform;
+    }
+    @keyframes laptopFloat {
+      0%, 100% { transform: rotateY(-8deg) rotateX(4deg) translateY(0); }
+      50% { transform: rotateY(-8deg) rotateX(4deg) translateY(-12px); }
+    }
+    .laptop-screen {
+      position: relative; background: #12121e;
+      border-radius: 16px 16px 0 0; border: 3px solid #2a2a3e; border-bottom: none;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 30px 80px rgba(0,0,0,0.5), 0 0 120px rgba(120,80,255,0.05);
+    }
+    .laptop-screen::before {
+      content: ''; position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+      width: 8px; height: 8px; border-radius: 50%; background: #333; z-index: 10;
+    }
+    .laptop-screen::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 50%);
+      pointer-events: none; z-index: 5; border-radius: 13px 13px 0 0;
+    }
+    .laptop-display { width: 100%; height: 0; padding-bottom: 62%; position: relative; overflow: hidden; background: #08080f; }
+    .laptop-display-inner { position: absolute; inset: 0; overflow: hidden; }
+    /* Mini website inside laptop */
+    .mini-site { width: 100%; height: 100%; background: #08080f; }
+    .mini-nav {
+      height: 8%; background: rgba(8,8,15,0.95); border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex; align-items: center; justify-content: space-between; padding: 0 3%;
+    }
+    .mini-nav-logo {
+      font-family: var(--font-heading); font-size: clamp(7px, 1vw, 12px); font-weight: 700;
+      background: linear-gradient(135deg, #7850ff, #ff6496);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: 2px;
+    }
+    .mini-nav-links { display: flex; gap: 3%; }
+    .mini-nav-links span { display: block; height: 2px; width: clamp(16px, 2.5vw, 32px); background: rgba(255,255,255,0.15); border-radius: 1px; }
+    .mini-nav-cta { padding: 1% 3%; border-radius: 4px; background: linear-gradient(135deg, #7850ff, #5a3fd4); display: flex; align-items: center; }
+    .mini-nav-cta span { display: block; height: 1px; width: 100%; background: rgba(255,255,255,0.6); }
+    .mini-hero { padding: 5% 3%; display: flex; align-items: center; gap: 3%; }
+    .mini-hero-text { flex: 1; }
+    .mini-hero-title-1 { font-family: var(--font-heading); font-size: clamp(8px, 1.5vw, 18px); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 4px; }
+    .mini-hero-title-2 { font-family: var(--font-heading); font-size: clamp(8px, 1.5vw, 18px); font-weight: 700; line-height: 1.15; background: linear-gradient(135deg, #7850ff, #ff6496); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 6px; }
+    .mini-hero-desc { font-size: clamp(4px, 0.55vw, 7px); color: #555; line-height: 1.5; margin-bottom: 8px; max-width: 80%; }
+    .mini-hero-btns { display: flex; gap: 2%; }
+    .mini-btn-primary { padding: 2% 4%; border-radius: 4px; background: linear-gradient(135deg, #7850ff, #5a3fd4); font-size: clamp(4px, 0.5vw, 7px); color: #fff; font-weight: 600; }
+    .mini-btn-ghost { padding: 2% 4%; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08); font-size: clamp(4px, 0.5vw, 7px); color: #777; font-weight: 600; }
+    .mini-hero-visual { flex: 0 0 30%; height: clamp(50px, 8vw, 100px); border-radius: 6px; overflow: hidden; position: relative; background: linear-gradient(135deg, rgba(120,80,255,0.12), rgba(255,100,150,0.08)); border: 1px solid rgba(120,80,255,0.15); }
+    .mini-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3%; padding: 2% 3% 0; }
+    .mini-card { background: rgba(13,13,20,0.5); border: 1px solid rgba(255,255,255,0.05); border-radius: 5px; padding: 8% 5%; }
+    .mini-card-icon { width: clamp(10px, 1.2vw, 16px); height: clamp(10px, 1.2vw, 16px); border-radius: 3px; margin-bottom: 3px; }
+    .mini-card-icon.purple { background: rgba(120,80,255,0.2); }
+    .mini-card-icon.pink { background: rgba(255,100,150,0.2); }
+    .mini-card-icon.blue { background: rgba(80,200,255,0.2); }
+    .mini-card-title { font-size: clamp(4px, 0.55vw, 8px); font-weight: 700; color: #fff; margin-bottom: 1px; }
+    .mini-card-desc { font-size: clamp(3px, 0.4vw, 6px); color: #444; line-height: 1.4; }
+    .mini-stats { display: flex; gap: 2%; padding: 2% 3% 3%; }
+    .mini-stat { flex: 1; text-align: center; padding: 2% 1%; background: rgba(255,255,255,0.015); border-radius: 4px; border: 1px solid rgba(255,255,255,0.03); }
+    .mini-stat-num { font-family: var(--font-heading); font-size: clamp(7px, 0.9vw, 13px); font-weight: 800; margin-bottom: 1px; }
+    .mini-stat-num.purple { color: #7850ff; }
+    .mini-stat-num.pink { color: #ff6496; }
+    .mini-stat-num.cyan { color: #50c8ff; }
+    .mini-stat-label { font-size: clamp(3px, 0.35vw, 5px); color: #444; }
+    /* Keyboard */
+    .laptop-base {
+      position: relative; background: linear-gradient(180deg, #2a2a3e 0%, #1a1a28 100%);
+      border-radius: 0 0 12px 12px; padding: 1.5% 3% 2.5%;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    .laptop-keyboard { display: grid; grid-template-rows: repeat(5, 1fr); gap: 2%; margin-bottom: 2%; }
+    .keyboard-row { display: flex; gap: 1%; }
+    .key { flex: 1; height: clamp(3px, 0.35vw, 6px); background: rgba(255,255,255,0.05); border-radius: 1px; }
+    .key.space { flex: 4; }
+    .laptop-trackpad { width: 22%; height: clamp(8px, 0.9vw, 16px); background: rgba(255,255,255,0.03); border-radius: 3px; margin: 0 auto; }
+    .laptop-reflection {
+      position: absolute; bottom: -25%; left: 8%; right: 8%; height: 25%;
+      background: linear-gradient(180deg, rgba(120,80,255,0.03), transparent);
+      transform: scaleY(-1) rotateX(60deg); filter: blur(6px); pointer-events: none; opacity: 0.4;
+    }
+
+    /* ===== FLOATING CARDS ===== */
+    .float-card {
+      position: absolute; background: rgba(10,10,18,0.75); backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 10px 14px;
+      display: flex; align-items: center; gap: 8px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 40px rgba(120,80,255,0.04);
+      animation: floatCard 5s ease-in-out infinite; z-index: 3; will-change: transform;
+    }
+    @keyframes floatCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .float-card-icon {
+      width: 32px; height: 32px; border-radius: 9px;
+      display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0;
+    }
+    .float-card-icon.purple { background: rgba(120,80,255,0.12); color: #7850ff; }
+    .float-card-icon.pink { background: rgba(255,100,150,0.12); color: #ff6496; }
+    .float-card-icon.cyan { background: rgba(80,200,255,0.12); color: #50c8ff; }
+    .float-card-icon.yellow { background: rgba(255,216,80,0.12); color: #ffd850; }
+    .float-card-label { font-size: 0.55rem; color: #555; margin-bottom: 1px; }
+    .float-card-value { font-size: 0.75rem; font-weight: 700; color: #fff; }
+    .float-card.top-left { top: 6%; left: -6%; animation-delay: 0s; }
+    .float-card.top-right { top: 10%; right: -6%; animation-delay: -1.5s; }
+    .float-card.bottom-left { bottom: 14%; left: -4%; animation-delay: -3s; }
+    .float-card.bottom-right { bottom: 10%; right: -4%; animation-delay: -2s; }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.3;
+    }
+    .scroll-indicator span { font-size: 0.55rem; color: #444; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; }
+    .scroll-line { width: 1px; height: 32px; background: linear-gradient(to bottom, #7850ff, transparent); animation: scrollLine 2s ease-in-out infinite; }
+    @keyframes scrollLine { 0%, 100% { transform: scaleY(0.3); opacity: 0.3; } 50% { transform: scaleY(1); opacity: 1; } }
+
+    /* Hero responsive */
+    @media (max-width: 1024px) {
+      .hero-inner { flex-direction: column; gap: 40px; }
+      .hero-text { flex: none; max-width: 100%; align-items: center; text-align: center; }
+      .hero-desc { max-width: 100%; }
+      .hero-actions { justify-content: center; }
+      .laptop-wrapper { flex: none; width: 100%; }
+      .laptop { max-width: 600px; transform: rotateY(0) rotateX(2deg); }
+      .float-card { display: none; }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 100px 20px 60px; }
+      .hero-title { font-size: 1.8rem; }
+      .laptop-screen { border-radius: 10px 10px 0 0; }
+      .laptop-base { border-radius: 0 0 8px 8px; }
+    }
+
+    /* ===== HERO TRUST ===== */
+    .hero-trust {
+      display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+      margin-top: 28px; font-size: 0.82rem; color: #666;
+      opacity: 0; animation: fadeInUp 0.8s ease 1s forwards;
+    }
+    .hero-trust span { display: flex; align-items: center; gap: 6px; }
+    .hero-trust i { color: var(--accent); font-size: 0.75rem; }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-section { padding: 100px 48px; background: #0a0a12; }
+    .contact-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+    .contact-info h2 { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; color: #fff; margin-bottom: 16px; }
+    .contact-info p { font-size: 1rem; color: #888; margin-bottom: 36px; line-height: 1.7; }
+    .contact-details { display: flex; flex-direction: column; gap: 20px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 14px; }
+    .contact-item i { width: 40px; height: 40px; border-radius: 10px; background: rgba(120,80,255,0.1); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+    .contact-item strong { color: #fff; font-size: 0.9rem; }
+    .contact-item div { color: #888; font-size: 0.85rem; line-height: 1.5; }
+    .contact-form-wrap h3 { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 24px; }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .contact-form input, .contact-form textarea {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 14px 18px; color: #fff; font-size: 0.9rem; outline: none;
+      transition: border-color 0.3s; font-family: var(--font-body);
+    }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: rgba(120,80,255,0.5); }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: #555; }
+    .contact-form textarea { resize: vertical; min-height: 100px; }
+    .btn-full { width: 100%; justify-content: center; }
+    @media (max-width: 768px) {
+      .contact-container { grid-template-columns: 1fr; gap: 40px; }
+      .contact-section { padding: 60px 24px; }
+    }
+
+    /* ===== TRUST SECTION ===== */
+    .trust { padding: 80px 48px; background: #030308; }
+    .trust-header { text-align: center; margin-bottom: 48px; }
+    .trust-header h2 { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: #fff; }
+    .trust-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .trust-card {
+      background: rgba(13,13,20,0.5); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; padding: 28px 24px; text-align: center;
+      transition: all 0.3s ease;
+    }
+    .trust-card:hover { border-color: rgba(120,80,255,0.2); transform: translateY(-4px); }
+    .trust-card i { font-size: 1.5rem; color: var(--accent); margin-bottom: 12px; display: block; }
+    .trust-card span { color: #ccc; font-size: 0.9rem; font-weight: 500; }
+    @media (max-width: 768px) {
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust { padding: 60px 24px; }
+    }
+
+    /* ===== FOOTER CONTACT ===== */
+    .footer-contact { display: flex; flex-direction: column; gap: 8px; }
+    .footer-contact span { font-size: 0.82rem; color: #888; display: flex; align-items: center; gap: 8px; }
+    .footer-contact i { color: var(--accent); font-size: 0.75rem; width: 16px; }
+
+    /* ===== STICKY CTA MOBILE ===== */
+    .sticky-cta-mobile {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+      background: rgba(10,10,16,0.95); backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255,255,255,0.06); padding: 12px 16px;
+    }
+    .sticky-cta-mobile .btn { flex: 1; justify-content: center; padding: 12px 16px; font-size: 0.85rem; }
+    @media (max-width: 768px) {
+      .sticky-cta-mobile { display: flex; gap: 10px; }
+      .sticky-cta { display: none !important; }
+    }
+
+    /* ===== MARQUEE ===== */
+    .marquee-section {
+      padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex; gap: 60px;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+    .marquee-item {
+      display: flex; align-items: center; gap: 12px;
+      font-family: var(--font-heading);
+      font-size: 1rem; font-weight: 600; color: #444;
+      white-space: nowrap; flex-shrink: 0;
+      transition: color 0.4s;
+    }
+    .marquee-item:hover { color: var(--accent); }
+    .marquee-item i { font-size: 1.2rem; }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ===== CLIENT LOGOS ===== */
+    .clients { padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); overflow: hidden; }
+    .clients-label { text-align: center; font-size: 0.8rem; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px; }
+    .clients-track { display: flex; gap: 60px; animation: marquee 25s linear infinite; width: max-content; }
+    .client-logo { display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 1rem; font-weight: 600; color: #444; white-space: nowrap; flex-shrink: 0; transition: all 0.4s; }
+    .client-logo:hover { color: var(--accent); transform: scale(1.05); }
+    /* ===== BENTO GRID ===== */
+    .bento { padding: 120px 40px; }
+    .bento-header { text-align: center; margin-bottom: 72px; }
+    .bento-header h2 {
+      font-family: var(--font-heading);
+      font-size: 3rem; font-weight: 700; letter-spacing: -1px;
+      margin-bottom: 20px; color: #fff;
+      display: inline-block; position: relative;
+    }
+    .bento-header h2::before {
+      content: ''; position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+      width: 40px; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 1px;
+    }
+    .bento-header p { font-size: 1.05rem; color: #666; max-width: 500px; margin: 0 auto; }
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 20px; max-width: 1200px; margin: 0 auto;
+    }
+    .bento-card {
+      background: rgba(13,13,20,0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px; padding: 36px;
+      transition: all 0.4s ease;
+      position: relative; overflow: hidden;
+    }
+    .bento-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, transparent 60%, rgba(120,80,255,0.03) 100%);
+      pointer-events: none;
+    }
+    .bento-card:hover {
+      border-color: rgba(120,80,255,0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .bento-card.large { grid-column: span 2; }
+    .bento-card.tall { grid-row: span 2; }
+    .bento-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; margin-bottom: 24px;
+    }
+    .bento-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: #fff; }
+    .bento-card p { font-size: 0.9rem; color: #777; line-height: 1.7; }
+    .bento-stat { font-size: 2.8rem; font-weight: 800; margin-bottom: 8px; }
+    .bento-stat.purple { color: #7850ff; }
+    .bento-stat.pink { color: #ff6496; }
+    .bento-stat.blue { color: #50c8ff; }
+    .bento-stat.yellow { color: #ffd850; }
+    .bento-label { font-size: 0.85rem; color: #666; }
+
+    /* ===== SHOWCASE (HORIZONTAL SCROLL) ===== */
+    .showcase { padding: 120px 0; overflow: hidden; }
+    .showcase-header {
+      padding: 0 40px; margin-bottom: 48px;
+      display: flex; align-items: flex-end; justify-content: space-between;
+    }
+    .showcase-header h2 { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 700; color: #fff; letter-spacing: -1px; }
+    .showcase-header p { font-size: 1rem; color: #666; max-width: 400px; }
+    .showcase-track {
+      display: flex; gap: 24px;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      padding: 0 40px 24px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      cursor: grab;
+      user-select: none;
+    }
+    .showcase-track:active {
+      cursor: grabbing;
+    }
+    .showcase-track::-webkit-scrollbar { display: none; }
+    .showcase-card {
+      min-width: 420px; scroll-snap-align: start;
+      border-radius: 20px; overflow: hidden;
+      background: rgba(13,13,20,0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.4s ease; flex-shrink: 0;
+      display: block; text-decoration: none; color: inherit;
+    }
+    .showcase-card:hover { transform: translateY(-4px); border-color: rgba(120,80,255,0.2); }
+    .showcase-img {
+      height: 260px; display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; position: relative; overflow: hidden;
+    }
+    .template-preview {
+      transition: transform 0.4s ease;
+    }
+    .showcase-card:hover .template-preview {
+      transform: scale(1.03);
+    }
+
+    /* ===== BROWSER MOCKUP ===== */
+    .browser-mockup {
+      width: 100%; height: 100%;
+      border-radius: 10px; overflow: hidden;
+      background: #1a1a2e;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      display: flex; flex-direction: column;
+    }
+    .browser-bar {
+      height: 24px; background: #2a2a3e;
+      display: flex; align-items: center; gap: 5px;
+      padding: 0 8px; flex-shrink: 0;
+    }
+    .browser-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+    }
+    .browser-dot:nth-child(1) { background: #ff5f57; }
+    .browser-dot:nth-child(2) { background: #febc2e; }
+    .browser-dot:nth-child(3) { background: #28c840; }
+    .browser-url {
+      margin-left: 8px; font-size: 0.6rem; color: #666;
+      background: #1a1a2e; padding: 2px 8px; border-radius: 3px;
+      flex: 1; max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .browser-content {
+      flex: 1; padding: 12px; position: relative; overflow: hidden;
+    }
+    .browser-hero {
+      margin-bottom: 10px;
+    }
+    .browser-hero-line {
+      border-radius: 3px; margin-bottom: 5px;
+    }
+    .browser-hero-btn {
+      border-radius: 3px;
+    }
+    .browser-avatar {
+      border-radius: 50%;
+    }
+    .browser-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+    }
+    .browser-card {
+      height: 30px; border-radius: 4px; background: rgba(255,255,255,0.08);
+    }
+    .showcase-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s;
+      border-radius: 10px; z-index: 2;
+    }
+    .showcase-card:hover .showcase-overlay {
+      opacity: 1;
+    }
+    .view-btn {
+      padding: 10px 24px; border-radius: 8px;
+      background: linear-gradient(135deg, #7850ff, #5a3fd4);
+      color: #fff; font-weight: 600; font-size: 0.85rem;
+      display: flex; align-items: center; gap: 8px;
+      transform: translateY(10px); transition: transform 0.3s;
+    }
+    .showcase-card:hover .view-btn {
+      transform: translateY(0);
+    }
+    .showcase-img .badge {
+      position: absolute; top: 16px; right: 16px;
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); color: #fff;
+    }
+    .showcase-info { padding: 28px; }
+    .showcase-info h3 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .showcase-info p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px; }
+    .showcase-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .showcase-tags span {
+      font-size: 0.72rem; color: #888; background: rgba(255,255,255,0.04);
+      padding: 4px 12px; border-radius: 8px;
+    }
+
+        /* ===== PRICING ===== */
+    .pricing { padding: 120px 40px; background: #030308; }
+    .pricing-header { text-align: center; margin-bottom: 72px; }
+    .pricing-header h2 { font-family: var(--font-heading); font-size: 3rem; font-weight: 700; color: #fff; letter-spacing: -1px; margin-bottom: 20px; display: inline-block; position: relative; }
+    .pricing-header h2::before { content: ''; position: absolute; top: -16px; left: 50%; transform: translateX(-50%); width: 40px; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: 1px; }
+    .pricing-header p { font-size: 1.05rem; color: #666; max-width: 500px; margin: 0 auto; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+    .pricing-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 24px; padding: 40px 32px;
+      transition: all 0.5s var(--ease-out);
+      position: relative; overflow: hidden;
+    }
+    .pricing-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(120,80,255,0.06), transparent 70%);
+      pointer-events: none;
+    }
+    .pricing-card:hover { border-color: rgba(120,80,255,0.3); transform: translateY(-6px) scale(1.01); box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 60px rgba(120,80,255,0.1); }
+    .pricing-card.popular { border-color: rgba(120,80,255,0.4); }
+    .pricing-card.popular::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+    .popular-badge {
+      position: absolute; top: 16px; right: 16px;
+      padding: 4px 12px; border-radius: 20px;
+      background: linear-gradient(135deg, #7850ff, #5a3fd4);
+      color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .pricing-name { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .pricing-price { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .pricing-price span { font-size: 1rem; color: #666; font-weight: 500; }
+    .pricing-desc { font-size: 0.88rem; color: #777; margin-bottom: 28px; line-height: 1.7; }
+    .pricing-features { list-style: none; margin-bottom: 32px; }
+    .pricing-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.9rem; color: #999; margin-bottom: 12px;
+    }
+    .pricing-features li i { color: #7850ff; font-size: 0.85rem; margin-top: 4px; flex-shrink: 0; }
+    .pricing-card .btn { width: 100%; justify-content: center; }
+    @media (max-width: 1024px) {
+      .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
+    }
+    @media (max-width: 768px) {
+      .pricing { padding: 80px 24px; }
+      .pricing-header h2 { font-size: 2rem; }
+    }
+
+    /* ===== PROCESS (TIMELINE) ===== */
+    .process { padding: 120px 40px; background: #0a0a10; }
+    .process-header { text-align: center; margin-bottom: 80px; }
+    .process-header h2 { font-family: var(--font-heading); font-size: 3rem; font-weight: 700; color: #fff; letter-spacing: -1px; margin-bottom: 16px; }
+    .process-header p { font-size: 1.05rem; color: #666; }
+    .process-timeline { max-width: 700px; margin: 0 auto; position: relative; }
+    .process-timeline::before {
+      content: ''; position: absolute; left: 28px; top: 0; bottom: 0;
+      width: 1px; background: linear-gradient(to bottom, #7850ff, #ff6496, transparent);
+    }
+    .process-step {
+      display: flex; gap: 32px; margin-bottom: 48px; position: relative;
+    }
+    .process-step:last-child { margin-bottom: 0; }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #0d0d14; border: 2px solid rgba(120,80,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700;
+      color: #7850ff; flex-shrink: 0; z-index: 1;
+    }
+    .step-content h3 { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .step-content p { font-size: 0.95rem; color: #777; line-height: 1.7; }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials { padding: 120px 40px; }
+    .testimonials-header { text-align: center; margin-bottom: 64px; }
+    .testimonials-header h2 { font-family: var(--font-heading); font-size: 3rem; font-weight: 700; color: #fff; letter-spacing: -1px; margin-bottom: 16px; }
+    .testimonials-header p { font-size: 1.05rem; color: #666; }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .testimonial-card {
+      background: rgba(13,13,20,0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px; padding: 36px; transition: all 0.3s;
+    }
+    .testimonial-card:hover { border-color: rgba(120,80,255,0.15); transform: translateY(-2px); }
+    .testimonial-stars { color: #ffd850; font-size: 0.85rem; margin-bottom: 20px; }
+    .testimonial-card blockquote {
+      color: #999; font-size: 0.95rem; line-height: 1.85;
+      margin-bottom: 28px; font-style: italic; letter-spacing: 0.01em;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 14px; }
+    .t-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.9rem; color: #fff;
+    }
+    .t-name { font-family: var(--font-heading); font-weight: 600; color: #fff; font-size: 0.9rem; }
+    .t-role { color: #666; font-size: 0.8rem; }
+
+    /* ===== CTA ===== */
+    .cta { padding: 140px 48px; }
+    .cta-box {
+      max-width: 800px; margin: 0 auto; text-align: center;
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 80px 60px; position: relative; overflow: hidden;
+    }
+    .cta-box::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(120,80,255,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-box h2 { font-family: var(--font-heading); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: #fff; margin-bottom: 20px; position: relative; }
+    .cta-box p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 48px; position: relative; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+    .cta-box .btn { position: relative; }
+
+    /* ===== FOOTER ===== */
+    footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .footer-left { display: flex; align-items: center; gap: 40px; }
+    .footer-logo {
+      font-family: var(--font-heading);
+      font-size: 1.4rem; font-weight: 700;
+      background: linear-gradient(135deg, #7850ff 0%, #ff6496 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      letter-spacing: 2px;
+      filter: drop-shadow(0 0 6px rgba(120,80,255,0.4)) drop-shadow(0 0 18px rgba(255,100,150,0.25));
+      animation: logoGlow 3s ease-in-out infinite;
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 0.85rem; color: #666; transition: color 0.3s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a {
+      width: 38px; height: 38px; border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: center;
+      color: #666; font-size: 0.9rem; transition: all 0.3s;
+    }
+    .footer-social a:hover { border-color: #7850ff; color: #7850ff; }
+    .footer-bottom { max-width: 1200px; margin: 32px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.04); display: flex; justify-content: space-between; font-size: 0.8rem; color: #444; }
+
+    /* ===== MOBILE NAV ===== */
+    .mobile-nav { display: none; position: fixed; inset: 0; background: rgba(6,6,10,0.98); z-index: 2000; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 1.3rem; font-weight: 600; color: #e8e8e8; }
+    .mobile-close { position: absolute; top: 24px; right: 24px; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: #fff; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .bento-grid { grid-template-columns: repeat(2, 1fr); }
+      .bento-card.large { grid-column: span 2; }
+      .bento-card.tall { grid-row: span 1; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .showcase-card { min-width: 340px; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 14px 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .bento { padding: 80px 24px; }
+      .bento-grid { grid-template-columns: 1fr; }
+      .bento-card.large { grid-column: span 1; }
+      .bento-header h2 { font-size: 2rem; }
+      .showcase { padding: 80px 0; }
+      .showcase-header { padding: 0 24px; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .showcase-header h2 { font-size: 2rem; }
+      .showcase-track { padding: 0 24px 24px; }
+      .showcase-card { min-width: 280px; }
+      .process { padding: 80px 24px; }
+      .process-header h2 { font-size: 2rem; }
+      .process-timeline::before { left: 20px; }
+      .step-num { width: 42px; height: 42px; font-size: 0.75rem; }
+      .testimonials { padding: 80px 24px; }
+      .testimonials-header h2 { font-size: 2rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .cta { padding: 80px 24px; }
+      .cta-box { padding: 50px 28px; }
+      .cta-box h2 { font-size: 1.8rem; }
+      footer { padding: 40px 24px 24px; }
+      .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+      .footer-left { flex-direction: column; gap: 16px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .cursor, .cursor-dot { display: none; }
+    }
+    /* ===== FOCUS VISIBLE =====
+    *:focus-visible {
+      outline: 2px solid #7850ff;
+      outline-offset: 2px;
+    }
+    button:focus-visible, a:focus-visible {
+      outline: 2px solid #7850ff;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
     
+    /* ===== SCROLL-DRIVEN ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .animate-on-scroll {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    }
+    .animate-on-scroll.visible {
+      opacity: 1; transform: translateY(0);
+    }
+    .animate-delay-1 { transition-delay: 0.1s; }
+    .animate-delay-2 { transition-delay: 0.2s; }
+    .animate-delay-3 { transition-delay: 0.3s; }
+
+    /* ===== SCROLL PROGRESS ===== */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 2px;
+      background: linear-gradient(90deg, #7850ff, #ff6496);
+      z-index: 10001; transition: width 0.1s ease;
+    }
+    /* ===== STICKY CTA ===== */
+    .sticky-cta {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      display: flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 100px;
+      background: linear-gradient(135deg, var(--accent), #5a3fd4);
+      color: #fff; font-weight: 600; font-size: 0.85rem;
+      box-shadow: 0 4px 30px rgba(120,80,255,0.4), 0 0 60px rgba(120,80,255,0.15);
+      transition: all 0.4s var(--ease-out); cursor: pointer;
+      text-decoration: none; border: none;
+      backdrop-filter: blur(10px);
+    }
+    .sticky-cta:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 50px rgba(120,80,255,0.5), 0 0 80px rgba(120,80,255,0.2); }
+    @media (max-width: 768px) {
+      .sticky-cta { bottom: 16px; right: 16px; padding: 12px 20px; font-size: 0.85rem; }
+    }
+    /* ===== LANG SWITCHER ===== */
+    .lang-switcher {
+      display: flex; gap: 4px;
+      background: rgba(13,13,20,0.6);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px; padding: 4px;
+      margin-left: 24px;
+    }
+    .lang-btn {
+      padding: 6px 14px; border-radius: 7px;
+      font-size: 0.75rem; font-weight: 700;
+      background: transparent; color: #666;
+      border: none; cursor: pointer;
+      transition: all 0.3s;
+    }
+    .lang-btn.active {
+      background: linear-gradient(135deg, #7850ff, #5a3fd4);
+      color: #fff;
+    }
+    .lang-btn:hover:not(.active) {
+      color: #fff; background: rgba(255,255,255,0.05);
+    }
+    @media (max-width: 768px) {
+      .lang-switcher { display: none; }
+    }
+    /* ===== CHATBOT ===== */
+
+
+
+
+    .chat-msg {
+      max-width: 85%; padding: 12px 16px; border-radius: 16px;
+      font-size: 0.88rem; line-height: 1.6;
+      animation: chatFadeIn 0.3s ease;
+    }
+    @keyframes chatFadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .chat-msg.bot {
+      background: rgba(120,80,255,0.1); border: 1px solid rgba(120,80,255,0.15);
+      color: #ccc; align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+    .chat-msg.user {
+      background: linear-gradient(135deg, rgba(120,80,255,0.3), rgba(120,80,255,0.15));
+      color: #fff; align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+
+
+    @media (max-width: 768px) {
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- NOISE -->
+  <div class="noise"></div>
+
+  <!-- PRELOADER removed — was causing loading stuck -->
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">
+      <img src="logo.png" alt="OGT UUR" class="nav-logo-img" />
+    </a>
+    <div class="nav-links">
+      <a href="#work"><span data-mn="navWork">Ажилууд</span></a>
+      <a href="#services"><span data-mn="navServices">Үйлчилгээ</span></a>
+      <a href="#pricing"><span data-mn="navPricing">Үнэ</span></a>
+      <a href="#process"><span data-mn="navProcess">Үйл явц</span></a>
+      <a href="#testimonials"><span data-mn="navReviews">Сэтгэгдэл</span></a>
+      <a href="#contact" class="nav-cta"><span data-mn="navCta">Үнийн санал авах</span></a>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="mn">МН</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- HERO — CONVERSION 2026 -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+      <div class="hero-orb orb-3"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-glow"></div>
+    </div>
+    <div class="hero-inner">
+
+      <!-- LEFT: 40% text -->
+      <div class="hero-text">
+        <div class="hero-pill"><span class="dot"></span> Website + Video Studio</div>
+        <h1 class="hero-title">
+          Вэбсайт ба видео.<br>
+          <span class="gradient">Бизнес өсөлтийн эхлэл.</span>
+        </h1>
+        <p class="hero-desc">Жижиг бизнес, брэнд, үйлчилгээний байгууллагад зориулсан вэбсайт болон видео контент.</p>
+        <div class="hero-actions">
+          <a href="tel:99620992" class="btn btn-primary"><i class="fas fa-phone"></i> Үнийн санал авах</a>
+          <a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-ghost" target="_blank"><i class="fab fa-facebook-messenger"></i> Facebook Messenger</a>
+        </div>
+        <div class="hero-trust">
+          <span><i class="fas fa-phone"></i> 99620992</span>
+          <span><i class="fas fa-envelope"></i> dulguunmurun.edu@gmail.com</span>
+        </div>
+      </div>
+
+      <!-- RIGHT: 60% laptop -->
+      <div class="laptop-wrapper">
+
+        <!-- Floating cards -->
+        <div class="float-card top-left">
+          <div class="float-card-icon purple"><i class="fas fa-code"></i></div>
+          <div><div class="float-card-label">Үйлчилгээ</div><div class="float-card-value">Вэбсайт</div></div>
+        </div>
+        <div class="float-card top-right">
+          <div class="float-card-icon pink"><i class="fas fa-video"></i></div>
+          <div><div class="float-card-label">Үйлчилгээ</div><div class="float-card-value">Видео</div></div>
+        </div>
+        <div class="float-card bottom-left">
+          <div class="float-card-icon cyan"><i class="fas fa-tag"></i></div>
+          <div><div class="float-card-label">Эхлэх үнэ</div><div class="float-card-value">450,000₮</div></div>
+        </div>
+        <div class="float-card bottom-right">
+          <div class="float-card-icon yellow"><i class="fas fa-clock"></i></div>
+          <div><div class="float-card-label">Хүргэлт</div><div class="float-card-value">5 хоногт бэлэн</div></div>
+        </div>
+
+        <!-- Laptop -->
+        <div class="laptop">
+          <div class="laptop-screen">
+            <div class="laptop-display">
+              <div class="laptop-display-inner">
+                <div class="mini-site">
+                  <div class="mini-nav">
+                    <div class="mini-nav-logo"><img src="logo.png" alt="OGT UUR" style="height:16px;width:auto;vertical-align:middle;" /></div>
+                    <div class="mini-nav-links"><span></span><span></span><span></span><span></span></div>
+                    <div class="mini-nav-cta"><span></span></div>
+                  </div>
+                  <div class="mini-hero">
+                    <div class="mini-hero-text">
+                      <div class="mini-hero-title-1">Вэбсайт ба видео.</div>
+                      <div class="mini-hero-title-2">Бизнес өсөлтийн эхлэл.</div>
+                      <div class="mini-hero-desc">Жижиг бизнес, брэнд, үйлчилгээний байгууллагад зориулсан вэбсайт болон видео контент.</div>
+                      <div class="mini-hero-btns">
+                        <div class="mini-btn-primary">Үнийн санал авах</div>
+                        <div class="mini-btn-ghost">Ажлууд харах</div>
+                      </div>
+                    </div>
+                    <div class="mini-hero-visual"></div>
+                  </div>
+                  <div class="mini-cards-grid">
+                    <div class="mini-card"><div class="mini-card-icon purple"></div><div class="mini-card-title">Вэбсайт</div><div class="mini-card-desc">Мэргэжлийн вэбсайт</div></div>
+                    <div class="mini-card"><div class="mini-card-icon pink"></div><div class="mini-card-title">Видео</div><div class="mini-card-desc">Промо видео</div></div>
+                    <div class="mini-card"><div class="mini-card-icon blue"></div><div class="mini-card-title">Дизайн</div><div class="mini-card-desc">Брэндийн дизайн</div></div>
+                  </div>
+                  <div class="mini-stats">
+                    <div class="mini-stat"><div class="mini-stat-num purple">30+</div><div class="mini-stat-label">Вэбсайт</div></div>
+                    <div class="mini-stat"><div class="mini-stat-num pink">50+</div><div class="mini-stat-label">Видео</div></div>
+                    <div class="mini-stat"><div class="mini-stat-num cyan">100%</div><div class="mini-stat-label">Сэтгэл ханамж</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="laptop-reflection"></div>
+          <div class="laptop-base">
+            <div class="laptop-keyboard">
+              <div class="keyboard-row"><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div></div>
+              <div class="keyboard-row"><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div></div>
+              <div class="keyboard-row"><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div></div>
+              <div class="keyboard-row"><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div></div>
+              <div class="keyboard-row"><div class="key"></div><div class="key space"></div><div class="key"></div></div>
+            </div>
+            <div class="laptop-trackpad"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Гүйлгэж харах</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <div class="marquee-item"><i class="fas fa-code" style="color:#7850ff;"></i> Вэбсайт Хөгжүүлэлт</div>
+      <div class="marquee-item"><i class="fas fa-video" style="color:#ff6496;"></i> Видео Продакшн</div>
+      <div class="marquee-item"><i class="fas fa-laptop" style="color:#7850ff;"></i> Лэндинг Хуудас</div>
+      <div class="marquee-item"><i class="fas fa-film" style="color:#ff6496;"></i> Промо Видео</div>
+      <div class="marquee-item"><i class="fas fa-shopping-cart" style="color:#7850ff;"></i> Цахим Дэлгүүр</div>
+      <div class="marquee-item"><i class="fas fa-bullhorn" style="color:#ff6496;"></i> Контент Маркетинг</div>
+      <!-- Duplicate -->
+      <div class="marquee-item"><i class="fas fa-code" style="color:#7850ff;"></i> Вэбсайт Хөгжүүлэлт</div>
+      <div class="marquee-item"><i class="fas fa-video" style="color:#ff6496;"></i> Видео Продакшн</div>
+      <div class="marquee-item"><i class="fas fa-laptop" style="color:#7850ff;"></i> Лэндинг Хуудас</div>
+      <div class="marquee-item"><i class="fas fa-film" style="color:#ff6496;"></i> Промо Видео</div>
+      <div class="marquee-item"><i class="fas fa-shopping-cart" style="color:#7850ff;"></i> Цахим Дэлгүүр</div>
+      <div class="marquee-item"><i class="fas fa-bullhorn" style="color:#ff6496;"></i> Контент Маркетинг</div>
+    </div>
+  </div>
+
+  <!-- CLIENT LOGOS removed - add real logos later -->
+
+  <!-- SERVICES -->
+  <section class="bento" id="services">
+    <div class="bento-header">
+      <h2 data-mn="bentoTitle">Юу хийдэг вэ?</h2>
+      <p data-mn="bentoDesc">Бид вэбсайт болон видео контент бүтээдэг. Энэ хоёр нь таны бизнесийг онлайнаар өсгөх хамгийн хүчирхэг хэрэгсэл.</p>
+    </div>
+    <div class="bento-grid">
+      <div class="bento-card large">
+        <div class="bento-icon" style="background: rgba(120,80,255,0.1); color: #7850ff;"><i class="fas fa-code"></i></div>
+        <h3 data-mn="bentoWeb">Вэбсайт Хөгжүүлэлт</h3>
+        <p data-mn="bentoWebDesc">Эмчилгээний газар, ресторан, жижиг бизнес, хувь хүний брэнд — бүгдэд зориулсан мэргэжлийн вэбсайт. Хурдан, найдвартай, хэрэглэгчид ойлгомжтой.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-stat purple">30+</div>
+        <div class="bento-label" data-mn="bentoProjects">Бэлэн вэбсайт</div>
+      </div>
+      <div class="bento-card">
+        <div class="bento-icon" style="background: rgba(255,100,150,0.1); color: #ff6496;"><i class="fas fa-video"></i></div>
+        <h3 data-mn="bentoVideo">Видео Продакшн</h3>
+        <p data-mn="bentoVideoDesc">Промо видео, брэндийн видео, сошиал медиа контент. Таны бизнесийг хүмүүст харуулах хамгийн хүчирхэг арга.</p>
+      </div>
+      <div class="bento-card tall">
+        <div class="bento-icon" style="background: rgba(120,80,255,0.1); color: #7850ff;"><i class="fas fa-laptop"></i></div>
+        <h3 data-mn="bentoDesign">Лэндинг Хуудас</h3>
+        <p data-mn="bentoDesignDesc">Тусгай зорилготой хуудас. Захиалга авах, мэдээлэл хүргэх, борлуулалт өсгөх — бүгд нэг хуудсан дээр.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-stat pink">50+</div>
+        <div class="bento-label" data-mn="bentoSatisfaction">Видео бүтээсэн</div>
+      </div>
+      <div class="bento-card">
+        <div class="bento-icon" style="background: rgba(255,100,150,0.1); color: #ff6496;"><i class="fas fa-film"></i></div>
+        <h3 data-mn="bentoMarketing">Промо Видео</h3>
+        <p data-mn="bentoMarketingDesc">Таны бүтээгдэхүүн, үйлчилгээг хүмүүст таниулах 30-60 секундын видео.</p>
+      </div>
+      <div class="bento-card large">
+        <div class="bento-icon" style="background: rgba(120,80,255,0.1); color: #7850ff;"><i class="fas fa-rocket"></i></div>
+        <h3 data-mn="bentoAll">Вэбсайт + Видео</h3>
+        <p data-mn="bentoAllDesc">Вэбсайт болон видео контент хоёуланг нь нэг дороос. Таны бизнесийг онлайнаар бүрэн байлгана.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-stat blue" data-mn="bentoFast">Хурдан</div>
+        <div class="bento-label" data-mn="bentoDelivery">Хүргэлт баталгаатай</div>
+      </div>
+      <div class="bento-card">
+        <div class="bento-stat yellow" data-mn="bentoSupport">Дэмжлэг</div>
+        <div class="bento-label">Тогтсон дэмжлэгтэй</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="pricing-header">
+      <h2 data-mn="pricingTitle">Вэбсайтын багцууд</h2>
+      <p data-mn="pricingDesc">Таны бизнестийн хэмжээнд тохирсон багц. Илүү мэдээлэл авах хүсвэл холбогдох уу.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- Package 1: Starter -->
+      <div class="pricing-card">
+        <div class="pricing-name" data-mn="pkg1Name">Эхлэх вэбсайт</div>
+        <div class="pricing-price">450,000<span>₮</span></div>
+        <p class="pricing-desc" data-mn="pkg1Desc">Шинэ бизнес, хувь хүний брэнд, төслийн хуудас</p>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> <span data-mn="pkg1F1">Лэндинг хуудас (1 хуудас)</span></li>
+          <li><i class="fas fa-check"></i> <span data-mn="pkg1F2">Мобайлд тохирсон (Responsive)</span></li>
+          <li><i class="fas fa-check"></i> <span data-mn="pkg1F3">Холбоо барих форм</span></li>
+          <li><i class="fas fa-check"></i> <span data-mn="pkg1F4">Үндсэн SEO тохиргоо</span></li>
+          <li><i class="fas fa-check"></i> <span data-mn="pkg1F5">Хүргэлт: 3–5 хоног</span></li>
+        </ul>
+        <a href="tel:99620992" class="btn btn-ghost"><i class="fas fa-phone"></i> <span data-mn="pkgBuy">Захиалах</span></a>
+      </div>
+
+      <!-- Package 2: Business (Popular) -->
+      <div class="pricing-card popular">
+        <div class="popular-badge" data-mn="popularBadge">Түгээмэл</div>
+        <div class="pricing-name" data-mn="pkg2Name">Бизнес вэбсайт</div>
+        <div class="pricing-price">850,000<span>₮</span></div>
+        <p class="pricing-desc" data-mn="pkg2Desc">Жижиг бизнес, эмчилгээний газар, үйлчилгээний газар</p>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> <span data-mn="pkg2F1">5 хуудас хүртэл</span></li>
+          <li><i class="fas fa-check"></i> <span data-mn="pkg2F2">Өөрийн дизайн</span></li>
+          <li><i class="fas fa-check"></i> <span data-mn="pkg2F3">Мобайлд тохирсон (Responsive)</span></li>
+          <li><i class="fas fa-check"></i> <span data-mn="pkg2F4">SEO бэлэн</span></li>
+          <li><i class="fas fa-check"></i> <span data-mn="pkg2F5">Домайн холболт</span></li>
+          <li><i class="fas fa-check"></i> <span data-mn="pkg2F6">Хүргэлт: 7–10 хоног</span></li>
+        </ul>
+        <a href="tel:99620992" class="btn btn-primary"><i class="fas fa-phone"></i> <span data-mn="pkgBuy">Захиалах</span></a>
+      </div>
+
+      <!-- Package 3: Premium -->
+      <div class="pricing-card">
+        <div class="pricing-name" data-mn="pkg3Name">Премиум вэбсайт</div>
+        <div class="pricing-price">1,500,000<span>₮+</span></div>
+        <p class="pricing-desc" data-mn="pkg3Desc">Томоохон бизнес, цахим дэлгүүр, системтэй вэбсайт</p>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> <span data-mn="pkg3F1">10+ хуудас</span></li>
+          <li><i class="fas fa-check"></i> <span data-mn="pkg3F2">Өөрийн бүтэц, дизайн</span></li>
+          <li><i class="fas fa-check"></i> <span data-mn="pkg3F3">Захиалгын систем</span></li>
+          <li><i class="fas fa-check"></i> <span data-mn="pkg3F4">Блог хэсэг</span></li>
+          <li><i class="fas fa-check"></i> <span data-mn="pkg3F5">Нарийвчилсан SEO</span></li>
+          <li><i class="fas fa-check"></i> <span data-mn="pkg3F6">Бүрэн дэмжлэг (3 сар)</span></li>
+        </ul>
+        <a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-ghost" target="_blank"><i class="fab fa-facebook-messenger"></i> <span data-mn="pkgConsult">Зөвлөгөө авах</span></a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SHOWCASE (HORIZONTAL SCROLL) -->
+  <section class="showcase" id="work">
+    <div class="showcase-header">
+      <h2 data-mn="showcaseTitle">Онцлох ажилууд</h2>
+      <p data-mn="showcaseDesc">Хэрэгжүүлсэн төслүүдтэй танилцаж, дэлгэрэнгүй мэдээлэл авах боломжтой.</p>
+    </div>
+    <div class="showcase-track">
+
+      <!-- Business Template -->
+      <a href="https://dulguunmurunedu-boop.github.io/websitemaker/templates/business/" target="_blank" class="showcase-card">
+        <div class="showcase-img">
+          <div class="browser-mockup">
+            <div class="browser-bar">
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-url">company.mn</div>
+            </div>
+            <div class="browser-content" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+              <div class="browser-hero">
+                <div class="browser-hero-line" style="width:60%;height:8px;background:rgba(255,255,255,0.9);border-radius:4px;margin-bottom:8px;"></div>
+                <div class="browser-hero-line" style="width:80%;height:6px;background:rgba(255,255,255,0.6);border-radius:4px;margin-bottom:8px;"></div>
+                <div class="browser-hero-line" style="width:40%;height:6px;background:rgba(255,255,255,0.4);border-radius:4px;margin-bottom:12px;"></div>
+                <div class="browser-hero-btn" style="width:80px;height:20px;background:rgba(255,255,255,0.3);border-radius:4px;"></div>
+              </div>
+              <div class="browser-cards">
+                <div class="browser-card"></div>
+                <div class="browser-card"></div>
+                <div class="browser-card"></div>
+              </div>
+            </div>
+          </div>
+          <span class="badge">Бизнес</span>
+          <div class="showcase-overlay">
+            <span class="view-btn"><i class="fas fa-external-link-alt"></i> Үзэх</span>
+          </div>
+        </div>
+        <div class="showcase-info">
+          <h3>Бизнес Лэндинг Хуудас</h3>
+          <p>Үйлчилгээ, сэтгэгдэл, холбоо барих формыг бүхий мэргэжлийн корпоратив вэб сайт.</p>
+          <div class="showcase-tags"><span>Лэндинг</span><span>Корпоратив</span><span>Responsive</span></div>
+        </div>
+      </a>
+
+      <!-- Restaurant Template -->
+      <a href="https://dulguunmurunedu-boop.github.io/websitemaker/templates/restaurant/" target="_blank" class="showcase-card">
+        <div class="showcase-img">
+          <div class="browser-mockup">
+            <div class="browser-bar">
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-url">han-restaurant.mn</div>
+            </div>
+            <div class="browser-content" style="background: linear-gradient(135deg, #1a1207 0%, #2a1f10 100%);">
+              <div class="browser-hero">
+                <div class="browser-hero-line" style="width:50%;height:10px;background:#d4a853;border-radius:4px;margin-bottom:8px;"></div>
+                <div class="browser-hero-line" style="width:70%;height:6px;background:rgba(212,168,83,0.5);border-radius:4px;margin-bottom:8px;"></div>
+                <div class="browser-hero-line" style="width:45%;height:6px;background:rgba(212,168,83,0.3);border-radius:4px;margin-bottom:12px;"></div>
+                <div class="browser-hero-btn" style="width:80px;height:20px;background:#d4a853;border-radius:4px;"></div>
+              </div>
+              <div class="browser-cards">
+                <div class="browser-card" style="background:rgba(212,168,83,0.15);"></div>
+                <div class="browser-card" style="background:rgba(212,168,83,0.15);"></div>
+                <div class="browser-card" style="background:rgba(212,168,83,0.15);"></div>
+              </div>
+            </div>
+          </div>
+          <span class="badge">Ресторан</span>
+          <div class="showcase-overlay">
+            <span class="view-btn"><i class="fas fa-external-link-alt"></i> Үзэх</span>
+          </div>
+        </div>
+        <div class="showcase-info">
+          <h3>Ресторан Вэб Сайт</h3>
+          <p>Цэс, гэрэл зургийн цомог, захиалгын систем, сэтгэгдэл бүхий Монгол хоолны сайт.</p>
+          <div class="showcase-tags"><span>Ресторан</span><span>Цэс</span><span>Захиалга</span></div>
+        </div>
+      </a>
+
+      <!-- Freelancer Template -->
+      <a href="https://dulguunmurunedu-boop.github.io/websitemaker/templates/freelancer/" target="_blank" class="showcase-card">
+        <div class="showcase-img">
+          <div class="browser-mockup">
+            <div class="browser-bar">
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-url">alexchen.dev</div>
+            </div>
+            <div class="browser-content" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1525 100%);">
+              <div class="browser-hero">
+                <div class="browser-avatar" style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#a78bfa,#7c3aed);margin-bottom:10px;"></div>
+                <div class="browser-hero-line" style="width:55%;height:8px;background:#a78bfa;border-radius:4px;margin-bottom:6px;"></div>
+                <div class="browser-hero-line" style="width:75%;height:5px;background:rgba(167,139,250,0.4);border-radius:4px;margin-bottom:6px;"></div>
+                <div class="browser-hero-line" style="width:35%;height:5px;background:rgba(167,139,250,0.25);border-radius:4px;margin-bottom:10px;"></div>
+                <div class="browser-hero-btn" style="width:70px;height:18px;background:#a78bfa;border-radius:4px;"></div>
+              </div>
+              <div class="browser-cards">
+                <div class="browser-card" style="background:rgba(167,139,250,0.1);"></div>
+                <div class="browser-card" style="background:rgba(167,139,250,0.1);"></div>
+              </div>
+            </div>
+          </div>
+          <span class="badge">Портфолио</span>
+          <div class="showcase-overlay">
+            <span class="view-btn"><i class="fas fa-external-link-alt"></i> Үзэх</span>
+          </div>
+        </div>
+        <div class="showcase-info">
+          <h3>Фрилансер Портфолио</h3>
+          <p>Төсөл үзүүлэх болон чадвар харуулах харагдахуун бүхий харанхуй төрлийн портфолио.</p>
+          <div class="showcase-tags"><span>Портфолио</span><span>Харанхуй</span><span>Минимал</span></div>
+        </div>
+      </a>
+
+      <!-- E-Commerce Template -->
+      <div class="showcase-card">
+        <div class="showcase-img">
+          <div class="browser-mockup">
+            <div class="browser-bar">
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-url">shop.mn</div>
+            </div>
+            <div class="browser-content" style="background: #f8f9fa;">
+              <div class="browser-hero" style="background: linear-gradient(135deg, #50c8ff 0%, #3aa0d4 100%);height:80px;">
+                <div class="browser-hero-line" style="width:40%;height:6px;background:rgba(255,255,255,0.8);border-radius:3px;margin-bottom:6px;"></div>
+                <div class="browser-hero-line" style="width:60%;height:4px;background:rgba(255,255,255,0.5);border-radius:3px;"></div>
+              </div>
+              <div class="browser-cards">
+                <div class="browser-card" style="background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.08);"></div>
+                <div class="browser-card" style="background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.08);"></div>
+                <div class="browser-card" style="background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.08);"></div>
+                <div class="browser-card" style="background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.08);"></div>
+              </div>
+            </div>
+          </div>
+          <span class="badge">Цахим Дэлгүүр</span>
+        </div>
+        <div class="showcase-info">
+          <h3>Цахим Дэлгүүр Платформ</h3>
+          <p>Сагс, төлбөр, админ панел бүхий бүрэн хэмжээний цахим дэлгүүр.</p>
+          <div class="showcase-tags"><span>Node.js</span><span>MongoDB</span><span>Stripe</span></div>
+        </div>
+      </div>
+
+      <!-- SaaS Template -->
+      <div class="showcase-card">
+        <div class="showcase-img">
+          <div class="browser-mockup">
+            <div class="browser-bar">
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-url">dashboard.app</div>
+            </div>
+            <div class="browser-content" style="background: #fff;">
+              <div class="browser-sidebar" style="width:25%;background:#1a0f1a;position:absolute;left:0;top:24px;bottom:0;"></div>
+              <div style="margin-left:25%;padding:8px;">
+                <div style="display:flex;gap:6px;margin-bottom:8px;">
+                  <div style="flex:1;height:30px;background:#f0f0f0;border-radius:4px;"></div>
+                  <div style="flex:1;height:30px;background:#f0f0f0;border-radius:4px;"></div>
+                </div>
+                <div style="height:60px;background:linear-gradient(90deg,#ff6496,#50c8ff);border-radius:4px;opacity:0.2;"></div>
+              </div>
+            </div>
+          </div>
+          <span class="badge">SaaS</span>
+        </div>
+        <div class="showcase-info">
+          <h3>SaaS Хянах Самбар</h3>
+          <p>Өгөгдлийн дүрслэл болон багийн удирдлагатай аналитик хянах самбар.</p>
+          <div class="showcase-tags"><span>React</span><span>D3.js</span><span>Firebase</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section class="process" id="process">
+    <div class="process-header">
+      <h2 data-mn="processTitle">Хэрхэн ажилладаг вэ?</h2>
+      <p data-mn="processDesc">Тодорхой, ойлгомжтой үйл явц. Төсөл эхлэхээс нээлт хүртэл бүх алхамыг хамтдаа шийднэ.</p>
+    </div>
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3 data-mn="process1">Ярилцлага</h3>
+          <p data-mn="process1Desc">Таны бизнес, зорилго, үйлчлүүлэгчийн тухай ярилцдаг. Юу хэрэгтэй, яагаад вэ гэдгийг ойлгоно.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3 data-mn="process2">Дизайн & Төлөвлөгөө</h3>
+          <p data-mn="process2Desc">Вэбсайтын бүтэц, дизайн, агуулгыг төлөвлөнө. Зургийн макет бэлтгэж, зөвшөөрөл авна.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3 data-mn="process3">Хөгжүүлэлт</h3>
+          <p data-mn="process3Desc">Дизайны дагуу вэбсайтыг кодлон бүтээнэ. Тогтмол мэдээлэл өгнө, санал бодлоо өгөх боломжтой.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h3 data-mn="process4">Нээлт & Дэмжлэг</h3>
+          <p data-mn="process4Desc">Туршилт, нээлт. Вэбсайт ашиглалтад орсны дараа ч тогтмол дэмжлэг үзүүлнэ.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS (hidden until real reviews) -->
+  <section class="testimonials" id="testimonials" style="display:none">
+    <div class="testimonials-header">
+      <h2 data-mn="reviewsTitle">Үйлчлүүлэгчдийн сэтгэгдэл</h2>
+      <p data-mn="reviewsDesc">Хамтран ажилласан байгууллагуудын сэтгэгдэл.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <blockquote>"Олон компаниар хийх ажлуудыг нэг дороос шийдэж өгсөн нь маш их ялгаатай. Зохион байгуулалт, хугацааны удирдлага сайн байсан."</blockquote>
+        <div class="testimonial-author">
+          <div class="t-avatar" style="background: linear-gradient(135deg, #7850ff, #5a3fd4);">Б</div>
+          <div><div class="t-name">Б. Батбаатар</div><div class="t-role">Санхүүгийн захирал, Монгол Экспресс</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <blockquote>"Бидний брэндийн зураг бүтээж, видео контент хийж өгсөн нь цаагуураа байсан шиг болж чадсан. Мэргэжлийн хандлага."</blockquote>
+        <div class="testimonial-author">
+          <div class="t-avatar" style="background: linear-gradient(135deg, #ff6496, #d4467a);">Н</div>
+          <div><div class="t-name">Д. Наранбат</div><div class="t-role">Маркетингийн менежер, Номад Тур</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <blockquote>"Цахим маркетингийн стратеги болон хэрэгжилтэд тусалж, борлуулалтыг тогтвортой өсгөсөн. Үр дүнд нь бүрэн сэтгэл ханамжтай."</blockquote>
+        <div class="testimonial-author">
+          <div class="t-avatar" style="background: linear-gradient(135deg, #50c8ff, #3aa0d4);">Э</div>
+          <div><div class="t-name">А. Эрдэнэтуяа</div><div class="t-role">Борлуулалын ахлах, BlueSky Retail</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <div class="cta-box">
+      <h2 data-mn="ctaTitle">Бизнесээ онлайнаар өсгөхөд бэлэн үү?</h2>
+      <p data-mn="ctaDesc">Вэбсайт болон видео контентын тусламжтай илүү олон харилцагчтай болоорой.</p>
+      <a href="tel:99620992" class="btn btn-primary"><i class="fas fa-phone"></i> <span data-mn="ctaBtn">Утасдах</span></a>
+      <a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-ghost" target="_blank"><i class="fab fa-facebook-messenger"></i> Messenger</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-logo"><img src="logo.png" alt="OGT UUR" style="height:28px;width:auto;vertical-align:middle;" /></span>
+        <div class="footer-contact">
+          <span><i class="fas fa-phone"></i> 99620992</span>
+          <span><i class="fas fa-envelope"></i> dulguunmurun.edu@gmail.com</span>
+          <span><i class="fas fa-map-marker-alt"></i> Ulaanbaatar, Mongolia</span>
+          <span><i class="fab fa-facebook-messenger"></i> Facebook Messenger</span>
+          <span><i class="fas fa-clock"></i> Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</span>
+        </div>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/dolgoonmurun/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/_gt_dudu_/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 OGT UUR — Website & Video Studio</span>
+      <span>Улаанбаатар, Монгол Улс</span>
+    </div>
+  </footer>
+
+  <!-- STICKY CTA -->
+  <a href="tel:99620992" class="sticky-cta" id="stickyCta">
+    <i class="fas fa-phone"></i>
+    <span>Утасдах</span>
+  </a>
+
+  <!-- STICKY CTA MOBILE -->
+  <div class="sticky-cta-mobile">
+    <a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary" target="_blank"><i class="fab fa-facebook-messenger"></i> Messenger</a>
+  </div>
+
+
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
+    <a href="#work" class="mobile-link"><span data-mn="mobileWork">Ажилууд</span></a>
+    <a href="#services" class="mobile-link"><span data-mn="mobileServices">Үйлчилгээ</span></a>
+    <a href="#process" class="mobile-link"><span data-mn="mobileProcess">Үйл явц</span></a>
+    <a href="#testimonials" class="mobile-link"><span data-mn="mobileReviews">Сэтгэгдэл</span></a>
+    <a href="#contact" class="mobile-link"><span data-mn="mobileContact">Холбоо барих</span></a>
+  </div>
+
+  <script>
+    // PRELOADER removed — was causing loading stuck
+
+
+    // SCROLL PROGRESS
+    const scrollProgress = document.getElementById('scrollProgress');
+    const stickyCta = document.getElementById('stickyCta');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      if (scrollProgress) scrollProgress.style.width = progress + '%';
+      // Show sticky CTA after scrolling past hero
+      if (stickyCta) {
+        stickyCta.style.opacity = scrollTop > 600 ? '1' : '0';
+        stickyCta.style.pointerEvents = scrollTop > 600 ? 'auto' : 'none';
+      }
+    });
+
+    // NAVBAR SCROLL
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // MOBILE NAV
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileClose = document.getElementById('mobileClose');
+    if (hamburger) hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+    if (mobileClose) mobileClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileNav.classList.remove('open'));
+    });
+
+    // SMOOTH SCROLL
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // INTERSECTION OBSERVER (scroll animations)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.bento-card, .showcase-card, .process-step, .testimonial-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+
+    // HORIZONTAL SCROLL PROGRESS INDICATOR
+    const showcaseProgress = document.createElement('div');
+    showcaseProgress.className = 'showcase-progress';
+    showcaseProgress.style.cssText = 'padding: 0 40px 16px; display: flex; align-items: center; gap: 12px;';
+    const progressBar = document.createElement('div');
+    progressBar.style.cssText = 'flex: 1; height: 2px; background: rgba(255,255,255,0.06); border-radius: 1px; overflow: hidden;';
+    const progressFill = document.createElement('div');
+    progressFill.style.cssText = 'height: 100%; width: 0%; background: linear-gradient(90deg, #7850ff, #ff6496); transition: width 0.1s ease;';
+    progressBar.appendChild(progressFill);
+    showcaseProgress.appendChild(progressBar);
+    const showcaseSection = document.querySelector('.showcase');
+    if (showcaseSection) {
+      showcaseSection.appendChild(showcaseProgress);
+    }
+    const showcaseTrack = document.querySelector('.showcase-track');
+    if (showcaseTrack) {
+      showcaseTrack.addEventListener('scroll', () => {
+        const maxScroll = showcaseTrack.scrollWidth - showcaseTrack.clientWidth;
+        const progress = maxScroll > 0 ? (showcaseTrack.scrollLeft / maxScroll) * 100 : 0;
+        progressFill.style.width = progress + '%';
+      });
+    }
+
+    // HORIZONTAL SCROLL with mouse wheel (trackpad friendly)
+    if (showcaseTrack) {
+      showcaseTrack.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+          // Horizontal native scroll — let browser handle
+          return;
+        }
+        if (e.deltaY !== 0) {
+          e.preventDefault();
+          showcaseTrack.scrollLeft += e.deltaY;
+        }
+      }, { passive: false });
+
+      // Drag to scroll (mouse + trackpad friendly)
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+      showcaseTrack.addEventListener('mousedown', (e) => {
+        isDown = true;
+        showcaseTrack.classList.add('active');
+        startX = e.pageX - showcaseTrack.offsetLeft;
+        scrollLeft = showcaseTrack.scrollLeft;
+      });
+      showcaseTrack.addEventListener('mouseleave', () => { isDown = false; showcaseTrack.classList.remove('active'); });
+      showcaseTrack.addEventListener('mouseup', () => { isDown = false; showcaseTrack.classList.remove('active'); });
+      showcaseTrack.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - showcaseTrack.offsetLeft;
+        const walk = (x - startX) * 2;
+        showcaseTrack.scrollLeft = scrollLeft - walk;
+      });
+
+      // Arrow key navigation
+      showcaseTrack.setAttribute('tabindex', '0');
+      showcaseTrack.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') showcaseTrack.scrollLeft += 200;
+        if (e.key === 'ArrowLeft') showcaseTrack.scrollLeft -= 200;
+      });
+    }
+
+    // LANGUAGE SWITCHER
+    const langData = {
+      mn: {
+        navWork: "Ажилууд",
+        navServices: "Үйлчилгээ",
+        navProcess: "Үйл явц",
+        navReviews: "Сэтгэгдэл",
+        navCta: "Холбогдох",
+        heroPill: "Шинэ түншүүдээр бэлэн",
+        heroLine1: "Бид",
+        heroLine2: "Таны бизнесийг онлайнаар өсгөх",
+        heroLine3: "дижитал шийдлүүдийг бүтээдэг.",
+        heroDesc: "Вэбсайт, дизайн, контент, маркетингийн цогц үйлчилгээг нэг дороос.",
+        heroBtn1: "Ажилуудыг харах",
+        heroBtn2: "Үнийн санал авах",
+        scrollText: "Гүйлгэж харах",
+        bentoTitle: "Үйлчилгээний чиглэлүүд",
+        bentoDesc: "Таны бизнесийн өсөлтийг дэмжих дижитал шийдлүүд.",
+        bentoWeb: "Вэб Хөгжүүлэлт",
+        bentoWebDesc: "Хурд, найдвартай байдал, хэрэглэгчийн туршлагыг хослуулсан вэб шийдлүүд. Лэндинг хуудаснаас эхлэн өгөгдлийн сан, API, удирдлагын системтэй бүрэн хэмжээний апп хүртэл.",
+        bentoProjects: "Амжилттай төсөл",
+        bentoVideo: "Видео Продакшн",
+        bentoVideoDesc: "Брэндийн үнэ цэнийг өсгөх видео контент болон сурталчилгааны бүтээл.",
+        bentoDesign: "График Дизайн",
+        bentoDesignDesc: "Брэнд дизайн, лого, сошиал медиа график, баннер, хэвлэлийн дизайн. Анхаарлыг татах, зурвас илэрхийлэх контент.",
+        bentoSatisfaction: "Үйлчлүүлэгчийн сэтгэл ханамж",
+        bentoMarketing: "Дижитал Маркетинг",
+        bentoMarketingDesc: "Зорилтот хэрэглэгчдэд хүрч, борлуулалт нэмэгдүүлэх маркетингийн шийдлүүд.",
+        bentoAll: "Бүгдийг нэг дор",
+        bentoAllDesc: "Стратеги, дизайн, хөгжүүлэлт, маркетингийг нэг цэгээс шийднэ.",
+        bentoSupport: "Дэмжлэг бэлэн",
+        bentoFast: "Хурдан",
+        bentoDelivery: "Хүргэлт баталгаатай",
+        showcaseTitle: "Онцлох ажлууд",
+        showcaseDesc: "Хэрэгжүүлсэн төслүүдтэй танилцаж, дэлгэрэнгүй мэдээлэл авах боломжтой.",
+        processTitle: "Хэрхэн ажилладаг вэ?",
+        processDesc: "Саналаас эхлэн нээлт хүртэл тодорхой, хамтын үйл явц.",
+        process1: "Танилцуулах ярилцлага",
+        process1Desc: "Таны зорилго, зорилтот хэрэглэгч болон брэндийн өнгө төрхийг тодорхойлно.",
+        process2: "Стратеги & Дизайн",
+        process2Desc: "Төслийн бүтэц, дизайн, хэрэгжилтийн төлөвлөгөөг боловсруулна. Хөгжүүлэлт эхлэхээс өмнө чиглэлийг харж чадна.",
+        process3: "Бүтээх & Сайжруулах",
+        process3Desc: "Стандартын дагуу найдвартай хөгжүүлэлт хийж гүйцэтгэнэ. Тогтмол мэдээлэл өгнө, алхам бүрт санал бодлоо өгөх боломжтой.",
+        process4: "Нээх & Өсгөх",
+        process4Desc: "Туршилт, оновчлол, нээлт. Төсөл ашиглалтад орсны дараа ч тогтмол дэмжлэг үзүүлнэ.",
+        reviewsTitle: "Үйлчлүүлэгчдийн сэтгэгдэл",
+        reviewsDesc: "Хамтран ажилласан байгууллага, харилцагчдын сэтгэгдэл.",
+        review1: "Олон компаниар хийх ажлуудыг нэг дороос шийдэж өгсөн нь маш их ялгаатай. Зохион байгуулалт, хугацааны удирдлага сайн байсан.",
+        review1Name: "Б. Батбаатар",
+        review1Role: "Санхүүгийн захирал, Монгол Экспресс",
+        review2: "Бидний брэндийн зураг бүтээж, видео контент хийж өгсөн нь цаагуураа байсан шиг болж чадсан. Мэргэжлийн хандлага.",
+        review2Name: "Д. Наранбат",
+        review2Role: "Маркетингийн менежер, Номад Тур",
+        review3: "Цахим маркетингийн стратеги болон хэрэгжилтэд тусалж, борлуулалтыг тогтвортой өсгөсөн. Үр дүнд нь бүрэн сэтгэл ханамжтай.",
+        review3Name: "А. Эрдэнэтуяа",
+        review3Role: "Борлуулалын ахлах, BlueSky Retail",
+        ctaTitle: "Шинэ төслөө эхлүүлэхэд бэлэн үү?",
+        ctaDesc: "Таны бизнесийн дараагийн өсөлтийг хамтдаа бүтээе. Анхан шатны зөвлөгөө үнэ төлбөргүй — бид таны хэрэгцээнд тохирсон шийдлийг санал болгоно.",
+        ctaBtn: "Үнийн санал авах",
+        footerWork: "Ажилууд",
+        footerServices: "Үйлчилгээ",
+        footerProcess: "Үйл явц",
+        footerContact: "Холбоо барих",
+        footerCopy: "Бүх эрх хуулиар хамгаалагдсан.",
+        footerLocation: "Улаанбаатар, Монгол Улс",
+        mobileWork: "Ажилууд",
+        mobileServices: "Үйлчилгээ",
+        mobileProcess: "Үйл явц",
+        mobileReviews: "Сэтгэгдэл",
+        mobileContact: "Холбоо барих",
+        stickyCtaText: "Үнийн санал авах",
+        clientsLabel: "Хамтарсан байгууллагууд",
+        pricingTitle: "Вэбсайтын багцууд",
+        pricingDesc: "Таны бизнестийн хэмжээнд тохирсон багц. Илүү мэдээлэл авах хүсвэл холбогдох уу.",
+        pkg1Name: "Эхлэх вэбсайт",
+        pkg1Desc: "Шинэ бизнес, хувь хүний брэнд, төслийн хуудас",
+        pkg1F1: "Лэндинг хуудас (1 хуудас)",
+        pkg1F2: "Мобайлд тохирсон (Responsive)",
+        pkg1F3: "Холбоо барих форм",
+        pkg1F4: "Үндсэн SEO тохиргоо",
+        pkg1F5: "Хүргэлт: 3–5 хоног",
+        pkg2Name: "Бизнес вэбсайт",
+        pkg2Desc: "Жижиг бизнес, эмчилгээний газар, үйлчилгээний газар",
+        pkg2F1: "5 хуудас хүртэл",
+        pkg2F2: "Өөрийн дизайн",
+        pkg2F3: "Мобайлд тохирсон (Responsive)",
+        pkg2F4: "SEO бэлэн",
+        pkg2F5: "Домайн холболт",
+        pkg2F6: "Хүргэлт: 7–10 хоног",
+        pkg3Name: "Премиум вэбсайт",
+        pkg3Desc: "Томоохон бизнес, цахим дэлгүүр, системтэй вэбсайт",
+        pkg3F1: "10+ хуудас",
+        pkg3F2: "Өөрийн бүтэц, дизайн",
+        pkg3F3: "Захиалгын систем",
+        pkg3F4: "Блог хэсэг",
+        pkg3F5: "Нарийвчилсан SEO",
+        pkg3F6: "Бүрэн дэмжлэг (3 сар)",
+        popularBadge: "Түгээмэл",
+        pkgBuy: "Үнэ авах",
+        pkgConsult: "Зөвлөгөө авах"
+      },
+      en: {
+        navWork: "Work",
+        navServices: "Services",
+        navProcess: "Process",
+        navReviews: "Reviews",
+        navCta: "Get a Quote",
+        navPricing: "Pricing",
+        heroPill: "Website + Video Studio",
+        heroLine1: "Website. Video.",
+        heroLine2: "The start of business growth.",
+        heroDesc: "Websites and video content for small businesses, brands, and service providers."
+        heroBtn1: "View Our Work",
+        heroBtn2: "Contact Us",
+        scrollText: "Scroll Down",
+        bentoTitle: "What We Do",
+        bentoDesc: "We build websites and video content. These two are the most powerful tools to grow your business online.",
+        bentoWeb: "Website Development",
+        bentoWebDesc: "Professional websites for clinics, restaurants, small businesses, personal brands. Fast, reliable, user-friendly.",
+        bentoProjects: "Websites Delivered",
+        bentoVideo: "Video Production",
+        bentoVideoDesc: "Promo videos, brand videos, social media content. The most powerful way to show your business to people.",
+        bentoDesign: "Landing Pages",
+        bentoDesignDesc: "Purpose-built pages. Get orders, share information, increase sales — all on one page.",
+        bentoSatisfaction: "Videos Created",
+        bentoMarketing: "Promo Videos",
+        bentoMarketingDesc: "30-60 second videos to introduce your products and services to people.",
+        bentoAll: "Website + Video",
+        bentoAllDesc: "Both website and video content from one place. We fully equip your business online.",
+        bentoSupport: "Support",
+        bentoFast: "Fast",
+        bentoDelivery: "Delivery Guaranteed",
+        showcaseTitle: "Featured Work",
+        showcaseDesc: "Swipe or drag to explore our completed projects.",
+        processTitle: "How We Work",
+        processDesc: "A clear, collaborative process from idea to launch.",
+        process1: "Discovery Call",
+        process1Desc: "We discuss your business, goals, and customers. We understand what you need and why.",
+        process2: "Design & Planning",
+        process2Desc: "We plan the website structure, design, and content. We prepare mockups and get your approval.",
+        process3: "Development",
+        process3Desc: "We code the website based on the design. Regular updates, feedback welcome anytime.",
+        process4: "Launch & Support",
+        process4Desc: "Testing, launch. We provide ongoing support after the website goes live.",
+        reviewsTitle: "Client Reviews",
+        reviewsDesc: "What our clients say about working with us.",
+        review1: "They handled everything from one place, which made a big difference. Good organization and time management.",
+        review1Name: "B. Batbaatar",
+        review1Role: "CFO, Mongol Express",
+        review2: "They created our brand image and video content. It turned out exactly as we imagined. Professional approach.",
+        review2Name: "D. Narambat",
+        review2Role: "Marketing Manager, Nomad Tour",
+        review3: "They helped with digital marketing strategy and implementation, steadily increasing sales. Fully satisfied with the results.",
+        review3Name: "A. Erdentuy",
+        review3Role: "Sales Lead, BlueSky Retail",
+        ctaTitle: "Need a website or video for your business?",
+        ctaDesc: "Clinics, restaurants, small businesses, personal brands — professional websites and video content for everyone. First consultation is free.",
+        footerWork: "Work",
+        footerServices: "Services",
+        footerProcess: "Process",
+        footerContact: "Contact",
+        footerCopy: "Website & Video Studio. All rights reserved.",
+        footerLocation: "Ulaanbaatar, Mongolia",
+        mobileWork: "Work",
+        mobileServices: "Services",
+        mobileProcess: "Process",
+        mobileReviews: "Reviews",
+        mobileContact: "Contact",
+        stickyCtaText: "Get a Quote",
+        clientsLabel: "Trusted by",
+        pricingTitle: "Website Packages",
+        pricingDesc: "Choose a package that fits your business size. Contact us for more information.",
+        pkg1Name: "Starter Website",
+        pkg1Desc: "New business, personal brand, project page",
+        pkg1F1: "Landing Page (1 page)",
+        pkg1F2: "Mobile Responsive",
+        pkg1F3: "Contact Form",
+        pkg1F4: "Basic SEO Setup",
+        pkg1F5: "Delivery: 3–5 days",
+        pkg2Name: "Business Website",
+        pkg2Desc: "Small business, clinic, service provider",
+        pkg2F1: "Up to 5 Pages",
+        pkg2F2: "Custom Design",
+        pkg2F3: "Mobile Responsive",
+        pkg2F4: "SEO Ready",
+        pkg2F5: "Domain Connection",
+        pkg2F6: "Delivery: 7–10 days",
+        pkg3Name: "Premium Website",
+        pkg3Desc: "Large business, e-commerce, complex website",
+        pkg3F1: "10+ Pages",
+        pkg3F2: "Custom Structure & Design",
+        pkg3F3: "Booking System",
+        pkg3F4: "Blog Section",
+        pkg3F5: "Advanced SEO",
+        pkg3F6: "Full Support (3 months)",
+        popularBadge: "Most Popular",
+        pkgBuy: "Buy Now",
+        pkgConsult: "Get Consultation"
+      }
+    };
+
+    function setLang(lang) {
+      const d = langData[lang];
+      if (!d) return;
+      document.querySelectorAll('[data-mn]').forEach(el => {
+        const key = el.getAttribute('data-mn');
+        if (d[key]) {
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.placeholder = d[key];
+          } else {
+            el.textContent = d[key];
+          }
+        }
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      localStorage.setItem('lang', lang);
+    }
+
+    // Language switcher click handlers
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    // Load saved language
+    const savedLang = localStorage.getItem('lang') || 'mn';
+    setLang(savedLang);
+  </script>
+</body>
+</html>
