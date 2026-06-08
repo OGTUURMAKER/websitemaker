@@ -356,6 +356,76 @@
       .laptop-base { border-radius: 0 0 8px 8px; }
     }
 
+    /* ===== HERO TRUST ===== */
+    .hero-trust {
+      display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+      margin-top: 28px; font-size: 0.82rem; color: #666;
+      opacity: 0; animation: fadeInUp 0.8s ease 1s forwards;
+    }
+    .hero-trust span { display: flex; align-items: center; gap: 6px; }
+    .hero-trust i { color: var(--accent); font-size: 0.75rem; }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-section { padding: 100px 48px; background: #0a0a12; }
+    .contact-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+    .contact-info h2 { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; color: #fff; margin-bottom: 16px; }
+    .contact-info p { font-size: 1rem; color: #888; margin-bottom: 36px; line-height: 1.7; }
+    .contact-details { display: flex; flex-direction: column; gap: 20px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 14px; }
+    .contact-item i { width: 40px; height: 40px; border-radius: 10px; background: rgba(120,80,255,0.1); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+    .contact-item strong { color: #fff; font-size: 0.9rem; }
+    .contact-item div { color: #888; font-size: 0.85rem; line-height: 1.5; }
+    .contact-form-wrap h3 { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 24px; }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .contact-form input, .contact-form textarea {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 14px 18px; color: #fff; font-size: 0.9rem; outline: none;
+      transition: border-color 0.3s; font-family: var(--font-body);
+    }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: rgba(120,80,255,0.5); }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: #555; }
+    .contact-form textarea { resize: vertical; min-height: 100px; }
+    .btn-full { width: 100%; justify-content: center; }
+    @media (max-width: 768px) {
+      .contact-container { grid-template-columns: 1fr; gap: 40px; }
+      .contact-section { padding: 60px 24px; }
+    }
+
+    /* ===== TRUST SECTION ===== */
+    .trust { padding: 80px 48px; background: #030308; }
+    .trust-header { text-align: center; margin-bottom: 48px; }
+    .trust-header h2 { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: #fff; }
+    .trust-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .trust-card {
+      background: rgba(13,13,20,0.5); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; padding: 28px 24px; text-align: center;
+      transition: all 0.3s ease;
+    }
+    .trust-card:hover { border-color: rgba(120,80,255,0.2); transform: translateY(-4px); }
+    .trust-card i { font-size: 1.5rem; color: var(--accent); margin-bottom: 12px; display: block; }
+    .trust-card span { color: #ccc; font-size: 0.9rem; font-weight: 500; }
+    @media (max-width: 768px) {
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust { padding: 60px 24px; }
+    }
+
+    /* ===== FOOTER CONTACT ===== */
+    .footer-contact { display: flex; flex-direction: column; gap: 8px; }
+    .footer-contact span { font-size: 0.82rem; color: #888; display: flex; align-items: center; gap: 8px; }
+    .footer-contact i { color: var(--accent); font-size: 0.75rem; width: 16px; }
+
+    /* ===== STICKY CTA MOBILE ===== */
+    .sticky-cta-mobile {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+      background: rgba(10,10,16,0.95); backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255,255,255,0.06); padding: 12px 16px;
+    }
+    .sticky-cta-mobile .btn { flex: 1; justify-content: center; padding: 12px 16px; font-size: 0.85rem; }
+    @media (max-width: 768px) {
+      .sticky-cta-mobile { display: flex; gap: 10px; }
+      .sticky-cta { display: none !important; }
+    }
+
     /* ===== MARQUEE ===== */
     .marquee-section {
       padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.04);
@@ -1019,8 +1089,12 @@
         </h1>
         <p class="hero-desc">Жижиг бизнес, брэнд, үйлчилгээний байгууллагад зориулсан вэбсайт болон видео контент.</p>
         <div class="hero-actions">
-          <a href="https://wa.me/97699112233" class="btn btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Захиалах</a>
-          <a href="https://m.me/ogtuur" class="btn btn-ghost" target="_blank"><i class="fab fa-facebook-messenger"></i> Мессеж илгээх</a>
+          <a href="tel:99620992" class="btn btn-primary"><i class="fas fa-phone"></i> Үнийн санал авах</a>
+          <a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-ghost" target="_blank"><i class="fab fa-facebook-messenger"></i> Facebook Messenger</a>
+        </div>
+        <div class="hero-trust">
+          <span><i class="fas fa-phone"></i> 99620992</span>
+          <span><i class="fas fa-envelope"></i> dulguunmurun.edu@gmail.com</span>
         </div>
       </div>
 
@@ -1030,19 +1104,19 @@
         <!-- Floating cards -->
         <div class="float-card top-left">
           <div class="float-card-icon purple"><i class="fas fa-code"></i></div>
-          <div><div class="float-card-label">Үйлчилгээ</div><div class="float-card-value">Website</div></div>
+          <div><div class="float-card-label">Үйлчилгээ</div><div class="float-card-value">Вэбсайт</div></div>
         </div>
         <div class="float-card top-right">
           <div class="float-card-icon pink"><i class="fas fa-video"></i></div>
-          <div><div class="float-card-label">Үйлчилгээ</div><div class="float-card-value">Video</div></div>
+          <div><div class="float-card-label">Үйлчилгээ</div><div class="float-card-value">Видео</div></div>
         </div>
         <div class="float-card bottom-left">
           <div class="float-card-icon cyan"><i class="fas fa-tag"></i></div>
-          <div><div class="float-card-label">Үнэ</div><div class="float-card-value">450,000₮ эхэлнэ</div></div>
+          <div><div class="float-card-label">Эхлэх үнэ</div><div class="float-card-value">450,000₮</div></div>
         </div>
         <div class="float-card bottom-right">
           <div class="float-card-icon yellow"><i class="fas fa-clock"></i></div>
-          <div><div class="float-card-label">Хугацаа</div><div class="float-card-value">5 хоногт бэлэн</div></div>
+          <div><div class="float-card-label">Хүргэлт</div><div class="float-card-value">5 хоногт бэлэн</div></div>
         </div>
 
         <!-- Laptop -->
@@ -1195,9 +1269,7 @@
           <li><i class="fas fa-check"></i> <span data-mn="pkg1F4">Үндсэн SEO тохиргоо</span></li>
           <li><i class="fas fa-check"></i> <span data-mn="pkg1F5">Хүргэлт: 3–5 хоног</span></li>
         </ul>
-        <a href="https://wa.me/97699112233" class="btn btn-ghost" target="_blank">
-          <i class="fab fa-whatsapp"></i> <span data-mn="pkgBuy">Захиалах</span>
-        </a>
+        <a href="tel:99620992" class="btn btn-ghost"><i class="fas fa-phone"></i> <span data-mn="pkgBuy">Захиалах</span></a>
       </div>
 
       <!-- Package 2: Business (Popular) -->
@@ -1214,9 +1286,7 @@
           <li><i class="fas fa-check"></i> <span data-mn="pkg2F5">Домайн холболт</span></li>
           <li><i class="fas fa-check"></i> <span data-mn="pkg2F6">Хүргэлт: 7–10 хоног</span></li>
         </ul>
-        <a href="https://wa.me/97699112233" class="btn btn-primary" target="_blank">
-          <i class="fab fa-whatsapp"></i> <span data-mn="pkgBuy">Захиалах</span>
-        </a>
+        <a href="tel:99620992" class="btn btn-primary"><i class="fas fa-phone"></i> <span data-mn="pkgBuy">Захиалах</span></a>
       </div>
 
       <!-- Package 3: Premium -->
@@ -1232,9 +1302,7 @@
           <li><i class="fas fa-check"></i> <span data-mn="pkg3F5">Нарийвчилсан SEO</span></li>
           <li><i class="fas fa-check"></i> <span data-mn="pkg3F6">Бүрэн дэмжлэг (3 сар)</span></li>
         </ul>
-        <a href="https://m.me/ogtuur" class="btn btn-ghost" target="_blank">
-          <i class="fab fa-facebook-messenger"></i> <span data-mn="pkgConsult">Зөвлөгөө авах</span>
-        </a>
+        <a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-ghost" target="_blank"><i class="fab fa-facebook-messenger"></i> <span data-mn="pkgConsult">Зөвлөгөө авах</span></a>
       </div>
 
     </div>
@@ -1494,9 +1562,10 @@
   <!-- CTA -->
   <section class="cta" id="contact">
     <div class="cta-box">
-      <h2 data-mn="ctaTitle">Таны бизнест вэбсайт, видео хэрэгтэй юу?</h2>
-      <p data-mn="ctaDesc">Эмчилгээний газар, ресторан, жижиг бизнес, хувь хүний брэнд — бүгдэд зориулсан мэргэжлийн вэбсайт болон видео контент. Эхний ярилцлага үнэгүй.</p>
-      <a href="https://wa.me/97699112233" class="btn btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> <span data-mn="ctaBtn">Үнийн санал авах</span></a>
+      <h2 data-mn="ctaTitle">Бизнесээ онлайнаар өсгөхөд бэлэн үү?</h2>
+      <p data-mn="ctaDesc">Вэбсайт болон видео контентын тусламжтай илүү олон харилцагчтай болоорой.</p>
+      <a href="tel:99620992" class="btn btn-primary"><i class="fas fa-phone"></i> <span data-mn="ctaBtn">Утасдах</span></a>
+      <a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-ghost" target="_blank"><i class="fab fa-facebook-messenger"></i> Messenger</a>
     </div>
   </section>
 
@@ -1505,11 +1574,12 @@
     <div class="footer-inner">
       <div class="footer-left">
         <span class="footer-logo"><img src="logo.png" alt="OGT UUR" style="height:28px;width:auto;vertical-align:middle;" /></span>
-        <div class="footer-links">
-          <a href="#work"><span data-mn="footerWork">Ажилууд</span></a>
-          <a href="#services"><span data-mn="footerServices">Үйлчилгээ</span></a>
-          <a href="#process"><span data-mn="footerProcess">Үйл явц</span></a>
-          <a href="#contact"><span data-mn="footerContact">Холбоо барих</span></a>
+        <div class="footer-contact">
+          <span><i class="fas fa-phone"></i> 99620992</span>
+          <span><i class="fas fa-envelope"></i> dulguunmurun.edu@gmail.com</span>
+          <span><i class="fas fa-map-marker-alt"></i> Ulaanbaatar, Mongolia</span>
+          <span><i class="fab fa-facebook-messenger"></i> Facebook Messenger</span>
+          <span><i class="fas fa-clock"></i> Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</span>
         </div>
       </div>
       <div class="footer-social">
@@ -1520,16 +1590,22 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span data-mn="footerCopy">&copy; 2026 OGT UUR. Бүх эрх хуулиар хамгаалагдсан.</span>
-      <span data-mn="footerLocation">Улаанбаатар, Монгол Улс &mdash; <i class="fas fa-heart" style="color: #ff6496;"></i></span>
+      <span>&copy; 2026 OGT UUR — Website & Video Studio</span>
+      <span>Улаанбаатар, Монгол Улс</span>
     </div>
   </footer>
 
   <!-- STICKY CTA -->
-  <a href="#contact" class="sticky-cta" id="stickyCta">
-    <i class="fas fa-paper-plane"></i>
-    <span data-mn="stickyCtaText">Үнийн санал авах</span>
+  <a href="tel:99620992" class="sticky-cta" id="stickyCta">
+    <i class="fas fa-phone"></i>
+    <span>Утасдах</span>
   </a>
+
+  <!-- STICKY CTA MOBILE -->
+  <div class="sticky-cta-mobile">
+    <a href="tel:99620992" class="btn btn-primary"><i class="fas fa-phone"></i> Утасдах</a>
+    <a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-ghost" target="_blank"><i class="fab fa-facebook-messenger"></i> Messenger</a>
+  </div>
 
   <!-- CHATBOT -->
   <button class="chatbot-toggle" id="chatbotToggle">
