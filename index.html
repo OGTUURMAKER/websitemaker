@@ -633,7 +633,33 @@
       padding: 4px 12px; border-radius: 8px;
     }
 
-        /* ===== PRICING ===== */
+    
+    /* ===== PORTFOLIO ===== */
+    .portfolio { padding: 100px 48px; background: #030308; }
+    .portfolio-header { text-align: center; margin-bottom: 56px; }
+    .portfolio-header h2 { font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .portfolio-header p { font-size: 1rem; color: #888; }
+    .portfolio-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .portfolio-card {
+      background: rgba(13,13,20,0.5); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px; overflow: hidden; transition: all 0.3s ease;
+    }
+    .portfolio-card:hover { border-color: rgba(120,80,255,0.2); transform: translateY(-4px); }
+    .portfolio-img { position: relative; overflow: hidden; }
+    .portfolio-img .browser-mockup { border-radius: 0; border: none; }
+    .portfolio-info { padding: 24px; }
+    .portfolio-type { font-size: 0.72rem; color: var(--accent); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+    .portfolio-info h3 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .portfolio-meta { display: flex; gap: 16px; margin-bottom: 16px; }
+    .portfolio-meta span { font-size: 0.8rem; color: #888; display: flex; align-items: center; gap: 6px; }
+    .portfolio-meta i { color: var(--accent); font-size: 0.7rem; }
+    .portfolio-features { list-style: none; margin-bottom: 20px; }
+    .portfolio-features li { font-size: 0.82rem; color: #aaa; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .portfolio-features i { color: #50c8ff; font-size: 0.65rem; }
+    .btn-sm { padding: 10px 20px; font-size: 0.82rem; width: 100%; justify-content: center; }
+    @media (max-width: 1024px) { .portfolio-grid { grid-template-columns: 1fr; max-width: 480px; } }
+    @media (max-width: 768px) { .portfolio { padding: 60px 24px; } }
+    /* ===== PRICING ===== */
     .pricing { padding: 120px 40px; background: #030308; }
     .pricing-header { text-align: center; margin-bottom: 72px; }
     .pricing-header h2 { font-family: var(--font-heading); font-size: 3rem; font-weight: 700; color: #fff; letter-spacing: -1px; margin-bottom: 20px; display: inline-block; position: relative; }
@@ -1405,7 +1431,33 @@
       padding: 4px 12px; border-radius: 8px;
     }
 
-        /* ===== PRICING ===== */
+    
+    /* ===== PORTFOLIO ===== */
+    .portfolio { padding: 100px 48px; background: #030308; }
+    .portfolio-header { text-align: center; margin-bottom: 56px; }
+    .portfolio-header h2 { font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .portfolio-header p { font-size: 1rem; color: #888; }
+    .portfolio-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .portfolio-card {
+      background: rgba(13,13,20,0.5); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px; overflow: hidden; transition: all 0.3s ease;
+    }
+    .portfolio-card:hover { border-color: rgba(120,80,255,0.2); transform: translateY(-4px); }
+    .portfolio-img { position: relative; overflow: hidden; }
+    .portfolio-img .browser-mockup { border-radius: 0; border: none; }
+    .portfolio-info { padding: 24px; }
+    .portfolio-type { font-size: 0.72rem; color: var(--accent); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+    .portfolio-info h3 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .portfolio-meta { display: flex; gap: 16px; margin-bottom: 16px; }
+    .portfolio-meta span { font-size: 0.8rem; color: #888; display: flex; align-items: center; gap: 6px; }
+    .portfolio-meta i { color: var(--accent); font-size: 0.7rem; }
+    .portfolio-features { list-style: none; margin-bottom: 20px; }
+    .portfolio-features li { font-size: 0.82rem; color: #aaa; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .portfolio-features i { color: #50c8ff; font-size: 0.65rem; }
+    .btn-sm { padding: 10px 20px; font-size: 0.82rem; width: 100%; justify-content: center; }
+    @media (max-width: 1024px) { .portfolio-grid { grid-template-columns: 1fr; max-width: 480px; } }
+    @media (max-width: 768px) { .portfolio { padding: 60px 24px; } }
+    /* ===== PRICING ===== */
     .pricing { padding: 120px 40px; background: #030308; }
     .pricing-header { text-align: center; margin-bottom: 72px; }
     .pricing-header h2 { font-family: var(--font-heading); font-size: 3rem; font-weight: 700; color: #fff; letter-spacing: -1px; margin-bottom: 20px; display: inline-block; position: relative; }
@@ -1986,6 +2038,61 @@
     </div>
   </section>
 
+  <!-- PORTFOLIO -->
+  <section class="portfolio" id="work">
+    <div class="portfolio-header">
+      <h2>Онцлох ажилууд</h2>
+      <p>Хэрэгжүүлсэн төслүүд — тус бүрийн хугацаа, үнэ, онцлог</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-img">
+          <div class="browser-mockup">
+            <div class="browser-bar"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-url">company.mn</div></div>
+            <div class="browser-content" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><div class="browser-hero"><div class="browser-hero-line" style="width:60%;height:8px;background:rgba(255,255,255,0.9);border-radius:4px;margin-bottom:8px;"></div><div class="browser-hero-btn" style="width:80px;height:20px;background:rgba(255,255,255,0.3);border-radius:4px;"></div></div><div class="browser-cards"><div class="browser-card"></div><div class="browser-card"></div><div class="browser-card"></div></div></div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-type">Корпоратив вэбсайт</div>
+          <h3>Бизнес Лэндинг Хуудас</h3>
+          <div class="portfolio-meta"><span><i class="fas fa-clock"></i> 5 хоног</span><span><i class="fas fa-tag"></i> 850,000₮</span></div>
+          <ul class="portfolio-features"><li><i class="fas fa-check"></i> Mobile Responsive</li><li><i class="fas fa-check"></i> SEO Ready</li><li><i class="fas fa-check"></i> Modern UI</li><li><i class="fas fa-check"></i> Холбоо барих форм</li></ul>
+          <a href="https://wa.me/97699112233" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-shopping-cart"></i> Ижил төсөл захиалах</a>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-img">
+          <div class="browser-mockup">
+            <div class="browser-bar"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-url">han-restaurant.mn</div></div>
+            <div class="browser-content" style="background: linear-gradient(135deg, #1a1207 0%, #2a1f10 100%);"><div class="browser-hero"><div class="browser-hero-line" style="width:50%;height:10px;background:#d4a853;border-radius:4px;margin-bottom:8px;"></div><div class="browser-hero-btn" style="width:80px;height:20px;background:#d4a853;border-radius:4px;"></div></div><div class="browser-cards"><div class="browser-card" style="background:rgba(212,168,83,0.15);"></div><div class="browser-card" style="background:rgba(212,168,83,0.15);"></div><div class="browser-card" style="background:rgba(212,168,83,0.15);"></div></div></div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-type">Ресторан вэбсайт</div>
+          <h3>Ресторан Вэб Сайт</h3>
+          <div class="portfolio-meta"><span><i class="fas fa-clock"></i> 5 хоног</span><span><i class="fas fa-tag"></i> 850,000₮</span></div>
+          <ul class="portfolio-features"><li><i class="fas fa-check"></i> Mobile Responsive</li><li><i class="fas fa-check"></i> SEO Ready</li><li><i class="fas fa-check"></i> Цэс / Захиалгын систем</li><li><i class="fas fa-check"></i> Гэрэл зургийн цомог</li></ul>
+          <a href="https://wa.me/97699112233" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-shopping-cart"></i> Ижил төсөл захиалах</a>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-img">
+          <div class="browser-mockup">
+            <div class="browser-bar"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-url">alexchen.dev</div></div>
+            <div class="browser-content" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1525 100%);"><div class="browser-hero"><div class="browser-avatar" style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#a78bfa,#7c3aed);margin-bottom:10px;"></div><div class="browser-hero-line" style="width:55%;height:8px;background:#a78bfa;border-radius:4px;margin-bottom:6px;"></div></div><div class="browser-cards"><div class="browser-card" style="background:rgba(167,139,250,0.1);"></div><div class="browser-card" style="background:rgba(167,139,250,0.1);"></div></div></div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-type">Портфолио вэбсайт</div>
+          <h3>Фрилансер Портфолио</h3>
+          <div class="portfolio-meta"><span><i class="fas fa-clock"></i> 3 хоног</span><span><i class="fas fa-tag"></i> 450,000₮</span></div>
+          <ul class="portfolio-features"><li><i class="fas fa-check"></i> Mobile Responsive</li><li><i class="fas fa-check"></i> SEO Ready</li><li><i class="fas fa-check"></i> Modern UI</li><li><i class="fas fa-check"></i> Төсөл үзүүлэх хэсэг</li></ul>
+          <a href="https://wa.me/97699112233" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-shopping-cart"></i> Ижил төсөл захиалах</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PRICING -->
   <section class="pricing" id="pricing">
     <div class="pricing-header">
@@ -2046,185 +2153,8 @@
   </section>
 
   <!-- SHOWCASE (HORIZONTAL SCROLL) -->
-  <section class="showcase" id="work">
-    <div class="showcase-header">
-      <h2 data-mn="showcaseTitle">Онцлох ажилууд</h2>
-      <p data-mn="showcaseDesc">Хэрэгжүүлсэн төслүүдтэй танилцаж, дэлгэрэнгүй мэдээлэл авах боломжтой.</p>
-    </div>
-    <div class="showcase-track">
 
-      <!-- Business Template -->
-      <a href="https://dulguunmurunedu-boop.github.io/websitemaker/templates/business/" target="_blank" class="showcase-card">
-        <div class="showcase-img">
-          <div class="browser-mockup">
-            <div class="browser-bar">
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-              <div class="browser-url">company.mn</div>
-            </div>
-            <div class="browser-content" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-              <div class="browser-hero">
-                <div class="browser-hero-line" style="width:60%;height:8px;background:rgba(255,255,255,0.9);border-radius:4px;margin-bottom:8px;"></div>
-                <div class="browser-hero-line" style="width:80%;height:6px;background:rgba(255,255,255,0.6);border-radius:4px;margin-bottom:8px;"></div>
-                <div class="browser-hero-line" style="width:40%;height:6px;background:rgba(255,255,255,0.4);border-radius:4px;margin-bottom:12px;"></div>
-                <div class="browser-hero-btn" style="width:80px;height:20px;background:rgba(255,255,255,0.3);border-radius:4px;"></div>
-              </div>
-              <div class="browser-cards">
-                <div class="browser-card"></div>
-                <div class="browser-card"></div>
-                <div class="browser-card"></div>
-              </div>
-            </div>
-          </div>
-          <span class="badge">Бизнес</span>
-          <div class="showcase-overlay">
-            <span class="view-btn"><i class="fas fa-external-link-alt"></i> Үзэх</span>
-          </div>
-        </div>
-        <div class="showcase-info">
-          <h3>Бизнес Лэндинг Хуудас</h3>
-          <p>Үйлчилгээ, сэтгэгдэл, холбоо барих формыг бүхий мэргэжлийн корпоратив вэб сайт.</p>
-          <div class="showcase-tags"><span>Лэндинг</span><span>Корпоратив</span><span>Responsive</span></div>
-        </div>
-      </a>
 
-      <!-- Restaurant Template -->
-      <a href="https://dulguunmurunedu-boop.github.io/websitemaker/templates/restaurant/" target="_blank" class="showcase-card">
-        <div class="showcase-img">
-          <div class="browser-mockup">
-            <div class="browser-bar">
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-              <div class="browser-url">han-restaurant.mn</div>
-            </div>
-            <div class="browser-content" style="background: linear-gradient(135deg, #1a1207 0%, #2a1f10 100%);">
-              <div class="browser-hero">
-                <div class="browser-hero-line" style="width:50%;height:10px;background:#d4a853;border-radius:4px;margin-bottom:8px;"></div>
-                <div class="browser-hero-line" style="width:70%;height:6px;background:rgba(212,168,83,0.5);border-radius:4px;margin-bottom:8px;"></div>
-                <div class="browser-hero-line" style="width:45%;height:6px;background:rgba(212,168,83,0.3);border-radius:4px;margin-bottom:12px;"></div>
-                <div class="browser-hero-btn" style="width:80px;height:20px;background:#d4a853;border-radius:4px;"></div>
-              </div>
-              <div class="browser-cards">
-                <div class="browser-card" style="background:rgba(212,168,83,0.15);"></div>
-                <div class="browser-card" style="background:rgba(212,168,83,0.15);"></div>
-                <div class="browser-card" style="background:rgba(212,168,83,0.15);"></div>
-              </div>
-            </div>
-          </div>
-          <span class="badge">Ресторан</span>
-          <div class="showcase-overlay">
-            <span class="view-btn"><i class="fas fa-external-link-alt"></i> Үзэх</span>
-          </div>
-        </div>
-        <div class="showcase-info">
-          <h3>Ресторан Вэб Сайт</h3>
-          <p>Цэс, гэрэл зургийн цомог, захиалгын систем, сэтгэгдэл бүхий Монгол хоолны сайт.</p>
-          <div class="showcase-tags"><span>Ресторан</span><span>Цэс</span><span>Захиалга</span></div>
-        </div>
-      </a>
-
-      <!-- Freelancer Template -->
-      <a href="https://dulguunmurunedu-boop.github.io/websitemaker/templates/freelancer/" target="_blank" class="showcase-card">
-        <div class="showcase-img">
-          <div class="browser-mockup">
-            <div class="browser-bar">
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-              <div class="browser-url">alexchen.dev</div>
-            </div>
-            <div class="browser-content" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1525 100%);">
-              <div class="browser-hero">
-                <div class="browser-avatar" style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#a78bfa,#7c3aed);margin-bottom:10px;"></div>
-                <div class="browser-hero-line" style="width:55%;height:8px;background:#a78bfa;border-radius:4px;margin-bottom:6px;"></div>
-                <div class="browser-hero-line" style="width:75%;height:5px;background:rgba(167,139,250,0.4);border-radius:4px;margin-bottom:6px;"></div>
-                <div class="browser-hero-line" style="width:35%;height:5px;background:rgba(167,139,250,0.25);border-radius:4px;margin-bottom:10px;"></div>
-                <div class="browser-hero-btn" style="width:70px;height:18px;background:#a78bfa;border-radius:4px;"></div>
-              </div>
-              <div class="browser-cards">
-                <div class="browser-card" style="background:rgba(167,139,250,0.1);"></div>
-                <div class="browser-card" style="background:rgba(167,139,250,0.1);"></div>
-              </div>
-            </div>
-          </div>
-          <span class="badge">Портфолио</span>
-          <div class="showcase-overlay">
-            <span class="view-btn"><i class="fas fa-external-link-alt"></i> Үзэх</span>
-          </div>
-        </div>
-        <div class="showcase-info">
-          <h3>Фрилансер Портфолио</h3>
-          <p>Төсөл үзүүлэх болон чадвар харуулах харагдахуун бүхий харанхуй төрлийн портфолио.</p>
-          <div class="showcase-tags"><span>Портфолио</span><span>Харанхуй</span><span>Минимал</span></div>
-        </div>
-      </a>
-
-      <!-- E-Commerce Template -->
-      <div class="showcase-card">
-        <div class="showcase-img">
-          <div class="browser-mockup">
-            <div class="browser-bar">
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-              <div class="browser-url">shop.mn</div>
-            </div>
-            <div class="browser-content" style="background: #f8f9fa;">
-              <div class="browser-hero" style="background: linear-gradient(135deg, #50c8ff 0%, #3aa0d4 100%);height:80px;">
-                <div class="browser-hero-line" style="width:40%;height:6px;background:rgba(255,255,255,0.8);border-radius:3px;margin-bottom:6px;"></div>
-                <div class="browser-hero-line" style="width:60%;height:4px;background:rgba(255,255,255,0.5);border-radius:3px;"></div>
-              </div>
-              <div class="browser-cards">
-                <div class="browser-card" style="background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.08);"></div>
-                <div class="browser-card" style="background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.08);"></div>
-                <div class="browser-card" style="background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.08);"></div>
-                <div class="browser-card" style="background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.08);"></div>
-              </div>
-            </div>
-          </div>
-          <span class="badge">Цахим Дэлгүүр</span>
-        </div>
-        <div class="showcase-info">
-          <h3>Цахим Дэлгүүр Платформ</h3>
-          <p>Сагс, төлбөр, админ панел бүхий бүрэн хэмжээний цахим дэлгүүр.</p>
-          <div class="showcase-tags"><span>Node.js</span><span>MongoDB</span><span>Stripe</span></div>
-        </div>
-      </div>
-
-      <!-- SaaS Template -->
-      <div class="showcase-card">
-        <div class="showcase-img">
-          <div class="browser-mockup">
-            <div class="browser-bar">
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-              <div class="browser-dot"></div>
-              <div class="browser-url">dashboard.app</div>
-            </div>
-            <div class="browser-content" style="background: #fff;">
-              <div class="browser-sidebar" style="width:25%;background:#1a0f1a;position:absolute;left:0;top:24px;bottom:0;"></div>
-              <div style="margin-left:25%;padding:8px;">
-                <div style="display:flex;gap:6px;margin-bottom:8px;">
-                  <div style="flex:1;height:30px;background:#f0f0f0;border-radius:4px;"></div>
-                  <div style="flex:1;height:30px;background:#f0f0f0;border-radius:4px;"></div>
-                </div>
-                <div style="height:60px;background:linear-gradient(90deg,#ff6496,#50c8ff);border-radius:4px;opacity:0.2;"></div>
-              </div>
-            </div>
-          </div>
-          <span class="badge">SaaS</span>
-        </div>
-        <div class="showcase-info">
-          <h3>SaaS Хянах Самбар</h3>
-          <p>Өгөгдлийн дүрслэл болон багийн удирдлагатай аналитик хянах самбар.</p>
-          <div class="showcase-tags"><span>React</span><span>D3.js</span><span>Firebase</span></div>
-        </div>
-      </div>
-
-    </div>
-  </section>
   <section class="process" id="process">
     <div class="process-header">
       <h2 data-mn="processTitle">Хэрхэн ажилладаг вэ?</h2>
