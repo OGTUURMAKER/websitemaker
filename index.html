@@ -2458,23 +2458,23 @@
       <div class="calc-step active" id="step1">
         <div class="calc-question">Ямар төрлийн вэбсайт хэрэгтэй вэ?</div>
         <div class="calc-options">
-          <label class="calc-option" onclick="selectOption(this, 'type', 'online-shop')"><input type="radio" name="type" value="online-shop" /><span class="radio"></span>Online Shop</label>
-          <label class="calc-option" onclick="selectOption(this, 'type', 'business')"><input type="radio" name="type" value="business" /><span class="radio"></span>Business Website</label>
-          <label class="calc-option" onclick="selectOption(this, 'type', 'restaurant')"><input type="radio" name="type" value="restaurant" /><span class="radio"></span>Restaurant</label>
-          <label class="calc-option" onclick="selectOption(this, 'type', 'clinic')"><input type="radio" name="type" value="clinic" /><span class="radio"></span>Clinic</label>
-          <label class="calc-option" onclick="selectOption(this, 'type', 'portfolio')"><input type="radio" name="type" value="portfolio" /><span class="radio"></span>Portfolio</label>
-          <label class="calc-option" onclick="selectOption(this, 'type', 'education')"><input type="radio" name="type" value="education" /><span class="radio"></span>Education</label>
-          <label class="calc-option" onclick="selectOption(this, 'type', 'realestate')"><input type="radio" name="type" value="realestate" /><span class="radio"></span>Real Estate</label>
-          <label class="calc-option" onclick="selectOption(this, 'type', 'delivery')"><input type="radio" name="type" value="delivery" /><span class="radio"></span>Delivery</label>
+          <button class="calc-option" data-field="type" data-value="online-shop" onclick="selectOption(this,'type','online-shop')"><span class="radio"></span>Online Shop</button>
+          <button class="calc-option" data-field="type" data-value="business" onclick="selectOption(this,'type','business')"><span class="radio"></span>Business Website</button>
+          <button class="calc-option" data-field="type" data-value="restaurant" onclick="selectOption(this,'type','restaurant')"><span class="radio"></span>Restaurant</button>
+          <button class="calc-option" data-field="type" data-value="clinic" onclick="selectOption(this,'type','clinic')"><span class="radio"></span>Clinic</button>
+          <button class="calc-option" data-field="type" data-value="portfolio" onclick="selectOption(this,'type','portfolio')"><span class="radio"></span>Portfolio</button>
+          <button class="calc-option" data-field="type" data-value="education" onclick="selectOption(this,'type','education')"><span class="radio"></span>Education</button>
+          <button class="calc-option" data-field="type" data-value="realestate" onclick="selectOption(this,'type','realestate')"><span class="radio"></span>Real Estate</button>
+          <button class="calc-option" data-field="type" data-value="delivery" onclick="selectOption(this,'type','delivery')"><span class="radio"></span>Delivery</button>
         </div>
       </div>
       <!-- Step 2 -->
       <div class="calc-step" id="step2">
         <div class="calc-question">Хэдэн хуудастай байх вэ?</div>
         <div class="calc-options">
-          <label class="calc-option" onclick="selectOption(this, 'pages', '1-3')"><input type="radio" name="pages" value="1-3" /><span class="radio"></span>1–3</label>
-          <label class="calc-option" onclick="selectOption(this, 'pages', '4-7')"><input type="radio" name="pages" value="4-7" /><span class="radio"></span>4–7</label>
-          <label class="calc-option" onclick="selectOption(this, 'pages', '8+')"><input type="radio" name="pages" value="8+" /><span class="radio"></span>8+</label>
+          <button class="calc-option" data-field="pages" data-value="1-3" onclick="selectOption(this,'pages','1-3')"><span class="radio"></span>1–3</button>
+          <button class="calc-option" data-field="pages" data-value="4-7" onclick="selectOption(this,'pages','4-7')"><span class="radio"></span>4–7</button>
+          <button class="calc-option" data-field="pages" data-value="8+" onclick="selectOption(this,'pages','8+')"><span class="radio"></span>8+</button>
         </div>
       </div>
       <!-- Result -->
@@ -2985,6 +2985,30 @@
     // Close on Escape
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeModal();
+    });
+
+    // TEMPLATE CARD BUTTONS — event delegation
+    document.getElementById('marketplaceGrid').addEventListener('click', function(e) {
+      var card = e.target.closest('.template-card');
+      if (!card) return;
+      var btn = e.target.closest('button.btn-outline');
+      var link = e.target.closest('a.btn-primary');
+      if (btn) {
+        e.stopPropagation();
+        var idx = Array.from(document.querySelectorAll('#marketplaceGrid .template-card')).indexOf(card);
+        openModal(idx);
+      } else if (link) {
+        e.stopPropagation();
+      }
+    });
+
+    // CALCULATOR OPTION BUTTONS
+    document.querySelectorAll('.calc-option').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var field = btn.getAttribute('data-field');
+        var value = btn.getAttribute('data-value');
+        if (field && value) selectOption(btn, field, value);
+      });
     });
 
     // SCROLL PROGRESS
