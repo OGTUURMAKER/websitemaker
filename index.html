@@ -1712,21 +1712,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-
-    // WEBSITE CALCULATOR
-    var calcData = {
-      'online-shop': { price: '850,000₮ – 1,200,000₮', time: '5–10 хоног', pack: 'Online Shop Template', msg: 'Таны сонголтод Online Shop Template хамгийн тохиромжтой байна.' },
-      'business': { price: '650,000₮ – 850,000₮', time: '3–7 хоног', pack: 'Business Template', msg: 'Таны сонголтод Business Template хамгийн тохиромжтой байна.' },
-      'restaurant': { price: '550,000₮ – 750,000₮', time: '3–7 хоног', pack: 'Restaurant Template', msg: 'Таны сонголтод Restaurant Template хамгийн тохиромжтой байна.' },
-      'clinic': { price: '750,000₮ – 1,000,000₮', time: '5–7 хоног', pack: 'Clinic Template', msg: 'Таны сонголтод Clinic Template хамгийн тохиромжтой байна.' },
-      'portfolio': { price: '350,000₮ – 550,000₮', time: '3–5 хоног', pack: 'Portfolio Template', msg: 'Таны сонголтод Portfolio Template хамгийн тохиромжтой байна.' },
-      'education': { price: '550,000₮ – 850,000₮', time: '5–7 хоног', pack: 'Education Template', msg: 'Таны сонголтод Education Template хамгийн тохиромжтой байна.' },
-      'realestate': { price: '800,000₮ – 1,200,000₮', time: '5–10 хоног', pack: 'Real Estate Template', msg: 'Таны сонголтод Real Estate Template хамгийн тохиромжтой байна.' },
-      'delivery': { price: '650,000₮ – 900,000₮', time: '3–7 хоног', pack: 'Delivery Template', msg: 'Таны сонголтод Delivery Template хамгийн тохиромжтой байна.' }
-    };
-    var selectedType = null;
-    function selectOption(el, field, value) {
+        function selectOption(el, field, value) {
       // Mark selected
       var parent = el.parentElement;
       parent.querySelectorAll('.calc-option').forEach(function(o) { o.classList.remove('selected'); });
@@ -1749,31 +1735,12 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         }, 300);
       }
     }
-
-    // Calculator event delegation
-    document.querySelectorAll('.calc-option').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        selectOption(this, this.dataset.field, this.dataset.value);
-      });
-    });
-
-
-    // TEMPLATE FILTER & SEARCH
-    var currentFilter = 'all';
     function setFilter(filter, btn) {
       currentFilter = filter;
       document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
       filterTemplates();
     }
-
-    // Event delegation for filter buttons
-    document.querySelector('.filter-bar').addEventListener('click', function(e) {
-      var btn = e.target.closest('.filter-btn');
-      if (btn) {
-        setFilter(btn.dataset.filter, btn);
-      }
-    });
     function filterTemplates() {
       var search = document.getElementById('templateSearch').value.toLowerCase();
       var cards = document.querySelectorAll('#marketplaceGrid .template-card');
@@ -1795,19 +1762,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       var empty = document.getElementById('marketplaceEmpty');
       if (visible === 0) { empty.classList.add('show'); } else { empty.classList.remove('show'); }
     }
-
-    // TEMPLATE MODAL
-    var templates = [
-      { name: 'Online Shop Загвар', category: 'Онлайн дэлгүүр', price: '850,000₮ – 1,200,000₮', url: 'shop.mn', color: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)', features: ['Бүтээгдэхүүн харуулах', 'Сагс / Төлбөр', 'Mobile Responsive', 'SEO Ready', 'Fast Loading', 'Contact Form'] },
-      { name: 'Бизнес Вэбсайт', category: 'Бизнес', price: '650,000₮ – 850,000₮', url: 'business.mn', color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', features: ['Үйлчилгээний хуудас', 'Contact form', 'Mobile Responsive', 'SEO Ready', 'Fast Loading', 'Modern UI'] },
-      { name: 'Хувь хүний Портфолио', category: 'Портфолио', price: '350,000₮ – 550,000₮', url: 'portfolio.mn', color: 'linear-gradient(135deg, #0a0a0a 0%, #1a1525 100%)', features: ['Төсөл үзүүлэх', 'Modern UI', 'Mobile Responsive', 'Contact Form', 'Fast Loading', 'SEO Ready'] },
-      { name: 'Ресторан Вэбсайт', category: 'Ресторан / Кафе', price: '550,000₮ – 750,000₮', url: 'restaurant.mn', color: 'linear-gradient(135deg, #1a1207 0%, #2a1f10 100%)', features: ['Цэс харуулах', 'Захиалгын систем', 'Mobile Responsive', 'Гэрэл зургийн цомог', 'Fast Loading', 'SEO Ready'] },
-      { name: 'Клиник Вэбсайт', category: 'Эмчилгээ', price: '750,000₮ – 1,000,000₮', url: 'clinic.mn', color: 'linear-gradient(135deg, #0a1628 0%, #1a2a4a 100%)', features: ['Цаг захиалга', 'Эмчийн мэдээлэл', 'Mobile Responsive', 'Contact Form', 'Fast Loading', 'SEO Ready'] },
-      { name: 'Delivery Вэбсайт', category: 'Хүргэлт / Логистик', price: '650,000₮ – 900,000₮', url: 'delivery.mn', color: 'linear-gradient(135deg, #0d1b0e 0%, #1a2e1b 100%)', features: ['Захиалгын форм', 'Байршил харуулах', 'Mobile Responsive', 'Messenger холболт', 'Fast Loading', 'SEO Ready'] },
-      { name: 'Сургалтын Вэбсайт', category: 'Боловсрол', price: '550,000₮ – 850,000₮', url: 'education.mn', color: 'linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%)', features: ['Курс харуулах', 'Бүртгэлийн форм', 'Mobile Responsive', 'SEO Ready', 'Fast Loading', 'Contact Form'] },
-      { name: 'Үл хөдлөх хөрөнгө', category: 'Үл хөдлөх', price: '800,000₮ – 1,200,000₮', url: 'realestate.mn', color: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)', features: ['Зар харуулах', 'Шүүлтүүр', 'Mobile Responsive', 'Contact Form', 'Fast Loading', 'SEO Ready'] }
-    ];
-
     function openModal(idx) {
       var t = templates[idx];
       document.getElementById('modalTitle').textContent = t.name;
@@ -1825,6 +1779,82 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       document.getElementById('templateModal').classList.add('open');
       document.body.style.overflow = 'hidden';
     }
+    function closeModal() {
+      document.getElementById('templateModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function switchDevice(device, target) {
+      var frame = document.getElementById('deviceFrame');
+      frame.className = 'device-frame ' + device;
+      document.querySelectorAll('.device-tab').forEach(function(tab) { tab.classList.remove('active'); });
+      if (target) target.classList.add('active');
+    }
+    function setLang(lang) {
+      const d = langData[lang];
+      if (!d) return;
+      document.querySelectorAll('[data-mn]').forEach(el => {
+        const key = el.getAttribute('data-mn');
+        if (d[key]) {
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.placeholder = d[key];
+          } else {
+            el.textContent = d[key];
+          }
+        }
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      localStorage.setItem('lang', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+
+    // WEBSITE CALCULATOR
+    var calcData = {
+      'online-shop': { price: '850,000₮ – 1,200,000₮', time: '5–10 хоног', pack: 'Online Shop Template', msg: 'Таны сонголтод Online Shop Template хамгийн тохиромжтой байна.' },
+      'business': { price: '650,000₮ – 850,000₮', time: '3–7 хоног', pack: 'Business Template', msg: 'Таны сонголтод Business Template хамгийн тохиромжтой байна.' },
+      'restaurant': { price: '550,000₮ – 750,000₮', time: '3–7 хоног', pack: 'Restaurant Template', msg: 'Таны сонголтод Restaurant Template хамгийн тохиромжтой байна.' },
+      'clinic': { price: '750,000₮ – 1,000,000₮', time: '5–7 хоног', pack: 'Clinic Template', msg: 'Таны сонголтод Clinic Template хамгийн тохиромжтой байна.' },
+      'portfolio': { price: '350,000₮ – 550,000₮', time: '3–5 хоног', pack: 'Portfolio Template', msg: 'Таны сонголтод Portfolio Template хамгийн тохиромжтой байна.' },
+      'education': { price: '550,000₮ – 850,000₮', time: '5–7 хоног', pack: 'Education Template', msg: 'Таны сонголтод Education Template хамгийн тохиромжтой байна.' },
+      'realestate': { price: '800,000₮ – 1,200,000₮', time: '5–10 хоног', pack: 'Real Estate Template', msg: 'Таны сонголтод Real Estate Template хамгийн тохиромжтой байна.' },
+      'delivery': { price: '650,000₮ – 900,000₮', time: '3–7 хоног', pack: 'Delivery Template', msg: 'Таны сонголтод Delivery Template хамгийн тохиромжтой байна.' }
+    };
+    var selectedType = null;
+
+    // Calculator event delegation
+    document.querySelectorAll('.calc-option').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        selectOption(this, this.dataset.field, this.dataset.value);
+      });
+    });
+
+
+    // TEMPLATE FILTER & SEARCH
+    var currentFilter = 'all';
+
+    // Event delegation for filter buttons
+    document.querySelector('.filter-bar').addEventListener('click', function(e) {
+      var btn = e.target.closest('.filter-btn');
+      if (btn) {
+        setFilter(btn.dataset.filter, btn);
+      }
+    });
+
+    // TEMPLATE MODAL
+    var templates = [
+      { name: 'Online Shop Загвар', category: 'Онлайн дэлгүүр', price: '850,000₮ – 1,200,000₮', url: 'shop.mn', color: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)', features: ['Бүтээгдэхүүн харуулах', 'Сагс / Төлбөр', 'Mobile Responsive', 'SEO Ready', 'Fast Loading', 'Contact Form'] },
+      { name: 'Бизнес Вэбсайт', category: 'Бизнес', price: '650,000₮ – 850,000₮', url: 'business.mn', color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', features: ['Үйлчилгээний хуудас', 'Contact form', 'Mobile Responsive', 'SEO Ready', 'Fast Loading', 'Modern UI'] },
+      { name: 'Хувь хүний Портфолио', category: 'Портфолио', price: '350,000₮ – 550,000₮', url: 'portfolio.mn', color: 'linear-gradient(135deg, #0a0a0a 0%, #1a1525 100%)', features: ['Төсөл үзүүлэх', 'Modern UI', 'Mobile Responsive', 'Contact Form', 'Fast Loading', 'SEO Ready'] },
+      { name: 'Ресторан Вэбсайт', category: 'Ресторан / Кафе', price: '550,000₮ – 750,000₮', url: 'restaurant.mn', color: 'linear-gradient(135deg, #1a1207 0%, #2a1f10 100%)', features: ['Цэс харуулах', 'Захиалгын систем', 'Mobile Responsive', 'Гэрэл зургийн цомог', 'Fast Loading', 'SEO Ready'] },
+      { name: 'Клиник Вэбсайт', category: 'Эмчилгээ', price: '750,000₮ – 1,000,000₮', url: 'clinic.mn', color: 'linear-gradient(135deg, #0a1628 0%, #1a2a4a 100%)', features: ['Цаг захиалга', 'Эмчийн мэдээлэл', 'Mobile Responsive', 'Contact Form', 'Fast Loading', 'SEO Ready'] },
+      { name: 'Delivery Вэбсайт', category: 'Хүргэлт / Логистик', price: '650,000₮ – 900,000₮', url: 'delivery.mn', color: 'linear-gradient(135deg, #0d1b0e 0%, #1a2e1b 100%)', features: ['Захиалгын форм', 'Байршил харуулах', 'Mobile Responsive', 'Messenger холболт', 'Fast Loading', 'SEO Ready'] },
+      { name: 'Сургалтын Вэбсайт', category: 'Боловсрол', price: '550,000₮ – 850,000₮', url: 'education.mn', color: 'linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%)', features: ['Курс харуулах', 'Бүртгэлийн форм', 'Mobile Responsive', 'SEO Ready', 'Fast Loading', 'Contact Form'] },
+      { name: 'Үл хөдлөх хөрөнгө', category: 'Үл хөдлөх', price: '800,000₮ – 1,200,000₮', url: 'realestate.mn', color: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)', features: ['Зар харуулах', 'Шүүлтүүр', 'Mobile Responsive', 'Contact Form', 'Fast Loading', 'SEO Ready'] }
+    ];
+
 
     // Event delegation for template cards
     document.querySelector('.portfolio-grid').addEventListener('click', function(e) {
@@ -1856,10 +1886,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       }
     });
 
-    function closeModal() {
-      document.getElementById('templateModal').classList.remove('open');
-      document.body.style.overflow = '';
-    }
 
     // Event delegation for modal close button
     document.getElementById('templateModal').addEventListener('click', function(e) {
@@ -1875,12 +1901,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       }
     });
 
-    function switchDevice(device, target) {
-      var frame = document.getElementById('deviceFrame');
-      frame.className = 'device-frame ' + device;
-      document.querySelectorAll('.device-tab').forEach(function(tab) { tab.classList.remove('active'); });
-      if (target) target.classList.add('active');
-    }
 
     // Event delegation for device tabs
     document.querySelector('.device-tabs').addEventListener('click', function(e) {
@@ -2158,7 +2178,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         heroPill: "Website + Video Studio",
         heroLine1: "Website. Video.",
         heroLine2: "The start of business growth.",
-        heroDesc: "Websites and video content for small businesses, brands, and service providers."
+        heroDesc: "Websites and video content for small businesses, brands, and service providers.",
         heroBtn1: "View Our Work",
         heroBtn2: "Contact Us",
         scrollText: "Scroll Down",
@@ -2248,24 +2268,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       }
     };
 
-    function setLang(lang) {
-      const d = langData[lang];
-      if (!d) return;
-      document.querySelectorAll('[data-mn]').forEach(el => {
-        const key = el.getAttribute('data-mn');
-        if (d[key]) {
-          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-            el.placeholder = d[key];
-          } else {
-            el.textContent = d[key];
-          }
-        }
-      });
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-      });
-      localStorage.setItem('lang', lang);
-    }
 
     // Language switcher click handlers
     document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -2276,7 +2278,9 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
     const savedLang = localStorage.getItem('lang') || 'mn';
     setLang(savedLang);
   
+    
     });
+
 </script>
 </body>
 </html>
