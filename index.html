@@ -70,6 +70,13 @@ a { text-decoration: none; color: inherit; }
   .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-container { grid-template-columns: 1fr; gap: 40px; }
+
+  /* Performance: reduce animations on tablet */
+  .gradient-blob, .hero-orb { animation-duration: 60s !important; }
+  .float-card { animation: none !important; }
+  .laptop-reflection { display: none; }
+  /* Performance: reduce blur on tablet */
+  .noise { opacity: 0.05; }
 }
 
 .noise {
@@ -407,6 +414,15 @@ nav.scrolled {
   .modal-features { grid-template-columns: 1fr; }
   .modal-actions { flex-direction: column; }
   .device-tabs { flex-wrap: wrap; }
+
+  /* Performance: disable animations on mobile */
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .gradient-blob, .hero-orb, .float-card, .scroll-line, .marquee-track, .clients-track, .laptop { animation: none !important; }
+  .laptop-reflection { display: none; }
+  /* Performance: remove backdrop-filter on mobile */
+  nav.scrolled, .hero-pill, .btn-ghost, .float-card, .showcase-card, .template-card, .template-overlay-btn, .modal-content, .sticky-cta, .sticky-cta-mobile, .bento-card, .testimonial-card, .pricing-card, .service-card, .trust-card, .cta-box, .calculator-card, .lang-switcher, .filter-btn.active, .template-badge, .template-includes, .calc-result-pack, .calc-option.selected, .showcase-img .badge, .popular-badge { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  /* Performance: remove blur filters on mobile */
+  .noise { display: none; }
 }
 
 .hero-trust {
