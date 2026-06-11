@@ -71,7 +71,7 @@ a { text-decoration: none; color: inherit; }
 .services-grid { grid-template-columns: repeat(2, 1fr); }
 /* Performance: reduce animations on tablet */
   .gradient-blob, .hero-orb { animation-duration: 60s !important; }
-  .float-card { animation: none !important; }
+  
 /* Performance: reduce blur on tablet */
   .noise { opacity: 0.05; }
 }
@@ -227,120 +227,71 @@ nav.scrolled {
       opacity: 0; animation: fadeInUp 0.8s ease 0.8s forwards;
     }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.laptop-wrapper {
-      flex: 0 0 58%; display: flex; justify-content: center; align-items: center;
-      position: relative; perspective: 1400px; min-width: 0;
-    }
-.laptop {
-      position: relative; width: 100%; max-width: 800px;
-      transform: rotateY(-8deg) rotateX(4deg);
-      transform-style: preserve-3d;
-      animation: laptopFloat 6s ease-in-out infinite;
-      will-change: transform;
-    }
-@keyframes laptopFloat {
-      0%, 100% { transform: rotateY(-8deg) rotateX(4deg) translateY(0); }
+
+
+
       50% { transform: rotateY(-8deg) rotateX(4deg) translateY(-12px); }
     }
-.laptop-screen {
-      position: relative; background: #12121e;
-      border-radius: 16px 16px 0 0; border: 3px solid #2a2a3e; border-bottom: none;
-      overflow: hidden;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 30px 80px rgba(0,0,0,0.5), 0 0 120px rgba(120,80,255,0.05);
-    }
-.laptop-screen::before {
-      content: ''; position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
-      width: 8px; height: 8px; border-radius: 50%; background: #333; z-index: 10;
-    }
-.laptop-screen::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 50%);
-      pointer-events: none; z-index: 5; border-radius: 13px 13px 0 0;
-    }
-.laptop-display { width: 100%; height: 0; padding-bottom: 62%; position: relative; overflow: hidden; background: #08080f; }
-.laptop-display-inner { position: absolute; inset: 0; overflow: hidden; }
-.mini-site { width: 100%; height: 100%; background: #08080f; }
-.mini-nav {
-      height: 8%; background: rgba(8,8,15,0.95); border-bottom: 1px solid rgba(255,255,255,0.05);
-      display: flex; align-items: center; justify-content: space-between; padding: 0 3%;
-    }
-.mini-nav-logo {
-      font-family: var(--font-heading); font-size: clamp(7px, 1vw, 12px); font-weight: 700;
-      background: linear-gradient(135deg, #7850ff, #ff6496);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: 2px;
-    }
-.mini-nav-links { display: flex; gap: 3%; }
+
+
+
+
+
+
+
+
+
 .mini-nav-links span { display: block; height: 2px; width: clamp(16px, 2.5vw, 32px); background: rgba(255,255,255,0.15); border-radius: 1px; }
-.mini-nav-cta { padding: 1% 3%; border-radius: 4px; background: linear-gradient(135deg, #7850ff, #5a3fd4); display: flex; align-items: center; }
+
 .mini-nav-cta span { display: block; height: 1px; width: 100%; background: rgba(255,255,255,0.6); }
-.mini-hero { padding: 5% 3%; display: flex; align-items: center; gap: 3%; }
-.mini-hero-text { flex: 1; }
-.mini-hero-title-1 { font-family: var(--font-heading); font-size: clamp(8px, 1.5vw, 18px); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 4px; }
-.mini-hero-title-2 { font-family: var(--font-heading); font-size: clamp(8px, 1.5vw, 18px); font-weight: 700; line-height: 1.15; background: linear-gradient(135deg, #7850ff, #ff6496); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 6px; }
-.mini-hero-desc { font-size: clamp(4px, 0.55vw, 7px); color: #555; line-height: 1.5; margin-bottom: 8px; max-width: 80%; }
-.mini-hero-btns { display: flex; gap: 2%; }
-.mini-btn-primary { padding: 2% 4%; border-radius: 4px; background: linear-gradient(135deg, #7850ff, #5a3fd4); font-size: clamp(4px, 0.5vw, 7px); color: #fff; font-weight: 600; }
-.mini-btn-ghost { padding: 2% 4%; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08); font-size: clamp(4px, 0.5vw, 7px); color: #777; font-weight: 600; }
-.mini-hero-visual { flex: 0 0 30%; height: clamp(50px, 8vw, 100px); border-radius: 6px; overflow: hidden; position: relative; background: linear-gradient(135deg, rgba(120,80,255,0.12), rgba(255,100,150,0.08)); border: 1px solid rgba(120,80,255,0.15); }
-.mini-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3%; padding: 2% 3% 0; }
-.mini-card { background: rgba(13,13,20,0.5); border: 1px solid rgba(255,255,255,0.05); border-radius: 5px; padding: 8% 5%; }
-.mini-card-icon { width: clamp(10px, 1.2vw, 16px); height: clamp(10px, 1.2vw, 16px); border-radius: 3px; margin-bottom: 3px; }
+
+
+
+
+
+
+
+
+
+
+
+
 .mini-card-icon.purple { background: rgba(120,80,255,0.2); }
 .mini-card-icon.pink { background: rgba(255,100,150,0.2); }
 .mini-card-icon.blue { background: rgba(80,200,255,0.2); }
-.mini-card-title { font-size: clamp(4px, 0.55vw, 8px); font-weight: 700; color: #fff; margin-bottom: 1px; }
-.mini-card-desc { font-size: clamp(3px, 0.4vw, 6px); color: #444; line-height: 1.4; }
-.mini-stats { display: flex; gap: 2%; padding: 2% 3% 3%; }
-.mini-stat { flex: 1; text-align: center; padding: 2% 1%; background: rgba(255,255,255,0.015); border-radius: 4px; border: 1px solid rgba(255,255,255,0.03); }
-.mini-stat-num { font-family: var(--font-heading); font-size: clamp(7px, 0.9vw, 13px); font-weight: 800; margin-bottom: 1px; }
+
+
+
+
+
 .mini-stat-num
 .mini-stat-num
 .mini-stat-num.cyan { color: #50c8ff; }
-.mini-stat-label { font-size: clamp(3px, 0.35vw, 5px); color: #444; }
-.laptop-base {
-      position: relative; background: linear-gradient(180deg, #2a2a3e 0%, #1a1a28 100%);
-      border-radius: 0 0 12px 12px; padding: 1.5% 3% 2.5%;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
-    }
-.laptop-keyboard { display: grid; grid-template-rows: repeat(5, 1fr); gap: 2%; margin-bottom: 2%; }
+
+
+
 .keyboard-row { display: flex; gap: 1%; }
 .key { flex: 1; height: clamp(3px, 0.35vw, 6px); background: rgba(255,255,255,0.05); border-radius: 1px; }
 .key.space { flex: 4; }
-.laptop-trackpad { width: 22%; height: clamp(8px, 0.9vw, 16px); background: rgba(255,255,255,0.03); border-radius: 3px; margin: 0 auto; }
-.laptop-reflection {
-      position: absolute; bottom: -25%; left: 8%; right: 8%; height: 25%;
-      background: linear-gradient(180deg, rgba(120,80,255,0.03), transparent);
-      transform: scaleY(-1) rotateX(60deg); filter: blur(6px); pointer-events: none; opacity: 0.4;
-    }
-.float-card {
-      position: absolute; background: rgba(10,10,18,0.75); backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 10px 14px;
-      display: flex; align-items: center; gap: 8px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 40px rgba(120,80,255,0.04);
-      animation: floatCard 5s ease-in-out infinite; z-index: 3; will-change: transform;
-    }
-@keyframes floatCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-.float-card-icon {
-      width: 32px; height: 32px; border-radius: 9px;
-      display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0;
-    }
+
+
+
+ 50% { transform: translateY(-8px); } }
+
 .float-card-icon
 .float-card-icon
 .float-card-icon.cyan { background: rgba(80,200,255,0.12); color: #50c8ff; }
 .float-card-icon.yellow { background: rgba(255,216,80,0.12); color: #ffd850; }
-.float-card-label { font-size: 0.55rem; color: #555; margin-bottom: 1px; }
-.float-card-value { font-size: 0.75rem; font-weight: 700; color: #fff; }
-.float-card.top-left { top: 6%; left: -6%; animation-delay: 0s; }
-.float-card.top-right { top: 10%; right: -6%; animation-delay: -1.5s; }
-.float-card.bottom-left { bottom: 14%; left: -4%; animation-delay: -3s; }
-.float-card.bottom-right { bottom: 10%; right: -4%; animation-delay: -2s; }
-.scroll-indicator {
-      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.3;
-    }
+
+
+
+
+
+
+
 .scroll-indicator span { font-size: 0.55rem; color: #444; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; }
-.scroll-line { width: 1px; height: 32px; background: linear-gradient(to bottom, #7850ff, transparent); animation: scrollLine 2s ease-in-out infinite; }
-@keyframes scrollLine { 0%, 100% { transform: scaleY(0.3); opacity: 0.3; } 50% { transform: scaleY(1); opacity: 1; } }
+
+ 50% { transform: scaleY(1); opacity: 1; } }
 
 @media (max-width: 768px) {
   .hero-inner { flex-direction: column; gap: 40px; }
@@ -349,12 +300,12 @@ nav.scrolled {
   .hero-actions { justify-content: center; }
   .hero { padding: 100px 20px 60px; }
   .hero-title { font-size: 1.8rem; }
-  .laptop-wrapper { flex: none; width: 100%; }
-  .laptop { max-width: 600px; transform: rotateY(0) rotateX(2deg); }
-  .laptop-screen { border-radius: 10px 10px 0 0; }
-  .laptop-base { border-radius: 0 0 8px 8px; }
-  .float-card { display: none; }
-  .scroll-indicator { display: none; }
+  
+  
+  
+  
+  
+  
   nav { padding: 14px 24px; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
@@ -409,8 +360,8 @@ nav.scrolled {
 
   /* Performance: disable animations on mobile */
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-  .gradient-blob, .hero-orb, .float-card, .scroll-line, .marquee-track, .laptop { animation: none !important; }
-  .laptop-reflection { display: none; }
+  .gradient-blob, .hero-orb, .float-card, .scroll-line, .marquee-track, 
+  
   /* Performance: remove backdrop-filter on mobile */
   nav.scrolled, .hero-pill, .btn-ghost, .float-card, .showcase-card, .template-card, .template-overlay-btn, .modal-content, .sticky-cta, .sticky-cta-mobile, .bento-card, .testimonial-card, .pricing-card, .service-card, .trust-card, .cta-box, .calculator-card, .lang-switcher, .filter-btn.active, .template-badge, .template-includes, .calc-result-pack, .calc-option.selected, .showcase-img .badge, .popular-badge { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
   /* Performance: remove blur filters on mobile */
@@ -1219,108 +1170,91 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
     <div class="hero-bg">
       <div class="hero-orb orb-1"></div>
       <div class="hero-orb orb-2"></div>
-      <div class="hero-orb orb-3"></div>
-      <div class="hero-grid"></div>
-      <div class="hero-glow"></div>
     </div>
     <div class="hero-inner">
 
-      <!-- LEFT: 40% text -->
+      <!-- LEFT: Text -->
       <div class="hero-text">
         <div class="hero-pill"><span class="dot"></span> Website Studio</div>
-        <h1 class="hero-title" id="hero-title">
-          Вэбсайт ба видео.<br>
-          <span class="gradient">Бизнес өсөлтийн эхлэл.</span>
+        <h1 class="hero-title">
+          Таны бизнест<br>илүү олон харилцагч.
         </h1>
-        <p class="hero-desc">Жижиг бизнес, брэнд, үйлчилгээний байгууллагад зориулсан вэбсайт болон видео контент.</p>
-        <div class="hero-actions">
-          <a href="tel:99620992" class="btn btn-primary"><i class="fas fa-phone"></i> Үнийн санал авах</a>
-          <a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-ghost" target="_blank"><i class="fab fa-facebook-messenger"></i> Facebook Messenger</a>
-        </div>
+        <p class="hero-subtitle">Мэргэжлийн вебсайт<br><strong>450,000₮-өөс эхэлнэ.</strong></p>
+        <p class="hero-desc">Жижиг бизнес, үйлчилгээний байгууллагуудад зориулсан орчин үеийн вебсайт хөгжүүлэлт.</p>
+
         <div class="hero-trust">
-          <span><i class="fas fa-globe"></i> Бэлэн загварууд</span>
-          <span><i class="fas fa-phone"></i> 99620992</span>
+          <span><i class="fas fa-check-circle"></i> 50+ төсөл</span>
+          <span><i class="fas fa-clock"></i> 5 хоногийн дундаж хугацаа</span>
+          <span><i class="fas fa-comments"></i> Үнэгүй зөвлөгөө</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#calculator" class="btn btn-primary"><i class="fas fa-calculator"></i> Үнийн санал авах</a>
+          <a href="#work" class="btn btn-ghost"><i class="fas fa-eye"></i> Ажлууд үзэх</a>
         </div>
       </div>
 
-      <!-- RIGHT: 60% laptop -->
-      <div class="laptop-wrapper">
-
-        <!-- Floating cards -->
-        <div class="float-card top-left">
-          <div class="float-card-icon purple"><i class="fas fa-code"></i></div>
-          <div><div class="float-card-label">Үйлчилгээ</div><div class="float-card-value">Вэбсайт</div></div>
-        </div>
-        <div class="float-card top-right">
-          <div class="float-card-icon pink"><i class="fas fa-video"></i></div>
-          <div><div class="float-card-label">Үйлчилгээ</div><div class="float-card-value">Видео</div></div>
-        </div>
-        <div class="float-card bottom-left">
-          <div class="float-card-icon cyan"><i class="fas fa-tag"></i></div>
-          <div><div class="float-card-label">Эхлэх үнэ</div><div class="float-card-value">450,000₮</div></div>
-        </div>
-        <div class="float-card bottom-right">
-          <div class="float-card-icon yellow"><i class="fas fa-clock"></i></div>
-          <div><div class="float-card-label">Хүргэлт</div><div class="float-card-value">5 хоногт бэлэн</div></div>
-        </div>
-
-        <!-- Laptop -->
-        <div class="laptop">
-          <div class="laptop-screen">
-            <div class="laptop-display">
-              <div class="laptop-display-inner">
-                <div class="mini-site">
-                  <div class="mini-nav">
-                    <div class="mini-nav-logo"><img src="logo.png" alt="OGT UUR" style="height:16px;width:auto;vertical-align:middle;" /></div>
-                    <div class="mini-nav-links"><span></span><span></span><span></span><span></span></div>
-                    <div class="mini-nav-cta"><span></span></div>
-                  </div>
-                  <div class="mini-hero">
-                    <div class="mini-hero-text">
-                      <div class="mini-hero-title-1">Вэбсайт ба видео.</div>
-                      <div class="mini-hero-title-2">Бизнес өсөлтийн эхлэл.</div>
-                      <div class="mini-hero-desc">Жижиг бизнес, брэнд, үйлчилгээний байгууллагад зориулсан вэбсайт болон видео контент.</div>
-                      <div class="mini-hero-btns">
-                        <div class="mini-btn-primary">Үнийн санал авах</div>
-                        <div class="mini-btn-ghost">Ажлууд харах</div>
-                      </div>
-                    </div>
-                    <div class="mini-hero-visual"></div>
-                  </div>
-                  <div class="mini-cards-grid">
-                    <div class="mini-card"><div class="mini-card-icon purple"></div><div class="mini-card-title">Вэбсайт</div><div class="mini-card-desc">Мэргэжлийн вэбсайт</div></div>
-                    <div class="mini-card"><div class="mini-card-icon pink"></div><div class="mini-card-title">Видео</div><div class="mini-card-desc">Промо видео</div></div>
-                    <div class="mini-card"><div class="mini-card-icon blue"></div><div class="mini-card-title">Дизайн</div><div class="mini-card-desc">Брэндийн дизайн</div></div>
-                  </div>
-                  <div class="mini-stats">
-                    <div class="mini-stat"><div class="mini-stat-num purple">30+</div><div class="mini-stat-label">Вэбсайт</div></div>
-                    <div class="mini-stat"><div class="mini-stat-num pink">50+</div><div class="mini-stat-label">Видео</div></div>
-                    <div class="mini-stat"><div class="mini-stat-num cyan">100%</div><div class="mini-stat-label">Сэтгэл ханамж</div></div>
-                  </div>
-                </div>
+      <!-- RIGHT: Website Showcase Carousel -->
+      <div class="hero-showcase">
+        <div class="showcase-carousel" id="heroCarousel">
+          <div class="showcase-slide active">
+            <div class="showcase-browser">
+              <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">clinic.mn</span></div>
+              <div class="browser-content clinic-theme">
+                <div class="mini-nav"><span class="mini-logo">Мэргэжлийн Эмнэлэг</span><span class="mini-links"><span></span><span></span><span></span></span></div>
+                <div class="mini-hero"><div class="mini-hero-text"><div class="mini-title">Эмчилгээний үйлчилгээ</div><div class="mini-desc">Мэргэжлийн эмч нарын баг</div><div class="mini-btn">Цаг авах</div></div></div>
+                <div class="mini-cards"><div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div></div>
               </div>
             </div>
+            <div class="showcase-label">Эмнэлгийн вебсайт</div>
           </div>
-          <div class="laptop-reflection"></div>
-          <div class="laptop-base">
-            <div class="laptop-keyboard">
-              <div class="keyboard-row"><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div></div>
-              <div class="keyboard-row"><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div></div>
-              <div class="keyboard-row"><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div></div>
-              <div class="keyboard-row"><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div></div>
-              <div class="keyboard-row"><div class="key"></div><div class="key space"></div><div class="key"></div></div>
+          <div class="showcase-slide">
+            <div class="showcase-browser">
+              <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">shop.mn</span></div>
+              <div class="browser-content shop-theme">
+                <div class="mini-nav"><span class="mini-logo">Онлайн Дэлгүүр</span><span class="mini-links"><span></span><span></span><span></span></span></div>
+                <div class="mini-hero"><div class="mini-hero-text"><div class="mini-title">Шинэ бүтээгдэхүүн</div><div class="mini-desc">Хямдралтай үнээр</div><div class="mini-btn">Худалдаж авах</div></div></div>
+                <div class="mini-cards"><div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div></div>
+              </div>
             </div>
-            <div class="laptop-trackpad"></div>
+            <div class="showcase-label">Онлайн дэлгүүр</div>
+          </div>
+          <div class="showcase-slide">
+            <div class="showcase-browser">
+              <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">restaurant.mn</span></div>
+              <div class="browser-content restaurant-theme">
+                <div class="mini-nav"><span class="mini-logo">Ресторан</span><span class="mini-links"><span></span><span></span><span></span></span></div>
+                <div class="mini-hero"><div class="mini-hero-text"><div class="mini-title">Амттай хоол</div><div class="mini-desc">Шинэ цэснүүд нэмэгдлээ</div><div class="mini-btn">Цаг захиалах</div></div></div>
+                <div class="mini-cards"><div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div></div>
+              </div>
+            </div>
+            <div class="showcase-label">Ресторан</div>
+          </div>
+          <div class="showcase-slide">
+            <div class="showcase-browser">
+              <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">business.mn</span></div>
+              <div class="browser-content business-theme">
+                <div class="mini-nav"><span class="mini-logo">Бизнес Компани</span><span class="mini-links"><span></span><span></span><span></span></span></div>
+                <div class="mini-hero"><div class="mini-hero-text"><div class="mini-title">Үйлчилгээний цогц</div><div class="mini-desc">Таны бизнест туслах</div><div class="mini-btn">Холбогдох</div></div></div>
+                <div class="mini-cards"><div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div></div>
+              </div>
+            </div>
+            <div class="showcase-label">Байгууллагын сайт</div>
           </div>
         </div>
 
+        <!-- Floating Cards - Only 2 -->
+        <div class="float-card price-card">
+          <div class="float-card-icon purple"><i class="fas fa-tag"></i></div>
+          <div><div class="float-card-label">Эхлэх үнэ</div><div class="float-card-value">450,000₮</div></div>
+        </div>
+        <div class="float-card time-card">
+          <div class="float-card-icon pink"><i class="fas fa-clock"></i></div>
+          <div><div class="float-card-label">Дундаж хугацаа</div><div class="float-card-value">5 хоног</div></div>
+        </div>
       </div>
+
     </div>
-    <div class="scroll-indicator">
-      <span>Гүйлгэж харах</span>
-      <div class="scroll-line"></div>
-    </div>
-    <p class="pricing-note">Үнэ нь хуудасны тоо, дизайн, нэмэлт функц, текст зураг бэлэн эсэхээс хамаарч өөрчлөгдөнө.</p>
   </section>
 
   <!-- WEBSITE CALCULATOR -->
