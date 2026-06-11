@@ -62,28 +62,17 @@ a { text-decoration: none; color: inherit; }
 
 @media (max-width: 1024px) {
   .cursor, .cursor-dot { display: none !important; }
-  .hero-inner { flex-direction: column; gap: 40px; }
-  .hero-text { flex: none; max-width: 100%; align-items: center; text-align: center; }
-  .hero-desc { max-width: 100%; }
-  .hero-actions { justify-content: center; }
-  .laptop-wrapper { flex: none; width: 100%; }
-  .laptop { max-width: 600px; transform: rotateY(0) rotateX(2deg); }
-  .float-card { display: none; }
-  .bento-grid { grid-template-columns: repeat(2, 1fr); }
-  .bento-card.large { grid-column: span 2; }
-  .bento-card.tall { grid-row: span 1; }
-  .testimonials-grid { grid-template-columns: 1fr 1fr; }
+.bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .bento-card
+.bento-card
+.testimonials-grid { grid-template-columns: 1fr 1fr; }
   .showcase-card { min-width: 340px; }
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-  .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .contact-container { grid-template-columns: 1fr; gap: 40px; }
-
-  /* Performance: reduce animations on tablet */
+.services-grid { grid-template-columns: repeat(2, 1fr); }
+/* Performance: reduce animations on tablet */
   .gradient-blob, .hero-orb { animation-duration: 60s !important; }
   .float-card { animation: none !important; }
-  .laptop-reflection { display: none; }
-  /* Performance: reduce blur on tablet */
+/* Performance: reduce blur on tablet */
   .noise { opacity: 0.05; }
 }
 
@@ -308,8 +297,8 @@ nav.scrolled {
 .mini-stats { display: flex; gap: 2%; padding: 2% 3% 3%; }
 .mini-stat { flex: 1; text-align: center; padding: 2% 1%; background: rgba(255,255,255,0.015); border-radius: 4px; border: 1px solid rgba(255,255,255,0.03); }
 .mini-stat-num { font-family: var(--font-heading); font-size: clamp(7px, 0.9vw, 13px); font-weight: 800; margin-bottom: 1px; }
-.mini-stat-num.purple { color: #7850ff; }
-.mini-stat-num.pink { color: #ff6496; }
+.mini-stat-num
+.mini-stat-num
 .mini-stat-num.cyan { color: #50c8ff; }
 .mini-stat-label { font-size: clamp(3px, 0.35vw, 5px); color: #444; }
 .laptop-base {
@@ -339,8 +328,8 @@ nav.scrolled {
       width: 32px; height: 32px; border-radius: 9px;
       display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0;
     }
-.float-card-icon.purple { background: rgba(120,80,255,0.12); color: #7850ff; }
-.float-card-icon.pink { background: rgba(255,100,150,0.12); color: #ff6496; }
+.float-card-icon
+.float-card-icon
 .float-card-icon.cyan { background: rgba(80,200,255,0.12); color: #50c8ff; }
 .float-card-icon.yellow { background: rgba(255,216,80,0.12); color: #ffd850; }
 .float-card-label { font-size: 0.55rem; color: #555; margin-bottom: 1px; }
@@ -386,8 +375,7 @@ nav.scrolled {
   .showcase-card { min-width: 280px; }
   .portfolio { padding: 60px 24px; }
   .portfolio-grid { grid-template-columns: 1fr; max-width: 480px; }
-  .marketplace { padding: 60px 24px; }
-  .marketplace-grid { grid-template-columns: 1fr; max-width: 420px; }
+.marketplace-grid { grid-template-columns: 1fr; max-width: 420px; }
   .calculator { padding: 60px 24px; }
   .calculator-card { padding: 32px 24px; }
   .calc-options { grid-template-columns: 1fr; }
@@ -425,7 +413,7 @@ nav.scrolled {
 
   /* Performance: disable animations on mobile */
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-  .gradient-blob, .hero-orb, .float-card, .scroll-line, .marquee-track, .clients-track, .laptop { animation: none !important; }
+  .gradient-blob, .hero-orb, .float-card, .scroll-line, .marquee-track, .laptop { animation: none !important; }
   .laptop-reflection { display: none; }
   /* Performance: remove backdrop-filter on mobile */
   nav.scrolled, .hero-pill, .btn-ghost, .float-card, .showcase-card, .template-card, .template-overlay-btn, .modal-content, .sticky-cta, .sticky-cta-mobile, .bento-card, .testimonial-card, .pricing-card, .service-card, .trust-card, .cta-box, .calculator-card, .lang-switcher, .filter-btn.active, .template-badge, .template-includes, .calc-result-pack, .calc-option.selected, .showcase-img .badge, .popular-badge { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
@@ -506,11 +494,6 @@ nav.scrolled {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-.clients { padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); overflow: hidden; }
-.clients-label { text-align: center; font-size: 0.8rem; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px; }
-.clients-track { display: flex; gap: 60px; animation: marquee 25s linear infinite; width: max-content; }
-.client-logo { display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 1rem; font-weight: 600; color: #444; white-space: nowrap; flex-shrink: 0; transition: all 0.4s; }
-.client-logo:hover { color: var(--accent); transform: scale(1.05); }
 .bento { padding: 120px 40px; }
 .bento-header { text-align: center; margin-bottom: 72px; }
 .bento-header h2 {
@@ -692,7 +675,7 @@ nav.scrolled {
     }
 .portfolio-card:hover { border-color: rgba(120,80,255,0.2); transform: translateY(-4px); }
 .portfolio-img { position: relative; overflow: hidden; }
-.portfolio-img .browser-mockup { border-radius: 0; border: none; }
+.portfolio-img
 .portfolio-info { padding: 24px; }
 .portfolio-type { font-size: 0.72rem; color: var(--accent); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
 .portfolio-info h3 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
@@ -856,7 +839,7 @@ nav.scrolled {
       background: rgba(0,0,0,0.85); backdrop-filter: blur(12px);
       align-items: center; justify-content: center; padding: 24px;
     }
-.template-modal.open { display: flex; }
+.template-modal
 .modal-close {
       position: absolute; top: 20px; right: 24px; z-index: 10001;
       width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.08);
@@ -1118,6 +1101,18 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
     .browser-line-yellow { background: rgba(251,191,36,0.08) !important; }
     .browser-line-purple { background: rgba(167,139,250,0.08) !important; }
     .browser-gradient-purple { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; }
+
+    .skip-link {
+      position: absolute; top: -100px; left: 0;
+      background: var(--accent); color: #fff;
+      padding: 12px 24px; z-index: 99999;
+      font-size: 0.9rem; font-weight: 600;
+      border-radius: 0 0 8px 0;
+      transition: top 0.3s;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
 </style>
 
   <script type="application/ld+json">
@@ -1147,6 +1142,8 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
   </script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Үндсэн агуулх руу очих</a>
+
 
   <!-- SCROLL PROGRESS -->
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -1162,7 +1159,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 
   <!-- NAV -->
   <nav id="navbar" aria-label="Үндсэн цэс">
-    <a href="#" class="nav-logo">
+    <a href="#hero" class="nav-logo">
       <img src="logo.png" alt="OGT UUR" class="nav-logo-img" />
     </a>
     <div class="nav-links">
@@ -1406,57 +1403,57 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
         <input type="text" id="templateSearch" placeholder="Загвар хайх..." oninput="filterTemplates()" />
       </div>
       <div class="marketplace-filters" id="filterBar">
-        <button class="filter-btn active" data-filter="all" onclick="setFilter('all', this)">Бүгд <span class="count">(8)</span></button>
-        <button class="filter-btn" data-filter="Онлайн дэлгүүр" onclick="setFilter('Онлайн дэлгүүр', this)">Online Shop</button>
-        <button class="filter-btn" data-filter="Бизнес" onclick="setFilter('Бизнес', this)">Business</button>
-        <button class="filter-btn" data-filter="Портфолио" onclick="setFilter('Портфолио', this)">Portfolio</button>
-        <button class="filter-btn" data-filter="Ресторан / Кафе" onclick="setFilter('Ресторан / Кафе', this)">Restaurant</button>
-        <button class="filter-btn" data-filter="Эмчилгээ" onclick="setFilter('Эмчилгээ', this)">Clinic</button>
-        <button class="filter-btn" data-filter="Боловсрол" onclick="setFilter('Боловсрол', this)">Education</button>
-        <button class="filter-btn" data-filter="Хүргэлт / Логистик" onclick="setFilter('Хүргэлт / Логистик', this)">Delivery</button>
-        <button class="filter-btn" data-filter="Үл хөдлөх" onclick="setFilter('Үл хөдлөх', this)">Real Estate</button>
+        <button class="filter-btn active" data-filter="all">Бүгд <span class="count">(8)</span></button>
+        <button class="filter-btn" data-filter="Онлайн дэлгүүр">Online Shop</button>
+        <button class="filter-btn" data-filter="Бизнес">Business</button>
+        <button class="filter-btn" data-filter="Портфолио">Portfolio</button>
+        <button class="filter-btn" data-filter="Ресторан / Кафе">Restaurant</button>
+        <button class="filter-btn" data-filter="Эмчилгээ">Clinic</button>
+        <button class="filter-btn" data-filter="Боловсрол">Education</button>
+        <button class="filter-btn" data-filter="Хүргэлт / Логистик">Delivery</button>
+        <button class="filter-btn" data-filter="Үл хөдлөх">Real Estate</button>
       </div>
     </div>
     <div class="marketplace-grid" id="marketplaceGrid">
       <!-- Template 1: Online Shop -->
-      <div class="template-card" data-category="Онлайн дэлгүүр" onclick="openModal(0)">
+      <div class="template-card" data-category="Онлайн дэлгүүр" data-idx="0">
         <div class="template-preview"><div class="browser-mockup"><div class="browser-bar"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-url">shop.mn</div></div><div class="browser-content" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);"><div class="browser-hero"><div class="browser-hero-line" style="width:50%;height:8px;background:#e94560;border-radius:3px;margin-bottom:6px;"></div><div class="browser-hero-btn" style="width:60px;height:14px;background:#e94560;border-radius:3px;"></div></div><div class="browser-cards"><div class="browser-card" style="background:rgba(233,69,96,0.08);"></div><div class="browser-card" style="background:rgba(233,69,96,0.08);"></div><div class="browser-card" style="background:rgba(233,69,96,0.08);"></div></div></div></div><div class="template-overlay"><span class="template-overlay-btn"><i class="fas fa-eye"></i> Live Demo</span></div></div>
-        <div class="template-info"><div class="template-badges"><span class="template-badge hot">🔥 Эрэлттэй</span></div><div class="template-category">Онлайн дэлгүүр</div><h3>Online Shop Загвар</h3><div class="template-price">850,000₮ – 1,200,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 3–7 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Хувцас, гоо сайхан, электроник худалдаа</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> Сагс / Төлбөр</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); openModal(0)"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
+        <div class="template-info"><div class="template-badges"><span class="template-badge hot">🔥 Эрэлттэй</span></div><div class="template-category">Онлайн дэлгүүр</div><h3>Online Shop Загвар</h3><div class="template-price">850,000₮ – 1,200,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 3–7 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Хувцас, гоо сайхан, электроник худалдаа</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> Сагс / Төлбөр</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
       </div>
       <!-- Template 2: Business -->
-      <div class="template-card" data-category="Бизнес" onclick="openModal(1)">
+      <div class="template-card" data-category="Бизнес" data-idx="1">
         <div class="template-preview"><div class="browser-mockup"><div class="browser-bar"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-url">business.mn</div></div><div class="browser-content" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><div class="browser-hero"><div class="browser-hero-line" style="width:60%;height:8px;background:rgba(255,255,255,0.9);border-radius:3px;margin-bottom:6px;"></div><div class="browser-hero-btn" style="width:60px;height:14px;background:rgba(255,255,255,0.3);border-radius:3px;"></div></div><div class="browser-cards"><div class="browser-card"></div><div class="browser-card"></div><div class="browser-card"></div></div></div></div><div class="template-overlay"><span class="template-overlay-btn"><i class="fas fa-eye"></i> Live Demo</span></div></div>
-        <div class="template-info"><div class="template-badges"><span class="template-badge popular">⭐ Хамгийн их сонгогддог</span></div><div class="template-category">Бизнес</div><h3>Бизнес Вэбсайт</h3><div class="template-price">650,000₮ – 850,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 3–7 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Компани, үйлчилгээний байгууллага</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> 5 хуудас хүртэл</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); openModal(1)"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
+        <div class="template-info"><div class="template-badges"><span class="template-badge popular">⭐ Хамгийн их сонгогддог</span></div><div class="template-category">Бизнес</div><h3>Бизнес Вэбсайт</h3><div class="template-price">650,000₮ – 850,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 3–7 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Компани, үйлчилгээний байгууллага</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> 5 хуудас хүртэл</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
       </div>
       <!-- Template 3: Portfolio -->
-      <div class="template-card" data-category="Портфолио" onclick="openModal(2)">
+      <div class="template-card" data-category="Портфолио" data-idx="2">
         <div class="template-preview"><div class="browser-mockup"><div class="browser-bar"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-url">portfolio.mn</div></div><div class="browser-content" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1525 100%);"><div class="browser-hero"><div class="browser-avatar" style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#a78bfa,#7c3aed);margin-bottom:8px;"></div><div class="browser-hero-line" style="width:55%;height:7px;background:#a78bfa;border-radius:3px;"></div></div><div class="browser-cards"><div class="browser-card" style="background:rgba(167,139,250,0.08);"></div><div class="browser-card" style="background:rgba(167,139,250,0.08);"></div></div></div></div><div class="template-overlay"><span class="template-overlay-btn"><i class="fas fa-eye"></i> Live Demo</span></div></div>
-        <div class="template-info"><div class="template-badges"><span class="template-badge fast">⚡ Хурдан бэлэн болдог</span></div><div class="template-category">Портфолио</div><h3>Хувь хүний Портфолио</h3><div class="template-price">350,000₮ – 550,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 3–5 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Фрилансер, дизайнер, контент бүтээгч</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> Төсөл үзүүлэх</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); openModal(2)"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
+        <div class="template-info"><div class="template-badges"><span class="template-badge fast">⚡ Хурдан бэлэн болдог</span></div><div class="template-category">Портфолио</div><h3>Хувь хүний Портфолио</h3><div class="template-price">350,000₮ – 550,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 3–5 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Фрилансер, дизайнер, контент бүтээгч</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> Төсөл үзүүлэх</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
       </div>
       <!-- Template 4: Restaurant -->
-      <div class="template-card" data-category="Ресторан / Кафе" onclick="openModal(3)">
+      <div class="template-card" data-category="Ресторан / Кафе" data-idx="3">
         <div class="template-preview"><div class="browser-mockup"><div class="browser-bar"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-url">restaurant.mn</div></div><div class="browser-content" style="background: linear-gradient(135deg, #1a1207 0%, #2a1f10 100%);"><div class="browser-hero"><div class="browser-hero-line" style="width:50%;height:8px;background:#d4a853;border-radius:3px;margin-bottom:6px;"></div><div class="browser-hero-btn" style="width:60px;height:14px;background:#d4a853;border-radius:3px;"></div></div><div class="browser-cards"><div class="browser-card" style="background:rgba(212,168,83,0.12);"></div><div class="browser-card" style="background:rgba(212,168,83,0.12);"></div><div class="browser-card" style="background:rgba(212,168,83,0.12);"></div></div></div></div><div class="template-overlay"><span class="template-overlay-btn"><i class="fas fa-eye"></i> Live Demo</span></div></div>
-        <div class="template-info"><div class="template-badges"><span class="template-badge hot">🔥 Эрэлттэй</span></div><div class="template-category">Ресторан / Кафе</div><h3>Ресторан Вэбсайт</h3><div class="template-price">550,000₮ – 750,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 3–7 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Ресторан, кафе, хоол хүргэлт</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> Цэс / Захиалга</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); openModal(3)"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
+        <div class="template-info"><div class="template-badges"><span class="template-badge hot">🔥 Эрэлттэй</span></div><div class="template-category">Ресторан / Кафе</div><h3>Ресторан Вэбсайт</h3><div class="template-price">550,000₮ – 750,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 3–7 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Ресторан, кафе, хоол хүргэлт</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> Цэс / Захиалга</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
       </div>
       <!-- Template 5: Clinic -->
-      <div class="template-card" data-category="Эмчилгээ" onclick="openModal(4)">
+      <div class="template-card" data-category="Эмчилгээ" data-idx="4">
         <div class="template-preview"><div class="browser-mockup"><div class="browser-bar"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-url">clinic.mn</div></div><div class="browser-content" style="background: linear-gradient(135deg, #0a1628 0%, #1a2a4a 100%);"><div class="browser-hero"><div class="browser-hero-line" style="width:55%;height:8px;background:#50c8ff;border-radius:3px;margin-bottom:6px;"></div><div class="browser-hero-btn" style="width:60px;height:14px;background:#50c8ff;border-radius:3px;"></div></div><div class="browser-cards"><div class="browser-card" style="background:rgba(80,200,255,0.08);"></div><div class="browser-card" style="background:rgba(80,200,255,0.08);"></div><div class="browser-card" style="background:rgba(80,200,255,0.08);"></div></div></div></div><div class="template-overlay"><span class="template-overlay-btn"><i class="fas fa-eye"></i> Live Demo</span></div></div>
-        <div class="template-info"><div class="template-badges"><span class="template-badge popular">⭐ Хамгийн их сонгогддог</span></div><div class="template-category">Эмчилгээ</div><h3>Клиник Вэбсайт</h3><div class="template-price">750,000₮ – 1,000,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 5–7 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Эмнэлэг, шүдний эмнэлэг, гоо сайхан</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> Цаг захиалга</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); openModal(4)"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
+        <div class="template-info"><div class="template-badges"><span class="template-badge popular">⭐ Хамгийн их сонгогддог</span></div><div class="template-category">Эмчилгээ</div><h3>Клиник Вэбсайт</h3><div class="template-price">750,000₮ – 1,000,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 5–7 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Эмнэлэг, шүдний эмнэлэг, гоо сайхан</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> Цаг захиалга</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
       </div>
       <!-- Template 6: Delivery -->
-      <div class="template-card" data-category="Хүргэлт / Логистик" onclick="openModal(5)">
+      <div class="template-card" data-category="Хүргэлт / Логистик" data-idx="5">
         <div class="template-preview"><div class="browser-mockup"><div class="browser-bar"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-url">delivery.mn</div></div><div class="browser-content" style="background: linear-gradient(135deg, #0d1b0e 0%, #1a2e1b 100%);"><div class="browser-hero"><div class="browser-hero-line" style="width:50%;height:8px;background:#4ade80;border-radius:3px;margin-bottom:6px;"></div><div class="browser-hero-btn" style="width:60px;height:14px;background:#4ade80;border-radius:3px;"></div></div><div class="browser-cards"><div class="browser-card" style="background:rgba(74,222,128,0.08);"></div><div class="browser-card" style="background:rgba(74,222,128,0.08);"></div><div class="browser-card" style="background:rgba(74,222,128,0.08);"></div></div></div></div><div class="template-overlay"><span class="template-overlay-btn"><i class="fas fa-eye"></i> Live Demo</span></div></div>
-        <div class="template-info"><div class="template-badges"><span class="template-badge fast">⚡ Хурдан бэлэн болдог</span></div><div class="template-category">Хүргэлт / Логистик</div><h3>Delivery Вэбсайт</h3><div class="template-price">650,000₮ – 900,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 3–7 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Хүргэлтийн үйлчилгээ</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> Захиалгын форм</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); openModal(5)"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
+        <div class="template-info"><div class="template-badges"><span class="template-badge fast">⚡ Хурдан бэлэн болдог</span></div><div class="template-category">Хүргэлт / Логистик</div><h3>Delivery Вэбсайт</h3><div class="template-price">650,000₮ – 900,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 3–7 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Хүргэлтийн үйлчилгээ</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> Захиалгын форм</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
       </div>
       <!-- Template 7: Education -->
-      <div class="template-card" data-category="Боловсрол" onclick="openModal(6)">
+      <div class="template-card" data-category="Боловсрол" data-idx="6">
         <div class="template-preview"><div class="browser-mockup"><div class="browser-bar"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-url">education.mn</div></div><div class="browser-content" style="background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);"><div class="browser-hero"><div class="browser-hero-line" style="width:55%;height:8px;background:#f59e0b;border-radius:3px;margin-bottom:6px;"></div><div class="browser-hero-btn" style="width:60px;height:14px;background:#f59e0b;border-radius:3px;"></div></div><div class="browser-cards"><div class="browser-card" style="background:rgba(245,158,11,0.08);"></div><div class="browser-card" style="background:rgba(245,158,11,0.08);"></div><div class="browser-card" style="background:rgba(245,158,11,0.08);"></div></div></div></div><div class="template-overlay"><span class="template-overlay-btn"><i class="fas fa-eye"></i> Live Demo</span></div></div>
-        <div class="template-info"><div class="template-badges"><span class="template-badge hot">🔥 Эрэлттэй</span></div><div class="template-category">Боловсрол</div><h3>Сургалтын Вэбсайт</h3><div class="template-price">550,000₮ – 850,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 5–7 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Сургалт, курс, сургах зөвлөгөө</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> Курс харуулах</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); openModal(6)"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
+        <div class="template-info"><div class="template-badges"><span class="template-badge hot">🔥 Эрэлттэй</span></div><div class="template-category">Боловсрол</div><h3>Сургалтын Вэбсайт</h3><div class="template-price">550,000₮ – 850,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 5–7 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Сургалт, курс, сургах зөвлөгөө</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> Курс харуулах</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
       </div>
       <!-- Template 8: Real Estate -->
-      <div class="template-card" data-category="Үл хөдлөх" onclick="openModal(7)">
+      <div class="template-card" data-category="Үл хөдлөх" data-idx="7">
         <div class="template-preview"><div class="browser-mockup"><div class="browser-bar"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-url">realestate.mn</div></div><div class="browser-content" style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);"><div class="browser-hero"><div class="browser-hero-line" style="width:50%;height:8px;background:#fbbf24;border-radius:3px;margin-bottom:6px;"></div><div class="browser-hero-btn" style="width:60px;height:14px;background:#fbbf24;border-radius:3px;"></div></div><div class="browser-cards"><div class="browser-card" style="background:rgba(251,191,36,0.08);"></div><div class="browser-card" style="background:rgba(251,191,36,0.08);"></div><div class="browser-card" style="background:rgba(251,191,36,0.08);"></div></div></div></div><div class="template-overlay"><span class="template-overlay-btn"><i class="fas fa-eye"></i> Live Demo</span></div></div>
-        <div class="template-info"><div class="template-badges"><span class="template-badge popular">⭐ Хамгийн их сонгогдддог</span></div><div class="template-category">Үл хөдлөх</div><h3>Үл хөдлөх хөрөнгө</h3><div class="template-price">800,000₮ – 1,200,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 5–10 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Үл хөдлөх зуучлал</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> Зар харуулах</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); openModal(7)"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
+        <div class="template-info"><div class="template-badges"><span class="template-badge popular">⭐ Хамгийн их сонгогдддог</span></div><div class="template-category">Үл хөдлөх</div><h3>Үл хөдлөх хөрөнгө</h3><div class="template-price">800,000₮ – 1,200,000₮</div><div class="template-delivery"><i class="fas fa-clock"></i> ⏱ 5–10 хоногт бэлэн</div><div class="template-bestfor"><strong>Хэнд тохиромжтой:</strong> Үл хөдлөх зуучлал</div><div class="template-includes"><div class="template-includes-title">Энэ үнэд багтсан</div><div class="template-includes-list"><span><i class="fas fa-check"></i> Mobile Responsive</span><span><i class="fas fa-check"></i> Текст солих</span><span><i class="fas fa-check"></i> Зураг солих</span><span><i class="fas fa-check"></i> Messenger холболт</span><span><i class="fas fa-check"></i> Contact Form</span><span><i class="fas fa-check"></i> Basic SEO</span><span><i class="fas fa-check"></i> 7 хоногийн дэмжлэг</span><span><i class="fas fa-check"></i> Зар харуулах</span></div></div><div class="template-actions"><button class="btn btn-outline btn-sm"><i class="fas fa-eye"></i> Live Demo</button><a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-tag"></i> Үнэ асуух</a></div><div class="template-trust">Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</div></div>
       </div>
     </div>
 
@@ -1476,15 +1473,15 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
 
   <!-- TEMPLATE MODAL -->
   <div class="template-modal" id="templateModal">
-    <button class="modal-close" onclick="closeModal()" aria-label="Хаах"><i class="fas fa-times"></i></button>
+    <button class="modal-close" aria-label="Хаах"><i class="fas fa-times"></i></button>
     <div class="modal-content">
       <div class="modal-preview">
         <h3 id="modalTitle">Template Name</h3>
         <div class="modal-category" id="modalCategory">Category</div>
         <div class="device-tabs" role="tablist" aria-label="Төхөөрөмжийн харагдах байдал">
-          <button class="device-tab active" onclick="switchDevice('desktop')"><i class="fas fa-desktop"></i> Desktop</button>
-          <button class="device-tab" onclick="switchDevice('tablet')"><i class="fas fa-tablet-alt"></i> Tablet</button>
-          <button class="device-tab" onclick="switchDevice('mobile')"><i class="fas fa-mobile-alt"></i> Mobile</button>
+          <button class="device-tab active" data-device="desktop"><i class="fas fa-desktop"></i> Desktop</button>
+          <button class="device-tab" data-device="tablet"><i class="fas fa-tablet-alt"></i> Tablet</button>
+          <button class="device-tab" data-device="mobile"><i class="fas fa-mobile-alt"></i> Mobile</button>
         </div>
         <div class="device-frame desktop" id="deviceFrame">
           <div class="browser-mockup">
@@ -1507,7 +1504,7 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
           <div class="modal-feature"><i class="fas fa-check"></i> Тогтмол дэмжлэг</div>
         </div>
         <div class="modal-actions">
-          <button class="btn btn-outline" onclick="closeModal()"><i class="fas fa-eye"></i> Demo үзэх</button>
+          <button class="btn btn-outline"><i class="fas fa-eye"></i> Demo үзэх</button>
           <a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary" target="_blank"><i class="fab fa-facebook-messenger"></i> Энэ загварыг захиалах</a>
         </div>
       </div>
@@ -1726,8 +1723,6 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       <div class="footer-social" aria-label="Нийгмийн сүлжээ">
         <a href="https://www.facebook.com/profile.php?id=61582969455784" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.instagram.com/_gt_dudu_/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-tiktok"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1797,6 +1792,14 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       }
     }
 
+    // Calculator event delegation
+    document.querySelectorAll('.calc-option').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        selectOption(this, this.dataset.field, this.dataset.value);
+      });
+    });
+
+
     // TEMPLATE FILTER & SEARCH
     var currentFilter = 'all';
     function setFilter(filter, btn) {
@@ -1805,6 +1808,14 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       btn.classList.add('active');
       filterTemplates();
     }
+
+    // Event delegation for filter buttons
+    document.querySelector('.filter-bar').addEventListener('click', function(e) {
+      var btn = e.target.closest('.filter-btn');
+      if (btn) {
+        setFilter(btn.dataset.filter, btn);
+      }
+    });
     function filterTemplates() {
       var search = document.getElementById('templateSearch').value.toLowerCase();
       var cards = document.querySelectorAll('#marketplaceGrid .template-card');
@@ -1857,17 +1868,69 @@ footer { padding: 80px 48px 40px; border-top: 1px solid var(--border); }
       document.body.style.overflow = 'hidden';
     }
 
+    // Event delegation for template cards
+    document.querySelector('.portfolio-grid').addEventListener('click', function(e) {
+      var card = e.target.closest('.template-card');
+      if (card) {
+        var idx = parseInt(card.dataset.idx);
+        if (!isNaN(idx)) openModal(idx);
+      }
+    });
+
+    // Event delegation for demo buttons inside template cards
+    document.querySelector('.portfolio-grid').addEventListener('click', function(e) {
+      var demoBtn = e.target.closest('.btn-outline');
+      if (demoBtn) {
+        e.stopPropagation();
+        var card = demoBtn.closest('.template-card');
+        if (card) {
+          var idx = parseInt(card.dataset.idx);
+          if (!isNaN(idx)) openModal(idx);
+        }
+      }
+    });
+
+    // Event delegation for "Үнэ асуух" links - stop propagation
+    document.querySelector('.portfolio-grid').addEventListener('click', function(e) {
+      var priceLink = e.target.closest('.btn-primary.btn-sm');
+      if (priceLink) {
+        e.stopPropagation();
+      }
+    });
+
     function closeModal() {
       document.getElementById('templateModal').classList.remove('open');
       document.body.style.overflow = '';
     }
 
-    function switchDevice(device) {
+    // Event delegation for modal close button
+    document.getElementById('templateModal').addEventListener('click', function(e) {
+      if (e.target.classList.contains('modal-close') || e.target.closest('.modal-close')) {
+        closeModal();
+      }
+    });
+
+    // Event delegation for modal actions close button
+    document.querySelector('.modal-actions').addEventListener('click', function(e) {
+      if (e.target.classList.contains('btn-outline') || e.target.closest('.btn-outline')) {
+        // This is the Demo button, not close - do nothing
+      }
+    });
+
+    function switchDevice(device, target) {
       var frame = document.getElementById('deviceFrame');
       frame.className = 'device-frame ' + device;
       document.querySelectorAll('.device-tab').forEach(function(tab) { tab.classList.remove('active'); });
-      event.target.classList.add('active');
+      if (target) target.classList.add('active');
     }
+
+    // Event delegation for device tabs
+    document.querySelector('.device-tabs').addEventListener('click', function(e) {
+      var tab = e.target.closest('.device-tab');
+      if (tab) {
+        switchDevice(tab.dataset.device, tab);
+      }
+    });
 
     // Close modal on outside click
     document.getElementById('templateModal').addEventListener('click', function(e) {
