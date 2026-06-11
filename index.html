@@ -1314,44 +1314,7 @@ a { text-decoration: none; color: inherit; }
   </section>
 
   <!-- TEMPLATE MODAL -->
-  <div class="template-modal" id="templateModal">
-    <button class="modal-close" aria-label="Хаах"><i class="fas fa-times"></i></button>
-    <div class="modal-content">
-      <div class="modal-preview">
-        <h3 id="modalTitle">Template Name</h3>
-        <div class="modal-category" id="modalCategory">Category</div>
-        <div class="device-tabs" role="tablist" aria-label="Төхөөрөмжийн харагдах байдал">
-          <button class="device-tab active" data-device="desktop"><i class="fas fa-desktop"></i> Desktop</button>
-          <button class="device-tab" data-device="tablet"><i class="fas fa-tablet-alt"></i> Tablet</button>
-          <button class="device-tab" data-device="mobile"><i class="fas fa-mobile-alt"></i> Mobile</button>
-        </div>
-        <div class="device-frame desktop" id="deviceFrame">
-          <div class="browser-mockup">
-            <div class="browser-bar"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-url" id="modalUrl">site.mn</div></div>
-            <div class="browser-content" id="modalContent" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-              <div class="browser-hero"><div class="browser-hero-line" style="width:60%;height:10px;background:rgba(255,255,255,0.9);border-radius:4px;margin-bottom:8px;"></div><div class="browser-hero-line" style="width:80%;height:6px;background:rgba(255,255,255,0.5);border-radius:4px;margin-bottom:8px;"></div><div class="browser-hero-btn" style="width:80px;height:20px;background:rgba(255,255,255,0.3);border-radius:4px;"></div></div>
-              <div class="browser-cards"><div class="browser-card"></div><div class="browser-card"></div><div class="browser-card"></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-details">
-        <div class="modal-price" id="modalPrice">450,000₮</div>
-        <div class="modal-features" id="modalFeatures">
-          <div class="modal-feature"><i class="fas fa-check"></i> Mobile Responsive</div>
-          <div class="modal-feature"><i class="fas fa-check"></i> Fast Loading</div>
-          <div class="modal-feature"><i class="fas fa-check"></i> Modern UI</div>
-          <div class="modal-feature"><i class="fas fa-check"></i> Contact Form</div>
-          <div class="modal-feature"><i class="fas fa-check"></i> SEO Ready</div>
-          <div class="modal-feature"><i class="fas fa-check"></i> Тогтмол дэмжлэг</div>
-        </div>
-        <div class="modal-actions">
-          <button class="btn btn-outline"><i class="fas fa-eye"></i> Demo үзэх</button>
-          <a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary" target="_blank"><i class="fab fa-facebook-messenger"></i> Энэ загварыг захиалах</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
   <!-- PRICING -->
 
@@ -1598,25 +1561,22 @@ a { text-decoration: none; color: inherit; }
   </div>
 
   <script>
-        function selectOption(el, field, value) {
-      // Mark selected
-      var parent = el.parentElement;
-      parent.querySelectorAll('.calc-option').forEach(function(o) { o.classList.remove('selected'); });
+        );
       el.classList.add('selected');
       if (field === 'type') {
         selectedType = value;
         setTimeout(function() {
-          document.getElementById('step1').classList.remove('active');
-          document.getElementById('step2').classList.add('active');
+          
+          
         }, 300);
       } else if (field === 'pages') {
         setTimeout(function() {
-          document.getElementById('step2').classList.remove('active');
+          
           var data = calcData[selectedType];
-          document.getElementById('resultPrice').textContent = data.price;
-          document.getElementById('resultTime').textContent = data.time;
-          document.getElementById('resultPack').textContent = data.pack;
-          document.getElementById('resultMsg').textContent = data.msg;
+          
+          
+          
+          
           document.getElementById('calcResult').classList.add('show');
         }, 300);
       }
@@ -1955,7 +1915,7 @@ a { text-decoration: none; color: inherit; }
       btn.addEventListener('click', function() {
         var field = btn.getAttribute('data-field');
         var value = btn.getAttribute('data-value');
-        if (field && value) selectOption(btn, field, value);
+        if (field && value) window.calcSelectOption(btn, field, value);
       });
     });
 
@@ -2297,5 +2257,46 @@ a { text-decoration: none; color: inherit; }
     });
 
 </script>
+
+  <!-- TEMPLATE MODAL -->
+  <div class="template-modal" id="templateModal">
+    <button class="modal-close" aria-label="Хаах"><i class="fas fa-times"></i></button>
+    <div class="modal-content">
+      <div class="modal-preview">
+        <h3 id="modalTitle">Template Name</h3>
+        <div class="modal-category" id="modalCategory">Category</div>
+        <div class="device-tabs" role="tablist" aria-label="Төхөөрөмжийн харагдах байдал">
+          <button class="device-tab active" data-device="desktop"><i class="fas fa-desktop"></i> Desktop</button>
+          <button class="device-tab" data-device="tablet"><i class="fas fa-tablet-alt"></i> Tablet</button>
+          <button class="device-tab" data-device="mobile"><i class="fas fa-mobile-alt"></i> Mobile</button>
+        </div>
+        <div class="device-frame desktop" id="deviceFrame">
+          <div class="browser-mockup">
+            <div class="browser-bar"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-url" id="modalUrl">site.mn</div></div>
+            <div class="browser-content" id="modalContent" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+              <div class="browser-hero"><div class="browser-hero-line" style="width:60%;height:10px;background:rgba(255,255,255,0.9);border-radius:4px;margin-bottom:8px;"></div><div class="browser-hero-line" style="width:80%;height:6px;background:rgba(255,255,255,0.5);border-radius:4px;margin-bottom:8px;"></div><div class="browser-hero-btn" style="width:80px;height:20px;background:rgba(255,255,255,0.3);border-radius:4px;"></div></div>
+              <div class="browser-cards"><div class="browser-card"></div><div class="browser-card"></div><div class="browser-card"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-details">
+        <div class="modal-price" id="modalPrice">450,000₮</div>
+        <div class="modal-features" id="modalFeatures">
+          <div class="modal-feature"><i class="fas fa-check"></i> Mobile Responsive</div>
+          <div class="modal-feature"><i class="fas fa-check"></i> Fast Loading</div>
+          <div class="modal-feature"><i class="fas fa-check"></i> Modern UI</div>
+          <div class="modal-feature"><i class="fas fa-check"></i> Contact Form</div>
+          <div class="modal-feature"><i class="fas fa-check"></i> SEO Ready</div>
+          <div class="modal-feature"><i class="fas fa-check"></i> Тогтмол дэмжлэг</div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-outline"><i class="fas fa-eye"></i> Demo үзэх</button>
+          <a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary" target="_blank"><i class="fab fa-facebook-messenger"></i> Энэ загварыг захиалах</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
