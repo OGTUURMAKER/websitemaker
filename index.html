@@ -3525,6 +3525,167 @@ a { text-decoration: none; color: inherit; }
     @media (max-width: 960px) { .marketplace-grid { grid-template-columns: repeat(2, 1fr); } .marketplace { padding: 100px 24px; } .template-preview { height: 280px; } }
     @media (max-width: 640px) { .marketplace-grid { grid-template-columns: 1fr; } .marketplace-header h2 { font-size: 2.2rem; } .template-preview { height: 260px; } }
 
+
+
+    /* ===== REALISTIC PREVIEWS ===== */
+    .card-glow { position: absolute; top: -1px; left: -1px; right: -1px; height: 3px; border-radius: 24px 24px 0 0; opacity: 0.6; }
+    .template-card:hover .card-glow { opacity: 1; }
+    .template-preview { position: relative; height: 320px; overflow: hidden; background: #0a0a0f; }
+    .template-card:hover .template-preview { transform: scale(1.03); transition: transform 0.6s ease; }
+    .template-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease; backdrop-filter: blur(4px); }
+    .template-card:hover .template-overlay { opacity: 1; }
+    .template-overlay-btn { padding: 14px 32px; border-radius: 100px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-weight: 600; font-size: 0.9rem; backdrop-filter: blur(12px); transition: all 0.3s ease; }
+    .template-overlay-btn:hover { background: rgba(255,255,255,0.2); }
+
+    /* Shop Preview */
+    .preview-shop { padding: 16px; height: 100%; display: flex; flex-direction: column; gap: 10px; }
+    .shop-nav { display: flex; justify-content: space-between; align-items: center; }
+    .shop-nav .nav-logo { font-size: 0.7rem; font-weight: 700; color: #fff; }
+    .shop-nav .nav-icons { display: flex; gap: 8px; color: rgba(255,255,255,0.5); font-size: 0.7rem; }
+    .shop-hero { display: flex; gap: 12px; align-items: center; }
+    .shop-hero .hero-content { flex: 1; }
+    .shop-hero .hero-badge { display: inline-block; padding: 3px 8px; background: rgba(255,100,150,0.15); border-radius: 4px; font-size: 0.5rem; color: #ff6496; font-weight: 600; margin-bottom: 6px; }
+    .shop-hero h2 { font-size: 0.75rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .shop-hero p { font-size: 0.55rem; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+    .shop-hero .hero-btn { padding: 6px 12px; background: linear-gradient(135deg,#ff6496,#ff8fab); border-radius: 6px; font-size: 0.55rem; color: #fff; font-weight: 600; border: none; }
+    .shop-hero .hero-image { width: 60px; height: 60px; background: rgba(255,100,150,0.1); border-radius: 8px; flex-shrink: 0; }
+    .shop-products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .shop-products .product-card { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 8px; }
+    .shop-products .product-img { height: 35px; background: rgba(255,100,150,0.08); border-radius: 4px; margin-bottom: 6px; }
+    .shop-products .product-name { font-size: 0.5rem; color: rgba(255,255,255,0.6); margin-bottom: 2px; }
+    .shop-products .product-price { font-size: 0.55rem; color: #ff6496; font-weight: 700; }
+    .shop-products .product-rating { font-size: 0.45rem; color: #ffb347; margin-top: 2px; }
+    .shop-trust { display: flex; gap: 12px; font-size: 0.5rem; color: rgba(255,255,255,0.4); }
+
+    /* Business Preview */
+    .preview-business { padding: 16px; height: 100%; display: flex; flex-direction: column; gap: 10px; }
+    .biz-nav { display: flex; justify-content: space-between; align-items: center; }
+    .biz-nav .nav-logo { font-size: 0.7rem; font-weight: 700; color: #fff; }
+    .biz-nav .nav-links { display: flex; gap: 12px; font-size: 0.55rem; color: rgba(255,255,255,0.5); }
+    .biz-hero { display: flex; gap: 12px; align-items: center; }
+    .biz-hero .hero-content { flex: 1; }
+    .biz-hero h2 { font-size: 0.75rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .biz-hero p { font-size: 0.55rem; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+    .biz-hero .hero-btn { padding: 6px 12px; background: linear-gradient(135deg,#7850ff,#9b6dff); border-radius: 6px; font-size: 0.55rem; color: #fff; font-weight: 600; border: none; }
+    .biz-hero .hero-image { width: 60px; height: 60px; background: rgba(120,80,255,0.1); border-radius: 8px; flex-shrink: 0; }
+    .biz-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .biz-stats .stat { text-align: center; padding: 8px; background: rgba(255,255,255,0.02); border-radius: 8px; }
+    .biz-stats .stat-num { font-size: 0.8rem; font-weight: 700; color: #7850ff; }
+    .biz-stats .stat-label { font-size: 0.45rem; color: rgba(255,255,255,0.4); margin-top: 2px; }
+    .biz-services { display: flex; gap: 8px; }
+    .biz-services .service-card { flex: 1; text-align: center; padding: 8px; background: rgba(255,255,255,0.02); border-radius: 8px; font-size: 0.5rem; color: rgba(255,255,255,0.5); }
+    .biz-services .service-card i { display: block; font-size: 0.7rem; color: #7850ff; margin-bottom: 4px; }
+
+    /* Portfolio Preview */
+    .preview-portfolio { padding: 16px; height: 100%; display: flex; flex-direction: column; gap: 10px; }
+    .port-nav { display: flex; justify-content: space-between; align-items: center; }
+    .port-nav .nav-logo { font-size: 0.7rem; font-weight: 700; color: #fff; }
+    .port-nav .nav-links { display: flex; gap: 12px; font-size: 0.55rem; color: rgba(255,255,255,0.5); }
+    .port-hero { text-align: center; padding: 8px 0; }
+    .port-hero .hero-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg,#9b6dff,#7850ff); margin: 0 auto 8px; }
+    .port-hero h2 { font-size: 0.75rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .port-hero p { font-size: 0.55rem; color: rgba(255,255,255,0.5); }
+    .port-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .port-gallery .gallery-card { height: 55px; background: rgba(155,109,255,0.08); border-radius: 8px; }
+    .port-testimonials { background: rgba(255,255,255,0.02); border-radius: 8px; padding: 10px; }
+    .port-testimonials p { font-size: 0.55rem; color: rgba(255,255,255,0.6); font-style: italic; margin-bottom: 4px; }
+    .port-testimonials span { font-size: 0.45rem; color: rgba(255,255,255,0.4); }
+
+    /* Restaurant Preview */
+    .preview-restaurant { padding: 16px; height: 100%; display: flex; flex-direction: column; gap: 10px; }
+    .rest-nav { display: flex; justify-content: space-between; align-items: center; }
+    .rest-nav .nav-logo { font-size: 0.7rem; font-weight: 700; color: #fff; }
+    .rest-nav .nav-links { display: flex; gap: 12px; font-size: 0.55rem; color: rgba(255,255,255,0.5); }
+    .rest-hero { padding: 8px 0; }
+    .rest-hero h2 { font-size: 0.75rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .rest-hero p { font-size: 0.55rem; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+    .rest-hero .hero-btn { padding: 6px 12px; background: linear-gradient(135deg,#ffb347,#ffd080); border-radius: 6px; font-size: 0.55rem; color: #fff; font-weight: 600; border: none; }
+    .rest-menu { display: flex; gap: 8px; }
+    .rest-menu .menu-card { flex: 1; background: rgba(255,255,255,0.03); border-radius: 8px; padding: 8px; }
+    .rest-menu .menu-img { height: 30px; background: rgba(255,179,71,0.1); border-radius: 4px; margin-bottom: 6px; }
+    .rest-menu .menu-name { font-size: 0.5rem; color: rgba(255,255,255,0.6); }
+    .rest-menu .menu-price { font-size: 0.55rem; color: #ffb347; font-weight: 700; }
+    .rest-reviews { font-size: 0.55rem; color: #ffb347; }
+
+    /* Clinic Preview */
+    .preview-clinic { padding: 16px; height: 100%; display: flex; flex-direction: column; gap: 10px; }
+    .clinic-nav { display: flex; justify-content: space-between; align-items: center; }
+    .clinic-nav .nav-logo { font-size: 0.7rem; font-weight: 700; color: #fff; }
+    .clinic-nav .nav-links { display: flex; gap: 12px; font-size: 0.55rem; color: rgba(255,255,255,0.5); }
+    .clinic-hero { padding: 8px 0; }
+    .clinic-hero h2 { font-size: 0.75rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .clinic-hero p { font-size: 0.55rem; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+    .clinic-hero .hero-btn { padding: 6px 12px; background: linear-gradient(135deg,#4dbdff,#80d4ff); border-radius: 6px; font-size: 0.55rem; color: #fff; font-weight: 600; border: none; }
+    .clinic-doctors { display: flex; gap: 8px; }
+    .clinic-doctors .doctor-card { flex: 1; background: rgba(255,255,255,0.03); border-radius: 8px; padding: 10px; text-align: center; }
+    .clinic-doctors .doctor-avatar { width: 28px; height: 28px; border-radius: 50%; background: rgba(77,189,255,0.15); margin: 0 auto 6px; }
+    .clinic-doctors .doctor-name { font-size: 0.5rem; color: #fff; font-weight: 600; }
+    .clinic-doctors .doctor-role { font-size: 0.4rem; color: rgba(255,255,255,0.4); }
+    .clinic-stats { display: flex; gap: 16px; font-size: 0.55rem; color: rgba(255,255,255,0.5); }
+
+    /* Delivery Preview */
+    .preview-delivery { padding: 16px; height: 100%; display: flex; flex-direction: column; gap: 10px; }
+    .del-nav { display: flex; justify-content: space-between; align-items: center; }
+    .del-nav .nav-logo { font-size: 0.7rem; font-weight: 700; color: #fff; }
+    .del-nav .nav-links { display: flex; gap: 12px; font-size: 0.55rem; color: rgba(255,255,255,0.5); }
+    .del-hero { padding: 8px 0; }
+    .del-hero h2 { font-size: 0.75rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .del-hero p { font-size: 0.55rem; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+    .del-hero .hero-btn { padding: 6px 12px; background: linear-gradient(135deg,#42d392,#7ee8b5); border-radius: 6px; font-size: 0.55rem; color: #fff; font-weight: 600; border: none; }
+    .del-tracking { display: flex; gap: 4px; }
+    .del-tracking .track-step { flex: 1; text-align: center; }
+    .del-tracking .step-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(66,211,146,0.2); margin: 0 auto 4px; }
+    .del-tracking .track-step.active .step-dot { background: #42d392; }
+    .del-tracking .step-label { font-size: 0.4rem; color: rgba(255,255,255,0.4); }
+    .del-stats { display: flex; gap: 16px; }
+    .del-stats .stat { flex: 1; text-align: center; padding: 8px; background: rgba(255,255,255,0.02); border-radius: 8px; }
+    .del-stats .stat-num { font-size: 0.8rem; font-weight: 700; color: #42d392; }
+    .del-stats .stat-label { font-size: 0.45rem; color: rgba(255,255,255,0.4); }
+
+    /* Education Preview */
+    .preview-education { padding: 16px; height: 100%; display: flex; flex-direction: column; gap: 10px; }
+    .edu-nav { display: flex; justify-content: space-between; align-items: center; }
+    .edu-nav .nav-logo { font-size: 0.7rem; font-weight: 700; color: #fff; }
+    .edu-nav .nav-links { display: flex; gap: 12px; font-size: 0.55rem; color: rgba(255,255,255,0.5); }
+    .edu-hero { padding: 8px 0; }
+    .edu-hero h2 { font-size: 0.75rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .edu-hero p { font-size: 0.55rem; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+    .edu-hero .hero-btn { padding: 6px 12px; background: linear-gradient(135deg,#50d890,#80e8b0); border-radius: 6px; font-size: 0.55rem; color: #fff; font-weight: 600; border: none; }
+    .edu-courses { display: flex; gap: 8px; }
+    .edu-courses .course-card { flex: 1; background: rgba(255,255,255,0.03); border-radius: 8px; padding: 10px; }
+    .edu-courses .course-img { height: 35px; background: rgba(80,216,144,0.1); border-radius: 4px; margin-bottom: 6px; }
+    .edu-courses .course-title { font-size: 0.5rem; color: #fff; font-weight: 600; }
+    .edu-courses .course-meta { font-size: 0.4rem; color: rgba(255,255,255,0.4); }
+    .edu-stats { display: flex; gap: 16px; font-size: 0.55rem; color: rgba(255,255,255,0.5); }
+
+    /* Real Estate Preview */
+    .preview-realestate { padding: 16px; height: 100%; display: flex; flex-direction: column; gap: 10px; }
+    .re-nav { display: flex; justify-content: space-between; align-items: center; }
+    .re-nav .nav-logo { font-size: 0.7rem; font-weight: 700; color: #fff; }
+    .re-nav .nav-links { display: flex; gap: 12px; font-size: 0.55rem; color: rgba(255,255,255,0.5); }
+    .re-hero { padding: 8px 0; }
+    .re-hero h2 { font-size: 0.75rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .re-hero p { font-size: 0.55rem; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+    .re-hero .hero-btn { padding: 6px 12px; background: linear-gradient(135deg,#ff9f43,#ffc080); border-radius: 6px; font-size: 0.55rem; color: #fff; font-weight: 600; border: none; }
+    .re-properties { display: flex; gap: 8px; }
+    .re-properties .property-card { flex: 1; background: rgba(255,255,255,0.03); border-radius: 8px; overflow: hidden; }
+    .re-properties .property-img { height: 50px; background: rgba(255,159,67,0.1); }
+    .re-properties .property-info { padding: 8px; }
+    .re-properties .property-title { font-size: 0.5rem; color: #fff; font-weight: 600; }
+    .re-properties .property-price { font-size: 0.55rem; color: #ff9f43; font-weight: 700; }
+    .re-properties .property-location { font-size: 0.4rem; color: rgba(255,255,255,0.4); }
+    .re-map { height: 40px; background: rgba(255,159,67,0.05); border-radius: 8px; }
+
+    /* Preview themes */
+    .shop-theme { background: linear-gradient(180deg, #0a0608 0%, #150a0e 100%); }
+    .business-theme { background: linear-gradient(180deg, #06060c 0%, #0c0c1a 100%); }
+    .portfolio-theme { background: linear-gradient(180deg, #080808 0%, #0e0a14 100%); }
+    .restaurant-theme { background: linear-gradient(180deg, #0c0804 0%, #151008 100%); }
+    .clinic-theme { background: linear-gradient(180deg, #040810 0%, #081018 100%); }
+    .delivery-theme { background: linear-gradient(180deg, #040c08 0%, #081510 100%); }
+    .education-theme { background: linear-gradient(180deg, #040810 0%, #081018 100%); }
+    .realestate-theme { background: linear-gradient(180deg, #0c0804 0%, #151008 100%); }
+
 </style>
 
   <script type="application/ld+json">
@@ -4181,104 +4342,112 @@ a { text-decoration: none; color: inherit; }
         category: "ONLINE SHOP",
         price: "850,000₮",
         delivery: "3-7 хоног",
-        socialProof: "12+ бизнес эхлүүлсэн",
         color: "#ff6496",
         gradient: "linear-gradient(135deg,#ff6496,#ff8fab)",
         theme: "shop",
         badge: "⭐ Bestseller",
         url: "shop.mn",
-        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"]
+        socialProof: "12+ бизнес эхлүүлсэн",
+        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"],
+        previewHTML: '<div class="preview-shop"><div class="shop-nav"><span class="nav-logo">SHOP</span><span class="nav-icons"><i class="fas fa-search"></i><i class="fas fa-shopping-cart"></i></span></div><div class="shop-hero"><div class="hero-content"><span class="hero-badge">🔥 Хямдрал 50%</span><h2>Шинэ бүтээгдэхүүн</h2><p>Орчин үеийн загвар</p><button class="hero-btn">Худалдаж авах</button></div><div class="hero-image"></div></div><div class="shop-products"><div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-name">Смарт цаг</span><span class="product-price">450,000₮</span><div class="product-rating">⭐ 4.8</div></div></div><div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-name">Чихэвч</span><product-price>350,000₮</span><div class="product-rating">⭐ 4.9</div></div></div><div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-name">Таблет</span><span class="product-price">550,000₮</span><div class="product-rating">⭐ 4.7</div></div></div></div><div class="shop-trust"><span>🚚 Үнэгүй хүргэлт</span><span>🔄 30 хоногийн буцаалт</span><span>🛡️ 2 жилийн баталгаа</span></div></div>'
       },
       {
         name: "Байгууллагын Сайт",
         category: "BUSINESS",
         price: "650,000₮",
         delivery: "3-5 хоног",
-        socialProof: "25+ захиалга хийгдсэн",
         color: "#7850ff",
         gradient: "linear-gradient(135deg,#7850ff,#9b6dff)",
         theme: "business",
         badge: "🔥 Most Ordered",
         url: "company.mn",
-        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"]
+        socialProof: "25+ захиалга хийгдсэн",
+        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"],
+        previewHTML: '<div class="preview-business"><div class="biz-nav"><span class="nav-logo">COMPANY</span><span class="nav-links"><a>Үйлчилгээ</a><a>Төслүүд</a><a>Холбогдох</a></span></div><div class="biz-hero"><div class="hero-content"><h2>Бизнесээ өсгөе</h2><p>Мэргэжлийн шийдлүүд</p><button class="hero-btn">Холбогдох</button></div><div class="hero-image"></div></div><div class="biz-stats"><div class="stat"><span class="stat-num">120+</span><span class="stat-label">Төсөл</span></div><div class="stat"><span class="stat-num">98%</span><span class="stat-label">Сэтгэл ханамж</span></div><div class="stat"><span class="stat-num">24/7</span><span class="stat-label">Дэмжлэг</span></div></div><div class="biz-services"><div class="service-card"><i class="fas fa-laptop-code"></i><span>Вэб хөгжүүлэлт</span></div><div class="service-card"><i class="fas fa-mobile-alt"></i><span>Апп хөгжүүлэлт</span></div><div class="service-card"><i class="fas fa-chart-line"></i><span>Маркетинг</span></div></div></div>'
       },
       {
         name: "Хувь хүний Портфолио",
         category: "PORTFOLIO",
         price: "450,000₮",
         delivery: "3-5 хоног",
-        socialProof: "Фрилансерүүдийн дунд түгээмэл",
         color: "#9b6dff",
         gradient: "linear-gradient(135deg,#9b6dff,#c4a0ff)",
         theme: "portfolio",
         badge: "",
         url: "portfolio.mn",
-        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"]
+        socialProof: "Фрилансерүүдийн дунд түгээмэл",
+        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"],
+        previewHTML: '<div class="preview-portfolio"><div class="port-nav"><span class="nav-logo">PORTFOLIO</span><span class="nav-links"><a>Төслүүд</a><a>Тухай</a><a>Холбогдох</a></span></div><div class="port-hero"><div class="hero-avatar"></div><h2>Дизайнер</h2><p>Креатив бүтээл</p></div><div class="port-gallery"><div class="gallery-card"><div class="card-img"></div><div class="card-title">Вэб дизайн</div></div><div class="gallery-card"><div class="card-img"></div><div class="card-title">Брэнд дизайн</div></div><div class="gallery-card"><div class="card-img"></div><div class="card-title">Апп дизайн</div></div><div class="gallery-card"><div class="card-img"></div><div class="card-title">Лого дизайн</div></div></div><div class="port-testimonials"><div class="testimonial"><p>"Маш сайн ажилласан"</p><span>— Б. Болд</span></div></div></div>'
       },
       {
         name: "Ресторан Сайт",
         category: "RESTAURANT",
         price: "550,000₮",
         delivery: "3-7 хоног",
-        socialProof: "Ресторануудад түгээмэл",
         color: "#ffb347",
         gradient: "linear-gradient(135deg,#ffb347,#ffd080)",
         theme: "restaurant",
         badge: "⚡ Fast Launch",
         url: "restaurant.mn",
-        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"]
+        socialProof: "Ресторануудад түгээмэл",
+        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"],
+        previewHTML: '<div class="preview-restaurant"><div class="rest-nav"><span class="nav-logo">RESTAURANT</span><span class="nav-links"><a>Цэс</a><a>Газар</a><a>Цаг авах</a></span></div><div class="rest-hero"><div class="hero-content"><h2>Амттай хоол</h2><p>Шинэ цэснүүд нэмэгдлээ</p><button class="hero-btn">Цаг захиалах</button></div></div><div class="rest-menu"><div class="menu-card"><div class="menu-img"></div><div class="menu-info"><span class="menu-name">Хуушуур</span><span class="menu-price">12,000₮</span></div></div><div class="menu-card"><div class="menu-img"></div><div class="menu-info"><span class="menu-name">Бууз</span><span class="menu-price">8,000₮</span></div></div></div><div class="rest-reviews"><span>⭐ 4.9 (128 сэтгэгдэл)</span></div></div>'
       },
       {
         name: "Эмнэлэг Сайт",
         category: "CLINIC",
         price: "750,000₮",
         delivery: "5-7 хоног",
-        socialProof: "Эмнэлэгүүдэд тохиромжтой",
         color: "#4dbdff",
         gradient: "linear-gradient(135deg,#4dbdff,#80d4ff)",
         theme: "clinic",
         badge: "💎 Premium",
         url: "clinic.mn",
-        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"]
+        socialProof: "Эмнэлэгүүдэд тохиромжтой",
+        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"],
+        previewHTML: '<div class="preview-clinic"><div class="clinic-nav"><span class="nav-logo">CLINIC</span><span class="nav-links"><a>Эмч нар</a><a>Үйлчилгээ</a><a>Цаг авах</a></span></div><div class="clinic-hero"><div class="hero-content"><h2>Эмчилгээний үйлчилгээ</h2><p>Мэргэжлийн эмч нар</p><button class="hero-btn">Цаг авах</button></div></div><div class="clinic-doctors"><div class="doctor-card"><div class="doctor-avatar"></div><span class="doctor-name">Д. Бат</span><span class="doctor-role">Тэргүүлэх эмч</span></div><div class="doctor-card"><div class="doctor-avatar"></div><span class="doctor-name">Н. Сараа</span><span class="doctor-role">Мэргэжилтэн</span></div></div><div class="clinic-stats"><span>⭐ 4.9</span><span>500+ өвчтөн</span><span>10+ жил</span></div></div>'
       },
       {
         name: "Delivery Сайт",
         category: "DELIVERY",
         price: "650,000₮",
         delivery: "3-7 хоног",
-        socialProof: "Хүргэлтийн компаниудад",
         color: "#42d392",
         gradient: "linear-gradient(135deg,#42d392,#7ee8b5)",
         theme: "delivery",
         badge: "",
         url: "delivery.mn",
-        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"]
+        socialProof: "Хүргэлтийн компаниудад",
+        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"],
+        previewHTML: '<div class="preview-delivery"><div class="del-nav"><span class="nav-logo">DELIVERY</span><span class="nav-links"><a>Хянах</a><a>Захиалах</a></span></div><div class="del-hero"><div class="hero-content"><h2>Хурдан хүргэлт</h2><p>30 минутанд хүргэнэ</p><button class="hero-btn">Захиалах</button></div></div><div class="del-tracking"><div class="track-step active"><div class="step-dot"></div><span>Захиалсан</span></div><div class="track-step active"><div class="step-dot"></div><span>Бэлтгэж байна</span></div><div class="track-step"><div class="step-dot"></div><span>Хүргэлтэнд</span></div><div class="track-step"><div class="step-dot"></div><span>Хүргэгдсэн</span></div></div><div class="del-stats"><div class="stat"><span class="stat-num">500+</span><span>Хүргэлт</span></div><div class="stat"><span class="stat-num">99%</span><span>Хугацаанд</span></div></div></div>'
       },
       {
         name: "Сургалтын Сайт",
         category: "EDUCATION",
         price: "550,000₮",
         delivery: "4-6 хоног",
-        socialProof: "Сургалт төвд тохиромжтой",
         color: "#50d890",
         gradient: "linear-gradient(135deg,#50d890,#80e8b0)",
         theme: "education",
         badge: "",
         url: "education.mn",
-        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"]
+        socialProof: "Сургалт төвд тохиромжтой",
+        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"],
+        previewHTML: '<div class="preview-education"><div class="edu-nav"><span class="nav-logo">ACADEMY</span><span class="nav-links"><a>Хичээлүүд</a><a>Багш нар</a><a>Бүртгүүлэх</a></span></div><div class="edu-hero"><div class="hero-content"><h2>Цахим сургалт</h2><p>Чөлөөт цагийн сургалт</p><button class="hero-btn">Бүртгүүлэх</button></div></div><div class="edu-courses"><div class="course-card"><div class="course-img"></div><span class="course-title">Вэб хөгжүүлэлт</span><span class="course-meta">12 хичээл • 4 долоо хоног</span></div><div class="course-card"><div class="course-img"></div><span class="course-title">Дизайн</span><span class="course-meta">8 хичээл • 3 долоо хоног</span></div></div><div class="edu-stats"><span>👨‍🎓 1,200+ оюутан</span><span>⭐ 4.9 үнэлгээ</span></div></div>'
       },
       {
         name: "Үл хөдлөх Сайт",
         category: "REAL ESTATE",
         price: "800,000₮",
         delivery: "5-8 хоног",
-        socialProof: "Үл хөдлөх агентуудад",
         color: "#ff9f43",
         gradient: "linear-gradient(135deg,#ff9f43,#ffc080)",
         theme: "realestate",
         badge: "",
         url: "realestate.mn",
-        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"]
+        socialProof: "Үл хөдлөх агентуудад",
+        features: ["Mobile Responsive", "SEO Ready", "Contact Form", "Тогтмол дэмжлэг"],
+        previewHTML: '<div class="preview-realestate"><div class="re-nav"><span class="nav-logo">REAL ESTATE</span><span class="nav-links"><a>Зарууд</a><a>Агентууд</a><a>Холбогдох</a></span></div><div class="re-hero"><div class="hero-content"><h2>Шинэ орон сууц</h2><p>Сүхбаатар дүүрэг, 12-р хороо</p><button class="hero-btn">Дэлгэрэнгүй</button></div></div><div class="re-properties"><div class="property-card"><div class="property-img"></div><div class="property-info"><span class="property-title">2 өрөө</span><span class="property-price">450,000₮/сар</span><span class="property-location">Сүхбаатар дүүрэг</span></div></div><div class="property-card"><div class="property-img"></div><div class="property-info"><span class="property-title">3 өрөө</span><span class="property-price">650,000₮/сар</span><span class="property-location">Баянгол дүүрэг</span></div></div></div><div class="re-map"><div class="map-placeholder"></div></div></div>'
       }
     ];
 
@@ -4288,32 +4457,21 @@ a { text-decoration: none; color: inherit; }
       if (!grid) return;
       grid.innerHTML = templates.map(function(t, i) {
         return '<div class="template-card" data-category="' + t.category + '" data-idx="' + i + '">' +
+          '<div class="card-glow" style="background:' + t.gradient + '"></div>' +
           '<div class="template-preview ' + t.theme + '-theme">' +
-            '<div class="preview-browser"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">' + t.url + '</div></div>' +
-            '<div class="preview-content">' +
-              '<div class="preview-hero">' +
-                '<div class="hero-badge">🔥 Хямдрал</div>' +
-                '<div class="hero-text">Шинэ бүтээгдэхүүн</div>' +
-                '<div class="hero-cta">Худалдаж авах</div>' +
-              '</div>' +
-              '<div class="preview-grid">' +
-                '<div class="grid-item"><div class="item-img"></div><div class="item-name">Бүтээгдэхүүн 1</div><div class="item-price">45,000₮</div></div>' +
-                '<div class="grid-item"><div class="item-img"></div><div class="item-name">Бүтээгдэхүүн 2</div><div class="item-price">35,000₮</div></div>' +
-                '<div class="grid-item"><div class="item-img"></div><div class="item-name">Бүтээгдэхүүн 3</div><div class="item-price">55,000₮</div></div>' +
-              '</div>' +
-            '</div>' +
+            t.previewHTML +
             '<div class="template-overlay"><span class="template-overlay-btn">Live Preview →</span></div>' +
           '</div>' +
           '<div class="template-info">' +
-            (t.badge ? '<div class="template-badge">' + t.badge + '</div>' : '') +
+            (t.badge ? '<div class="card-badge">' + t.badge + '</div>' : '') +
             '<div class="template-category" style="color:' + t.color + '">' + t.category + '</div>' +
             '<h3>' + t.name + '</h3>' +
-            '<div class="template-price-block">' +
-              '<div class="template-price-label">Эхлэх үнэ</div>' +
-              '<div class="template-price" style="background:' + t.gradient + ';-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">' + t.price + '</div>' +
-              '<div class="template-delivery">⚡ ' + t.delivery + '</div>' +
+            '<div class="price-block">' +
+              '<div class="price-label">Эхлэх үнэ</div>' +
+              '<div class="price-amount" style="background:' + t.gradient + ';-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">' + t.price + '</div>' +
+              '<div class="price-delivery">⚡ ' + t.delivery + '</div>' +
             '</div>' +
-            '<div class="template-social-proof">' + t.socialProof + '</div>' +
+            '<div class="social-proof">' + t.socialProof + '</div>' +
             '<button class="btn btn-ghost template-btn">Live Preview →</button>' +
           '</div>' +
         '</div>';
