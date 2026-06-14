@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анар — Брэнд дизайнер & Арт директор | Portfolio Pro Template</title>
+  <meta name="description" content="Анар — Улаанбаатар хотод төвлөрсөн брэнд дизайнер, арт директор. Брэндинг, веб дизайн, сав баглаа, моушн. Сонгмол төслүүд, кейс судалгаа.">
+  <meta property="og:title" content="Анар — Брэнд дизайнер & Арт директор">
+  <meta property="og:description" content="Санааг брэнд болгон хувиргадаг. Сонгмол төслүүд ба кейс судалгаа.">
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="mn_MN">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Mono:wght@400;700&family=Archivo:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Анар",
+    "jobTitle": "Брэнд дизайнер & Арт директор",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ulaanbaatar", "addressCountry": "MN" },
+    "knowsAbout": ["Branding", "Web Design", "Packaging", "Motion", "Art Direction"]
+  }
+  </script>
+  <style>
+/* ============================================================
+   PORTFOLIO PRO — Brutalist editorial
+   Paper · ink · electric lime · Syne + Space Mono
+   Horizontal-scroll case studies, invert-on-hover.
+   (Distinct from Business / Clinic / Restaurant in every axis)
+   ============================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+:root {
+  --paper: #eceae1;
+  --paper-2: #e4e1d6;
+  --ink: #16150f;
+  --ink-2: rgba(22,21,15,0.6);
+  --ink-3: rgba(22,21,15,0.38);
+  --line: rgba(22,21,15,0.16);
+  --line-2: rgba(22,21,15,0.3);
+  --acc: #c4f135;
+  --acc-deep: #a8d916;
+  --paper-on-ink: #eceae1;
+  --display: 'Syne', sans-serif;
+  --mono: 'Space Mono', monospace;
+  --sans: 'Archivo', system-ui, sans-serif;
+  --ease: cubic-bezier(0.65, 0.05, 0, 1);
+  --pad: clamp(20px, 4vw, 56px);
+  --sect: clamp(90px, 11vw, 160px);
+}
+body { font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; overflow-x: hidden; font-weight: 400; }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--acc); color: var(--ink); }
+
+/* type */
+.mono { font-family: var(--mono); font-size: .7rem; letter-spacing: .04em; text-transform: uppercase; }
+.idx { font-family: var(--mono); font-size: .72rem; color: var(--ink-3); }
+.dsp { font-family: var(--display); font-weight: 800; line-height: 0.92; letter-spacing: -0.03em; text-transform: uppercase; }
+.section { padding: var(--sect) var(--pad); position: relative; }
+.wrap { max-width: 1340px; margin: 0 auto; }
+.sec-top { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding-bottom: 28px; margin-bottom: clamp(40px, 6vw, 72px); border-bottom: 1.5px solid var(--ink); }
+.sec-top h2 { font-family: var(--display); font-weight: 700; font-size: clamp(1.8rem, 4vw, 3.2rem); line-height: 1; letter-spacing: -0.03em; }
+.sec-top .mono { color: var(--ink-2); }
+
+/* reveal: clip-up */
+[data-r] { opacity: 0; transform: translateY(40px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+[data-r].in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001s !important; transition-duration: .001s !important; }
+  [data-r] { opacity: 1 !important; transform: none !important; }
+}
+
+/* artwork panels — bold duotone gradient stand-ins.
+   TEMPLATE NOTE: replace .art backgrounds with real project images. */
+.art { position: relative; overflow: hidden; background: var(--ink); }
+.art .art-ic { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 2.6rem; color: rgba(236,234,225,0.22); z-index: 1; }
+.art.a1 { background: linear-gradient(135deg, #2b2bd6 0%, #6a5cff 50%, #c4f135 140%); }
+.art.a2 { background: linear-gradient(135deg, #16150f 0%, #3a3730 60%, #c4f135 180%); }
+.art.a3 { background: linear-gradient(135deg, #ff5a36 0%, #ffb03a 70%, #ffe8a3 130%); }
+.art.a4 { background: linear-gradient(135deg, #0f7a5a 0%, #36d6a0 60%, #c4f135 150%); }
+.art.a5 { background: linear-gradient(135deg, #6a2bd6 0%, #c44df0 60%, #ff8fab 130%); }
+.art.a6 { background: linear-gradient(135deg, #16150f 0%, #2b2bd6 130%); }
+.art::after { content: ''; position: absolute; inset: 0; mix-blend-mode: overlay; opacity: .5;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"); }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: .76rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 16px 28px; cursor: pointer; border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper); transition: all .4s var(--ease); }
+.btn:hover { background: var(--acc); color: var(--ink); border-color: var(--acc); }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* ---- nav: index style ---- */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; mix-blend-mode: difference; }
+.nav-in { display: flex; align-items: center; justify-content: space-between; padding: 24px var(--pad); }
+.nav-name { font-family: var(--display); font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; text-transform: uppercase; color: #fff; }
+.nav-name b { color: var(--acc); }
+.nav-idx { display: flex; gap: 30px; }
+.nav-idx a { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: #fff; display: flex; gap: 7px; transition: opacity .3s; }
+.nav-idx a sup { color: var(--acc); font-size: .6rem; }
+.nav-idx a:hover { opacity: .55; }
+.nav-status { display: flex; align-items: center; gap: 9px; font-family: var(--mono); font-size: .68rem; text-transform: uppercase; color: #fff; }
+.nav-status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--acc); animation: blink 2s infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+.burger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+.burger span { width: 26px; height: 2px; background: #fff; display: block; }
+.m-nav { position: fixed; inset: 0; z-index: 2000; background: var(--ink); color: var(--paper); display: flex; flex-direction: column; justify-content: center; padding: var(--pad); gap: 4px; transform: translateY(-100%); transition: transform .6s var(--ease); }
+.m-nav.open { transform: none; }
+.m-nav a { font-family: var(--display); font-weight: 700; font-size: clamp(2rem,9vw,3.2rem); text-transform: uppercase; color: var(--paper); padding: 8px 0; display: flex; gap: 14px; align-items: baseline; }
+.m-nav a sup { font-family: var(--mono); font-size: .8rem; color: var(--acc); }
+.m-close { position: absolute; top: 22px; right: var(--pad); background: none; border: none; color: var(--paper); font-size: 1.6rem; cursor: pointer; }
+
+/* ============ HERO — poster, bottom-anchored ============ */
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 120px var(--pad) 40px; position: relative; }
+.hero-top { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.hero-top .mono { color: var(--ink-2); max-width: 230px; line-height: 1.7; }
+.hero-mid { padding: clamp(30px,5vw,60px) 0; }
+.hero h1 { font-family: var(--display); font-weight: 800; font-size: clamp(3.2rem, 13vw, 12rem); line-height: 0.86; letter-spacing: -0.04em; text-transform: uppercase; }
+.hero h1 .out { -webkit-text-stroke: 2px var(--ink); color: transparent; }
+.hero h1 .em { color: var(--ink); position: relative; display: inline-block; }
+.hero h1 .em::after { content: ''; position: absolute; left: -2%; right: -2%; bottom: 8%; height: 26%; background: var(--acc); z-index: -1; transform: scaleX(0); transform-origin: left; transition: transform 1s var(--ease) .9s; }
+.hero.lit h1 .em::after { transform: scaleX(1); }
+.hero-bot { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; border-top: 1.5px solid var(--ink); padding-top: 24px; }
+.hero-role { font-family: var(--display); font-weight: 700; font-size: clamp(1.1rem, 2vw, 1.7rem); letter-spacing: -0.02em; }
+.hero-meta { display: flex; gap: 36px; flex-wrap: wrap; }
+.hero-meta .hm .v { font-family: var(--display); font-weight: 700; font-size: 1.3rem; }
+.hero-meta .hm .k { font-family: var(--mono); font-size: .64rem; text-transform: uppercase; color: var(--ink-3); }
+.hero-scroll { font-family: var(--mono); font-size: .68rem; text-transform: uppercase; color: var(--ink-2); display: flex; align-items: center; gap: 10px; }
+.hero-scroll i { animation: bob 1.6s var(--ease) infinite; }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+
+/* ---- marquee ---- */
+.marquee { border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); overflow: hidden; padding: 18px 0; background: var(--acc); }
+.marquee-track { display: flex; gap: 50px; white-space: nowrap; width: max-content; animation: scrollx 26s linear infinite; }
+.marquee-track span { font-family: var(--display); font-weight: 800; font-size: 1.4rem; text-transform: uppercase; letter-spacing: -0.01em; display: flex; align-items: center; gap: 50px; }
+.marquee-track span::after { content: '✦'; font-size: 1rem; }
+@keyframes scrollx { to { transform: translateX(-50%); } }
+
+/* ============ FEATURED PROJECT ============ */
+.feat-in { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1.5px solid var(--ink); }
+.feat-art { position: relative; aspect-ratio: 4/3; }
+.feat-art .art { position: absolute; inset: 0; }
+.feat-art .badge { position: absolute; top: 20px; left: 20px; z-index: 2; font-family: var(--mono); font-size: .64rem; text-transform: uppercase; background: var(--acc); color: var(--ink); padding: 7px 13px; }
+.feat-body { padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; justify-content: space-between; border-left: 1.5px solid var(--ink); }
+.feat-body .mono { color: var(--ink-2); margin-bottom: 20px; }
+.feat-body h3 { font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 0.96; text-transform: uppercase; letter-spacing: -0.03em; margin-bottom: 22px; }
+.feat-body p { color: var(--ink-2); max-width: 440px; margin-bottom: 30px; font-weight: 300; font-size: 1.02rem; line-height: 1.7; }
+.feat-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+.feat-tags span { font-family: var(--mono); font-size: .64rem; text-transform: uppercase; border: 1px solid var(--line-2); padding: 6px 12px; }
+
+/* ============ CASE STUDIES — horizontal scroll ============ */
+.cases { padding: var(--sect) 0; }
+.cases .sec-top { margin: 0 var(--pad) clamp(40px,5vw,64px); }
+.cs-hint { font-family: var(--mono); font-size: .66rem; text-transform: uppercase; color: var(--ink-2); display: flex; align-items: center; gap: 10px; }
+.cs-scroller { display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; cursor: grab; padding: 0 var(--pad); }
+.cs-scroller::-webkit-scrollbar { display: none; }
+.cs-scroller.grabbing { cursor: grabbing; }
+.cs-panel { flex: 0 0 clamp(280px, 40vw, 520px); scroll-snap-align: start; border: 1.5px solid var(--ink); border-right: none; cursor: pointer; background: var(--paper); transition: background .5s var(--ease); }
+.cs-panel:last-child { border-right: 1.5px solid var(--ink); }
+.cs-art { position: relative; aspect-ratio: 16/11; overflow: hidden; border-bottom: 1.5px solid var(--ink); }
+.cs-art .art { position: absolute; inset: 0; transition: transform .8s var(--ease); }
+.cs-panel:hover .cs-art .art { transform: scale(1.06); }
+.cs-art .num { position: absolute; top: 16px; right: 18px; z-index: 2; font-family: var(--mono); font-size: .72rem; color: #fff; }
+.cs-info { padding: 26px 24px; display: flex; flex-direction: column; gap: 14px; transition: color .5s; }
+.cs-info .cs-cat { font-family: var(--mono); font-size: .64rem; text-transform: uppercase; color: var(--ink-3); transition: color .5s; }
+.cs-info h3 { font-family: var(--display); font-weight: 700; font-size: 1.7rem; text-transform: uppercase; line-height: 0.98; letter-spacing: -0.02em; }
+.cs-info .cs-open { font-family: var(--mono); font-size: .66rem; text-transform: uppercase; display: flex; align-items: center; gap: 9px; margin-top: 6px; }
+.cs-info .cs-open i { transition: transform .4s var(--ease); }
+.cs-panel:hover { background: var(--ink); }
+.cs-panel:hover .cs-info, .cs-panel:hover .cs-info h3 { color: var(--paper); }
+.cs-panel:hover .cs-cat { color: var(--acc); }
+.cs-panel:hover .cs-open i { transform: translate(4px,-4px); }
+.cs-rail { display: flex; align-items: center; gap: 22px; padding: 28px var(--pad) 0; margin-top: 4px; }
+.cs-progress { flex: 1; height: 2px; background: var(--line); position: relative; }
+.cs-progress span { position: absolute; left: 0; top: 0; height: 100%; background: var(--ink); width: 25%; }
+.cs-arrows { display: flex; gap: 10px; }
+.cs-arrows button { width: 48px; height: 48px; border: 1.5px solid var(--ink); background: transparent; cursor: pointer; transition: all .4s; }
+.cs-arrows button:hover { background: var(--ink); color: var(--paper); }
+
+/* case study detail overlay — the signature transition */
+.cs-detail { position: fixed; inset: 0; z-index: 5000; background: var(--ink); color: var(--paper); overflow-y: auto; transform: translateY(100%); transition: transform .7s var(--ease); }
+.cs-detail.open { transform: none; }
+.csd-top { position: sticky; top: 0; z-index: 3; display: flex; justify-content: space-between; align-items: center; padding: 22px var(--pad); border-bottom: 1px solid rgba(236,234,225,0.16); background: var(--ink); }
+.csd-top .mono { color: rgba(236,234,225,0.6); }
+.csd-close { background: none; border: 1px solid rgba(236,234,225,0.3); color: var(--paper); font-family: var(--mono); font-size: .7rem; text-transform: uppercase; padding: 11px 20px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all .3s; }
+.csd-close:hover { background: var(--acc); color: var(--ink); border-color: var(--acc); }
+.csd-hero { padding: clamp(48px,7vw,110px) var(--pad) clamp(36px,4vw,60px); }
+.csd-hero .cat { font-family: var(--mono); font-size: .72rem; text-transform: uppercase; color: var(--acc); margin-bottom: 20px; }
+.csd-hero h2 { font-family: var(--display); font-weight: 800; font-size: clamp(2.6rem,7vw,6rem); line-height: 0.9; text-transform: uppercase; letter-spacing: -0.03em; }
+.csd-art { height: clamp(280px,46vw,560px); margin: 0 var(--pad); position: relative; }
+.csd-art .art { position: absolute; inset: 0; }
+.csd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px,5vw,80px); padding: clamp(48px,6vw,90px) var(--pad); max-width: 1340px; margin: 0 auto; }
+.csd-grid .lead { font-family: var(--display); font-weight: 700; font-size: clamp(1.4rem,2.4vw,2rem); line-height: 1.2; text-transform: none; letter-spacing: -0.01em; }
+.csd-grid .body p { color: rgba(236,234,225,0.7); font-weight: 300; margin-bottom: 18px; }
+.csd-meta { display: flex; flex-direction: column; gap: 0; margin-top: 10px; }
+.csd-meta .row { display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid rgba(236,234,225,0.16); }
+.csd-meta .row span { font-family: var(--mono); font-size: .68rem; text-transform: uppercase; color: rgba(236,234,225,0.5); }
+.csd-meta .row b { font-family: var(--display); font-weight: 700; }
+.csd-results { display: flex; gap: clamp(30px,5vw,70px); padding: 0 var(--pad) clamp(60px,8vw,120px); flex-wrap: wrap; }
+.csd-results .r .n { font-family: var(--display); font-weight: 800; font-size: clamp(2.4rem,5vw,4rem); color: var(--acc); line-height: 1; }
+.csd-results .r .l { font-family: var(--mono); font-size: .68rem; text-transform: uppercase; color: rgba(236,234,225,0.6); margin-top: 10px; }
+
+/* ============ PROCESS — brutalist numbered rows ============ */
+.proc-list { border-top: 1.5px solid var(--ink); }
+.proc-row { display: grid; grid-template-columns: 120px 1fr 1.2fr; gap: 24px; align-items: center; padding: clamp(26px,3vw,42px) 8px; border-bottom: 1.5px solid var(--ink); position: relative; transition: color .5s var(--ease), padding .5s var(--ease); }
+.proc-row::before { content: ''; position: absolute; inset: 0; background: var(--ink); transform: scaleY(0); transform-origin: bottom; transition: transform .5s var(--ease); z-index: -1; }
+.proc-row:hover::before { transform: scaleY(1); }
+.proc-row:hover { color: var(--paper); padding-left: 24px; padding-right: 24px; }
+.proc-row .p-num { font-family: var(--display); font-weight: 800; font-size: clamp(2rem,4vw,3.4rem); line-height: 1; }
+.proc-row:hover .p-num { color: var(--acc); }
+.proc-row .p-name { font-family: var(--display); font-weight: 700; font-size: clamp(1.3rem,2.4vw,2rem); text-transform: uppercase; letter-spacing: -0.02em; }
+.proc-row .p-desc { color: var(--ink-2); font-weight: 300; transition: color .5s; }
+.proc-row:hover .p-desc { color: rgba(236,234,225,0.7); }
+
+/* ============ SKILLS — meters ============ */
+.skills-in { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(36px,6vw,90px); }
+.skills-left h2 { font-family: var(--display); font-weight: 800; font-size: clamp(2.4rem,5vw,4.4rem); line-height: 0.92; text-transform: uppercase; letter-spacing: -0.03em; }
+.skills-left h2 em { font-style: normal; color: var(--acc-deep); }
+.skills-left p { color: var(--ink-2); font-weight: 300; margin-top: 22px; max-width: 340px; }
+.skill { padding: 20px 0; border-bottom: 1px solid var(--line); }
+.skill-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+.skill-head .nm { font-family: var(--display); font-weight: 700; font-size: 1.3rem; text-transform: uppercase; }
+.skill-head .pc { font-family: var(--mono); font-size: .76rem; color: var(--ink-2); }
+.skill-meter { height: 6px; background: var(--paper-2); position: relative; overflow: hidden; }
+.skill-meter span { position: absolute; left: 0; top: 0; height: 100%; width: 0; background: var(--ink); transition: width 1.2s var(--ease); }
+.skill.in .skill-meter span { width: var(--w); }
+.skill.in:nth-child(2) .skill-meter span { transition-delay: .08s; }
+.skill.in:nth-child(3) .skill-meter span { transition-delay: .16s; }
+.skill.in:nth-child(4) .skill-meter span { transition-delay: .24s; }
+.skill.in:nth-child(5) .skill-meter span { transition-delay: .32s; }
+.skill.in:nth-child(6) .skill-meter span { transition-delay: .4s; }
+
+/* ============ TESTIMONIALS — big editorial quote ============ */
+.quotes { background: var(--ink); color: var(--paper); }
+.quotes .q-stage { max-width: 1100px; margin: 0 auto; }
+.quotes .q-mark { font-family: var(--display); font-weight: 800; font-size: 6rem; color: var(--acc); line-height: 0.5; }
+.q-slide { display: none; }
+.q-slide.on { display: block; animation: qf .6s var(--ease); }
+@keyframes qf { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.q-slide blockquote { font-family: var(--display); font-weight: 700; font-size: clamp(1.6rem,3.6vw,3rem); line-height: 1.18; letter-spacing: -0.02em; margin: 28px 0 40px; }
+.q-who { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; border-top: 1px solid rgba(236,234,225,0.2); padding-top: 24px; }
+.q-who .nm { font-family: var(--display); font-weight: 700; font-size: 1.2rem; }
+.q-who .rl { font-family: var(--mono); font-size: .7rem; text-transform: uppercase; color: rgba(236,234,225,0.55); margin-top: 4px; }
+.q-nav { display: flex; gap: 10px; }
+.q-nav button { width: 48px; height: 48px; border: 1px solid rgba(236,234,225,0.3); background: transparent; color: var(--paper); cursor: pointer; transition: all .4s; }
+.q-nav button:hover { background: var(--acc); color: var(--ink); border-color: var(--acc); }
+
+/* ============ CONTACT ============ */
+.contact { padding: var(--sect) var(--pad); text-align: center; }
+.contact .mono { color: var(--ink-2); margin-bottom: 30px; display: block; }
+.contact-mail { font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 8vw, 7rem); text-transform: uppercase; letter-spacing: -0.04em; line-height: 0.9; display: inline-block; position: relative; }
+.contact-mail::after { content: ''; position: absolute; left: 0; right: 0; bottom: 4%; height: 8%; background: var(--acc); transform: scaleX(0); transform-origin: left; transition: transform .6s var(--ease); z-index: -1; }
+.contact-mail:hover::after { transform: scaleX(1); }
+.contact-sub { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-top: 50px; }
+.contact-sub a { font-family: var(--mono); font-size: .76rem; text-transform: uppercase; display: flex; align-items: center; gap: 10px; padding-bottom: 4px; border-bottom: 1.5px solid transparent; transition: border-color .3s; }
+.contact-sub a:hover { border-color: var(--ink); }
+
+/* ---- footer ---- */
+footer { border-top: 1.5px solid var(--ink); padding: 36px var(--pad); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+footer .mono { color: var(--ink-2); }
+
+/* ---- responsive ---- */
+@media (max-width: 960px) {
+  .feat-in { grid-template-columns: 1fr; }
+  .feat-art { aspect-ratio: 16/10; }
+  .feat-body { border-left: none; border-top: 1.5px solid var(--ink); }
+  .skills-in { grid-template-columns: 1fr; gap: 40px; }
+  .csd-grid { grid-template-columns: 1fr; }
+  .proc-row { grid-template-columns: 70px 1fr; gap: 14px 18px; }
+  .proc-row .p-desc { grid-column: 2; }
+}
+@media (max-width: 720px) {
+  .nav-idx, .nav-status { display: none; }
+  .burger { display: flex; }
+}
+@media (max-width: 520px) {
+  .hero-meta { gap: 22px; }
+  .proc-row { grid-template-columns: 1fr; }
+  .proc-row .p-num { font-size: 1.6rem; }
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAV: index style (blend-difference over any bg) -->
+  <nav id="nav">
+    <div class="nav-in">
+      <a href="#top" class="nav-name">АНАР<b>.</b></a>
+      <div class="nav-idx">
+        <a href="#featured"><sup>01</sup> Сонгмол</a>
+        <a href="#cases"><sup>02</sup> Кейс</a>
+        <a href="#process"><sup>03</sup> Үйл явц</a>
+        <a href="#contact"><sup>04</sup> Холбоо</a>
+      </div>
+      <div class="nav-status"><span class="dot"></span> Ажил хүлээж авч байна</div>
+      <button class="burger" id="burger" aria-label="Цэс"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="m-nav" id="mnav">
+    <button class="m-close" id="mclose" aria-label="Хаах"><i class="fas fa-times"></i></button>
+    <a href="#featured"><sup>01</sup> Сонгмол</a>
+    <a href="#cases"><sup>02</sup> Кейс судалгаа</a>
+    <a href="#process"><sup>03</sup> Үйл явц</a>
+    <a href="#skills"><sup>04</sup> Чадвар</a>
+    <a href="#contact"><sup>05</sup> Холбоо барих</a>
+  </div>
+
+  <main id="top">
+
+  <!-- ============ HERO — poster ============ -->
+  <header class="hero" id="hero">
+    <div class="hero-top">
+      <div class="mono">Брэнд дизайнер · Арт директор · Улаанбаатарт төвлөрсөн, дэлхий даяар ажилладаг</div>
+      <div class="mono" style="text-align:right">Портфолио<br>2018 — 2026</div>
+    </div>
+    <div class="hero-mid">
+      <h1>
+        Санааг<br>
+        <span class="em">брэнд</span> <span class="out">болгож</span><br>
+        хувиргадаг.
+      </h1>
+    </div>
+    <div class="hero-bot">
+      <div class="hero-meta">
+        <div class="hm"><div class="v">8 жил</div><div class="k">Туршлага</div></div>
+        <div class="hm"><div class="v">60+</div><div class="k">Төсөл</div></div>
+        <div class="hm"><div class="v">4</div><div class="k">Шагнал</div></div>
+      </div>
+      <div class="hero-scroll">Доош гүйлгэ <i class="fas fa-arrow-down"></i></div>
+    </div>
+  </header>
+
+  <!-- ---- marquee ---- -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Брэндинг</span><span>Лого дизайн</span><span>Веб дизайн</span><span>UI / UX</span><span>Сав баглаа</span><span>Моушн</span><span>Арт чиглүүлэг</span>
+      <span>Брэндинг</span><span>Лого дизайн</span><span>Веб дизайн</span><span>UI / UX</span><span>Сав баглаа</span><span>Моушн</span><span>Арт чиглүүлэг</span>
+    </div>
+  </div>
+
+  <!-- ============ FEATURED PROJECT ============ -->
+  <section class="section" id="featured">
+    <div class="wrap">
+      <div class="sec-top" data-r>
+        <h2>Сонгмол төсөл</h2>
+        <span class="mono">01 / Онцлох ажил</span>
+      </div>
+      <div class="feat-in" data-r>
+        <div class="feat-art">
+          <div class="art a1"><span class="art-ic"><i class="fas fa-bolt"></i></span></div>
+          <span class="badge">2025 · Rebrand</span>
+        </div>
+        <div class="feat-body">
+          <div>
+            <div class="mono">Финтек брэнд · Бүрэн таних тэмдэг</div>
+            <h3>Хослол<br>Финтек</h3>
+            <p>Монголын тэргүүлэх дижитал төлбөрийн платформын брэндийг тэг цэгээс шинээр бүтээв. Лого, өнгөний систем, аппликейшний UI, маркетингийн хэл — бүгдийг нэг дүрд нэгтгэв.</p>
+            <div class="feat-tags"><span>Брэндинг</span><span>UI/UX</span><span>Моушн</span><span>Гайд</span></div>
+          </div>
+          <a href="#cases" class="btn btn-ghost">Кейс үзэх <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CASE STUDIES — horizontal scroll ============ -->
+  <section class="cases" id="cases">
+    <div class="sec-top" data-r>
+      <h2>Кейс судалгаа</h2>
+      <span class="cs-hint">Чирж эсвэл гүйлгэж үзнэ үү <i class="fas fa-arrows-left-right"></i></span>
+    </div>
+    <div class="cs-scroller" id="csScroller" data-r></div>
+    <div class="cs-rail">
+      <div class="cs-progress"><span id="csBar"></span></div>
+      <div class="cs-arrows">
+        <button id="csPrev" aria-label="Өмнөх"><i class="fas fa-arrow-left"></i></button>
+        <button id="csNext" aria-label="Дараах"><i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="section" id="process">
+    <div class="wrap">
+      <div class="sec-top" data-r>
+        <h2>Ажиллах арга</h2>
+        <span class="mono">03 / Дөрвөн алхам</span>
+      </div>
+      <div class="proc-list" data-r>
+        <div class="proc-row">
+          <div class="p-num">01</div>
+          <div class="p-name">Нээлт</div>
+          <div class="p-desc">Брэндийн зорилго, зах зээл, өрсөлдөгчийг гүн судалж, асуудлыг үнэн зөв тодорхойлно.</div>
+        </div>
+        <div class="proc-row">
+          <div class="p-num">02</div>
+          <div class="p-name">Концепц</div>
+          <div class="p-desc">Стратегид суурилсан 2–3 өөр чиглэлийн концепц боловсруулж, хамтдаа сонгоно.</div>
+        </div>
+        <div class="proc-row">
+          <div class="p-num">03</div>
+          <div class="p-name">Бүтээл</div>
+          <div class="p-desc">Сонгосон чиглэлийг лого, өнгө, фонт, UI, моушн болгон бүрэн системд хувиргана.</div>
+        </div>
+        <div class="proc-row">
+          <div class="p-num">04</div>
+          <div class="p-name">Хүргэлт</div>
+          <div class="p-desc">Брэнд гайд, эх файл, хэрэглэх зааврыг бүрэн хүлээлгэн өгч, нэвтрэлтийг дэмжинэ.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS — meters ============ -->
+  <section class="section" id="skills">
+    <div class="wrap skills-in">
+      <div class="skills-left" data-r>
+        <h2>Юу хийж<br><em>чадах вэ</em></h2>
+        <p>Стратегиас гүйцэтгэл хүртэл — брэндийн бүх мэдрэхүйг нэг гараас бүтээнэ.</p>
+      </div>
+      <div class="skills-right" data-r>
+        <div class="skill" style="--w:96%"><div class="skill-head"><span class="nm">Брэндинг ба таних тэмдэг</span><span class="pc">96</span></div><div class="skill-meter"><span></span></div></div>
+        <div class="skill" style="--w:92%"><div class="skill-head"><span class="nm">Арт чиглүүлэг</span><span class="pc">92</span></div><div class="skill-meter"><span></span></div></div>
+        <div class="skill" style="--w:88%"><div class="skill-head"><span class="nm">Веб ба UI/UX дизайн</span><span class="pc">88</span></div><div class="skill-meter"><span></span></div></div>
+        <div class="skill" style="--w:84%"><div class="skill-head"><span class="nm">Сав баглаа боодол</span><span class="pc">84</span></div><div class="skill-meter"><span></span></div></div>
+        <div class="skill" style="--w:78%"><div class="skill-head"><span class="nm">Моушн ба анимэйшн</span><span class="pc">78</span></div><div class="skill-meter"><span></span></div></div>
+        <div class="skill" style="--w:90%"><div class="skill-head"><span class="nm">Типографи</span><span class="pc">90</span></div><div class="skill-meter"><span></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section quotes" id="quotes">
+    <div class="q-stage">
+      <div class="q-mark" aria-hidden="true">“</div>
+      <div id="qSlides">
+        <div class="q-slide on">
+          <blockquote>Анар бидний бүрхэг байсан санааг нэг харахад ойлгомжтой, хүчтэй брэнд болгож хувиргасан. Үр дүн нь хүлээлтээс хол давсан.</blockquote>
+          <div class="q-who"><div><div class="nm">Б. Тэмүүлэн</div><div class="rl">Үүсгэн байгуулагч · Финтек платформ</div></div><div class="q-nav"><button id="qPrev" aria-label="Өмнөх"><i class="fas fa-arrow-left"></i></button><button id="qNext" aria-label="Дараах"><i class="fas fa-arrow-right"></i></button></div></div>
+        </div>
+        <div class="q-slide">
+          <blockquote>Хамтран ажиллахад маш цэгцтэй, тодорхой. Дизайн бүрийн ард бодит логик, стратеги байсан нь биднийг үнэхээр итгүүлсэн.</blockquote>
+          <div class="q-who"><div><div class="nm">Э. Номин</div><div class="rl">Маркетингийн захирал · Хэрэглээний брэнд</div></div><div class="q-nav"><button class="qp" aria-label="Өмнөх"><i class="fas fa-arrow-left"></i></button><button class="qn" aria-label="Дараах"><i class="fas fa-arrow-right"></i></button></div></div>
+        </div>
+        <div class="q-slide">
+          <blockquote>Манай савлагааны шинэ дизайн тавиур дээр шууд анхаарал татдаг боллоо. Борлуулалт эхний улиралд мэдэгдэхүйц өслөө.</blockquote>
+          <div class="q-who"><div><div class="nm">Г. Сараа</div><div class="rl">Брэнд менежер · Хүнсний үйлдвэр</div></div><div class="q-nav"><button class="qp" aria-label="Өмнөх"><i class="fas fa-arrow-left"></i></button><button class="qn" aria-label="Дараах"><i class="fas fa-arrow-right"></i></button></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <span class="mono">04 / Хамтдаа ажиллах уу?</span>
+    <div data-r>
+      <a href="mailto:anar@studio.mn" class="contact-mail">anar@studio.mn</a>
+    </div>
+    <div class="contact-sub" data-r>
+      <a href="mailto:anar@studio.mn"><i class="fas fa-envelope"></i> Имэйл бичих</a>
+      <a href="#"><i class="fab fa-behance"></i> Behance</a>
+      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- CASE DETAIL OVERLAY -->
+  <div class="cs-detail" id="csDetail" aria-hidden="true">
+    <div class="csd-top">
+      <span class="mono" id="csdIndex">КЕЙС 01 / 05</span>
+      <button class="csd-close" id="csdClose">Хаах <i class="fas fa-times"></i></button>
+    </div>
+    <div class="csd-hero">
+      <div class="cat" id="csdCat">Брэндинг</div>
+      <h2 id="csdTitle">Төслийн нэр</h2>
+    </div>
+    <div class="csd-art"><div class="art" id="csdArt"><span class="art-ic"><i class="fas fa-star"></i></span></div></div>
+    <div class="csd-grid">
+      <div class="lead" id="csdLead"></div>
+      <div>
+        <div class="body" id="csdBody"></div>
+        <div class="csd-meta" id="csdMeta"></div>
+      </div>
+    </div>
+    <div class="csd-results" id="csdResults"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="mono">© 2026 Анар — Брэнд дизайнер</span>
+    <span class="mono">Portfolio Pro загвар — OGT UUR студи</span>
+    <span class="mono">Улаанбаатар, МУ</span>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* reveal + skills */
+      var io = new IntersectionObserver(function(es) {
+        es.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('[data-r]').forEach(function(el) { io.observe(el); });
+      var sio = new IntersectionObserver(function(es) {
+        es.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); sio.unobserve(e.target); } });
+      }, { threshold: 0.4 });
+      document.querySelectorAll('.skill').forEach(function(el) { sio.observe(el); });
+
+      /* hero highlight */
+      setTimeout(function() { document.getElementById('hero').classList.add('lit'); }, 100);
+
+      /* mobile nav */
+      var mnav = document.getElementById('mnav');
+      document.getElementById('burger').addEventListener('click', function() { mnav.classList.add('open'); });
+      document.getElementById('mclose').addEventListener('click', function() { mnav.classList.remove('open'); });
+      mnav.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { mnav.classList.remove('open'); }); });
+
+      /* ============ CASE STUDIES DATA ============ */
+      var CASES = [
+        { cat: 'Брэндинг · UI/UX', title: 'Хослол Финтек', art: 'a1',
+          lead: 'Монголын тэргүүлэх дижитал төлбөрийн платформын бүрэн брэнд шинэчлэл.',
+          body: ['Хэрэглэгчид итгэл төрүүлэх, орчин үеийн санагдах брэнд хэрэгтэй байв. Бид судалгаанаас эхлэн лого, өнгөний систем, аппликейшний UI хүртэл бүгдийг шинээр зохиов.', 'Моушн хэл, дуу авианы таних тэмдэг хүртэл нэгдсэн систем болгов.'],
+          meta: [['Үйлчлүүлэгч','Финтек платформ'],['Он','2025'],['Үүрэг','Арт директор, дизайн'],['Хугацаа','14 долоо хоног']],
+          results: [['+38%','Шинэ хэрэглэгч'],['2.4x','Брэнд таних'],['#1','Салбартаа']] },
+        { cat: 'Сав баглаа', title: 'Тал Нутаг Органик', art: 'a3',
+          lead: 'Органик хүнсний брэндийн савлагааны иж бүрэн систем.',
+          body: ['Тавиур дээр ялгарах, байгальлаг мэдрэмжтэй савлагаа шаардлагатай байв. Уламжлалт хээг орчин үеийн минимал хэлбэрт оруулав.', '12 төрлийн бүтээгдэхүүнд тэлэх боломжтой систем бүтээв.'],
+          meta: [['Үйлчлүүлэгч','Хүнсний үйлдвэр'],['Он','2024'],['Үүрэг','Дизайн, арт чиглүүлэг'],['Хугацаа','9 долоо хоног']],
+          results: [['+52%','Тавиурын борлуулалт'],['12','Бүтээгдэхүүн'],['★','Шилдэг савлагаа']] },
+        { cat: 'Веб дизайн', title: 'Студи Архитектур', art: 'a4',
+          lead: 'Архитектурын товчооны портфолио вэбсайт.',
+          body: ['Төслүүдийг урлагийн бүтээл мэт харуулах, чимээгүй боловч хүчтэй веб орчин бүтээв.', 'Хөдөлгөөн, типографи, цагаан зайг гол хэрэгсэл болгов.'],
+          meta: [['Үйлчлүүлэгч','Архитектур товчоо'],['Он','2024'],['Үүрэг','Веб дизайн, UI'],['Хугацаа','7 долоо хоног']],
+          results: [['x3','Зочдын хугацаа'],['+44%','Холбоо барих'],['Awwwards','Хүндэт дурдсан']] },
+        { cat: 'Брэндинг · Моушн', title: 'Нэйшн Спорт', art: 'a5',
+          lead: 'Спортын лигийн эрч хүчтэй брэнд таних тэмдэг.',
+          body: ['Залуу, эрч хүчтэй үзэгчдэд зориулсан динамик брэнд хэрэгтэй байв. Хөдөлгөөнд суурилсан, уян хатан лого систем зохиов.', 'Цацалт, нийгмийн сүлжээ, талбайн графикт нэгдсэн.'],
+          meta: [['Үйлчлүүлэгч','Спортын лиг'],['Он','2023'],['Үүрэг','Арт директор'],['Хугацаа','11 долоо хоног']],
+          results: [['+120%','Сошиал хүрээ'],['8','Хэрэглээний орчин'],['★','Шилдэг айдентити']] },
+        { cat: 'UI/UX', title: 'Эрдэм Сургалт', art: 'a6',
+          lead: 'Цахим сургалтын платформын хэрэглэгчийн туршлага.',
+          body: ['Сурагчдад ээлтэй, төвөггүй сурах урсгал бүтээх зорилттой байв. Мэдээллийн архитектураас эхлэн дахин зохион байгуулав.', 'Дизайн систем, компонентын сан бүрдүүлэв.'],
+          meta: [['Үйлчлүүлэгч','EdTech стартап'],['Он','2023'],['Үүрэг','Бүтээгдэхүүн дизайн'],['Хугацаа','12 долоо хоног']],
+          results: [['+61%','Хичээл дуусгалт'],['-30%','Дэмжлэгийн хүсэлт'],['NPS 72','Хэрэглэгч']] }
+      ];
+
+      var scroller = document.getElementById('csScroller');
+      scroller.innerHTML = CASES.map(function(c, i) {
+        return '<article class="cs-panel" data-i="' + i + '">' +
+          '<div class="cs-art"><div class="art ' + c.art + '"><span class="art-ic"><i class="fas fa-layer-group"></i></span></div><span class="num">' + String(i + 1).padStart(2, '0') + ' / ' + String(CASES.length).padStart(2, '0') + '</span></div>' +
+          '<div class="cs-info"><span class="cs-cat">' + c.cat + '</span><h3>' + c.title + '</h3><span class="cs-open">Кейс нээх <i class="fas fa-arrow-up-right-from-square"></i></span></div>' +
+        '</article>';
+      }).join('');
+
+      /* progress + arrows */
+      var bar = document.getElementById('csBar');
+      function stepW() { return Math.min(scroller.clientWidth * 0.6, 520); }
+      document.getElementById('csNext').addEventListener('click', function() { scroller.scrollBy({ left: stepW(), behavior: 'smooth' }); });
+      document.getElementById('csPrev').addEventListener('click', function() { scroller.scrollBy({ left: -stepW(), behavior: 'smooth' }); });
+      scroller.addEventListener('scroll', function() {
+        var max = scroller.scrollWidth - scroller.clientWidth;
+        var p = max > 0 ? scroller.scrollLeft / max : 0;
+        bar.style.left = (p * 75) + '%';
+      }, { passive: true });
+
+      /* drag to scroll */
+      var down = false, startX = 0, startScroll = 0, moved = 0;
+      scroller.addEventListener('pointerdown', function(e) {
+        down = true; moved = 0; startX = e.clientX; startScroll = scroller.scrollLeft;
+        scroller.classList.add('grabbing');
+      });
+      scroller.addEventListener('pointermove', function(e) {
+        if (!down) return;
+        var dx = e.clientX - startX; moved += Math.abs(dx);
+        scroller.scrollLeft = startScroll - dx;
+      });
+      ['pointerup', 'pointercancel', 'pointerleave'].forEach(function(ev) {
+        scroller.addEventListener(ev, function() { down = false; scroller.classList.remove('grabbing'); });
+      });
+
+      /* ============ CASE DETAIL TRANSITION ============ */
+      var detail = document.getElementById('csDetail');
+      function openDetail(i) {
+        var c = CASES[i];
+        document.getElementById('csdIndex').textContent = 'КЕЙС ' + String(i + 1).padStart(2, '0') + ' / ' + String(CASES.length).padStart(2, '0');
+        document.getElementById('csdCat').textContent = c.cat;
+        document.getElementById('csdTitle').textContent = c.title;
+        document.getElementById('csdArt').className = 'art ' + c.art;
+        document.getElementById('csdLead').textContent = c.lead;
+        document.getElementById('csdBody').innerHTML = c.body.map(function(p) { return '<p>' + p + '</p>'; }).join('');
+        document.getElementById('csdMeta').innerHTML = c.meta.map(function(m) { return '<div class="row"><span>' + m[0] + '</span><b>' + m[1] + '</b></div>'; }).join('');
+        document.getElementById('csdResults').innerHTML = c.results.map(function(r) { return '<div class="r"><div class="n">' + r[0] + '</div><div class="l">' + r[1] + '</div></div>'; }).join('');
+        detail.classList.add('open');
+        detail.setAttribute('aria-hidden', 'false');
+        detail.scrollTop = 0;
+        document.body.style.overflow = 'hidden';
+      }
+      function closeDetail() { detail.classList.remove('open'); detail.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+      scroller.addEventListener('click', function(e) {
+        if (moved > 8) return; /* ignore drags */
+        var panel = e.target.closest('.cs-panel');
+        if (panel) openDetail(parseInt(panel.dataset.i));
+      });
+      document.getElementById('csdClose').addEventListener('click', closeDetail);
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && detail.classList.contains('open')) closeDetail(); });
+
+      /* ============ TESTIMONIAL ROTATOR ============ */
+      var qSlides = document.querySelectorAll('.q-slide');
+      var qi = 0, qTimer = null;
+      function qShow(n) { qi = (n + qSlides.length) % qSlides.length; qSlides.forEach(function(s, j) { s.classList.toggle('on', j === qi); }); }
+      function qAuto() { clearInterval(qTimer); if (!reduce) qTimer = setInterval(function() { qShow(qi + 1); }, 6500); }
+      document.addEventListener('click', function(e) {
+        if (e.target.closest('#qNext, .qn')) { qShow(qi + 1); qAuto(); }
+        if (e.target.closest('#qPrev, .qp')) { qShow(qi - 1); qAuto(); }
+      });
+      qAuto();
+    })();
+  </script>
+</body>
+</html>

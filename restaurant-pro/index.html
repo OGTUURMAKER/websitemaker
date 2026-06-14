@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ГАЛ ТУЛГА — Орчин үеийн монгол хоолны ресторан | Restaurant Pro Template</title>
+  <meta name="description" content="ГАЛ ТУЛГА — гал голомтны амтыг орчин үеийн дүрээр. Тогоочийн онцлох хоол, тансаг орчин. Ширээгээ урьдчилан захиалаарай.">
+  <meta property="og:title" content="ГАЛ ТУЛГА — Fine Dining">
+  <meta property="og:description" content="Орчин үеийн монгол хоолны кулинар туршлага. Ширээ захиалга онлайнаар.">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:locale" content="mn_MN">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "ГАЛ ТУЛГА",
+    "servesCuisine": "Mongolian fine dining",
+    "priceRange": "₮₮₮",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ulaanbaatar", "addressCountry": "MN" },
+    "telephone": "+976-7011-2233",
+    "openingHours": "Tu-Su 17:00-23:00",
+    "acceptsReservations": "True"
+  }
+  </script>
+  <style>
+/* ============================================================
+   RESTAURANT PRO — Cinematic fine-dining
+   Warm charcoal · ember/terracotta · Cormorant editorial
+   Full-bleed photographic sections, NOT card grids.
+   (Distinct from Business Pro & Clinic Pro in every axis)
+   ============================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+:root {
+  --bg: #14100c;
+  --bg-2: #1c1610;
+  --panel: #221a13;
+  --cream: #f3eae0;
+  --cream-2: rgba(243,234,224,0.66);
+  --cream-3: rgba(243,234,224,0.4);
+  --ember: #df7b3f;
+  --ember-2: #efa765;
+  --gold: #c9a86a;
+  --line: rgba(243,234,224,0.13);
+  --line-2: rgba(243,234,224,0.26);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Jost', system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --pad: clamp(22px, 5vw, 80px);
+  --sect: clamp(90px, 12vw, 170px);
+}
+body { font-family: var(--sans); background: var(--bg); color: var(--cream); line-height: 1.8; overflow-x: hidden; font-weight: 300; }
+a { color: inherit; text-decoration: none; }
+::selection { background: rgba(223,123,63,0.4); color: #fff; }
+
+/* labels & display type */
+.label { font-family: var(--sans); font-size: .72rem; font-weight: 500; letter-spacing: .42em; text-transform: uppercase; color: var(--ember-2); }
+.display { font-family: var(--serif); font-weight: 500; line-height: 1.04; letter-spacing: -0.01em; color: var(--cream); }
+.serif-it { font-family: var(--serif); font-style: italic; }
+.section { padding: var(--sect) var(--pad); position: relative; }
+.wrap { max-width: 1260px; margin: 0 auto; }
+.sec-head { text-align: center; margin-bottom: clamp(48px, 7vw, 88px); }
+.sec-head .label { display: inline-block; margin-bottom: 22px; position: relative; }
+.sec-head .label::before, .sec-head .label::after { content: ''; position: absolute; top: 50%; width: 34px; height: 1px; background: var(--line-2); }
+.sec-head .label::before { right: calc(100% + 18px); }
+.sec-head .label::after { left: calc(100% + 18px); }
+.sec-head h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(2.4rem, 5.4vw, 4.4rem); line-height: 1.05; }
+.sec-head h2 em { font-style: italic; color: var(--ember-2); }
+
+/* reveal — fade + rise + faint blur (different system from siblings) */
+[data-r] { opacity: 0; transform: translateY(30px); filter: blur(6px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease), filter 1.1s var(--ease); }
+[data-r].in { opacity: 1; transform: none; filter: none; }
+/* image-curtain reveal for photographic panels */
+[data-curtain] { position: relative; }
+[data-curtain]::after { content: ''; position: absolute; inset: 0; background: var(--bg); transform-origin: right; transition: transform 1.2s var(--ease); z-index: 4; }
+[data-curtain].in::after { transform: scaleX(0); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001s !important; transition-duration: .001s !important; }
+  [data-r] { opacity: 1 !important; transform: none !important; filter: none !important; }
+  [data-curtain]::after { display: none; }
+}
+
+/* photographic panel system — warm cinematic gradient stand-ins.
+   TEMPLATE NOTE: replace each .photo background with a real <img> or
+   background-image of food photography; the warm vignette is the styling. */
+.photo { position: relative; overflow: hidden; background: var(--bg-2); }
+.photo::before { content: ''; position: absolute; inset: 0; background:
+  radial-gradient(ellipse 70% 60% at 62% 38%, rgba(223,123,63,0.42), transparent 58%),
+  radial-gradient(circle at 26% 72%, rgba(201,168,106,0.26), transparent 52%),
+  linear-gradient(155deg, #2a1d12 0%, #1a130d 60%, #120d09 100%); }
+.photo::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 120%, transparent 40%, rgba(0,0,0,0.55) 100%); }
+.photo .ph-ic { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 3.4rem; color: rgba(243,234,224,0.13); z-index: 1; }
+.photo.alt::before { background:
+  radial-gradient(ellipse 60% 55% at 38% 42%, rgba(201,168,106,0.34), transparent 56%),
+  radial-gradient(circle at 72% 70%, rgba(223,123,63,0.3), transparent 50%),
+  linear-gradient(155deg, #271c14 0%, #181109 70%); }
+.photo.cool::before { background:
+  radial-gradient(ellipse 65% 60% at 55% 40%, rgba(180,140,90,0.3), transparent 58%),
+  linear-gradient(160deg, #221913 0%, #14100c 70%); }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 11px; padding: 16px 34px; font-family: var(--sans); font-size: .76rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; cursor: pointer; border: none; transition: all .5s var(--ease); }
+.btn-ember { background: var(--ember); color: #1a110a; }
+.btn-ember:hover { background: var(--ember-2); transform: translateY(-2px); }
+.btn-out { background: transparent; color: var(--cream); border: 1px solid var(--line-2); }
+.btn-out:hover { border-color: var(--ember-2); color: var(--ember-2); }
+.btn-block { width: 100%; }
+
+/* ---- navigation: centered-logo split ---- */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: background .5s var(--ease), padding .5s var(--ease), border-color .5s; border-bottom: 1px solid transparent; }
+nav.on { background: rgba(20,16,12,0.86); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-color: var(--line); }
+.nav-in { max-width: 1360px; margin: 0 auto; padding: 26px var(--pad); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; transition: padding .5s var(--ease); }
+nav.on .nav-in { padding: 16px var(--pad); }
+.nav-left { display: flex; gap: 34px; }
+.nav-left a, .nav-right-links a { font-size: .74rem; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--cream-2); transition: color .3s; }
+.nav-left a:hover, .nav-right-links a:hover { color: var(--ember-2); }
+.nav-logo { text-align: center; font-family: var(--serif); font-weight: 600; font-size: 1.5rem; letter-spacing: .14em; color: var(--cream); white-space: nowrap; }
+.nav-logo span { color: var(--ember); }
+.nav-right { display: flex; justify-content: flex-end; align-items: center; gap: 28px; }
+.nav-right-links { display: flex; gap: 34px; }
+.nav-reserve { font-size: .72rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--cream); padding: 11px 22px; border: 1px solid var(--line-2); transition: all .4s; }
+.nav-reserve:hover { border-color: var(--ember); background: var(--ember); color: #1a110a; }
+.burger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 6px; padding: 6px; }
+.burger span { width: 26px; height: 1.5px; background: var(--cream); display: block; }
+.m-nav { position: fixed; inset: 0; z-index: 2000; background: var(--bg); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; opacity: 0; pointer-events: none; transition: opacity .5s var(--ease); }
+.m-nav.open { opacity: 1; pointer-events: auto; }
+.m-nav a { font-family: var(--serif); font-size: 2.2rem; font-weight: 500; color: var(--cream-2); padding: 8px; }
+.m-nav a:hover { color: var(--ember-2); }
+.m-close { position: absolute; top: 26px; right: 26px; background: none; border: none; color: var(--cream); font-size: 1.6rem; cursor: pointer; }
+
+/* ============ HERO — full screen cinematic ============ */
+.hero { height: 100vh; min-height: 640px; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+.hero-media { position: absolute; inset: 0; z-index: 0; animation: kenburns 22s ease-in-out infinite alternate; }
+.hero-media::before { content: ''; position: absolute; inset: 0; background:
+  radial-gradient(ellipse 80% 70% at 50% 35%, rgba(223,123,63,0.34), transparent 60%),
+  radial-gradient(circle at 22% 78%, rgba(201,168,106,0.22), transparent 50%),
+  linear-gradient(180deg, #1a120b 0%, #100c08 100%); }
+.hero-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(16,12,8,0.5) 0%, rgba(16,12,8,0.25) 45%, rgba(16,12,8,0.85) 100%); }
+@keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.12); } }
+.hero-grain { position: absolute; inset: 0; z-index: 1; opacity: .5; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); }
+.hero-content { position: relative; z-index: 2; padding: 0 var(--pad); max-width: 920px; }
+.hero-est { font-family: var(--sans); font-size: .72rem; letter-spacing: .5em; text-transform: uppercase; color: var(--ember-2); margin-bottom: 30px; opacity: 0; animation: heroUp 1.2s var(--ease) .2s forwards; }
+.hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 9vw, 7.5rem); line-height: 0.98; letter-spacing: -0.01em; margin-bottom: 26px; }
+.hero h1 .l1 { display: block; opacity: 0; animation: heroUp 1.3s var(--ease) .4s forwards; }
+.hero h1 .l2 { display: block; font-style: italic; color: var(--ember-2); opacity: 0; animation: heroUp 1.3s var(--ease) .6s forwards; }
+.hero p { font-size: 1.1rem; color: var(--cream-2); max-width: 540px; margin: 0 auto 42px; font-weight: 300; opacity: 0; animation: heroUp 1.2s var(--ease) .85s forwards; }
+.hero-actions { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; opacity: 0; animation: heroUp 1.2s var(--ease) 1.05s forwards; }
+@keyframes heroUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+.hero-play { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 14px; color: var(--cream-3); font-size: .64rem; letter-spacing: .3em; text-transform: uppercase; }
+.hero-play .ring { width: 52px; height: 52px; border: 1px solid var(--line-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--ember-2); transition: all .4s; cursor: pointer; }
+.hero-play .ring:hover { border-color: var(--ember); background: rgba(223,123,63,0.1); }
+
+/* ============ SIGNATURE DISHES — horizontal scroll ============ */
+.sig { padding: var(--sect) 0; overflow: hidden; }
+.sig .sec-head { padding: 0 var(--pad); }
+.sig-scroller { display: flex; gap: 28px; padding: 0 var(--pad) 30px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.sig-scroller::-webkit-scrollbar { display: none; }
+.sig-card { flex: 0 0 clamp(290px, 38vw, 440px); scroll-snap-align: center; }
+.sig-card .photo { height: clamp(360px, 46vw, 520px); border-radius: 2px; }
+.sig-card .photo .num { position: absolute; top: 22px; left: 24px; z-index: 2; font-family: var(--serif); font-size: 1.1rem; font-style: italic; color: var(--cream-2); }
+.sig-card .photo .price { position: absolute; bottom: 22px; right: 24px; z-index: 2; font-family: var(--sans); font-size: .8rem; letter-spacing: .12em; color: var(--ember-2); background: rgba(20,16,12,0.6); padding: 7px 14px; backdrop-filter: blur(6px); }
+.sig-meta { padding: 22px 4px 0; }
+.sig-meta h3 { font-family: var(--serif); font-size: 1.7rem; font-weight: 500; margin-bottom: 6px; }
+.sig-meta p { font-size: .86rem; color: var(--cream-2); font-weight: 300; }
+.sig-rail { display: flex; align-items: center; gap: 20px; padding: 0 var(--pad); margin-top: 26px; }
+.sig-progress { flex: 1; height: 1px; background: var(--line); position: relative; }
+.sig-progress span { position: absolute; left: 0; top: 0; height: 100%; width: 30%; background: var(--ember); transition: left .2s linear, width .2s; }
+.sig-arrows { display: flex; gap: 10px; }
+.sig-arrows button { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line-2); background: transparent; color: var(--cream); cursor: pointer; transition: all .4s; }
+.sig-arrows button:hover { border-color: var(--ember); color: var(--ember-2); }
+
+/* ============ MENU EXPERIENCE — editorial interactive ============ */
+.menu { background: var(--bg-2); }
+.menu-tabs { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 56px; }
+.menu-tab { font-family: var(--sans); font-size: .74rem; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: var(--cream-2); background: transparent; border: 1px solid var(--line); padding: 13px 26px; border-radius: 100px; cursor: pointer; transition: all .4s var(--ease); }
+.menu-tab:hover { border-color: var(--line-2); color: var(--cream); }
+.menu-tab.on { background: var(--ember); border-color: var(--ember); color: #1a110a; }
+.menu-list { max-width: 900px; margin: 0 auto; }
+.menu-item { display: grid; grid-template-columns: 1fr auto; gap: 8px 18px; padding: 26px 0; border-bottom: 1px solid var(--line); cursor: default; transition: opacity .5s var(--ease), transform .5s var(--ease); }
+.menu-item.hidden { display: none; }
+.menu-item .mi-name { font-family: var(--serif); font-size: 1.55rem; font-weight: 500; transition: color .3s; position: relative; display: inline-flex; align-items: baseline; gap: 12px; }
+.menu-item:hover .mi-name { color: var(--ember-2); }
+.menu-item .mi-tag { font-family: var(--sans); font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--line-2); padding: 3px 9px; border-radius: 100px; transform: translateY(-3px); }
+.menu-item .mi-price { font-family: var(--serif); font-size: 1.5rem; font-style: italic; color: var(--ember-2); white-space: nowrap; }
+.menu-item .mi-desc { grid-column: 1 / -1; font-size: .9rem; color: var(--cream-2); font-weight: 300; max-width: 620px; overflow: hidden; max-height: 0; opacity: 0; transition: max-height .5s var(--ease), opacity .5s var(--ease), margin .5s; }
+.menu-item:hover .mi-desc { max-height: 60px; opacity: 1; margin-top: 8px; }
+.menu-foot { text-align: center; margin-top: 48px; }
+.menu-foot p { color: var(--cream-3); font-size: .82rem; letter-spacing: .04em; }
+
+/* ============ CHEF STORY ============ */
+.chef-in { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(40px, 6vw, 90px); align-items: center; }
+.chef-photo { height: clamp(420px, 52vw, 640px); border-radius: 2px; }
+.chef-photo .ph-ic { font-size: 4rem; }
+.chef-photo .sig-name { position: absolute; bottom: 28px; left: 30px; z-index: 2; font-family: var(--serif); font-style: italic; font-size: 1.6rem; color: var(--cream); }
+.chef-text .label { display: block; margin-bottom: 24px; }
+.chef-text h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(2.2rem, 4.4vw, 3.6rem); line-height: 1.08; margin-bottom: 28px; }
+.chef-text h2 em { font-style: italic; color: var(--ember-2); }
+.chef-text .quote { font-family: var(--serif); font-style: italic; font-size: 1.5rem; line-height: 1.5; color: var(--cream); padding-left: 24px; border-left: 2px solid var(--ember); margin-bottom: 28px; }
+.chef-text p { color: var(--cream-2); font-weight: 300; margin-bottom: 20px; max-width: 520px; }
+.chef-credentials { display: flex; gap: 40px; margin-top: 36px; flex-wrap: wrap; }
+.chef-cr .n { font-family: var(--serif); font-size: 2.4rem; color: var(--ember-2); line-height: 1; }
+.chef-cr .l { font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--cream-3); margin-top: 8px; }
+
+/* ============ GALLERY — masonry + lightbox ============ */
+.gallery-grid { columns: 3; column-gap: 16px; }
+.gallery-grid .g-item { break-inside: avoid; margin-bottom: 16px; cursor: pointer; position: relative; border-radius: 2px; overflow: hidden; }
+.gallery-grid .g-item .photo { width: 100%; transition: transform .8s var(--ease); }
+.gallery-grid .g-item:hover .photo { transform: scale(1.05); }
+.gallery-grid .g-item .g-cap { position: absolute; bottom: 0; left: 0; right: 0; z-index: 3; padding: 22px 20px 16px; background: linear-gradient(180deg, transparent, rgba(16,12,8,0.85)); font-family: var(--serif); font-style: italic; font-size: 1.1rem; opacity: 0; transform: translateY(8px); transition: all .5s var(--ease); }
+.gallery-grid .g-item:hover .g-cap { opacity: 1; transform: none; }
+.gallery-grid .g-item .g-zoom { position: absolute; top: 16px; right: 16px; z-index: 3; width: 38px; height: 38px; border-radius: 50%; background: rgba(20,16,12,0.6); display: flex; align-items: center; justify-content: center; color: var(--cream); opacity: 0; transition: opacity .4s; }
+.gallery-grid .g-item:hover .g-zoom { opacity: 1; }
+.g-h1 { height: 300px; } .g-h2 { height: 400px; } .g-h3 { height: 240px; }
+.lightbox { position: fixed; inset: 0; z-index: 5000; background: rgba(10,8,6,0.95); display: flex; align-items: center; justify-content: center; padding: 40px; opacity: 0; pointer-events: none; transition: opacity .5s var(--ease); }
+.lightbox.open { opacity: 1; pointer-events: auto; }
+.lightbox .lb-photo { width: min(820px, 92vw); height: min(560px, 70vh); border-radius: 3px; }
+.lightbox .lb-cap { position: absolute; bottom: 40px; left: 0; right: 0; text-align: center; font-family: var(--serif); font-style: italic; font-size: 1.4rem; color: var(--cream); }
+.lightbox .lb-close { position: absolute; top: 28px; right: 32px; background: none; border: none; color: var(--cream); font-size: 1.7rem; cursor: pointer; }
+.lightbox .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); background: none; border: 1px solid var(--line-2); width: 52px; height: 52px; border-radius: 50%; color: var(--cream); cursor: pointer; transition: all .4s; }
+.lightbox .lb-nav:hover { border-color: var(--ember); color: var(--ember-2); }
+.lightbox .lb-prev { left: 28px; } .lightbox .lb-next { right: 28px; }
+
+/* ============ RESERVATION ============ */
+.reserve { position: relative; overflow: hidden; }
+.reserve-bg { position: absolute; inset: 0; z-index: 0; }
+.reserve-bg::before { content: ''; position: absolute; inset: 0; background:
+  radial-gradient(ellipse 60% 80% at 80% 50%, rgba(223,123,63,0.22), transparent 60%),
+  linear-gradient(120deg, #1a130d, #14100c); }
+.reserve-in { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 90px); align-items: center; }
+.reserve-intro h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(2.2rem, 4.6vw, 3.8rem); line-height: 1.06; margin-bottom: 22px; }
+.reserve-intro h2 em { font-style: italic; color: var(--ember-2); }
+.reserve-intro p { color: var(--cream-2); font-weight: 300; max-width: 420px; margin-bottom: 32px; }
+.reserve-hours { display: flex; flex-direction: column; gap: 12px; }
+.reserve-hours .rh { display: flex; justify-content: space-between; max-width: 320px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: .86rem; }
+.reserve-hours .rh span:first-child { color: var(--cream-2); letter-spacing: .08em; text-transform: uppercase; font-size: .72rem; }
+.reserve-hours .rh.closed span:last-child { color: var(--cream-3); }
+.reserve-form { background: var(--panel); border: 1px solid var(--line); padding: clamp(28px, 4vw, 46px); border-radius: 3px; }
+.rf-row { margin-bottom: 24px; }
+.rf-row > label { display: block; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--cream-3); margin-bottom: 12px; }
+.guest-step { display: flex; align-items: center; gap: 18px; }
+.guest-step button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-2); background: transparent; color: var(--cream); font-size: 1.1rem; cursor: pointer; transition: all .3s; }
+.guest-step button:hover { border-color: var(--ember); color: var(--ember-2); }
+.guest-step .gval { font-family: var(--serif); font-size: 2rem; min-width: 60px; text-align: center; }
+.guest-step .gval small { font-family: var(--sans); font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--cream-3); display: block; }
+.time-chips { display: flex; gap: 10px; flex-wrap: wrap; }
+.time-chip { font-family: var(--serif); font-size: 1.1rem; padding: 10px 20px; border: 1px solid var(--line); background: transparent; color: var(--cream-2); cursor: pointer; transition: all .35s; }
+.time-chip:hover { border-color: var(--line-2); color: var(--cream); }
+.time-chip.on { background: var(--ember); border-color: var(--ember); color: #1a110a; }
+.rf-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.reserve-form input { width: 100%; padding: 15px 0; background: transparent; border: none; border-bottom: 1px solid var(--line-2); color: var(--cream); font-family: var(--sans); font-size: .95rem; outline: none; transition: border-color .3s; }
+.reserve-form input::placeholder { color: var(--cream-3); }
+.reserve-form input:focus { border-color: var(--ember); }
+.reserve-done { display: none; text-align: center; padding: 30px 0; }
+.reserve-done.on { display: block; }
+.reserve-done .ic { font-size: 2rem; color: var(--ember-2); margin-bottom: 18px; }
+.reserve-done h3 { font-family: var(--serif); font-size: 1.8rem; margin-bottom: 10px; }
+.reserve-done p { color: var(--cream-2); font-weight: 300; }
+
+/* ============ LOCATION ============ */
+.loc-in { display: grid; grid-template-columns: 1.2fr .8fr; gap: 2px; border: 1px solid var(--line); }
+.loc-map { position: relative; min-height: 380px; }
+.loc-map .photo { position: absolute; inset: 0; }
+.loc-map .photo::before { background:
+  radial-gradient(circle at 50% 44%, rgba(223,123,63,0.25), transparent 40%),
+  linear-gradient(160deg, #1d1610, #14100c); }
+.loc-pin { position: absolute; top: 44%; left: 50%; z-index: 3; transform: translate(-50%,-50%); width: 18px; height: 18px; border-radius: 50%; background: var(--ember); box-shadow: 0 0 0 8px rgba(223,123,63,0.2), 0 0 0 16px rgba(223,123,63,0.1); }
+.loc-info { background: var(--panel); padding: clamp(36px, 4vw, 60px); display: flex; flex-direction: column; justify-content: center; }
+.loc-info h3 { font-family: var(--serif); font-size: 2rem; font-weight: 500; margin-bottom: 28px; }
+.loc-row { display: flex; gap: 16px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.loc-row:last-of-type { border-bottom: none; }
+.loc-row i { color: var(--ember-2); font-size: .95rem; margin-top: 5px; width: 20px; }
+.loc-row b { display: block; font-family: var(--sans); font-weight: 500; font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--cream-3); margin-bottom: 3px; }
+.loc-row span { font-size: .98rem; color: var(--cream); font-weight: 300; }
+
+/* ---- footer ---- */
+footer { background: var(--bg); border-top: 1px solid var(--line); padding: 64px var(--pad) 34px; text-align: center; }
+.f-logo { font-family: var(--serif); font-size: 2rem; font-weight: 600; letter-spacing: .14em; margin-bottom: 18px; }
+.f-logo span { color: var(--ember); }
+.f-social { display: flex; justify-content: center; gap: 16px; margin: 24px 0 32px; }
+.f-social a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-2); display: flex; align-items: center; justify-content: center; color: var(--cream-2); transition: all .4s; }
+.f-social a:hover { border-color: var(--ember); color: var(--ember-2); transform: translateY(-3px); }
+.f-base { font-size: .74rem; color: var(--cream-3); letter-spacing: .08em; }
+
+/* ---- responsive ---- */
+@media (max-width: 1024px) {
+  .gallery-grid { columns: 2; }
+  .chef-in, .reserve-in, .loc-in { grid-template-columns: 1fr; }
+  .chef-photo { height: 420px; }
+  .loc-in { grid-template-columns: 1fr; }
+  .loc-map { min-height: 300px; }
+}
+@media (max-width: 820px) {
+  .nav-left, .nav-right-links { display: none; }
+  .nav-in { grid-template-columns: auto 1fr auto; }
+  .nav-logo { text-align: left; }
+  .burger { display: flex; }
+  .nav-reserve { display: none; }
+}
+@media (max-width: 560px) {
+  .gallery-grid { columns: 1; }
+  .rf-duo { grid-template-columns: 1fr; }
+  .hero-actions .btn { width: 100%; }
+  .menu-item .mi-name { font-size: 1.3rem; }
+  .menu-item:hover .mi-desc { max-height: 90px; }
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAV: centered-logo split -->
+  <nav id="nav">
+    <div class="nav-in">
+      <div class="nav-left">
+        <a href="#signature">Онцлох</a>
+        <a href="#menu">Цэс</a>
+        <a href="#chef">Тогооч</a>
+      </div>
+      <a href="#top" class="nav-logo">ГАЛ <span>ТУЛГА</span></a>
+      <div class="nav-right">
+        <div class="nav-right-links">
+          <a href="#gallery">Галерей</a>
+          <a href="#location">Байршил</a>
+        </div>
+        <a href="#reserve" class="nav-reserve">Ширээ захиалах</a>
+        <button class="burger" id="burger" aria-label="Цэс"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="m-nav" id="mnav">
+    <button class="m-close" id="mclose" aria-label="Хаах"><i class="fas fa-times"></i></button>
+    <a href="#signature">Онцлох</a>
+    <a href="#menu">Цэс</a>
+    <a href="#chef">Тогооч</a>
+    <a href="#gallery">Галерей</a>
+    <a href="#location">Байршил</a>
+    <a href="#reserve">Ширээ захиалах</a>
+  </div>
+
+  <main id="top">
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <!-- TEMPLATE NOTE: swap .hero-media for a <video> background or hero image -->
+    <div class="hero-media" aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-est">Улаанбаатар · 2018 оноос</div>
+      <h1><span class="l1">Гал голомтны</span><span class="l2">амтыг шинэ дүрээр</span></h1>
+      <p>Уламжлалт монгол хоолыг орчин үеийн кулинар урлагаар дахин төрүүлсэн тансаг туршлага.</p>
+      <div class="hero-actions">
+        <a href="#reserve" class="btn btn-ember">Ширээ захиалах</a>
+        <a href="#menu" class="btn btn-out">Цэс үзэх</a>
+      </div>
+    </div>
+    <div class="hero-play">
+      <span class="ring"><i class="fas fa-play" style="font-size:.7rem;margin-left:2px"></i></span>
+      Танилцуулга үзэх
+    </div>
+  </header>
+
+  <!-- ============ SIGNATURE DISHES — horizontal scroll ============ -->
+  <section class="sig" id="signature">
+    <div class="sec-head" data-r>
+      <span class="label">Тогоочийн онцлох</span>
+      <h2>Бидний <em>гарын үсэг</em></h2>
+    </div>
+    <div class="sig-scroller" id="sigScroller">
+      <article class="sig-card" data-r>
+        <div class="photo" data-curtain><span class="ph-ic"><i class="fas fa-drumstick-bite"></i></span><span class="num">01 — Онцлох</span><span class="price">52,000₮</span></div>
+        <div class="sig-meta"><h3>Гал тулганы хонины хавирга</h3><p>12 цаг намхан галд утсан, цангисны паалантай.</p></div>
+      </article>
+      <article class="sig-card" data-r>
+        <div class="photo alt" data-curtain><span class="ph-ic"><i class="fas fa-bowl-food"></i></span><span class="num">02 — Онцлох</span><span class="price">68,000₮</span></div>
+        <div class="sig-meta"><h3>Үхрийн рибай, ааруулын соус</h3><p>Хээрийн ургамлаар амталсан, нүүрсэн дээр шарсан.</p></div>
+      </article>
+      <article class="sig-card" data-r>
+        <div class="photo cool" data-curtain><span class="ph-ic"><i class="fas fa-fish"></i></span><span class="num">03 — Онцлох</span><span class="price">46,000₮</span></div>
+        <div class="sig-meta"><h3>Хөвсгөлийн загас, лимон тос</h3><p>Цөцгийн тос, зэрлэг лууван, ногоон амтлагч.</p></div>
+      </article>
+      <article class="sig-card" data-r>
+        <div class="photo" data-curtain><span class="ph-ic"><i class="fas fa-mortar-pestle"></i></span><span class="num">04 — Онцлох</span><span class="price">34,000₮</span></div>
+        <div class="sig-meta"><h3>Зэрлэг мөөгний ризотто</h3><p>Махгүй. Улаан буудай, хатаасан мөөг, пармезан.</p></div>
+      </article>
+    </div>
+    <div class="sig-rail">
+      <div class="sig-progress"><span id="sigBar"></span></div>
+      <div class="sig-arrows">
+        <button id="sigPrev" aria-label="Өмнөх"><i class="fas fa-arrow-left"></i></button>
+        <button id="sigNext" aria-label="Дараах"><i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MENU EXPERIENCE ============ -->
+  <section class="section menu" id="menu">
+    <div class="wrap">
+      <div class="sec-head" data-r>
+        <span class="label">Цэсний туршлага</span>
+        <h2>Улирлын <em>цэс</em></h2>
+      </div>
+      <div class="menu-tabs" id="menuTabs" data-r>
+        <button class="menu-tab on" data-cat="zuush">Зууш</button>
+        <button class="menu-tab" data-cat="undsen">Үндсэн хоол</button>
+        <button class="menu-tab" data-cat="amttan">Амттан</button>
+        <button class="menu-tab" data-cat="undaa">Ундаа</button>
+      </div>
+      <div class="menu-list" id="menuList" data-r></div>
+      <div class="menu-foot" data-r>
+        <p>Бүх хоол улирлын органик орц ашиглан бэлтгэгдэнэ · Харшлын мэдээллийг зөөгчөөс асууна уу</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CHEF STORY ============ -->
+  <section class="section" id="chef">
+    <div class="wrap chef-in">
+      <div class="chef-photo photo alt" data-curtain>
+        <span class="ph-ic"><i class="fas fa-user-chef"></i></span>
+        <span class="sig-name">— Г. Алтансүх</span>
+      </div>
+      <div class="chef-text" data-r>
+        <span class="label">Ерөнхий тогоочийн түүх</span>
+        <h2>Эх орны амтыг <em>дэлхийн</em> ширээнд.</h2>
+        <blockquote class="quote">"Хоол бол дурсамж. Би эмээгийнхээ тогооноос эхэлсэн амтыг л шинэ хэлбэрээр өгүүлдэг."</blockquote>
+        <p>15 жил Парис, Токиогийн Мишлен одтой ресторануудад суралцаж, ажилласан туршлагаа эх орондоо авчирсан. Алтансүх 2018 онд ГАЛ ТУЛГА-г үүсгэн байгуулжээ.</p>
+        <p>Тэрээр зөвхөн монголын малчдаас орц авдаг бөгөөд улирал бүр цэсээ шинэчилдэг.</p>
+        <div class="chef-credentials">
+          <div class="chef-cr"><div class="n">15</div><div class="l">Жилийн туршлага</div></div>
+          <div class="chef-cr"><div class="n">2</div><div class="l">Мишлен ресторан</div></div>
+          <div class="chef-cr"><div class="n">40+</div><div class="l">Гарын үсэг хоол</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section" id="gallery" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head" data-r>
+        <span class="label">Агшин бүхэн</span>
+        <h2>Орчин ба <em>агаар</em></h2>
+      </div>
+      <div class="gallery-grid" id="galleryGrid" data-r>
+        <div class="g-item" data-cap="Үндсэн танхим — дулаан гэрэлтүүлэг"><div class="photo g-h2"><span class="ph-ic"><i class="fas fa-utensils"></i></span></div><div class="g-cap">Үндсэн танхим</div><span class="g-zoom"><i class="fas fa-expand"></i></span></div>
+        <div class="g-item" data-cap="Нээлттэй гал тогоо"><div class="photo alt g-h1"><span class="ph-ic"><i class="fas fa-fire-burner"></i></span></div><div class="g-cap">Нээлттэй гал тогоо</div><span class="g-zoom"><i class="fas fa-expand"></i></span></div>
+        <div class="g-item" data-cap="Дарсны өрөө"><div class="photo cool g-h3"><span class="ph-ic"><i class="fas fa-wine-bottle"></i></span></div><div class="g-cap">Дарсны өрөө</div><span class="g-zoom"><i class="fas fa-expand"></i></span></div>
+        <div class="g-item" data-cap="Тогоочийн ширээ"><div class="photo cool g-h1"><span class="ph-ic"><i class="fas fa-plate-wheat"></i></span></div><div class="g-cap">Тогоочийн ширээ</div><span class="g-zoom"><i class="fas fa-expand"></i></span></div>
+        <div class="g-item" data-cap="Хувийн өрөө"><div class="photo g-h3"><span class="ph-ic"><i class="fas fa-champagne-glasses"></i></span></div><div class="g-cap">Хувийн өрөө</div><span class="g-zoom"><i class="fas fa-expand"></i></span></div>
+        <div class="g-item" data-cap="Амттаны цэс"><div class="photo alt g-h2"><span class="ph-ic"><i class="fas fa-ice-cream"></i></span></div><div class="g-cap">Амттаны цэс</div><span class="g-zoom"><i class="fas fa-expand"></i></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESERVATION ============ -->
+  <section class="section reserve" id="reserve">
+    <div class="reserve-bg" aria-hidden="true"></div>
+    <div class="wrap reserve-in">
+      <div class="reserve-intro" data-r>
+        <span class="label" style="display:block;margin-bottom:22px">Ширээ захиалга</span>
+        <h2>Онцгой <em>үдшийг</em> бидэнтэй.</h2>
+        <p>Ширээгээ урьдчилан захиалснаар таныг тусгайлан угтан авч, тогоочийн санал болгох цэсийг бэлтгэнэ.</p>
+        <div class="reserve-hours">
+          <div class="rh"><span>Мягмар – Баасан</span><span>17:00 – 23:00</span></div>
+          <div class="rh"><span>Бямба – Ням</span><span>16:00 – 23:30</span></div>
+          <div class="rh closed"><span>Даваа</span><span>Амарна</span></div>
+        </div>
+      </div>
+
+      <div class="reserve-form" data-r>
+        <form id="resForm" novalidate>
+          <div class="rf-row">
+            <label>Зочдын тоо</label>
+            <div class="guest-step">
+              <button type="button" id="gMinus" aria-label="Хасах">−</button>
+              <div class="gval"><span id="gVal">2</span><small>Зочин</small></div>
+              <button type="button" id="gPlus" aria-label="Нэмэх">+</button>
+            </div>
+          </div>
+          <div class="rf-row">
+            <label>Цаг сонгох</label>
+            <div class="time-chips" id="timeChips">
+              <button type="button" class="time-chip" data-t="17:00">17:00</button>
+              <button type="button" class="time-chip" data-t="18:00">18:00</button>
+              <button type="button" class="time-chip on" data-t="19:00">19:00</button>
+              <button type="button" class="time-chip" data-t="20:00">20:00</button>
+              <button type="button" class="time-chip" data-t="21:00">21:00</button>
+            </div>
+          </div>
+          <div class="rf-row">
+            <label>Огноо</label>
+            <input type="date" id="resDate">
+          </div>
+          <div class="rf-row rf-duo">
+            <input type="text" id="resName" placeholder="Нэр">
+            <input type="tel" id="resPhone" placeholder="Утас">
+          </div>
+          <button type="submit" class="btn btn-ember btn-block">Захиалга баталгаажуулах</button>
+        </form>
+        <div class="reserve-done" id="resDone">
+          <div class="ic"><i class="fas fa-check-circle"></i></div>
+          <h3>Захиалга баталгаажлаа</h3>
+          <p id="resDoneText"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCATION ============ -->
+  <section class="section" id="location" style="padding-top:0">
+    <div class="wrap">
+      <div class="loc-in">
+        <div class="loc-map" data-r aria-label="Байршил">
+          <div class="photo"></div>
+          <div class="loc-pin"></div>
+        </div>
+        <div class="loc-info" data-r>
+          <h3>Бид энд байна</h3>
+          <div class="loc-row"><i class="fas fa-location-dot"></i><div><b>Хаяг</b><span>Сүхбаатар дүүрэг, Сөүлийн гудамж, Гэгээ төв, 1 давхар</span></div></div>
+          <div class="loc-row"><i class="fas fa-phone"></i><div><b>Захиалга</b><span>7011-2233</span></div></div>
+          <div class="loc-row"><i class="fas fa-clock"></i><div><b>Цаг</b><span>Мягмар–Ням 17:00–23:00 · Даваа амарна</span></div></div>
+          <div class="loc-row"><i class="fas fa-square-parking"></i><div><b>Зогсоол</b><span>Үнэгүй зогсоол, valet үйлчилгээтэй</span></div></div>
+          <a href="#reserve" class="btn btn-ember" style="margin-top:28px">Ширээ захиалах</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Хаах"><i class="fas fa-times"></i></button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Өмнөх"><i class="fas fa-arrow-left"></i></button>
+    <div class="lb-photo photo" id="lbPhoto"><span class="ph-ic"><i class="fas fa-utensils"></i></span></div>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Дараах"><i class="fas fa-arrow-right"></i></button>
+    <div class="lb-cap" id="lbCap"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-logo">ГАЛ <span>ТУЛГА</span></div>
+    <div class="f-base" style="margin-bottom:6px">Орчин үеийн монгол хоолны ресторан · Улаанбаатар</div>
+    <div class="f-social">
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="tel:70112233" aria-label="Утас"><i class="fas fa-phone"></i></a>
+    </div>
+    <div class="f-base">© 2026 ГАЛ ТУЛГА · Restaurant Pro загвар — OGT UUR студи</div>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* reveal + curtain */
+      var io = new IntersectionObserver(function(es) {
+        es.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('[data-r], [data-curtain]').forEach(function(el) { io.observe(el); });
+
+      /* nav scroll */
+      var nav = document.getElementById('nav');
+      window.addEventListener('scroll', function() { nav.classList.toggle('on', window.scrollY > 60); }, { passive: true });
+
+      /* mobile nav */
+      var mnav = document.getElementById('mnav');
+      document.getElementById('burger').addEventListener('click', function() { mnav.classList.add('open'); });
+      document.getElementById('mclose').addEventListener('click', function() { mnav.classList.remove('open'); });
+      mnav.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { mnav.classList.remove('open'); }); });
+
+      /* ============ MENU EXPERIENCE (signature interaction) ============ */
+      var MENU = {
+        zuush: [
+          { n: 'Хорхог тартар', d: 'Үхрийн нэхээсэн мах, чулууны утлагатай, зэрлэг сонгино', p: '28,000₮', t: 'Түүхий' },
+          { n: 'Шарсан ходоодны салат', d: 'Шарсан паприка, улаан лооль, ногоон ногоо, гашуун соус', p: '22,000₮' },
+          { n: 'Аарц-тарагны крем', d: 'Хушга, зөгийн бал, хатаасан чацаргана', p: '18,000₮', t: 'Махгүй' },
+          { n: 'Бухын чөмөг, талх', d: 'Шарсан чөмөг, исгэлэн талх, далайн давс', p: '24,000₮' }
+        ],
+        undsen: [
+          { n: 'Гал тулганы хонины хавирга', d: '12 цаг намхан галд утсан, цангисны паалантай, улирлын ногоо', p: '52,000₮', t: 'Онцлох' },
+          { n: 'Үхрийн рибай', d: 'Нүүрсэн дээр шарсан, ааруулын соус, шарсан төмс', p: '68,000₮', t: 'Онцлох' },
+          { n: 'Хөвсгөлийн загас', d: 'Цөцгийн тос, лимон, зэрлэг лууван, ногоон амтлагч', p: '46,000₮' },
+          { n: 'Зэрлэг мөөгний ризотто', d: 'Улаан буудай, хатаасан мөөг, пармезан', p: '34,000₮', t: 'Махгүй' },
+          { n: 'Бууцайтай хонины махан банш', d: 'Гэрийн зуурсан гурил, ясны шөл', p: '30,000₮' }
+        ],
+        amttan: [
+          { n: 'Шар тосон медовик', d: 'Долоон давхар зөгийн балтай бялуу, цөцгий', p: '16,000₮' },
+          { n: 'Чацарганы сорбет', d: 'Зэрлэг чацаргана, цэвэр амт, ногоон чидун', p: '14,000₮', t: 'Веган' },
+          { n: 'Хар шоколадны фондан', d: 'Дотроо хайлсан, ваниль зайрмагтай', p: '18,000₮' }
+        ],
+        undaa: [
+          { n: 'Гэрийн айраг', d: 'Улирлаар, монгол гэрийн уламжлалт исгэлэн', p: '12,000₮', t: 'Улирлын' },
+          { n: 'Чацаргана-балны лимонад', d: 'Шинэ шахсан, зөгийн бал, гаа', p: '9,000₮' },
+          { n: 'Уулын рашаан · кофе · цай', d: 'Хатан суурь, тусгай хольцтой цай', p: '6,000₮' }
+        ]
+      };
+      var listEl = document.getElementById('menuList');
+      function renderMenu(cat) {
+        listEl.innerHTML = MENU[cat].map(function(m) {
+          return '<div class="menu-item">' +
+            '<div class="mi-name">' + m.n + (m.t ? '<span class="mi-tag">' + m.t + '</span>' : '') + '</div>' +
+            '<div class="mi-price">' + m.p + '</div>' +
+            '<div class="mi-desc">' + m.d + '</div>' +
+          '</div>';
+        }).join('');
+      }
+      renderMenu('zuush');
+      document.querySelectorAll('#menuTabs .menu-tab').forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          document.querySelectorAll('#menuTabs .menu-tab').forEach(function(t) { t.classList.remove('on'); });
+          tab.classList.add('on');
+          listEl.style.opacity = '0';
+          setTimeout(function() { renderMenu(tab.dataset.cat); listEl.style.transition = 'opacity .5s'; listEl.style.opacity = '1'; }, 200);
+        });
+      });
+
+      /* ============ SIGNATURE HORIZONTAL SCROLL ============ */
+      var scroller = document.getElementById('sigScroller');
+      var bar = document.getElementById('sigBar');
+      function step() { return Math.min(scroller.clientWidth * 0.7, 460); }
+      document.getElementById('sigNext').addEventListener('click', function() { scroller.scrollBy({ left: step(), behavior: 'smooth' }); });
+      document.getElementById('sigPrev').addEventListener('click', function() { scroller.scrollBy({ left: -step(), behavior: 'smooth' }); });
+      scroller.addEventListener('scroll', function() {
+        var max = scroller.scrollWidth - scroller.clientWidth;
+        var p = max > 0 ? scroller.scrollLeft / max : 0;
+        bar.style.left = (p * 70) + '%';
+      }, { passive: true });
+
+      /* ============ GALLERY LIGHTBOX ============ */
+      var items = Array.prototype.slice.call(document.querySelectorAll('#galleryGrid .g-item'));
+      var lb = document.getElementById('lightbox');
+      var lbPhoto = document.getElementById('lbPhoto');
+      var lbCap = document.getElementById('lbCap');
+      var lbIdx = 0;
+      function photoClassOf(item) {
+        var p = item.querySelector('.photo');
+        return p.classList.contains('alt') ? 'alt' : p.classList.contains('cool') ? 'cool' : '';
+      }
+      function showLB(i) {
+        lbIdx = (i + items.length) % items.length;
+        var item = items[lbIdx];
+        lbPhoto.className = 'lb-photo photo ' + photoClassOf(item);
+        lbCap.textContent = item.dataset.cap;
+        lb.classList.add('open');
+        lb.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeLB() { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+      items.forEach(function(item, i) { item.addEventListener('click', function() { showLB(i); }); });
+      document.getElementById('lbClose').addEventListener('click', closeLB);
+      document.getElementById('lbNext').addEventListener('click', function() { showLB(lbIdx + 1); });
+      document.getElementById('lbPrev').addEventListener('click', function() { showLB(lbIdx - 1); });
+      lb.addEventListener('click', function(e) { if (e.target === lb) closeLB(); });
+      document.addEventListener('keydown', function(e) {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLB();
+        if (e.key === 'ArrowRight') showLB(lbIdx + 1);
+        if (e.key === 'ArrowLeft') showLB(lbIdx - 1);
+      });
+
+      /* ============ RESERVATION ============ */
+      var guests = 2;
+      var gVal = document.getElementById('gVal');
+      document.getElementById('gPlus').addEventListener('click', function() { guests = Math.min(12, guests + 1); gVal.textContent = guests >= 12 ? '12+' : guests; });
+      document.getElementById('gMinus').addEventListener('click', function() { guests = Math.max(1, guests - 1); gVal.textContent = guests; });
+      var resTime = '19:00';
+      document.querySelectorAll('#timeChips .time-chip').forEach(function(chip) {
+        chip.addEventListener('click', function() {
+          document.querySelectorAll('#timeChips .time-chip').forEach(function(c) { c.classList.remove('on'); });
+          chip.classList.add('on'); resTime = chip.dataset.t;
+        });
+      });
+      /* default date = today */
+      var dEl = document.getElementById('resDate');
+      var t = new Date(); dEl.value = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
+      document.getElementById('resForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var name = document.getElementById('resName'), phone = document.getElementById('resPhone');
+        if (!name.value.trim() || !phone.value.trim()) {
+          name.style.borderColor = name.value.trim() ? '' : '#c0584a';
+          phone.style.borderColor = phone.value.trim() ? '' : '#c0584a';
+          return;
+        }
+        /* TEMPLATE NOTE: connect a real reservation endpoint here */
+        document.getElementById('resForm').style.display = 'none';
+        document.getElementById('resDoneText').textContent =
+          (gVal.textContent) + ' зочны ширээ ' + dEl.value + ', ' + resTime + '-д захиалагдлаа. Баталгаажуулах мессежийг удахгүй илгээх болно.';
+        document.getElementById('resDone').classList.add('on');
+      });
+
+      /* hero play scrolls to gallery (placeholder) */
+      document.querySelector('.hero-play .ring').addEventListener('click', function() {
+        document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>
