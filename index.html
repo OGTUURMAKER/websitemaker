@@ -516,6 +516,128 @@ nav.scrolled {
 .marketplace-empty i { font-size: 2rem; margin-bottom: 16px; opacity: .5; }
 .marketplace-empty h3 { font-family: var(--font-heading); color: var(--text-dim); margin-bottom: 8px; }
 
+/* ===== DIGITAL PRODUCTS SHOWCASE =====
+   Product-page experience (not a card grid). Per-product accent is
+   injected via --p-accent* CSS vars by JS, so switching products
+   recolours the whole stage. */
+.showcase {
+  padding: var(--section-pad) var(--side-pad); position: relative; overflow: hidden;
+  --p-accent: var(--accent); --p-accent-2: #b9a3ff;
+  --p-soft: rgba(120,80,255,0.20); --p-dim: rgba(120,80,255,0.12); --p-line: rgba(120,80,255,0.3);
+}
+.showcase-inner { max-width: 1280px; margin: 0 auto; }
+.sc-intro { text-align: center; max-width: 880px; margin: 0 auto clamp(56px, 7vw, 100px); }
+.sc-intro h2 { font-family: var(--font-heading); font-weight: 600; font-size: clamp(2.3rem, 6vw, 4.6rem); line-height: 1.04; letter-spacing: -0.035em; color: #fff; }
+.sc-intro h2 em { font-style: normal; background: linear-gradient(110deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.sc-intro p { margin-top: 26px; font-size: clamp(1rem, 1.4vw, 1.18rem); color: var(--text-dim); font-weight: 300; line-height: 1.7; }
+.sc-stage-wrap { position: relative; }
+.sc-glow { position: absolute; top: -14%; left: 50%; transform: translateX(-50%); width: 96%; height: 130%; z-index: 0; pointer-events: none; filter: blur(50px); border-radius: 50%;
+  background: radial-gradient(ellipse at 72% 38%, var(--p-soft), transparent 62%); transition: background .9s var(--ease-out); }
+.sc-switch { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 44px; position: relative; z-index: 3; flex-wrap: wrap; }
+.sc-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.sc-tab { padding: 11px 22px; border-radius: 100px; border: 1px solid var(--border); background: transparent; color: var(--text-dim); font-family: var(--font-body); font-size: .82rem; font-weight: 500; cursor: pointer; transition: all .4s var(--ease-out); }
+.sc-tab:hover { color: #fff; border-color: var(--border-strong); }
+.sc-tab.on { background: var(--p-accent); border-color: transparent; color: #0c0c12; box-shadow: 0 8px 28px var(--p-soft); }
+.sc-switch-right { display: flex; align-items: center; gap: 18px; }
+.sc-counter { font-family: var(--font-mono); font-size: .82rem; color: var(--text-muted); letter-spacing: .1em; }
+.sc-arrows { display: flex; gap: 10px; }
+.sc-arrows button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--border-strong); background: transparent; color: #fff; cursor: pointer; transition: all .4s var(--ease-out); }
+.sc-arrows button:hover { border-color: var(--p-accent); color: var(--p-accent-2); transform: translateY(-2px); }
+.sc-stage { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: clamp(32px, 4vw, 76px); align-items: center; position: relative; z-index: 1; }
+.sc-meta { transition: opacity .5s var(--ease-out), transform .5s var(--ease-out); }
+.sc-meta.swapping { opacity: 0; transform: translateY(16px); }
+.sc-kicker { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .3em; text-transform: uppercase; color: var(--p-accent-2); margin-bottom: 18px; }
+.sc-name { font-family: var(--font-heading); font-weight: 600; font-size: clamp(2.2rem, 4.4vw, 3.4rem); line-height: 1; letter-spacing: -0.03em; color: #fff; margin-bottom: 16px; }
+.sc-tagline { font-size: clamp(1rem, 1.4vw, 1.18rem); color: var(--text-dim); font-weight: 300; margin-bottom: 28px; max-width: 420px; }
+.sc-chips { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+.sc-chip { display: flex; flex-direction: column; gap: 4px; padding: 13px 22px; border-radius: 14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); }
+.sc-chip .l { font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); }
+.sc-chip .v { font-family: var(--font-heading); font-weight: 600; font-size: 1.05rem; color: #fff; }
+.sc-chip .v.accent { color: var(--p-accent-2); }
+.sc-for { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+.sc-for span { font-size: .72rem; padding: 6px 14px; border-radius: 100px; background: var(--p-dim); color: var(--p-accent-2); border: 1px solid var(--p-line); }
+.sc-story { font-size: .94rem; color: var(--text-dim); font-weight: 300; line-height: 1.75; margin-bottom: 30px; max-width: 440px; }
+.sc-outcomes { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-bottom: 34px; }
+.sc-outcome { display: flex; gap: 11px; align-items: center; font-size: .9rem; color: var(--text); }
+.sc-outcome i { width: 22px; height: 22px; border-radius: 50%; background: var(--p-dim); color: var(--p-accent-2); display: flex; align-items: center; justify-content: center; font-size: .56rem; flex-shrink: 0; }
+.sc-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-product { background: var(--p-accent); color: #0c0c12; box-shadow: 0 10px 36px var(--p-soft); }
+.btn-product:hover { transform: translateY(-3px); filter: brightness(1.08); box-shadow: 0 16px 48px var(--p-soft); }
+.sc-preview { position: relative; z-index: 1; }
+.sc-devs { display: flex; gap: 8px; justify-content: center; margin-bottom: 24px; }
+.sc-dev { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 100px; border: 1px solid var(--border); background: transparent; color: var(--text-dim); font-family: var(--font-body); font-size: .78rem; font-weight: 500; cursor: pointer; transition: all .35s var(--ease-out); }
+.sc-dev:hover { color: #fff; border-color: var(--border-strong); }
+.sc-dev.on { background: rgba(255,255,255,0.06); border-color: var(--p-line); color: #fff; }
+.sc-device { margin: 0 auto; transition: max-width .6s var(--ease-out); position: relative; }
+.sc-device.is-laptop { max-width: 100%; }
+.sc-device.is-tablet { max-width: 580px; }
+.sc-device.is-mobile { max-width: 340px; }
+.dv-frame { border-radius: 16px; border: 1px solid var(--border-strong); background: #0a0a0f; overflow: hidden; box-shadow: 0 50px 120px rgba(0,0,0,0.6), 0 0 80px var(--p-soft); transition: box-shadow .9s var(--ease-out); }
+.sc-device.is-mobile .dv-frame { border-radius: 30px; border-width: 6px; }
+.sc-device.is-tablet .dv-frame { border-radius: 22px; border-width: 4px; }
+.dv-bar { height: 40px; display: flex; align-items: center; gap: 7px; padding: 0 16px; background: #15151d; border-bottom: 1px solid var(--border); }
+.sc-device.is-mobile .dv-bar { display: none; }
+.dv-dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.16); }
+.dv-url { margin-left: 12px; font-family: var(--font-mono); font-size: .66rem; color: var(--text-muted); background: rgba(255,255,255,0.04); padding: 4px 16px; border-radius: 6px; }
+.dv-screen { position: relative; width: 100%; height: clamp(340px, 42vw, 520px); overflow: hidden; background: #0a0a0f; }
+.dv-screen iframe { position: absolute; top: 0; left: 0; border: 0; transform-origin: top left; pointer-events: none; }
+.dv-loading { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; background: linear-gradient(150deg, #0c0c14, #0a0a0f); opacity: 1; transition: opacity .5s; }
+.dv-loading.hide { opacity: 0; pointer-events: none; }
+.dv-loading .spin { width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--border); border-top-color: var(--p-accent); animation: scSpin .8s linear infinite; }
+@keyframes scSpin { to { transform: rotate(360deg); } }
+.dv-base { height: 14px; width: 116%; margin: 0 -8%; border-radius: 0 0 14px 14px; background: linear-gradient(180deg, #1a1a22, #101016); position: relative; display: none; }
+.sc-device.is-laptop .dv-base { display: block; }
+.dv-base::after { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 90px; height: 5px; border-radius: 0 0 8px 8px; background: rgba(0,0,0,0.4); }
+.sc-hint { text-align: center; margin-top: 20px; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); }
+.sc-hint a { color: var(--p-accent-2); border-bottom: 1px solid var(--p-line); }
+.sc-subhead { text-align: center; margin-bottom: clamp(40px, 5vw, 64px); }
+.sc-subhead .eyebrow { justify-content: center; }
+.sc-subhead h3 { font-family: var(--font-heading); font-weight: 600; font-size: clamp(1.8rem, 3.4vw, 2.8rem); color: #fff; letter-spacing: -0.02em; }
+.sc-compare { margin-top: clamp(90px, 11vw, 150px); }
+.cmp { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-card); }
+.cmp-row { display: grid; grid-template-columns: 1.2fr 1.4fr 1fr 1fr 1.4fr; gap: 18px; align-items: center; padding: 22px 28px; border-bottom: 1px solid var(--border); transition: background .35s; }
+.cmp-row:last-child { border-bottom: none; }
+.cmp-head { background: rgba(255,255,255,0.02); }
+.cmp-head .ch { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-muted); }
+.cmp-body { cursor: pointer; }
+.cmp-body:hover { background: rgba(255,255,255,0.03); }
+.cmp-body.on { background: var(--p-dim); }
+.cmp-prod { display: flex; align-items: center; gap: 13px; }
+.cmp-swatch { width: 30px; height: 30px; border-radius: 9px; flex-shrink: 0; }
+.cmp-prod b { font-family: var(--font-heading); font-weight: 600; font-size: 1rem; color: #fff; }
+.cmp-cell { font-size: .86rem; color: var(--text-dim); font-weight: 300; }
+.cmp-cell.price { font-family: var(--font-heading); font-weight: 600; color: #fff; }
+.cmp-go { font-size: .74rem; font-weight: 600; color: var(--p-accent-2); display: inline-flex; align-items: center; gap: 8px; justify-self: start; }
+.sc-journey { margin-top: clamp(90px, 11vw, 150px); }
+.jr-track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; }
+.jr-track::before { content: ''; position: absolute; top: 32px; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--p-line) 15%, var(--p-line) 85%, transparent); }
+.jr-step { text-align: center; position: relative; }
+.jr-dot { width: 66px; height: 66px; border-radius: 50%; margin: 0 auto 24px; background: var(--bg); border: 1px solid var(--p-line); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--p-accent-2); position: relative; z-index: 2; }
+.jr-step .jr-n { font-family: var(--font-mono); font-size: .62rem; color: var(--text-muted); letter-spacing: .2em; margin-bottom: 10px; }
+.jr-step h4 { font-family: var(--font-heading); font-weight: 600; font-size: 1.15rem; color: #fff; margin-bottom: 8px; }
+.jr-step p { font-size: .84rem; color: var(--text-dim); font-weight: 300; }
+.sc-cta { margin-top: clamp(90px, 11vw, 150px); text-align: center; padding: clamp(56px, 8vw, 110px) var(--side-pad); border-radius: var(--radius-lg); border: 1px solid var(--border); position: relative; overflow: hidden; background: var(--bg-card); }
+.sc-cta::before { content: ''; position: absolute; bottom: -50%; left: 50%; transform: translateX(-50%); width: 100%; aspect-ratio: 2/1; background: radial-gradient(ellipse, var(--p-soft), transparent 65%); filter: blur(40px); }
+.sc-cta h2 { position: relative; font-family: var(--font-heading); font-weight: 600; font-size: clamp(2.2rem, 6vw, 4.6rem); line-height: 1.04; letter-spacing: -0.035em; color: #fff; margin-bottom: 36px; }
+.sc-cta h2 em { font-style: normal; color: var(--p-accent-2); }
+.sc-cta-actions { position: relative; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+@media (max-width: 1024px) {
+  .sc-stage { grid-template-columns: 1fr; }
+  .sc-preview { order: -1; }
+  .sc-meta { max-width: 640px; }
+}
+@media (max-width: 760px) {
+  .sc-outcomes { grid-template-columns: 1fr; }
+  .cmp-row { grid-template-columns: 1fr; gap: 6px; padding: 20px; }
+  .cmp-head { display: none; }
+  .cmp-cell { display: flex; justify-content: space-between; }
+  .cmp-cell::before { content: attr(data-label); font-family: var(--font-mono); font-size: .58rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); }
+  .cmp-go { display: none; }
+  .jr-track { grid-template-columns: 1fr 1fr; gap: 36px 20px; }
+  .jr-track::before { display: none; }
+  .sc-actions .btn, .sc-cta-actions .btn { width: 100%; }
+}
+
 /* ===== TEMPLATE PREVIEW SKELETONS (preserved) ===== */
 .preview-shop { padding: 16px; height: 100%; display: flex; flex-direction: column; gap: 10px; }
 .shop-nav { display: flex; justify-content: space-between; align-items: center; }
@@ -1286,38 +1408,84 @@ footer { border-top: 1px solid var(--border); padding: 72px var(--side-pad) 36px
   </section>
 
   <!-- ============ 4. COLLECTION (TEMPLATE MARKETPLACE) ============ -->
-  <section class="marketplace" id="work">
-    <div class="marketplace-inner">
-      <div class="marketplace-topbar">
-        <div>
-          <div class="eyebrow" data-reveal data-i18n="workEyebrow">Цуглуулга</div>
-          <h2 class="section-title" data-reveal data-delay="100" data-i18n="workTitle">Бэлэн бүтээлүүд</h2>
-          <p class="section-sub" data-reveal data-delay="200" data-i18n="workSub">Бизнес бүрт зориулж урласан, 3–7 хоногт таны брэнд дээр амилах вэбсайтууд.</p>
-        </div>
-        <div class="marketplace-controls" data-reveal data-delay="300">
-          <div class="marketplace-search" role="search">
-            <i class="fas fa-search"></i>
-            <input type="text" id="templateSearch" placeholder="Хайх..." data-i18n-placeholder="searchPlaceholder" />
+  <!-- ============ DIGITAL PRODUCTS SHOWCASE ============
+       Templates presented as premium products, not cards.
+       JS (initShowcase) fills the dynamic, per-product, bilingual parts. -->
+  <section class="showcase" id="work">
+    <div class="showcase-inner">
+
+      <!-- Section 1 — Introduction -->
+      <div class="sc-intro" data-reveal>
+        <h2 id="scIntroTitle"></h2>
+        <p id="scIntroText"></p>
+      </div>
+
+      <!-- Sections 2–5 — Featured product experience -->
+      <div class="sc-stage-wrap">
+        <div class="sc-glow" aria-hidden="true"></div>
+
+        <div class="sc-switch" data-reveal>
+          <div class="sc-tabs" id="scTabs" role="tablist"></div>
+          <div class="sc-switch-right">
+            <span class="sc-counter" id="scCounter">01 / 05</span>
+            <div class="sc-arrows">
+              <button id="scPrev" aria-label="Өмнөх бүтээгдэхүүн"><i class="fas fa-arrow-left"></i></button>
+              <button id="scNext" aria-label="Дараах бүтээгдэхүүн"><i class="fas fa-arrow-right"></i></button>
+            </div>
           </div>
-          <div class="marketplace-filters" id="filterBar">
-            <button class="filter-btn active" data-filter="all" data-i18n="filterAll">Бүгд</button>
-            <button class="filter-btn" data-filter="online shop">Shop</button>
-            <button class="filter-btn" data-filter="business">Business</button>
-            <button class="filter-btn" data-filter="portfolio">Portfolio</button>
-            <button class="filter-btn" data-filter="restaurant">Restaurant</button>
-            <button class="filter-btn" data-filter="clinic">Clinic</button>
-            <button class="filter-btn" data-filter="education">Education</button>
-            <button class="filter-btn" data-filter="delivery">Delivery</button>
-            <button class="filter-btn" data-filter="real estate">Real Estate</button>
+        </div>
+
+        <div class="sc-stage">
+          <div class="sc-meta" id="scMeta"><!-- JS: name, industry, price, story, outcomes, actions --></div>
+
+          <div class="sc-preview" data-reveal data-delay="150">
+            <div class="sc-devs" id="scDevs">
+              <button class="sc-dev on" data-dev="laptop"><i class="fas fa-laptop"></i> <span id="scDevLaptop">Лаптоп</span></button>
+              <button class="sc-dev" data-dev="tablet"><i class="fas fa-tablet-screen-button"></i> <span id="scDevTablet">Таблет</span></button>
+              <button class="sc-dev" data-dev="mobile"><i class="fas fa-mobile-screen-button"></i> <span id="scDevMobile">Утас</span></button>
+            </div>
+            <div class="sc-device is-laptop" id="scDevice">
+              <div class="dv-frame">
+                <div class="dv-bar"><span class="dv-dot"></span><span class="dv-dot"></span><span class="dv-dot"></span><span class="dv-url" id="scUrl">business-pro.mn</span></div>
+                <div class="dv-screen" id="scScreen">
+                  <div class="dv-loading" id="scLoading"><div class="spin"></div></div>
+                  <iframe id="scFrame" title="Live device preview" scrolling="no" loading="lazy"></iframe>
+                </div>
+              </div>
+              <div class="dv-base" aria-hidden="true"></div>
+            </div>
+            <div class="sc-hint" id="scHint"></div>
           </div>
         </div>
       </div>
-      <div class="marketplace-grid" id="marketplaceGrid"></div>
-      <div class="marketplace-empty" id="marketplaceEmpty">
-        <i class="fas fa-search"></i>
-        <h3 data-i18n="emptyTitle">Загвар олдсонгүй</h3>
-        <p data-i18n="emptyDesc">Өөр хайлтын үг ашиглана уу.</p>
+
+      <!-- Section 6 — Compare templates -->
+      <div class="sc-compare" data-reveal>
+        <div class="sc-subhead">
+          <div class="eyebrow" id="scCompareEy">Харьцуулалт</div>
+          <h3 id="scCompareTitle"></h3>
+        </div>
+        <div class="cmp" id="scCompare"></div>
       </div>
+
+      <!-- Section 7 — Success journey -->
+      <div class="sc-journey" data-reveal>
+        <div class="sc-subhead">
+          <div class="eyebrow" id="scJourneyEy">Амжилтын зам</div>
+          <h3 id="scJourneyTitle"></h3>
+        </div>
+        <div class="jr-track" id="scJourney"></div>
+      </div>
+
+      <!-- Section 8 — Premium CTA -->
+      <div class="sc-cta" data-reveal>
+        <h2 id="scCtaTitle"></h2>
+        <div class="sc-cta-actions">
+          <a href="#" id="scCtaPreview" class="btn btn-product" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> <span id="scCtaPreviewLabel">Live Preview</span></a>
+          <a href="#calculator" class="btn btn-ghost"><span id="scCtaOrderLabel">Захиалах</span></a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1686,37 +1854,7 @@ footer { border-top: 1px solid var(--border); padding: 72px var(--side-pad) 36px
     <a href="#contact" class="mobile-link" data-i18n="mNavContact">Холбоо барих</a>
   </div>
 
-  <!-- TEMPLATE MODAL -->
-  <div class="template-modal" id="templateModal" aria-hidden="true">
-    <button class="modal-close" aria-label="Хаах"><i class="fas fa-times"></i></button>
-    <div class="modal-content">
-      <div class="modal-preview">
-        <h3 id="modalTitle">Template Name</h3>
-        <div class="modal-category" id="modalCategory">Category</div>
-        <div class="device-tabs" role="tablist" aria-label="Төхөөрөмжийн харагдах байдал">
-          <button class="device-tab active" data-device="desktop"><i class="fas fa-desktop"></i> Desktop</button>
-          <button class="device-tab" data-device="tablet"><i class="fas fa-tablet-alt"></i> Tablet</button>
-          <button class="device-tab" data-device="mobile"><i class="fas fa-mobile-alt"></i> Mobile</button>
-        </div>
-        <div class="device-frame desktop" id="deviceFrame">
-          <div class="browser-mockup">
-            <div class="browser-bar"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-url" id="modalUrl">site.mn</div></div>
-            <div class="browser-content" id="modalContent" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-              <div class="browser-hero"><div style="width:60%;height:10px;background:rgba(255,255,255,0.9);border-radius:4px;margin-bottom:8px;"></div><div style="width:80%;height:6px;background:rgba(255,255,255,0.5);border-radius:4px;margin-bottom:8px;"></div><div style="width:80px;height:20px;background:rgba(255,255,255,0.3);border-radius:4px;"></div></div>
-              <div class="browser-cards"><div class="browser-card"></div><div class="browser-card"></div><div class="browser-card"></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-details">
-        <div class="modal-price" id="modalPrice">450,000₮</div>
-        <div class="modal-features" id="modalFeatures"></div>
-        <div class="modal-actions">
-          <a href="https://www.facebook.com/profile.php?id=61582969455784" class="btn btn-primary" target="_blank" rel="noopener"><i class="fab fa-facebook-messenger"></i> <span data-i18n="modalOrder">Энэ загварыг захиалах</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- (Template modal removed — templates are now presented as products in the Showcase) -->
 
   <script>
     /* ============================================================
@@ -1853,80 +1991,274 @@ footer { border-top: 1px solid var(--border); padding: 72px var(--side-pad) 36px
     };
     function currentLang() { return document.documentElement.lang === 'en' ? 'en' : 'mn'; }
 
-    function renderTemplates() {
-      var grid = document.getElementById('marketplaceGrid');
-      if (!grid) return;
-      grid.innerHTML = templates.map(function(t, i) {
-        return '<div class="template-card" data-category="' + t.category + '" data-idx="' + i + '" data-reveal data-delay="' + ((i % 2) * 120) + '">' +
-          '<div class="card-glow" style="background:' + t.gradient + '"></div>' +
-          '<div class="template-preview ' + t.theme + '-theme">' +
-            t.previewHTML +
-            '<div class="template-overlay"><span class="template-overlay-btn">Live Preview →</span></div>' +
-          '</div>' +
-          '<div class="template-info">' +
-            (t.badge ? '<div class="card-badge">' + t.badge + '</div>' : '') +
-            '<div class="template-category" style="color:' + t.color + '">' + t.category + '</div>' +
-            '<h3>' + t.name + '</h3>' +
-            '<div class="price-block">' +
-              '<div class="price-amount" style="background:' + t.gradient + ';-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">' + t.price + '</div>' +
-              '<div class="price-delivery">⚡ ' + t.delivery + '</div>' +
-            '</div>' +
-            '<div class="card-outcome"><i class="fas fa-arrow-trend-up"></i> ' + (OUTCOMES[t.theme] ? OUTCOMES[t.theme][currentLang()] : '') + '</div>' +
-            '<div class="social-proof">' + t.socialProof + '</div>' +
-            '<button class="btn-reset template-btn">Live Preview →</button>' +
-          '</div>' +
+    /* ============================================================
+       DIGITAL PRODUCTS SHOWCASE — controller
+       Each template is a real, built site. The device preview is a
+       genuine scaled iframe of the product; Live Preview opens it.
+       ============================================================ */
+    var PRODUCTS = [
+      { id:'business', name:'Business Pro', url:'business-pro/index.html', host:'business-pro.mn',
+        accent:'#d9aa54', accent2:'#f0cf8e', price:'650,000₮',
+        mn:{ industry:'Зөвлөх · Санхүү · Эрх зүй', delivery:'7–10 хоног',
+             tagline:'Итгэл, нэр хүнд, өсөлтийг нэг дор.',
+             for:['Зөвлөх компани','Санхүү · Аудит','Хууль · Эрх зүй','Хүний нөөц'],
+             story:'Корпорэйт үйлчилгээ итгэлээр зарагддаг. Business Pro нь танай мэргэжлийн түвшинг эхний хормд мэдрүүлж, илүү олон чанартай хүсэлт авчирдаг.',
+             outcomes:['Илүү их итгэл','Сайжруулсан анхны сэтгэгдэл','Хурдан санал хүсэлт','Премиум брэнд төсөөлөл'],
+             bestfor:'Корпорэйт, мэргэжлийн үйлчилгээ' },
+        en:{ industry:'Consulting · Finance · Legal', delivery:'7–10 days',
+             tagline:'Trust, authority and growth — together.',
+             for:['Consulting','Finance · Audit','Legal','HR firms'],
+             story:'Professional services sell on trust. Business Pro signals your expertise in the first seconds and brings in more qualified inquiries.',
+             outcomes:['More trust','Better first impression','Faster inquiries','Premium brand perception'],
+             bestfor:'Corporate & professional services' } },
+      { id:'clinic', name:'Clinic Pro', url:'clinic-pro/index.html', host:'sergelen.mn',
+        accent:'#0fb0a4', accent2:'#34d0c2', price:'1,290,000₮',
+        mn:{ industry:'Эмнэлэг · Клиник · Эрүүл мэнд', delivery:'7–12 хоног',
+             tagline:'Өвчтөний итгэлийг цаг захиалга болгоно.',
+             for:['Эмнэлэг','Шүдний эмнэлэг','Гоо сайхан','Лаборатори'],
+             story:'Өвчтөн эмнэлгээ итгэлээр сонгодог. Clinic Pro нь онлайн цаг захиалга, эмч нарын танилцуулга, дэвшилтэт технологиор итгэл төрүүлж, дарааллыг багасгана.',
+             outcomes:['Илүү олон цаг захиалга','Цөөн дараалал','Өвчтөний итгэл','Тодорхой үйлчилгээ'],
+             bestfor:'Эмнэлэг, клиник, эрүүл мэнд' },
+        en:{ industry:'Clinics · Medical · Health', delivery:'7–12 days',
+             tagline:'Turns patient trust into appointments.',
+             for:['Hospitals','Dental','Aesthetic','Labs'],
+             story:'Patients choose clinics they trust. Clinic Pro builds confidence with online booking, doctor profiles and modern technology — and cuts queues.',
+             outcomes:['More appointments','Shorter queues','Patient trust','Clear services'],
+             bestfor:'Clinics & healthcare' } },
+      { id:'restaurant', name:'Restaurant Pro', url:'restaurant-pro/index.html', host:'galtulga.mn',
+        accent:'#df7b3f', accent2:'#efa765', price:'990,000₮',
+        mn:{ industry:'Ресторан · Кафе · Хоол', delivery:'5–8 хоног',
+             tagline:'Хоолоо мэдрүүлж, ширээгээ дүүргэ.',
+             for:['Ресторан','Кафе','Хоол хүргэлт','Баар'],
+             story:'Зочин хоолоо нүдээрээ иддэг. Restaurant Pro нь кино шиг гэрэл зураг, онлайн цэс, ширээ захиалгаар хоолны үнэ цэнийг мэдрүүлж, илүү олон зочин татна.',
+             outcomes:['Илүү олон ширээ захиалга','Цэсний ил тод байдал','Сайн зочны туршлага','Байршлын мэдэгдэхүйц'],
+             bestfor:'Ресторан, кафе, хоол хүргэлт' },
+        en:{ industry:'Restaurants · Cafés · Food', delivery:'5–8 days',
+             tagline:'Make the food felt — fill your tables.',
+             for:['Restaurants','Cafés','Food delivery','Bars'],
+             story:'Guests eat with their eyes first. Restaurant Pro uses cinematic photography, an online menu and reservations to convey value and draw more guests.',
+             outcomes:['More reservations','Better menu visibility','Great guest experience','Location visibility'],
+             bestfor:'Restaurants, cafés, delivery' } },
+      { id:'portfolio', name:'Portfolio Pro', url:'portfolio-pro/index.html', host:'anar.studio',
+        accent:'#c4f135', accent2:'#d6f56a', price:'650,000₮',
+        mn:{ industry:'Бүтээлч · Дизайн · Фриланс', delivery:'4–7 хоног',
+             tagline:'Ажлаа урлагийн бүтээл шиг харуул.',
+             for:['Дизайнер','Арт директор','Фотографч','Студи'],
+             story:'Бүтээлч хүн ажлаараа зарагддаг. Portfolio Pro нь хэвтээ кейс гүйлгэлт, кино шилжилтээр төслүүдийг үнэтэй харагдуулж, захиалагч татна.',
+             outcomes:['Илүү хүчтэй брэнд','Тод сэтгэгдэл','Илүү олон захиалга','Мэргэжлийн төсөөлөл'],
+             bestfor:'Дизайнер, бүтээлч хүмүүс' },
+        en:{ industry:'Creative · Design · Freelance', delivery:'4–7 days',
+             tagline:'Show your work like art.',
+             for:['Designers','Art directors','Photographers','Studios'],
+             story:'Creatives sell through their work. Portfolio Pro presents projects with horizontal case scrolling and cinematic transitions that win clients.',
+             outcomes:['Stronger brand','Memorable impression','More commissions','Professional perception'],
+             bestfor:'Designers & creatives' } },
+      { id:'ecommerce', name:'Ecommerce Pro', url:'ecommerce-pro/index.html', host:'nehee.mn',
+        accent:'#e0467a', accent2:'#f06a98', price:'1,790,000₮',
+        mn:{ industry:'Онлайн дэлгүүр · Ритейл', delivery:'10–15 хоног',
+             tagline:'Үзсэн хүнийг худалдан авагч болго.',
+             for:['Онлайн дэлгүүр','Брэнд','Ритейл','D2C'],
+             story:'Худалдан авалт хялбар байх тусам борлуулалт өснө. Ecommerce Pro нь хурдан бүтээгдэхүүн нээлт, сагсны систем, quick-view-ээр зочдыг худалдан авагч болгоно.',
+             outcomes:['Илүү өндөр борлуулалт','Хялбар худалдан авалт','Сагс орхилт буурна','Брэнд итгэл'],
+             bestfor:'Онлайн дэлгүүр, ритейл' },
+        en:{ industry:'Online store · Retail', delivery:'10–15 days',
+             tagline:'Turn browsers into buyers.',
+             for:['Online stores','Brands','Retail','D2C'],
+             story:'The easier it is to buy, the more you sell. Ecommerce Pro converts visitors with fast product discovery, a cart system and quick-view.',
+             outcomes:['Higher sales','Easier checkout','Less cart abandon','Brand trust'],
+             bestfor:'Online stores & retail' } }
+    ];
+
+    var SC_UI = {
+      mn: { introTitle:'Бэлэн загвар биш.<br><em>Бэлэн бизнесийн эхлэл.</em>',
+            introText:'Хэдэн сарын хөгжүүлэлт биш — өдөр хоногийн дотор эхлэх боломжтой премиум вэбсайтын шийдлүүд.',
+            laptop:'Лаптоп', tablet:'Таблет', mobile:'Утас',
+            priceL:'Эхлэх үнэ', deliveryL:'Хугацаа', order:'Захиалах', live:'Жинхэнэ preview',
+            hint:'Энэ бол жинхэнэ ажиллаж буй вэбсайт',
+            compareEy:'Харьцуулалт', compareTitle:'Аль нь танд тохирох вэ?',
+            cmpHead:['Бүтээгдэхүүн','Салбар','Үнэ','Хугацаа','Хэнд тохирох'],
+            journeyEy:'Амжилтын зам', journeyTitle:'Дөрвөн алхамд бэлэн.',
+            steps:[ {i:'fa-hand-pointer',t:'Сонгох',d:'Бизнестээ тохирох бүтээгдэхүүнээ сонгоно.'},
+                    {i:'fa-sliders',t:'Тохируулах',d:'Текст, зураг, өнгийг брэндэд тань тааруулна.'},
+                    {i:'fa-rocket',t:'Нээх',d:'Домэйн холбож, өдөр хоногт ажиллуулна.'},
+                    {i:'fa-users',t:'Харилцагч авах',d:'Шинэ вэбсайт тань харилцагч татаж эхэлнэ.'} ],
+            ctaTitle:'Таны бизнес <em>дараагийн түвшинд</em><br>гарахад бэлэн үү?', ctaPreview:'Жинхэнэ preview', ctaOrder:'Вэбсайт захиалах' },
+      en: { introTitle:'Not just a template.<br><em>A business, ready to launch.</em>',
+            introText:'Not months of development — premium website solutions you can launch in days.',
+            laptop:'Laptop', tablet:'Tablet', mobile:'Mobile',
+            priceL:'Starting price', deliveryL:'Delivery', order:'Order', live:'Live preview',
+            hint:'This is the real, live website',
+            compareEy:'Compare', compareTitle:'Which one fits you?',
+            cmpHead:['Product','Industry','Price','Delivery','Best for'],
+            journeyEy:'Success journey', journeyTitle:'Ready in four steps.',
+            steps:[ {i:'fa-hand-pointer',t:'Choose',d:'Pick the product that fits your business.'},
+                    {i:'fa-sliders',t:'Customize',d:'We tailor text, images and colours to your brand.'},
+                    {i:'fa-rocket',t:'Launch',d:'Connect a domain and go live in days.'},
+                    {i:'fa-users',t:'Get customers',d:'Your new website starts attracting customers.'} ],
+            ctaTitle:'Is your business ready<br>for <em>the next level?</em>', ctaPreview:'Live Preview', ctaOrder:'Order Website' }
+    };
+
+    var scIndex = 0, scDevice = 'laptop', scLoaded = false;
+    var scDevLogical = { laptop: 1280, tablet: 800, mobile: 390 };
+
+    function hexToRgba(hex, a) {
+      var n = parseInt(hex.slice(1), 16);
+      return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+    }
+    function scApplyAccent(p) {
+      var r = document.getElementById('work');
+      r.style.setProperty('--p-accent', p.accent);
+      r.style.setProperty('--p-accent-2', p.accent2);
+      r.style.setProperty('--p-soft', hexToRgba(p.accent, 0.20));
+      r.style.setProperty('--p-dim', hexToRgba(p.accent, 0.12));
+      r.style.setProperty('--p-line', hexToRgba(p.accent, 0.32));
+    }
+    function scRenderMeta(p) {
+      var L = currentLang(), t = p[L], U = SC_UI[L];
+      document.getElementById('scMeta').innerHTML =
+        '<div class="sc-kicker">' + t.industry + '</div>' +
+        '<h3 class="sc-name">' + p.name + '</h3>' +
+        '<p class="sc-tagline">' + t.tagline + '</p>' +
+        '<div class="sc-chips">' +
+          '<div class="sc-chip"><span class="l">' + U.priceL + '</span><span class="v accent">' + p.price + '</span></div>' +
+          '<div class="sc-chip"><span class="l">' + U.deliveryL + '</span><span class="v">' + t.delivery + '</span></div>' +
+        '</div>' +
+        '<div class="sc-for">' + t.for.map(function(f) { return '<span>' + f + '</span>'; }).join('') + '</div>' +
+        '<p class="sc-story">' + t.story + '</p>' +
+        '<div class="sc-outcomes">' + t.outcomes.map(function(o) { return '<div class="sc-outcome"><i class="fas fa-check"></i> ' + o + '</div>'; }).join('') + '</div>' +
+        '<div class="sc-actions">' +
+          '<a class="btn btn-product" href="#calculator">' + U.order + ' — ' + p.name + '</a>' +
+          '<a class="btn btn-ghost" href="' + p.url + '" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> ' + U.live + '</a>' +
+        '</div>';
+    }
+    function scFitPreview() {
+      var screen = document.getElementById('scScreen');
+      if (!screen) return;
+      var w = screen.clientWidth, h = screen.clientHeight;
+      var logical = scDevLogical[scDevice];
+      var scale = w / logical;
+      var f = document.getElementById('scFrame');
+      f.style.width = logical + 'px';
+      f.style.height = (h / scale) + 'px';
+      f.style.transform = 'scale(' + scale + ')';
+    }
+    function scLoadPreview(p) {
+      var loading = document.getElementById('scLoading');
+      var f = document.getElementById('scFrame');
+      loading.classList.remove('hide');
+      f.src = p.url;
+    }
+    function scSetDevice(dev) {
+      scDevice = dev;
+      var d = document.getElementById('scDevice');
+      d.className = 'sc-device is-' + dev;
+      document.querySelectorAll('#scDevs .sc-dev').forEach(function(b) { b.classList.toggle('on', b.dataset.dev === dev); });
+      scFitPreview();
+      setTimeout(scFitPreview, 650);
+    }
+    function scSelect(i, scroll) {
+      scIndex = (i + PRODUCTS.length) % PRODUCTS.length;
+      var p = PRODUCTS[scIndex];
+      scApplyAccent(p);
+      var meta = document.getElementById('scMeta');
+      meta.classList.add('swapping');
+      setTimeout(function() { scRenderMeta(p); meta.classList.remove('swapping'); }, 240);
+      document.getElementById('scCounter').textContent = ('0' + (scIndex + 1)).slice(-2) + ' / ' + ('0' + PRODUCTS.length).slice(-2);
+      document.getElementById('scUrl').textContent = p.host;
+      document.querySelectorAll('#scTabs .sc-tab').forEach(function(b, j) { b.classList.toggle('on', j === scIndex); });
+      document.querySelectorAll('#scCompare .cmp-body').forEach(function(b, j) { b.classList.toggle('on', j === scIndex); });
+      var cta = document.getElementById('scCtaPreview');
+      if (cta) cta.setAttribute('href', p.url);
+      if (scLoaded) scLoadPreview(p);
+      if (scroll) document.getElementById('work').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    function scBuildTabs() {
+      document.getElementById('scTabs').innerHTML = PRODUCTS.map(function(p, j) {
+        return '<button class="sc-tab' + (j === scIndex ? ' on' : '') + '" data-i="' + j + '" role="tab">' + p.name + '</button>';
+      }).join('');
+    }
+    function scBuildCompare() {
+      var L = currentLang(), U = SC_UI[L];
+      var head = '<div class="cmp-row cmp-head">' + U.cmpHead.map(function(h) { return '<span class="ch">' + h + '</span>'; }).join('') + '</div>';
+      var rows = PRODUCTS.map(function(p, j) {
+        var t = p[L];
+        return '<div class="cmp-row cmp-body' + (j === scIndex ? ' on' : '') + '" data-i="' + j + '">' +
+          '<div class="cmp-prod"><span class="cmp-swatch" style="background:linear-gradient(135deg,' + p.accent + ',' + p.accent2 + ')"></span><b>' + p.name + '</b></div>' +
+          '<div class="cmp-cell" data-label="' + U.cmpHead[1] + '">' + t.industry + '</div>' +
+          '<div class="cmp-cell price" data-label="' + U.cmpHead[2] + '">' + p.price + '</div>' +
+          '<div class="cmp-cell" data-label="' + U.cmpHead[3] + '">' + t.delivery + '</div>' +
+          '<div class="cmp-cell" data-label="' + U.cmpHead[4] + '">' + t.bestfor + ' <span class="cmp-go"><i class="fas fa-arrow-right"></i></span></div>' +
         '</div>';
       }).join('');
-      if (window.observeReveals) window.observeReveals(grid);
+      document.getElementById('scCompare').innerHTML = head + rows;
     }
-
-    function filterTemplates() {
-      var search = document.getElementById('templateSearch').value.toLowerCase();
-      var activeFilter = document.querySelector('.filter-btn.active');
-      var filter = activeFilter ? activeFilter.dataset.filter : 'all';
-      var cards = document.querySelectorAll('.template-card');
-      var visible = 0;
-      cards.forEach(function(card) {
-        var category = card.dataset.category.toLowerCase();
-        var name = card.querySelector('h3').textContent.toLowerCase();
-        var matchFilter = (filter === 'all') || (category === filter.toLowerCase());
-        var matchSearch = (search === '') || (name.indexOf(search) !== -1) || (category.indexOf(search) !== -1);
-        if (matchFilter && matchSearch) {
-          card.style.display = '';
-          visible++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-      var empty = document.getElementById('marketplaceEmpty');
-      if (visible === 0) { empty.classList.add('show'); } else { empty.classList.remove('show'); }
-    }
-
-    function openModal(idx) {
-      var modal = document.getElementById('templateModal');
-      if (!modal) return;
-      var t = templates[idx];
-      if (!t) return;
-      document.getElementById('modalTitle').textContent = t.name;
-      document.getElementById('modalCategory').textContent = t.category;
-      document.getElementById('modalPrice').textContent = t.price;
-      document.getElementById('modalUrl').textContent = t.url;
-      document.getElementById('modalContent').style.background = t.gradient;
-      var features = document.getElementById('modalFeatures');
-      features.innerHTML = t.features.map(function(f) {
-        return '<div class="modal-feature"><i class="fas fa-check"></i> ' + f + '</div>';
+    function scBuildJourney() {
+      var U = SC_UI[currentLang()];
+      document.getElementById('scJourney').innerHTML = U.steps.map(function(s, j) {
+        return '<div class="jr-step"><div class="jr-dot"><i class="fas ' + s.i + '"></i></div>' +
+          '<div class="jr-n">0' + (j + 1) + '</div><h4>' + s.t + '</h4><p>' + s.d + '</p></div>';
       }).join('');
-      modal.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
     }
+    function scRenderStatic() {
+      var U = SC_UI[currentLang()];
+      document.getElementById('scIntroTitle').innerHTML = U.introTitle;
+      document.getElementById('scIntroText').textContent = U.introText;
+      document.getElementById('scDevLaptop').textContent = U.laptop;
+      document.getElementById('scDevTablet').textContent = U.tablet;
+      document.getElementById('scDevMobile').textContent = U.mobile;
+      document.getElementById('scCompareEy').textContent = U.compareEy;
+      document.getElementById('scCompareTitle').textContent = U.compareTitle;
+      document.getElementById('scJourneyEy').textContent = U.journeyEy;
+      document.getElementById('scJourneyTitle').textContent = U.journeyTitle;
+      document.getElementById('scCtaTitle').innerHTML = U.ctaTitle;
+      document.getElementById('scCtaPreviewLabel').textContent = U.ctaPreview;
+      document.getElementById('scCtaOrderLabel').textContent = U.ctaOrder;
+      document.getElementById('scHint').innerHTML = U.hint;
+    }
+    // Re-render everything for the active language (called by setLang)
+    window.showcaseRender = function() {
+      if (!document.getElementById('scMeta')) return;
+      scRenderStatic();
+      scBuildTabs();
+      scBuildCompare();
+      scBuildJourney();
+      scRenderMeta(PRODUCTS[scIndex]);
+      var cta = document.getElementById('scCtaPreview');
+      if (cta) cta.setAttribute('href', PRODUCTS[scIndex].url);
+    };
+    function initShowcase() {
+      if (!document.getElementById('scMeta')) return;
+      scRenderStatic();
+      scBuildTabs();
+      scBuildCompare();
+      scBuildJourney();
+      scSelect(0, false);
 
-    function closeModal() {
-      var modal = document.getElementById('templateModal');
-      if (!modal) return;
-      modal.classList.remove('active');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+      document.getElementById('scTabs').addEventListener('click', function(e) {
+        var b = e.target.closest('.sc-tab'); if (b) scSelect(parseInt(b.dataset.i), false);
+      });
+      document.getElementById('scCompare').addEventListener('click', function(e) {
+        var b = e.target.closest('.cmp-body'); if (b) scSelect(parseInt(b.dataset.i), true);
+      });
+      document.getElementById('scPrev').addEventListener('click', function() { scSelect(scIndex - 1, false); });
+      document.getElementById('scNext').addEventListener('click', function() { scSelect(scIndex + 1, false); });
+      document.getElementById('scDevs').addEventListener('click', function(e) {
+        var b = e.target.closest('.sc-dev'); if (b) scSetDevice(b.dataset.dev);
+      });
+      document.getElementById('scFrame').addEventListener('load', function() {
+        document.getElementById('scLoading').classList.add('hide');
+        scFitPreview();
+      });
+      window.addEventListener('resize', scFitPreview, { passive: true });
+
+      // Lazy-load the live iframe (first scroll-near, with a deferred fallback so
+      // it is always ready by the time the visitor reaches the showcase)
+      function scEnsureLoaded() { if (scLoaded) return; scLoaded = true; scLoadPreview(PRODUCTS[scIndex]); }
+      var once = new IntersectionObserver(function(es) {
+        es.forEach(function(en) { if (en.isIntersecting) { scEnsureLoaded(); once.disconnect(); } });
+      }, { rootMargin: '300px' });
+      once.observe(document.getElementById('work'));
+      window.addEventListener('load', function() { setTimeout(scEnsureLoaded, 1800); });
     }
 
     /* ============================================================
@@ -1972,23 +2304,24 @@ footer { border-top: 1px solid var(--border); padding: 72px var(--side-pad) 36px
       if (form) form.style.display = '';
     }
 
-    // Recommendation: connect the estimate to a concrete next step
-    var CALC_REC_MAP = { intro: 1, shop: 0, booking: 3, clinic: 4, other: -1 };
+    // Recommendation: connect the estimate to a matching product in the showcase
+    var CALC_REC_MAP = { intro: 'business', shop: 'ecommerce', booking: 'restaurant', clinic: 'clinic', other: '' };
     var REC_STR = {
-      mn: { label: 'Танд тохирох шийдэл', view: 'Загвар үзэх', custom: 'Custom хийлгэх',
+      mn: { label: 'Танд тохирох шийдэл', view: 'Бүтээгдэхүүн үзэх', custom: 'Custom хийлгэх',
             customTitle: 'Custom хөгжүүлэлт', customDesc: 'Таны хэрэгцээ онцгой тул тусгайлан бүтээхийг зөвлөж байна.',
-            tplDesc: 'Бэлэн загвараар илүү хурдан, хямд эхлэх боломжтой.' },
-      en: { label: 'Recommended for you', view: 'View template', custom: 'Go custom',
+            tplDesc: 'Бэлэн premium бүтээгдэхүүнээр илүү хурдан эхлэх боломжтой.' },
+      en: { label: 'Recommended for you', view: 'View product', custom: 'Go custom',
             customTitle: 'Custom development', customDesc: 'Your needs are unique — we recommend a tailored build.',
-            tplDesc: 'Start faster and cheaper with a ready-made template.' }
+            tplDesc: 'Start faster with a ready-made premium product.' }
     };
     function calcRenderRecommendation() {
       var box = document.getElementById('calcRecommend');
       if (!box) return;
       var L = REC_STR[currentLang()];
-      var idx = CALC_REC_MAP[document.querySelector('#calcStep1 .calc-option-btn.selected') ?
-        document.querySelector('#calcStep1 .calc-option-btn.selected').dataset.value : 'other'];
-      var goCustom = (idx === -1) || calcState.multiplier >= 1.5;
+      var sel = document.querySelector('#calcStep1 .calc-option-btn.selected');
+      var pid = CALC_REC_MAP[sel ? sel.dataset.value : 'other'];
+      var pIdx = pid ? PRODUCTS.findIndex(function(p) { return p.id === pid; }) : -1;
+      var goCustom = (pIdx === -1) || calcState.multiplier >= 1.5;
       var html = '<div class="calc-recommend-label"><i class="fas fa-wand-magic-sparkles"></i> ' + L.label + '</div>';
       if (goCustom) {
         html += '<div class="calc-recommend-card">' +
@@ -1997,12 +2330,12 @@ footer { border-top: 1px solid var(--border); padding: 72px var(--side-pad) 36px
           '<div class="calc-recommend-actions"><a href="#custom" class="btn btn-primary">' + L.custom + '</a></div>' +
         '</div>';
       } else {
-        var t = templates[idx];
+        var p = PRODUCTS[pIdx];
         html += '<div class="calc-recommend-card">' +
-          '<div class="calc-recommend-swatch" style="background:' + t.gradient + '"></div>' +
-          '<div class="calc-recommend-body"><h4>' + t.name + ' — ' + t.price + '</h4><p>' + L.tplDesc + '</p></div>' +
+          '<div class="calc-recommend-swatch" style="background:linear-gradient(135deg,' + p.accent + ',' + p.accent2 + ')"></div>' +
+          '<div class="calc-recommend-body"><h4>' + p.name + ' — ' + p.price + '</h4><p>' + L.tplDesc + '</p></div>' +
           '<div class="calc-recommend-actions">' +
-            '<button type="button" class="btn btn-primary" onclick="openModal(' + idx + ')">' + L.view + '</button>' +
+            '<button type="button" class="btn btn-primary" onclick="scSelect(' + pIdx + ', true)">' + L.view + '</button>' +
             '<a href="#custom" class="btn btn-ghost">' + L.custom + '</a>' +
           '</div>' +
         '</div>';
@@ -2304,9 +2637,8 @@ footer { border-top: 1px solid var(--border); padding: 72px var(--side-pad) 36px
         b.classList.toggle('active', on);
         b.setAttribute('aria-pressed', on);
       });
-      // Re-render generated content so outcome lines follow the language
-      var grid = document.getElementById('marketplaceGrid');
-      if (grid && grid.children.length) { renderTemplates(); filterTemplates(); }
+      // Re-render the products showcase so its content follows the language
+      if (window.showcaseRender) window.showcaseRender();
       try { localStorage.setItem('ogt-lang', lang); } catch (e) {}
     }
 
@@ -2398,7 +2730,7 @@ footer { border-top: 1px solid var(--border); padding: 72px var(--side-pad) 36px
        INIT
        ============================================================ */
     document.addEventListener('DOMContentLoaded', function() {
-      renderTemplates();
+      initShowcase();
       initCalculator();
       initHub();
       initBASlider();
@@ -2504,48 +2836,9 @@ footer { border-top: 1px solid var(--border); padding: 72px var(--side-pad) 36px
       var initialLang = urlLang || savedLang;
       if (initialLang === 'en') setLang('en');
 
-      // Marketplace filters
-      var filterBtns = document.querySelectorAll('.filter-btn');
-      filterBtns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          filterBtns.forEach(function(b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-          filterTemplates();
-        });
-      });
-      var searchInput = document.getElementById('templateSearch');
-      if (searchInput) searchInput.addEventListener('input', filterTemplates);
-
-      // Marketplace card click → modal
-      var grid = document.getElementById('marketplaceGrid');
-      if (grid) {
-        grid.addEventListener('click', function(e) {
-          var card = e.target.closest('.template-card');
-          if (!card) return;
-          var idx = parseInt(card.dataset.idx);
-          if (!isNaN(idx)) openModal(idx);
-        });
-      }
-
-      // Modal close
-      var modalClose = document.querySelector('.modal-close');
-      if (modalClose) modalClose.addEventListener('click', closeModal);
-      var modal = document.getElementById('templateModal');
-      if (modal) {
-        modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
-      }
+      // Close mobile nav on Escape (showcase wiring lives in initShowcase)
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') { closeModal(); closeMobile(); }
-      });
-
-      // Modal device tabs
-      document.querySelectorAll('.device-tab').forEach(function(tab) {
-        tab.addEventListener('click', function() {
-          document.querySelectorAll('.device-tab').forEach(function(t) { t.classList.remove('active'); });
-          tab.classList.add('active');
-          var frame = document.getElementById('deviceFrame');
-          frame.className = 'device-frame ' + tab.dataset.device;
-        });
+        if (e.key === 'Escape') { closeMobile(); }
       });
     });
   </script>
