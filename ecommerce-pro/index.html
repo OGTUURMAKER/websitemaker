@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>НЭХЭЭ. — Монгол ноолуур, орчин үеийн дизайн | Ecommerce Pro Template</title>
+  <meta name="description" content="НЭХЭЭ. — цэвэр монгол ноолуур, хонин ноосон бүтээгдэхүүн. Цамц, пальто, ороолт, гэр ахуй. Үнэгүй хүргэлт, 30 хоногийн буцаалт.">
+  <meta property="og:title" content="НЭХЭЭ. — Монгол ноолуур">
+  <meta property="og:description" content="Цэвэр ноолуур, орчин үеийн дизайн. Өвлийн шинэ цуглуулга.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="mn_MN">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "НЭХЭЭ.",
+    "description": "Монгол ноолуур, хонин ноосон бүтээгдэхүүн",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ulaanbaatar", "addressCountry": "MN" },
+    "telephone": "+976-7755-0000"
+  }
+  </script>
+  <style>
+/* ============================================================
+   ECOMMERCE PRO — Boutique retail
+   Warm cream · plum ink · vivid berry · Fraunces + DM Sans
+   Product-first, quick-view + live cart drawer.
+   (Distinct from Business / Clinic / Restaurant / Portfolio)
+   ============================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+:root {
+  --bg: #f6f1ea;
+  --surface: #ffffff;
+  --ink: #281e28;
+  --ink-2: #6a5d66;
+  --ink-3: #9c8f97;
+  --line: #e8ded3;
+  --line-2: #ddd0c2;
+  --berry: #e0467a;
+  --berry-deep: #c33763;
+  --berry-tint: #fbe7ef;
+  --plum: #4a2f52;
+  --sage: #e7ede2; --sky: #e2edf2; --blush: #f7e5ec; --sand: #f1e8d8; --lilac: #ece5f3;
+  --ok: #4a9d6e;
+  --display: 'Fraunces', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --pad: clamp(18px, 4vw, 56px);
+  --sect: clamp(70px, 9vw, 130px);
+  --r: 18px;
+}
+body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; }
+::selection { background: var(--berry-tint); }
+
+/* type */
+.ey { font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--berry-deep); }
+.dsp { font-family: var(--display); font-weight: 500; line-height: 1.04; letter-spacing: -0.015em; }
+.section { padding: var(--sect) var(--pad); }
+.wrap { max-width: 1280px; margin: 0 auto; }
+.sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: clamp(32px, 4vw, 56px); flex-wrap: wrap; }
+.sec-head h2 { font-family: var(--display); font-weight: 500; font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1.05; }
+.sec-head h2 em { font-style: italic; color: var(--berry-deep); }
+.sec-head .link { font-size: .86rem; font-weight: 600; color: var(--ink); display: inline-flex; align-items: center; gap: 8px; border-bottom: 1.5px solid var(--ink); padding-bottom: 3px; transition: gap .3s, color .3s; }
+.sec-head .link:hover { gap: 13px; color: var(--berry-deep); border-color: var(--berry-deep); }
+
+/* reveal */
+[data-r] { opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+[data-r].in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001s !important; transition-duration: .001s !important; }
+  [data-r] { opacity: 1 !important; transform: none !important; }
+}
+
+/* product imagery — pastel tinted stand-ins.
+   TEMPLATE NOTE: replace .pimg backgrounds with real product photos. */
+.pimg { position: relative; overflow: hidden; background: var(--sand); display: flex; align-items: center; justify-content: center; }
+.pimg .pi-ic { font-size: 3rem; color: rgba(40,30,40,0.32); transition: transform .7s var(--ease); }
+.pimg.t-sage { background: var(--sage); } .pimg.t-sky { background: var(--sky); }
+.pimg.t-blush { background: var(--blush); } .pimg.t-sand { background: var(--sand); }
+.pimg.t-lilac { background: var(--lilac); }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--sans); font-size: .86rem; font-weight: 600; padding: 15px 30px; border-radius: 100px; cursor: pointer; border: none; transition: all .35s var(--ease); }
+.btn-berry { background: var(--berry); color: #fff; }
+.btn-berry:hover { background: var(--berry-deep); transform: translateY(-2px); }
+.btn-ink { background: var(--ink); color: #fff; }
+.btn-ink:hover { background: var(--plum); transform: translateY(-2px); }
+.btn-out { background: transparent; color: var(--ink); border: 1.5px solid var(--line-2); }
+.btn-out:hover { border-color: var(--ink); }
+.btn-block { width: 100%; }
+
+/* ---- announcement ---- */
+.announce { background: var(--ink); color: #fff; text-align: center; font-size: .76rem; font-weight: 500; letter-spacing: .04em; padding: 9px var(--pad); }
+.announce i { color: var(--berry); margin-right: 7px; }
+
+/* ---- nav ---- */
+nav { position: sticky; top: 0; z-index: 900; background: rgba(246,241,234,0.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid transparent; transition: border-color .3s; }
+nav.on { border-color: var(--line); }
+.nav-in { max-width: 1280px; margin: 0 auto; padding: 16px var(--pad); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-size: .85rem; font-weight: 500; color: var(--ink-2); transition: color .3s; }
+.nav-links a:hover { color: var(--berry-deep); }
+.nav-logo { font-family: var(--display); font-weight: 600; font-size: 1.6rem; letter-spacing: .02em; text-align: center; }
+.nav-logo span { color: var(--berry); }
+.nav-tools { display: flex; justify-content: flex-end; align-items: center; gap: 8px; }
+.nav-tool { width: 42px; height: 42px; border-radius: 50%; border: none; background: transparent; color: var(--ink); font-size: 1rem; cursor: pointer; position: relative; transition: background .3s; display: flex; align-items: center; justify-content: center; }
+.nav-tool:hover { background: var(--surface); }
+.cart-count { position: absolute; top: 4px; right: 4px; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 100px; background: var(--berry); color: #fff; font-size: .62rem; font-weight: 700; display: flex; align-items: center; justify-content: center; transform: scale(0); transition: transform .35s var(--ease); }
+.cart-count.show { transform: scale(1); }
+.burger { display: none; }
+
+/* ---- hero — promo banner ---- */
+.hero { padding: clamp(20px,3vw,40px) var(--pad) 0; }
+.hero-banner { max-width: 1280px; margin: 0 auto; position: relative; border-radius: 28px; overflow: hidden; min-height: clamp(440px, 60vh, 600px); display: flex; align-items: center; background: linear-gradient(115deg, #efe6da 0%, #f3e6ec 50%, #e6e9f2 100%); }
+.hero-banner::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 78% 50%, rgba(224,70,122,0.12), transparent 55%); }
+.hero-text { position: relative; z-index: 2; padding: clamp(32px, 5vw, 72px); max-width: 580px; }
+.hero-text .ey { margin-bottom: 18px; display: block; }
+.hero-text h1 { font-family: var(--display); font-weight: 500; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 0.98; letter-spacing: -0.02em; margin-bottom: 22px; }
+.hero-text h1 em { font-style: italic; color: var(--berry-deep); }
+.hero-text p { font-size: 1.05rem; color: var(--ink-2); max-width: 400px; margin-bottom: 32px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.hero-rating { display: flex; align-items: center; gap: 10px; font-size: .82rem; color: var(--ink-2); }
+.hero-rating .stars { color: #e8a13c; letter-spacing: 1px; }
+/* floating featured product card */
+.hero-fp { position: absolute; right: clamp(20px,3vw,46px); bottom: clamp(20px,3vw,46px); z-index: 3; width: 250px; background: var(--surface); border-radius: var(--r); padding: 14px; box-shadow: 0 24px 60px rgba(40,30,40,0.16); display: flex; gap: 13px; align-items: center; }
+.hero-fp .pimg { width: 64px; height: 64px; border-radius: 12px; flex-shrink: 0; }
+.hero-fp .pimg .pi-ic { font-size: 1.5rem; }
+.hero-fp .fp-name { font-weight: 600; font-size: .86rem; }
+.hero-fp .fp-price { font-family: var(--display); font-weight: 600; color: var(--berry-deep); font-size: 1.05rem; }
+.hero-fp .fp-add { margin-left: auto; width: 38px; height: 38px; border-radius: 50%; background: var(--ink); color: #fff; border: none; cursor: pointer; flex-shrink: 0; transition: background .3s, transform .3s; }
+.hero-fp .fp-add:hover { background: var(--berry); transform: scale(1.08); }
+/* category pills strip */
+.cat-strip { max-width: 1280px; margin: 26px auto 0; display: flex; gap: 12px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
+.cat-strip::-webkit-scrollbar { display: none; }
+.cat-pill { flex-shrink: 0; display: inline-flex; align-items: center; gap: 9px; padding: 11px 22px; border-radius: 100px; background: var(--surface); border: 1px solid var(--line); font-size: .85rem; font-weight: 500; cursor: pointer; transition: all .3s; }
+.cat-pill:hover { border-color: var(--ink); transform: translateY(-2px); }
+.cat-pill i { color: var(--berry-deep); }
+
+/* ---- featured product (PDP) ---- */
+.pdp-in { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(28px, 4vw, 64px); align-items: start; }
+.pdp-gallery { position: sticky; top: 90px; }
+.pdp-main { border-radius: var(--r); aspect-ratio: 1/1; margin-bottom: 14px; }
+.pdp-main .pi-ic { font-size: 6rem; }
+.pdp-thumbs { display: flex; gap: 12px; }
+.pdp-thumb { width: 80px; height: 80px; border-radius: 12px; border: 2px solid transparent; cursor: pointer; transition: border-color .3s; }
+.pdp-thumb.on { border-color: var(--ink); }
+.pdp-thumb .pi-ic { font-size: 1.4rem; }
+.pdp-info .ey { display: block; margin-bottom: 14px; }
+.pdp-info h2 { font-family: var(--display); font-weight: 500; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.02; margin-bottom: 16px; }
+.pdp-rate { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; font-size: .85rem; color: var(--ink-2); }
+.pdp-rate .stars { color: #e8a13c; }
+.pdp-price { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; }
+.pdp-price .now { font-family: var(--display); font-weight: 600; font-size: 2rem; color: var(--ink); }
+.pdp-price .was { font-size: 1.1rem; color: var(--ink-3); text-decoration: line-through; }
+.pdp-price .save { font-size: .74rem; font-weight: 700; color: var(--berry-deep); background: var(--berry-tint); padding: 5px 11px; border-radius: 100px; }
+.pdp-desc { color: var(--ink-2); margin-bottom: 30px; max-width: 460px; }
+.opt-group { margin-bottom: 26px; }
+.opt-group .ol { font-size: .76rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 12px; }
+.swatches { display: flex; gap: 10px; }
+.swatch { width: 34px; height: 34px; border-radius: 50%; cursor: pointer; border: 2px solid var(--surface); box-shadow: 0 0 0 1px var(--line-2); transition: box-shadow .25s; }
+.swatch.on { box-shadow: 0 0 0 2px var(--ink); }
+.sizes { display: flex; gap: 10px; flex-wrap: wrap; }
+.size { min-width: 46px; padding: 11px 16px; border-radius: 12px; border: 1.5px solid var(--line-2); background: var(--surface); font-family: var(--sans); font-weight: 600; font-size: .86rem; cursor: pointer; transition: all .25s; }
+.size:hover { border-color: var(--ink); }
+.size.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+.pdp-buy { display: flex; gap: 14px; align-items: stretch; margin-bottom: 26px; }
+.qty { display: flex; align-items: center; border: 1.5px solid var(--line-2); border-radius: 100px; overflow: hidden; }
+.qty button { width: 46px; height: 100%; background: transparent; border: none; font-size: 1.1rem; cursor: pointer; color: var(--ink); transition: background .2s; }
+.qty button:hover { background: var(--bg); }
+.qty .qv { min-width: 36px; text-align: center; font-weight: 600; }
+.pdp-trust { display: flex; flex-direction: column; gap: 12px; border-top: 1px solid var(--line); padding-top: 24px; }
+.pdp-trust div { display: flex; gap: 12px; align-items: center; font-size: .88rem; color: var(--ink-2); }
+.pdp-trust i { color: var(--ok); width: 18px; }
+
+/* ---- categories — pastel blocks ---- */
+.cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.cat-block { border-radius: var(--r); padding: 30px 26px; min-height: 230px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; position: relative; overflow: hidden; transition: transform .45s var(--ease); }
+.cat-block:hover { transform: translateY(-6px); }
+.cat-block .pi-ic-lg { font-size: 2.6rem; color: rgba(40,30,40,0.34); align-self: flex-end; transition: transform .5s var(--ease); }
+.cat-block:hover .pi-ic-lg { transform: scale(1.15) rotate(-6deg); }
+.cat-block h3 { font-family: var(--display); font-weight: 600; font-size: 1.5rem; }
+.cat-block .cc { font-size: .8rem; color: var(--ink-2); margin-top: 4px; }
+.cat-block .go { font-size: .8rem; font-weight: 600; color: var(--ink); display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; transition: gap .3s; }
+.cat-block:hover .go { gap: 13px; }
+
+/* ---- product card (unique ecommerce card) ---- */
+.prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.prod { background: var(--surface); border-radius: var(--r); overflow: hidden; transition: box-shadow .4s var(--ease), transform .4s var(--ease); }
+.prod:hover { box-shadow: 0 22px 50px rgba(40,30,40,0.1); transform: translateY(-4px); }
+.prod-img { position: relative; aspect-ratio: 1/1; }
+.prod-img .pimg { position: absolute; inset: 0; }
+.prod:hover .prod-img .pi-ic { transform: scale(1.12) rotate(4deg); }
+.prod-badge { position: absolute; top: 14px; left: 14px; z-index: 2; font-size: .66rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 5px 11px; border-radius: 100px; }
+.prod-badge.new { background: var(--ink); color: #fff; }
+.prod-badge.sale { background: var(--berry); color: #fff; }
+.prod-wish { position: absolute; top: 12px; right: 12px; z-index: 2; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.85); border: none; cursor: pointer; color: var(--ink-2); transition: all .3s; }
+.prod-wish:hover { color: var(--berry); }
+.prod-wish.on { color: var(--berry); }
+.prod-overlay { position: absolute; left: 12px; right: 12px; bottom: 12px; z-index: 2; display: flex; gap: 8px; transform: translateY(calc(100% + 16px)); opacity: 0; transition: all .45s var(--ease); }
+.prod:hover .prod-overlay { transform: none; opacity: 1; }
+.prod-overlay .qv { flex: 1; background: rgba(255,255,255,0.95); color: var(--ink); border: none; border-radius: 100px; padding: 12px; font-family: var(--sans); font-weight: 600; font-size: .82rem; cursor: pointer; backdrop-filter: blur(6px); transition: background .3s; }
+.prod-overlay .qv:hover { background: #fff; }
+.prod-overlay .add { width: 46px; flex-shrink: 0; background: var(--ink); color: #fff; border: none; border-radius: 100px; cursor: pointer; transition: background .3s; }
+.prod-overlay .add:hover { background: var(--berry); }
+.prod-body { padding: 18px 18px 22px; }
+.prod-cat { font-size: .7rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px; }
+.prod-name { font-family: var(--display); font-weight: 500; font-size: 1.18rem; margin-bottom: 10px; }
+.prod-foot { display: flex; justify-content: space-between; align-items: center; }
+.prod-price { display: flex; align-items: baseline; gap: 8px; }
+.prod-price .now { font-weight: 700; font-size: 1.05rem; }
+.prod-price .was { font-size: .82rem; color: var(--ink-3); text-decoration: line-through; }
+.prod-swatches { display: flex; gap: 5px; }
+.prod-swatches .sw { width: 14px; height: 14px; border-radius: 50%; box-shadow: 0 0 0 1px var(--line-2); }
+.prod-stars { font-size: .72rem; color: #e8a13c; }
+
+/* ---- reviews ---- */
+.rev-in { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(30px,4vw,64px); align-items: start; }
+.rev-summary { background: var(--surface); border-radius: var(--r); padding: 36px; text-align: center; position: sticky; top: 90px; }
+.rev-summary .big { font-family: var(--display); font-weight: 600; font-size: 4rem; line-height: 1; }
+.rev-summary .stars { color: #e8a13c; font-size: 1.1rem; letter-spacing: 2px; margin: 12px 0; }
+.rev-summary .cnt { font-size: .86rem; color: var(--ink-2); }
+.rev-bars { margin-top: 26px; display: flex; flex-direction: column; gap: 9px; }
+.rev-bar { display: flex; align-items: center; gap: 10px; font-size: .76rem; color: var(--ink-2); }
+.rev-bar .track { flex: 1; height: 6px; background: var(--bg); border-radius: 100px; overflow: hidden; }
+.rev-bar .track span { display: block; height: 100%; background: #e8a13c; border-radius: 100px; }
+.rev-list { display: flex; flex-direction: column; gap: 16px; }
+.rev-card { background: var(--surface); border-radius: var(--r); padding: 26px; }
+.rev-card .rc-top { display: flex; align-items: center; gap: 13px; margin-bottom: 14px; }
+.rev-card .rc-av { width: 44px; height: 44px; border-radius: 50%; background: var(--lilac); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 600; color: var(--plum); }
+.rev-card .rc-nm { font-weight: 600; font-size: .92rem; }
+.rev-card .rc-vb { font-size: .72rem; color: var(--ok); display: flex; align-items: center; gap: 5px; }
+.rev-card .rc-stars { color: #e8a13c; font-size: .8rem; margin-left: auto; }
+.rev-card p { color: var(--ink-2); font-size: .94rem; }
+.rev-card .rc-prod { font-size: .76rem; color: var(--ink-3); margin-top: 12px; }
+
+/* ---- benefits ---- */
+.ben-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.ben { text-align: center; padding: 36px 24px; border-radius: var(--r); background: var(--surface); }
+.ben i { font-size: 1.6rem; color: var(--berry-deep); margin-bottom: 16px; }
+.ben h3 { font-family: var(--display); font-weight: 600; font-size: 1.15rem; margin-bottom: 6px; }
+.ben p { font-size: .82rem; color: var(--ink-2); }
+
+/* ---- checkout CTA ---- */
+.cta-band { max-width: 1280px; margin: 0 auto; border-radius: 28px; background: var(--ink); color: #fff; padding: clamp(40px,6vw,80px); text-align: center; position: relative; overflow: hidden; }
+.cta-band::before { content: ''; position: absolute; top: -30%; right: -10%; width: 50%; height: 160%; background: radial-gradient(circle, rgba(224,70,122,0.3), transparent 60%); }
+.cta-band .ey { color: var(--berry); position: relative; }
+.cta-band h2 { font-family: var(--display); font-weight: 500; font-size: clamp(2rem,5vw,3.6rem); line-height: 1.04; margin: 16px 0 22px; position: relative; }
+.cta-band p { color: rgba(255,255,255,0.7); max-width: 440px; margin: 0 auto 32px; position: relative; }
+.cta-band .btn { position: relative; }
+
+/* ---- footer ---- */
+footer { background: var(--surface); border-top: 1px solid var(--line); padding: 64px var(--pad) 30px; }
+.f-in { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.4fr; gap: 40px; }
+.f-logo { font-family: var(--display); font-weight: 600; font-size: 1.6rem; margin-bottom: 14px; }
+.f-logo span { color: var(--berry); }
+.f-brand p { font-size: .86rem; color: var(--ink-2); max-width: 260px; }
+.f-col h4 { font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); margin-bottom: 18px; }
+.f-col a { display: block; font-size: .86rem; color: var(--ink-2); padding: 6px 0; transition: color .3s; }
+.f-col a:hover { color: var(--berry-deep); }
+.f-news p { font-size: .86rem; color: var(--ink-2); margin-bottom: 16px; }
+.f-news form { display: flex; gap: 8px; }
+.f-news input { flex: 1; padding: 13px 16px; border-radius: 100px; border: 1px solid var(--line-2); background: var(--bg); font-family: var(--sans); font-size: .86rem; outline: none; }
+.f-news input:focus { border-color: var(--ink); }
+.f-news button { width: 48px; border-radius: 50%; background: var(--ink); color: #fff; border: none; cursor: pointer; flex-shrink: 0; transition: background .3s; }
+.f-news button:hover { background: var(--berry); }
+.f-base { max-width: 1280px; margin: 48px auto 0; padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; font-size: .76rem; color: var(--ink-3); }
+
+/* ---- cart drawer ---- */
+.scrim { position: fixed; inset: 0; z-index: 1500; background: rgba(40,30,40,0.4); opacity: 0; pointer-events: none; transition: opacity .4s; }
+.scrim.show { opacity: 1; pointer-events: auto; }
+.cart { position: fixed; top: 0; right: 0; bottom: 0; z-index: 1600; width: min(420px, 92vw); background: var(--bg); display: flex; flex-direction: column; transform: translateX(100%); transition: transform .5s var(--ease); }
+.cart.open { transform: none; }
+.cart-head { display: flex; justify-content: space-between; align-items: center; padding: 24px; border-bottom: 1px solid var(--line); }
+.cart-head h3 { font-family: var(--display); font-weight: 600; font-size: 1.4rem; }
+.cart-head button { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--ink); }
+.cart-items { flex: 1; overflow-y: auto; padding: 16px 24px; display: flex; flex-direction: column; gap: 14px; }
+.cart-empty { text-align: center; color: var(--ink-3); padding: 60px 20px; }
+.cart-empty i { font-size: 2.4rem; margin-bottom: 16px; display: block; opacity: .5; }
+.ci { display: flex; gap: 14px; background: var(--surface); border-radius: 14px; padding: 12px; }
+.ci .pimg { width: 70px; height: 70px; border-radius: 10px; flex-shrink: 0; }
+.ci .pimg .pi-ic { font-size: 1.4rem; }
+.ci-body { flex: 1; min-width: 0; }
+.ci-name { font-weight: 600; font-size: .9rem; }
+.ci-var { font-size: .74rem; color: var(--ink-3); margin: 2px 0 8px; }
+.ci-bot { display: flex; justify-content: space-between; align-items: center; }
+.ci-qty { display: flex; align-items: center; gap: 4px; border: 1px solid var(--line-2); border-radius: 100px; }
+.ci-qty button { width: 28px; height: 28px; background: none; border: none; cursor: pointer; color: var(--ink); font-size: .9rem; }
+.ci-qty .v { min-width: 22px; text-align: center; font-size: .82rem; font-weight: 600; }
+.ci-price { font-weight: 700; font-size: .92rem; }
+.ci-rm { background: none; border: none; color: var(--ink-3); cursor: pointer; font-size: .8rem; align-self: flex-start; transition: color .3s; }
+.ci-rm:hover { color: var(--berry); }
+.cart-foot { padding: 22px 24px calc(22px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
+.cart-sub { display: flex; justify-content: space-between; margin-bottom: 6px; font-weight: 600; }
+.cart-sub .s-amt { font-family: var(--display); font-weight: 600; font-size: 1.4rem; }
+.cart-ship { font-size: .78rem; color: var(--ink-2); margin-bottom: 18px; }
+.cart-ship b { color: var(--ok); }
+
+/* ---- quick view modal ---- */
+.qv-modal { position: fixed; inset: 0; z-index: 1700; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity .4s; }
+.qv-modal.open { opacity: 1; pointer-events: auto; }
+.qv-box { width: min(820px, 100%); max-height: 90vh; overflow-y: auto; background: var(--bg); border-radius: 22px; display: grid; grid-template-columns: 1fr 1fr; transform: translateY(20px) scale(.98); transition: transform .5s var(--ease); }
+.qv-modal.open .qv-box { transform: none; }
+.qv-img { position: relative; min-height: 320px; }
+.qv-img .pimg { position: absolute; inset: 0; border-radius: 22px 0 0 22px; }
+.qv-img .pi-ic { font-size: 4.5rem; }
+.qv-close { position: absolute; top: 16px; right: 16px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.85); border: none; cursor: pointer; font-size: 1rem; }
+.qv-info { padding: clamp(24px,3vw,40px); }
+.qv-info .prod-cat { margin-bottom: 8px; }
+.qv-info h3 { font-family: var(--display); font-weight: 500; font-size: 1.9rem; margin-bottom: 12px; }
+.qv-info .qv-price { display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px; }
+.qv-info .qv-price .now { font-family: var(--display); font-weight: 600; font-size: 1.6rem; }
+.qv-info .qv-price .was { color: var(--ink-3); text-decoration: line-through; }
+.qv-info p { font-size: .9rem; color: var(--ink-2); margin-bottom: 22px; }
+
+/* ---- toast ---- */
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 30px); z-index: 2000; background: var(--ink); color: #fff; padding: 14px 24px; border-radius: 100px; font-size: .86rem; font-weight: 500; display: flex; align-items: center; gap: 10px; opacity: 0; pointer-events: none; transition: all .4s var(--ease); box-shadow: 0 16px 40px rgba(40,30,40,0.3); }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+.toast i { color: var(--ok); }
+
+/* ---- responsive ---- */
+@media (max-width: 1024px) {
+  .prod-grid { grid-template-columns: repeat(3, 1fr); }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .ben-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .nav-in { grid-template-columns: auto 1fr auto; }
+  .nav-logo { text-align: left; }
+  .burger { display: flex; align-items: center; justify-content: center; }
+  .pdp-in { grid-template-columns: 1fr; }
+  .pdp-gallery { position: static; }
+  .rev-in { grid-template-columns: 1fr; }
+  .rev-summary { position: static; }
+  .hero-fp { display: none; }
+  .qv-box { grid-template-columns: 1fr; }
+  .qv-img { min-height: 220px; }
+  .qv-img .pimg { border-radius: 22px 22px 0 0; }
+}
+@media (max-width: 600px) {
+  .prod-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .cat-grid, .ben-grid { grid-template-columns: 1fr; }
+  .f-in { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .prod-overlay { transform: none; opacity: 1; }
+}
+  </style>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT -->
+  <div class="announce"><i class="fas fa-truck-fast"></i> Үнэгүй хүргэлт 200,000₮-с дээш захиалгад · 30 хоногийн буцаалт</div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-in">
+      <div class="nav-links">
+        <a href="#bestsellers">Шинэ</a>
+        <a href="#categories">Хувцас</a>
+        <a href="#featured">Ноолуур</a>
+        <a href="#categories">Гэр ахуй</a>
+      </div>
+      <a href="#top" class="nav-logo">НЭХЭЭ<span>.</span></a>
+      <div class="nav-tools">
+        <button class="nav-tool" aria-label="Хайх"><i class="fas fa-search"></i></button>
+        <button class="nav-tool" aria-label="Дуртай"><i class="fas fa-heart"></i></button>
+        <button class="nav-tool burger" id="cartBtn" aria-label="Сагс"><i class="fas fa-bag-shopping"></i><span class="cart-count" id="cartCount">0</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-banner" data-r>
+      <div class="hero-text">
+        <span class="ey">Өвөл 2026 · Шинэ цуглуулга</span>
+        <h1>Дулаахан, <em>зөөлхөн</em>, монгол.</h1>
+        <p>Цэвэр Говийн ноолуураар сүлжсэн, орчин үеийн дизайнтай бүтээгдэхүүн.</p>
+        <div class="hero-actions">
+          <a href="#bestsellers" class="btn btn-ink">Дэлгүүр үзэх <i class="fas fa-arrow-right"></i></a>
+          <div class="hero-rating"><span class="stars">★★★★★</span> 4.9 · 1,200+ үнэлгээ</div>
+        </div>
+      </div>
+      <!-- floating featured product -->
+      <div class="hero-fp">
+        <div class="pimg t-blush"><span class="pi-ic"><i class="fas fa-mitten"></i></span></div>
+        <div>
+          <div class="fp-name">Ноолуур ороолт</div>
+          <div class="fp-price">120,000₮</div>
+        </div>
+        <button class="fp-add" data-add="2" aria-label="Сагсанд хийх"><i class="fas fa-plus"></i></button>
+      </div>
+    </div>
+    <!-- category quick-strip -->
+    <div class="cat-strip">
+      <button class="cat-pill"><i class="fas fa-shirt"></i> Цамц & Цэмбэ</button>
+      <button class="cat-pill"><i class="fas fa-mitten"></i> Ороолт & Малгай</button>
+      <button class="cat-pill"><i class="fas fa-vest"></i> Пальто</button>
+      <button class="cat-pill"><i class="fas fa-bed"></i> Гэр ахуй</button>
+      <button class="cat-pill"><i class="fas fa-socks"></i> Оймс & Нэмэлт</button>
+      <button class="cat-pill"><i class="fas fa-tag"></i> Хямдрал</button>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED PRODUCT (PDP) ============ -->
+  <section class="section" id="featured">
+    <div class="wrap pdp-in">
+      <div class="pdp-gallery" data-r>
+        <div class="pimg t-sand pdp-main" id="pdpMain"><span class="pi-ic"><i class="fas fa-shirt"></i></span></div>
+        <div class="pdp-thumbs" id="pdpThumbs">
+          <div class="pimg t-sand pdp-thumb on"><span class="pi-ic"><i class="fas fa-shirt"></i></span></div>
+          <div class="pimg t-blush pdp-thumb"><span class="pi-ic"><i class="fas fa-shirt"></i></span></div>
+          <div class="pimg t-sage pdp-thumb"><span class="pi-ic"><i class="fas fa-shirt"></i></span></div>
+          <div class="pimg t-sky pdp-thumb"><span class="pi-ic"><i class="fas fa-shirt"></i></span></div>
+        </div>
+      </div>
+      <div class="pdp-info" data-r>
+        <span class="ey">Онцлох бүтээгдэхүүн</span>
+        <h2>Цэвэр ноолуур цамц</h2>
+        <div class="pdp-rate"><span class="stars">★★★★★</span> 4.9 · 328 үнэлгээ</div>
+        <div class="pdp-price">
+          <span class="now">289,000₮</span>
+          <span class="was">340,000₮</span>
+          <span class="save">−15%</span>
+        </div>
+        <p class="pdp-desc">100% Говийн ноолуураар сүлжсэн, хөнгөн бөгөөд маш дулаахан. Арьсанд ээлтэй, биед таатай. Улирал бүр өмсөх боломжтой сонгодог загвар.</p>
+        <div class="opt-group">
+          <div class="ol">Өнгө: <span id="pdpColorName">Элсэн шаргал</span></div>
+          <div class="swatches" id="pdpSwatches">
+            <span class="swatch on" style="background:#d9c4a3" data-c="Элсэн шаргал"></span>
+            <span class="swatch" style="background:#c98aa0" data-c="Сарнайн ягаан"></span>
+            <span class="swatch" style="background:#9fb39a" data-c="Уулын ногоон"></span>
+            <span class="swatch" style="background:#8ba3bf" data-c="Тэнгэрийн цэнхэр"></span>
+          </div>
+        </div>
+        <div class="opt-group">
+          <div class="ol">Хэмжээ</div>
+          <div class="sizes" id="pdpSizes">
+            <button class="size">XS</button>
+            <button class="size on">S</button>
+            <button class="size">M</button>
+            <button class="size">L</button>
+            <button class="size">XL</button>
+          </div>
+        </div>
+        <div class="pdp-buy">
+          <div class="qty">
+            <button id="pdpQMinus" aria-label="Хасах">−</button>
+            <span class="qv" id="pdpQ">1</span>
+            <button id="pdpQPlus" aria-label="Нэмэх">+</button>
+          </div>
+          <button class="btn btn-berry" style="flex:1" id="pdpAdd"><i class="fas fa-bag-shopping"></i> Сагсанд хийх</button>
+        </div>
+        <div class="pdp-trust">
+          <div><i class="fas fa-check-circle"></i> Жинхэнэ ноолуур — баталгаатай</div>
+          <div><i class="fas fa-truck-fast"></i> 24–48 цагт хүргэнэ</div>
+          <div><i class="fas fa-rotate-left"></i> 30 хоногийн дотор үнэгүй буцаалт</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CATEGORIES ============ -->
+  <section class="section" id="categories" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head" data-r>
+        <div><span class="ey">Ангилал</span><h2>Юу <em>хайж</em> байна вэ?</h2></div>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-block" style="background:var(--sand)" data-r>
+          <div><h3>Цамц & Цэмбэ</h3><div class="cc">24 бүтээгдэхүүн</div></div>
+          <span class="go">Үзэх <i class="fas fa-arrow-right"></i></span>
+          <i class="fas fa-shirt pi-ic-lg"></i>
+        </div>
+        <div class="cat-block" style="background:var(--blush)" data-r>
+          <div><h3>Ороолт & Малгай</h3><div class="cc">18 бүтээгдэхүүн</div></div>
+          <span class="go">Үзэх <i class="fas fa-arrow-right"></i></span>
+          <i class="fas fa-mitten pi-ic-lg"></i>
+        </div>
+        <div class="cat-block" style="background:var(--sage)" data-r>
+          <div><h3>Пальто & Хүрэм</h3><div class="cc">12 бүтээгдэхүүн</div></div>
+          <span class="go">Үзэх <i class="fas fa-arrow-right"></i></span>
+          <i class="fas fa-vest pi-ic-lg"></i>
+        </div>
+        <div class="cat-block" style="background:var(--lilac)" data-r>
+          <div><h3>Гэр ахуй</h3><div class="cc">16 бүтээгдэхүүн</div></div>
+          <span class="go">Үзэх <i class="fas fa-arrow-right"></i></span>
+          <i class="fas fa-bed pi-ic-lg"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEST SELLERS ============ -->
+  <section class="section" id="bestsellers" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head" data-r>
+        <div><span class="ey">Хамгийн их зарагдсан</span><h2>Бестселлер <em>цуглуулга</em></h2></div>
+        <a href="#" class="link">Бүгдийг үзэх <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="prod-grid" id="prodGrid" data-r></div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="section" id="reviews" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head" data-r>
+        <div><span class="ey">Үнэлгээ</span><h2>Үйлчлүүлэгчид <em>дуртай</em></h2></div>
+      </div>
+      <div class="rev-in">
+        <div class="rev-summary" data-r>
+          <div class="big">4.9</div>
+          <div class="stars">★★★★★</div>
+          <div class="cnt">1,243 баталгаажсан үнэлгээ</div>
+          <div class="rev-bars">
+            <div class="rev-bar">5★ <div class="track"><span style="width:88%"></span></div> 88%</div>
+            <div class="rev-bar">4★ <div class="track"><span style="width:9%"></span></div> 9%</div>
+            <div class="rev-bar">3★ <div class="track"><span style="width:2%"></span></div> 2%</div>
+            <div class="rev-bar">2★ <div class="track"><span style="width:1%"></span></div> 1%</div>
+            <div class="rev-bar">1★ <div class="track"><span style="width:0%"></span></div> 0%</div>
+          </div>
+        </div>
+        <div class="rev-list">
+          <div class="rev-card" data-r>
+            <div class="rc-top"><div class="rc-av">С</div><div><div class="rc-nm">Сарангэрэл Б.</div><div class="rc-vb"><i class="fas fa-circle-check"></i> Баталгаажсан худалдан авагч</div></div><div class="rc-stars">★★★★★</div></div>
+            <p>"Цамц үнэхээр зөөлөн, дулаахан. Угаасны дараа ч хэлбэрээ алдаагүй. Өнгө нь зурган дээрхтэй яг адилхан."</p>
+            <div class="rc-prod">Цэвэр ноолуур цамц · Элсэн шаргал</div>
+          </div>
+          <div class="rev-card" data-r>
+            <div class="rc-top"><div class="rc-av">Б</div><div><div class="rc-nm">Болормаа Д.</div><div class="rc-vb"><i class="fas fa-circle-check"></i> Баталгаажсан худалдан авагч</div></div><div class="rc-stars">★★★★★</div></div>
+            <p>"Хүргэлт маргааш нь ирсэн. Сав баглаа нь хүртэл гоё. Бэлэгт авсан хүн маань үнэхээр баярласан."</p>
+            <div class="rc-prod">Ноолуур ороолт · Сарнайн ягаан</div>
+          </div>
+          <div class="rev-card" data-r>
+            <div class="rc-top"><div class="rc-av">Т</div><div><div class="rc-nm">Тэмүүлэн Г.</div><div class="rc-vb"><i class="fas fa-circle-check"></i> Баталгаажсан худалдан авагч</div></div><div class="rc-stars">★★★★☆</div></div>
+            <p>"Чанар маш сайн. Хэмжээ багавтар санагдсан тул нэг дугаар томыг нь авбал зүгээр. Буцаалт ч хялбар байсан."</p>
+            <div class="rc-prod">Хонин ноосон пальто · Нүүрсэн саарал</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BENEFITS ============ -->
+  <section class="section" id="benefits" style="padding-top:0">
+    <div class="wrap ben-grid">
+      <div class="ben" data-r><i class="fas fa-truck-fast"></i><h3>Үнэгүй хүргэлт</h3><p>200,000₮-с дээш захиалгад үнэгүй</p></div>
+      <div class="ben" data-r><i class="fas fa-rotate-left"></i><h3>Хялбар буцаалт</h3><p>30 хоногийн дотор асуудалгүй</p></div>
+      <div class="ben" data-r><i class="fas fa-seedling"></i><h3>Жинхэнэ ноолуур</h3><p>100% Говийн цэвэр түүхий эд</p></div>
+      <div class="ben" data-r><i class="fas fa-shield-halved"></i><h3>Найдвартай төлбөр</h3><p>Хамгаалагдсан гүйлгээ</p></div>
+    </div>
+  </section>
+
+  <!-- ============ CHECKOUT CTA ============ -->
+  <section class="section" id="cta" style="padding-top:0">
+    <div class="cta-band" data-r>
+      <span class="ey">Бэлэн үү?</span>
+      <h2>Дулаахан өвлийг<br>сагсандаа хийгээрэй.</h2>
+      <p>Эхний захиалгад <b style="color:#fff">−10%</b>. Шинэ цуглуулга хязгаарлагдмал тоогоор.</p>
+      <button class="btn btn-berry" id="ctaShop"><i class="fas fa-bag-shopping"></i> Худалдан авалт эхлүүлэх</button>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-in">
+      <div class="f-brand">
+        <div class="f-logo">НЭХЭЭ<span>.</span></div>
+        <p>Монгол ноолуур, орчин үеийн дизайн. Говийн цэвэр түүхий эдээр гар аргаар бэлтгэв.</p>
+      </div>
+      <div class="f-col">
+        <h4>Дэлгүүр</h4>
+        <a href="#bestsellers">Шинэ бүтээгдэхүүн</a>
+        <a href="#categories">Ангилал</a>
+        <a href="#bestsellers">Бестселлер</a>
+        <a href="#">Хямдрал</a>
+      </div>
+      <div class="f-col">
+        <h4>Тусламж</h4>
+        <a href="#">Хүргэлт</a>
+        <a href="#">Буцаалт</a>
+        <a href="#">Хэмжээний заавар</a>
+        <a href="#">Холбоо барих</a>
+      </div>
+      <div class="f-news">
+        <h4>Имэйл захиалга</h4>
+        <p>Шинэ цуглуулга, онцгой саналыг хамгийн түрүүнд аваарай.</p>
+        <form id="newsForm">
+          <input type="email" placeholder="Имэйл хаяг" aria-label="Имэйл" required>
+          <button type="submit" aria-label="Бүртгүүлэх"><i class="fas fa-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="f-base">
+      <span>© 2026 НЭХЭЭ. Бүх эрх хуулиар хамгаалагдсан.</span>
+      <span>Ecommerce Pro загвар — OGT UUR студи</span>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div class="scrim" id="scrim"></div>
+  <aside class="cart" id="cart" aria-label="Сагс">
+    <div class="cart-head">
+      <h3>Таны сагс (<span id="cartQty">0</span>)</h3>
+      <button id="cartClose" aria-label="Хаах"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot" id="cartFoot" style="display:none">
+      <div class="cart-sub"><span>Дүн</span><span class="s-amt" id="cartSub">0₮</span></div>
+      <div class="cart-ship" id="cartShip"></div>
+      <button class="btn btn-ink btn-block"><i class="fas fa-lock"></i> Төлбөр төлөх</button>
+    </div>
+  </aside>
+
+  <!-- QUICK VIEW -->
+  <div class="qv-modal" id="qvModal">
+    <div class="qv-box">
+      <div class="qv-img">
+        <div class="pimg" id="qvImg"><span class="pi-ic"></span></div>
+        <button class="qv-close" id="qvClose" aria-label="Хаах"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="qv-info">
+        <div class="prod-cat" id="qvCat"></div>
+        <h3 id="qvName"></h3>
+        <div class="qv-price"><span class="now" id="qvNow"></span><span class="was" id="qvWas"></span></div>
+        <p id="qvDesc"></p>
+        <div class="opt-group">
+          <div class="ol">Өнгө</div>
+          <div class="swatches" id="qvSwatches"></div>
+        </div>
+        <div class="opt-group">
+          <div class="ol">Хэмжээ</div>
+          <div class="sizes" id="qvSizes"></div>
+        </div>
+        <button class="btn btn-berry btn-block" id="qvAdd"><i class="fas fa-bag-shopping"></i> Сагсанд хийх</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"><i class="fas fa-circle-check"></i> <span id="toastMsg">Сагсанд нэмэгдлээ</span></div>
+
+  <script>
+    (function() {
+      'use strict';
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* reveal */
+      var io = new IntersectionObserver(function(es) {
+        es.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+      function obs(root) { (root || document).querySelectorAll('[data-r]:not(.in)').forEach(function(el) { io.observe(el); }); }
+
+      var nav = document.getElementById('nav');
+      window.addEventListener('scroll', function() { nav.classList.toggle('on', window.scrollY > 8); }, { passive: true });
+
+      function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '₮'; }
+
+      /* ============ PRODUCTS ============ */
+      var PRODUCTS = [
+        { id: 1, name: 'Цэвэр ноолуур цамц', cat: 'Цамц', price: 289000, old: 340000, tint: 't-sand', icon: 'fa-shirt', rating: 5, badge: 'sale',
+          colors: [['Элсэн шаргал','#d9c4a3'],['Сарнайн ягаан','#c98aa0'],['Уулын ногоон','#9fb39a']], sizes: ['S','M','L','XL'],
+          desc: '100% Говийн ноолуураар сүлжсэн, хөнгөн бөгөөд маш дулаахан сонгодог цамц.' },
+        { id: 2, name: 'Ноолуур ороолт', cat: 'Нэмэлт', price: 120000, old: 0, tint: 't-blush', icon: 'fa-mitten', rating: 5, badge: '',
+          colors: [['Сарнайн ягаан','#c98aa0'],['Цайвар саарал','#cfc9c2']], sizes: ['Стандарт'],
+          desc: 'Зөөлөн, том хэмжээтэй ороолт. Аль ч хувцастай зохицно.' },
+        { id: 3, name: 'Хонин ноосон пальто', cat: 'Пальто', price: 590000, old: 0, tint: 't-sage', icon: 'fa-vest', rating: 5, badge: 'new',
+          colors: [['Нүүрсэн саарал','#6f6a64'],['Хүрэн','#7a5240']], sizes: ['S','M','L','XL'],
+          desc: 'Сонгодог зүсэмтэй, дотроо дулаалгатай хонин ноосон пальто.' },
+        { id: 4, name: 'Ноолуур малгай', cat: 'Нэмэлт', price: 75000, old: 95000, tint: 't-lilac', icon: 'fa-hat-cowboy', rating: 4, badge: 'sale',
+          colors: [['Хар','#2b2730'],['Цэнхэр','#8ba3bf']], sizes: ['Стандарт'],
+          desc: 'Биед таатай суудаг, дулаахан өдөр тутмын малгай.' },
+        { id: 5, name: 'Ноолуур хөнжил', cat: 'Гэр ахуй', price: 380000, old: 0, tint: 't-sky', icon: 'fa-bed', rating: 5, badge: '',
+          colors: [['Цайвар саарал','#cfc9c2'],['Элсэн шаргал','#d9c4a3']], sizes: ['130×170см'],
+          desc: 'Зөөлөн, агаар нэвтрүүлэх чанартай, гэрийн тансаг хөнжил.' },
+        { id: 6, name: 'Ноосон оймс багц', cat: 'Нэмэлт', price: 45000, old: 0, tint: 't-sand', icon: 'fa-socks', rating: 4, badge: '',
+          colors: [['Холимог','#b4a98f']], sizes: ['36-39','40-43'],
+          desc: '3 хосын багц. Дулаахан, амьсгалдаг хонин ноосон оймс.' },
+        { id: 7, name: 'Кашемир кардиган', cat: 'Цамц', price: 420000, old: 0, tint: 't-blush', icon: 'fa-shirt', rating: 5, badge: 'new',
+          colors: [['Сүүн цагаан','#ece4d8'],['Уулын ногоон','#9fb39a']], sizes: ['S','M','L'],
+          desc: 'Урт зүсэмтэй, товчтой кашемир кардиган. Олон талт өмсөлт.' },
+        { id: 8, name: 'Эсгий гэрийн дэвсгэр', cat: 'Гэр ахуй', price: 250000, old: 290000, tint: 't-lilac', icon: 'fa-rug', rating: 5, badge: 'sale',
+          colors: [['Цайвар','#ddd3c4'],['Саарал','#9b948b']], sizes: ['60×90см','90×120см'],
+          desc: 'Гар аргаар хийсэн, байгальлаг эсгий дэвсгэр.' }
+      ];
+
+      var grid = document.getElementById('prodGrid');
+      grid.innerHTML = PRODUCTS.map(function(p) {
+        var swatches = p.colors.map(function(c) { return '<span class="sw" style="background:' + c[1] + '"></span>'; }).join('');
+        var stars = '★★★★★'.slice(0, p.rating) + '☆☆☆☆☆'.slice(0, 5 - p.rating);
+        return '<article class="prod" data-id="' + p.id + '">' +
+          '<div class="prod-img">' +
+            '<div class="pimg ' + p.tint + '"><span class="pi-ic"><i class="fas ' + p.icon + '"></i></span></div>' +
+            (p.badge ? '<span class="prod-badge ' + p.badge + '">' + (p.badge === 'new' ? 'Шинэ' : 'Хямдрал') + '</span>' : '') +
+            '<button class="prod-wish" aria-label="Дуртай"><i class="fas fa-heart"></i></button>' +
+            '<div class="prod-overlay"><button class="qv" data-qv="' + p.id + '">Хурдан үзэх</button><button class="add" data-add="' + p.id + '" aria-label="Сагсанд хийх"><i class="fas fa-plus"></i></button></div>' +
+          '</div>' +
+          '<div class="prod-body">' +
+            '<div class="prod-cat">' + p.cat + '</div>' +
+            '<div class="prod-name">' + p.name + '</div>' +
+            '<div class="prod-foot">' +
+              '<div class="prod-price"><span class="now">' + fmt(p.price) + '</span>' + (p.old ? '<span class="was">' + fmt(p.old) + '</span>' : '') + '</div>' +
+              '<div class="prod-swatches">' + swatches + '</div>' +
+            '</div>' +
+            '<div class="prod-stars" style="margin-top:8px">' + stars + '</div>' +
+          '</div>' +
+        '</article>';
+      }).join('');
+      obs(document);
+
+      /* wishlist toggle */
+      grid.addEventListener('click', function(e) {
+        var w = e.target.closest('.prod-wish');
+        if (w) { w.classList.toggle('on'); }
+      });
+
+      /* ============ CART ============ */
+      var cart = [];
+      var cartEl = document.getElementById('cart');
+      var scrim = document.getElementById('scrim');
+      function findProduct(id) { return PRODUCTS.find(function(p) { return p.id === id; }); }
+      function lineKey(it) { return it.id + '|' + it.color + '|' + it.size; }
+
+      function addToCart(id, color, size, qty) {
+        var p = findProduct(id); if (!p) return;
+        color = color || p.colors[0][0]; size = size || p.sizes[0]; qty = qty || 1;
+        var key = id + '|' + color + '|' + size;
+        var ex = cart.find(function(it) { return lineKey(it) === key; });
+        if (ex) ex.qty += qty;
+        else cart.push({ id: id, name: p.name, price: p.price, tint: p.tint, icon: p.icon, color: color, size: size, qty: qty });
+        renderCart(); bumpCount(); toast('Сагсанд нэмэгдлээ');
+        openCart();
+      }
+      function cartCountN() { return cart.reduce(function(s, it) { return s + it.qty; }, 0); }
+      function subtotalN() { return cart.reduce(function(s, it) { return s + it.price * it.qty; }, 0); }
+      function bumpCount() {
+        var n = cartCountN();
+        var badge = document.getElementById('cartCount');
+        badge.textContent = n; badge.classList.toggle('show', n > 0);
+        document.getElementById('cartQty').textContent = n;
+      }
+      function renderCart() {
+        var box = document.getElementById('cartItems');
+        var foot = document.getElementById('cartFoot');
+        if (!cart.length) {
+          box.innerHTML = '<div class="cart-empty"><i class="fas fa-bag-shopping"></i>Таны сагс хоосон байна</div>';
+          foot.style.display = 'none'; return;
+        }
+        box.innerHTML = cart.map(function(it, i) {
+          return '<div class="ci">' +
+            '<div class="pimg ' + it.tint + '"><span class="pi-ic"><i class="fas ' + it.icon + '"></i></span></div>' +
+            '<div class="ci-body">' +
+              '<div class="ci-name">' + it.name + '</div>' +
+              '<div class="ci-var">' + it.color + ' · ' + it.size + '</div>' +
+              '<div class="ci-bot">' +
+                '<div class="ci-qty"><button data-dec="' + i + '">−</button><span class="v">' + it.qty + '</span><button data-inc="' + i + '">+</button></div>' +
+                '<div class="ci-price">' + fmt(it.price * it.qty) + '</div>' +
+              '</div>' +
+            '</div>' +
+            '<button class="ci-rm" data-rm="' + i + '" aria-label="Хасах"><i class="fas fa-trash-can"></i></button>' +
+          '</div>';
+        }).join('');
+        foot.style.display = 'block';
+        document.getElementById('cartSub').textContent = fmt(subtotalN());
+        var rem = 200000 - subtotalN();
+        document.getElementById('cartShip').innerHTML = rem > 0
+          ? 'Үнэгүй хүргэлт хүртэл <b>' + fmt(rem) + '</b> үлдлээ'
+          : '<b>Үнэгүй хүргэлт амжилттай!</b> 🎉';
+      }
+      document.getElementById('cartItems').addEventListener('click', function(e) {
+        var inc = e.target.closest('[data-inc]'), dec = e.target.closest('[data-dec]'), rm = e.target.closest('[data-rm]');
+        if (inc) { cart[+inc.dataset.inc].qty++; }
+        if (dec) { var it = cart[+dec.dataset.dec]; it.qty--; if (it.qty < 1) cart.splice(+dec.dataset.dec, 1); }
+        if (rm) { cart.splice(+rm.dataset.rm, 1); }
+        if (inc || dec || rm) { renderCart(); bumpCount(); }
+      });
+      function openCart() { cartEl.classList.add('open'); scrim.classList.add('show'); document.body.style.overflow = 'hidden'; }
+      function closeCart() { cartEl.classList.remove('open'); scrim.classList.remove('show'); document.body.style.overflow = ''; }
+      document.getElementById('cartBtn').addEventListener('click', function() { cart.length ? openCart() : (toast('Сагс хоосон байна'), openCart()); });
+      document.getElementById('cartClose').addEventListener('click', closeCart);
+      scrim.addEventListener('click', closeCart);
+      renderCart();
+
+      /* toast */
+      var toastEl = document.getElementById('toast'), toastT = null;
+      function toast(msg) {
+        document.getElementById('toastMsg').textContent = msg;
+        toastEl.classList.add('show');
+        clearTimeout(toastT); toastT = setTimeout(function() { toastEl.classList.remove('show'); }, 2200);
+      }
+
+      /* add buttons (cards + hero featured) */
+      document.body.addEventListener('click', function(e) {
+        var a = e.target.closest('[data-add]');
+        if (a) { e.preventDefault(); addToCart(parseInt(a.dataset.add)); }
+      });
+
+      /* ============ QUICK VIEW ============ */
+      var qv = document.getElementById('qvModal');
+      var qvState = { id: null, color: null, size: null };
+      function openQV(id) {
+        var p = findProduct(id); if (!p) return;
+        qvState = { id: id, color: p.colors[0][0], size: p.sizes[0] };
+        document.getElementById('qvImg').className = 'pimg ' + p.tint;
+        document.getElementById('qvImg').querySelector('.pi-ic').innerHTML = '<i class="fas ' + p.icon + '"></i>';
+        document.getElementById('qvCat').textContent = p.cat;
+        document.getElementById('qvName').textContent = p.name;
+        document.getElementById('qvNow').textContent = fmt(p.price);
+        document.getElementById('qvWas').textContent = p.old ? fmt(p.old) : '';
+        document.getElementById('qvDesc').textContent = p.desc;
+        document.getElementById('qvSwatches').innerHTML = p.colors.map(function(c, i) {
+          return '<span class="swatch' + (i === 0 ? ' on' : '') + '" style="background:' + c[1] + '" data-c="' + c[0] + '"></span>';
+        }).join('');
+        document.getElementById('qvSizes').innerHTML = p.sizes.map(function(s, i) {
+          return '<button class="size' + (i === 0 ? ' on' : '') + '">' + s + '</button>';
+        }).join('');
+        qv.classList.add('open'); document.body.style.overflow = 'hidden';
+      }
+      function closeQV() { qv.classList.remove('open'); if (!cartEl.classList.contains('open')) document.body.style.overflow = ''; }
+      document.body.addEventListener('click', function(e) {
+        var q = e.target.closest('[data-qv]');
+        if (q) { e.preventDefault(); openQV(parseInt(q.dataset.qv)); }
+      });
+      document.getElementById('qvClose').addEventListener('click', closeQV);
+      qv.addEventListener('click', function(e) { if (e.target === qv) closeQV(); });
+      document.getElementById('qvSwatches').addEventListener('click', function(e) {
+        var s = e.target.closest('.swatch'); if (!s) return;
+        this.querySelectorAll('.swatch').forEach(function(x) { x.classList.remove('on'); });
+        s.classList.add('on'); qvState.color = s.dataset.c;
+      });
+      document.getElementById('qvSizes').addEventListener('click', function(e) {
+        var s = e.target.closest('.size'); if (!s) return;
+        this.querySelectorAll('.size').forEach(function(x) { x.classList.remove('on'); });
+        s.classList.add('on'); qvState.size = s.textContent;
+      });
+      document.getElementById('qvAdd').addEventListener('click', function() {
+        addToCart(qvState.id, qvState.color, qvState.size, 1); closeQV();
+      });
+
+      /* ============ PDP (featured product) ============ */
+      var pdpQ = 1;
+      document.getElementById('pdpQPlus').addEventListener('click', function() { pdpQ++; document.getElementById('pdpQ').textContent = pdpQ; });
+      document.getElementById('pdpQMinus').addEventListener('click', function() { if (pdpQ > 1) { pdpQ--; document.getElementById('pdpQ').textContent = pdpQ; } });
+      var pdpColor = 'Элсэн шаргал', pdpSize = 'S';
+      document.getElementById('pdpSwatches').addEventListener('click', function(e) {
+        var s = e.target.closest('.swatch'); if (!s) return;
+        this.querySelectorAll('.swatch').forEach(function(x) { x.classList.remove('on'); });
+        s.classList.add('on'); pdpColor = s.dataset.c;
+        document.getElementById('pdpColorName').textContent = pdpColor;
+        document.getElementById('pdpMain').className = 'pimg pdp-main ' + ({'Элсэн шаргал':'t-sand','Сарнайн ягаан':'t-blush','Уулын ногоон':'t-sage','Тэнгэрийн цэнхэр':'t-sky'}[pdpColor] || 't-sand');
+      });
+      document.getElementById('pdpSizes').addEventListener('click', function(e) {
+        var s = e.target.closest('.size'); if (!s) return;
+        this.querySelectorAll('.size').forEach(function(x) { x.classList.remove('on'); });
+        s.classList.add('on'); pdpSize = s.textContent;
+      });
+      var pdpThumbs = document.getElementById('pdpThumbs');
+      pdpThumbs.addEventListener('click', function(e) {
+        var t = e.target.closest('.pdp-thumb'); if (!t) return;
+        this.querySelectorAll('.pdp-thumb').forEach(function(x) { x.classList.remove('on'); });
+        t.classList.add('on');
+        var main = document.getElementById('pdpMain');
+        main.className = 'pimg pdp-main ' + (t.className.match(/t-\w+/) || ['t-sand'])[0];
+      });
+      document.getElementById('pdpAdd').addEventListener('click', function() { addToCart(1, pdpColor, pdpSize, pdpQ); });
+
+      /* misc */
+      document.getElementById('ctaShop').addEventListener('click', function() { document.getElementById('bestsellers').scrollIntoView({ behavior: 'smooth' }); });
+      document.getElementById('newsForm').addEventListener('submit', function(e) { e.preventDefault(); e.target.querySelector('input').value = ''; toast('Амжилттай бүртгэгдлээ!'); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeQV(); closeCart(); } });
+    })();
+  </script>
+</body>
+</html>
