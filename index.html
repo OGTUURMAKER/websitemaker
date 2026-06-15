@@ -1801,12 +1801,17 @@ footer { border-top: 1px solid var(--border); padding: 72px var(--side-pad) 36px
       </div>
       <div class="contact-form-wrap">
         <h3 data-i18n="contactFormTitle">Төслийн талаар ярилцъя</h3>
-        <form class="contact-form" action="https://formspree.io/f/xpwzgkqn" method="POST">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/mdavyyak" method="POST">
           <input type="text" name="name" placeholder="Нэр" required aria-label="Нэр" data-i18n-placeholder="formName2" />
           <input type="tel" name="phone" placeholder="Утас" required aria-label="Утасны дугаар" data-i18n-placeholder="formPhone2" />
           <textarea name="message" placeholder="Төслийн товч тайлбар" rows="4" required aria-label="Төслийн товч тайлбар" data-i18n-placeholder="formMessage"></textarea>
           <button type="submit" class="btn btn-primary btn-full"><i class="fas fa-paper-plane"></i> <span data-i18n="contactSubmit">Үнийн санал авах</span></button>
         </form>
+        <div class="contact-success" id="contactSuccess" style="display:none; text-align:center; padding:28px 4px;">
+          <i class="fas fa-circle-check" style="font-size:2.2rem; color:#42d392; margin-bottom:14px;"></i>
+          <h4 style="font-family:var(--font-heading); font-size:1.35rem; color:#fff; margin-bottom:8px;" data-i18n="contactDoneT">Баярлалаа!</h4>
+          <p style="color:var(--text-dim); font-size:.92rem; font-weight:300;" data-i18n="contactDoneD">Хүсэлт хүлээн авлаа. Ихэнх хүсэлтэд 1 цагийн дотор хариулна.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -2347,6 +2352,9 @@ footer { border-top: 1px solid var(--border); padding: 72px var(--side-pad) 36px
       calcShowStep(n);
     };
 
+    // Single source of truth for the Formspree endpoint (used by both forms)
+    var FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdavyyak';
+
     window.calcSubmitForm = function(e) {
       e.preventDefault();
       var form = document.getElementById('calcForm');
@@ -2356,7 +2364,7 @@ footer { border-top: 1px solid var(--border); padding: 72px var(--side-pad) 36px
       data.append('business_size', calcState.sizeName);
       data.append('urgency', calcState.urgencyName);
       data.append('estimate', document.getElementById('calcResultPriceMin').textContent + ' – ' + document.getElementById('calcResultPriceMax').textContent);
-      fetch('https://formspree.io/f/xpwzgkqn', {
+      fetch(FORMSPREE_ENDPOINT, {
         method: 'POST', body: data, headers: { 'Accept': 'application/json' }
       }).catch(function() {});
       form.style.display = 'none';
@@ -2840,6 +2848,40 @@ footer { border-top: 1px solid var(--border); padding: 72px var(--side-pad) 36px
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') { closeMobile(); }
       });
+
+      // Contact form → Formspree (AJAX submit, no page redirect)
+      var contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var nameEl = contactForm.querySelector('[name="name"]');
+          var phoneEl = contactForm.querySelector('[name="phone"]');
+          if (!nameEl.value.trim() || !phoneEl.value.trim()) {
+            nameEl.style.borderColor = nameEl.value.trim() ? '' : 'rgba(255,120,120,.6)';
+            phoneEl.style.borderColor = phoneEl.value.trim() ? '' : 'rgba(255,120,120,.6)';
+            return;
+          }
+          var btn = contactForm.querySelector('button[type="submit"]');
+          var orig = btn.innerHTML;
+          btn.disabled = true; btn.style.opacity = '0.7';
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + (currentLang() === 'en' ? 'Sending…' : 'Илгээж байна…');
+          fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST', body: new FormData(contactForm), headers: { 'Accept': 'application/json' }
+          }).then(function(r) {
+            if (r.ok) {
+              contactForm.style.display = 'none';
+              var ok = document.getElementById('contactSuccess');
+              if (ok) ok.style.display = 'block';
+            } else {
+              btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = orig;
+              alert(currentLang() === 'en' ? 'Something went wrong. Please call 99620992.' : 'Алдаа гарлаа. 99620992 руу залгана уу.');
+            }
+          }).catch(function() {
+            btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = orig;
+            alert(currentLang() === 'en' ? 'Network error. Please call 99620992.' : 'Сүлжээний алдаа. 99620992 руу залгана уу.');
+          });
+        });
+      }
     });
   </script>
 
